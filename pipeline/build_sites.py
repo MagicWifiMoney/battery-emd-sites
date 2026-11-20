@@ -190,8 +190,15 @@ def faq_html(faqs):
     return f'<section class="faq"><h2>Frequently asked questions</h2>{items}</section><script type="application/ld+json">{json.dumps(ld)}</script>'
 
 
+# Affiliate-network site-verification meta tags (homepage only), keyed by domain.
+VERIFY_META = {
+    "48vlifepo4battery.com": "<meta name='impact-site-verification' value='ec050c2d-1e9d-48e1-a271-857624705cd2'>",
+}
+
+
 # ---------- page shell ----------
 def page(site, path, title, desc, body, extra_head=""):
+    verify = VERIFY_META.get(site["domain"], "") if path == "/" else ""
     nav = "".join(f'<a href="/{c["slug"]}/">{esc(c["nav"])}</a>' for c in site["clusters"][:5])
     sisters = " · ".join(
         f'<a href="https://{d}/">{esc(n)}</a>' for d, n in SISTER_LINKS if d != site["domain"])
@@ -204,6 +211,7 @@ def page(site, path, title, desc, body, extra_head=""):
 <meta name="description" content="{esc(desc)}">
 <link rel="canonical" href="https://{site['domain']}{path}">
 <style>{CSS}</style>
+{verify}
 {extra_head}
 </head>
 <body>
