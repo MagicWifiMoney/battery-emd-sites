@@ -458,6 +458,15 @@ def build():
     dt = datetime.fromisoformat(fetched.replace("Z", "+00:00")).astimezone(timezone.utc)
     date_str = dt.strftime("%B %d, %Y")
     prods = [p for p in data["products"] if p.get("available", True) or True]
+    # Merge browser-collected products from stores the fetcher cannot reach
+    # (config/manual_products.json), deduped by URL, feed data wins.
+    manual_path = ROOT / "config" / "manual_products.json"
+    if manual_path.exists():
+        seen = {p["url"] for p in prods}
+        for mp in json.loads(manual_path.read_text()).get("products", []):
+            if mp["url"] not in seen:
+                prods.append(mp)
+                seen.add(mp["url"])
     pools = {"48v": [], "12v": [], "rack": []}
     for p in prods:
         s = segment(p)
