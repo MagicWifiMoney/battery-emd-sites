@@ -1,0 +1,61 @@
+{
+ "comment": "Endpoint tests run once, low-volume, 2026-11-19. enabled=true only where /products.json returned real Shopify JSON. Disabled stores fall back to Impact/Awin catalog feeds after affiliate approval (Stage A+).",
+ "stores": [
+  {
+   "base_url": "https://ecoflow.com",
+   "brand": "EcoFlow",
+   "enabled": true,
+   "endpoint_test": "works - HTTP 200 application/json, 250 products on page 1 (paginated). us.ecoflow.com returns identical bytes, disabled as duplicate."
+  },
+  {
+   "base_url": "https://us.ecoflow.com",
+   "brand": "EcoFlow US (duplicate)",
+   "enabled": false,
+   "endpoint_test": "works but byte-identical to ecoflow.com - disabled to prevent duplicate products."
+  },
+  {
+   "base_url": "https://checkout.bluettipower.com",
+   "brand": "BLUETTI",
+   "display_base_url": "https://www.bluettipower.com",
+   "enabled": true,
+   "endpoint_test": "main domain is a Hydrogen storefront (HTML, no JSON), BUT its Shopify shop domain checkout.bluettipower.com serves real /products.json - verified 2026-11-19 via Firecrawl scrape discovery (page images/CDN host) + direct JSON test (HTTP 200, products with variants/prices). Fetcher polls the checkout domain; product links use display_base_url (main domain). Product pages also return 200 on the checkout domain as a fallback."
+  },
+  {
+   "base_url": "https://www.jackery.com",
+   "brand": "Jackery",
+   "enabled": true,
+   "endpoint_test": "works - HTTP 200 application/json, 200 products total."
+  },
+  {
+   "base_url": "https://www.ankersolix.com",
+   "brand": "Anker SOLIX",
+   "enabled": false,
+   "endpoint_test": "blocked/not-Shopify - HTTP 404 on /products.json (anker.com also 404). Fallback: Impact/Awin/Rakuten catalog feed."
+  },
+  {
+   "base_url": "https://www.litime.com",
+   "brand": "LiTime",
+   "enabled": true,
+   "endpoint_test": "works - HTTP 200 application/json, 250 products on page 1 (paginated)."
+  },
+  {
+   "base_url": "https://www.eco-worthy.com",
+   "brand": "Eco-Worthy",
+   "enabled": true,
+   "endpoint_test": "works - HTTP 200 application/json, 53 products total."
+  },
+  {
+   "base_url": "https://www.renogy.com",
+   "brand": "Renogy",
+   "enabled": true,
+   "endpoint_test": "works - HTTP 200 application/json, 250 products on page 1 (paginated). Catalog is broad (includes non-battery gear) - strict relevance filter required."
+  },
+  {
+   "base_url": "https://www.sungoldpower.com",
+   "brand": "SunGoldPower",
+   "enabled": true,
+   "endpoint_test": "works - HTTP 200 Shopify JSON verified 2026-11-20; added for server-rack coverage (48V 100Ah rack SG48100P line)."
+  }
+ ],
+ "user_agent": "BatteryPerWh-Prototype/0.1 (pre-launch price research; polite polling)"
+}

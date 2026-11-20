@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About &amp; method — 48V LiFePO4 Battery</title>
+<meta name="description" content="How this tracker gathers prices and computes price per watt-hour.">
+<link rel="canonical" href="https://48vlifepo4battery.com/about/">
+<style>
+:root{--ink:#16202a;--mut:#5b6b7a;--line:#d9e1e8;--acc:#0b6e4f;--bg:#f7f9fa;--warn:#8a5a00;--warnbg:#fff4d6}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.55 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff}
+header.site{border-bottom:1px solid var(--line);background:var(--bg)}
+header.site .in{max-width:1080px;margin:0 auto;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{font-weight:700;font-size:17px;color:var(--ink);text-decoration:none}
+nav a{color:var(--mut);text-decoration:none;margin-left:14px;font-size:14px}
+nav a:hover{color:var(--acc)}
+main{max-width:1080px;margin:0 auto;padding:20px 16px 10px}
+h1{font-size:27px;line-height:1.2;margin:4px 0 8px}
+h2{font-size:20px;margin:26px 0 8px}
+h3{font-size:16px;margin:16px 0 6px}
+.lede{font-size:16.5px;color:#2c3e50;max-width:75ch}
+.updated{font-size:13px;color:var(--mut)}
+.disclosure{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:13px;margin:14px 0}
+#stale{display:none;background:var(--warnbg);color:var(--warn);border:1px solid #ecd28f;border-radius:8px;padding:10px 12px;font-size:14px;margin:10px 0}
+.stats{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0}
+.stat{border:1px solid var(--line);border-radius:8px;padding:10px 14px;min-width:150px;background:#fff}
+.stat b{display:block;font-size:19px;color:var(--acc)}
+.stat span{font-size:12.5px;color:var(--mut)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:14px 0}
+.card{border:1px solid var(--line);border-radius:8px;padding:12px 14px}
+.card h3{margin:0 0 4px;font-size:15px}
+.card p{margin:4px 0;font-size:13.5px;color:#2c3e50}
+.card .big{font-size:18px;font-weight:700;color:var(--acc)}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:10px 0}
+th,td{padding:8px 9px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--bg);white-space:nowrap;cursor:pointer;user-select:none}
+th:hover{color:var(--acc)}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.ppw{font-weight:700;color:var(--acc)}
+.was{color:var(--mut);text-decoration:line-through;font-size:12px}
+.oos{color:#b03a2e;font-size:12px}
+a.buy{display:inline-block;background:var(--acc);color:#fff;text-decoration:none;padding:5px 10px;border-radius:6px;font-size:13px;white-space:nowrap}
+.controls{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.controls input,.controls select{padding:8px 10px;border:1px solid var(--line);border-radius:6px;font-size:14px}
+.controls input{flex:1;min-width:200px}
+.faq h3{margin:14px 0 2px}
+.faq p{margin:2px 0 8px;max-width:78ch}
+ul.links{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+ul.links li{border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+ul.links a{font-weight:600;color:var(--acc);text-decoration:none}
+ul.links p{margin:3px 0 0;font-size:13px;color:var(--mut)}
+footer{max-width:1080px;margin:0 auto;padding:16px;color:var(--mut);font-size:13px;border-top:1px solid var(--line)}
+footer a{color:var(--acc)}
+.prose{max-width:78ch}
+.prose li{margin:4px 0}
+@media(max-width:760px){table{font-size:13px}th,td{padding:6px 5px}h1{font-size:22px}}
+</style>
+
+</head>
+<body>
+<header class="site"><div class="in">
+<a class="brand" href="/">48V LiFePO4 Battery</a>
+<nav><a href="/48v-100ah-lifepo4-battery/">100Ah</a><a href="/golf-cart-batteries/">Golf cart</a><a href="/solar-storage-batteries/">Solar storage</a><a href="/server-rack-batteries/">Server rack</a><a href="/home-battery-backup/">Home backup</a><a href="/about/">About &amp; method</a></nav>
+</div></header>
+<main>
+
+<h1>About this tracker</h1>
+<div class="prose">
+<p>This site exists for one reason: batteries are sold by amp-hours and brand stories, but the fair way to compare them is <b>price per watt-hour ($/Wh)</b> — what each unit of stored energy actually costs. A $449 battery with 4,019Wh ($0.112/Wh) is cheaper energy than a $300 battery with 1,280Wh ($0.234/Wh), even though the sticker says otherwise.</p>
+<h2>Method</h2>
+<ul>
+<li>Prices are collected automatically from the manufacturers' own online stores, several times a day.</li>
+<li>Capacity comes from each product's rated voltage × amp-hours (or the maker's stated watt-hours). Where a feed is ambiguous, the listing is excluded rather than guessed.</li>
+<li>$/Wh = price ÷ watt-hours. $/kWh is the same number × 1,000.</li>
+<li>We do not hands-on test batteries, and we never publish invented ratings, invented discounts or fake "was" prices. A struck-through price appears only when the maker's own store lists one.</li>
+<li>If a price feed is more than 72 hours old, this site hides the numbers rather than show you stale prices.</li>
+</ul>
+<h2>Affiliate disclosure</h2>
+<p>Some outbound links are affiliate links: if you buy through them, the site may earn a commission at no extra cost to you. That is how the tracker pays for itself. Rankings are computed from price data only — no brand can pay for placement, and the sort order is the same math for everyone.</p>
+<h2>Corrections</h2>
+<p>Spot a wrong capacity or a dead link? The data refreshes several times a day, so most errors fix themselves on the next pass. Persistent errors usually trace back to the maker's own product feed.</p>
+</div>
+
+</main>
+<footer>
+<p><b>How prices are gathered:</b> automatically from the manufacturers' own online stores, refreshed several times a day. We compute price per watt-hour from each battery's rated capacity. We never invent ratings or discounts — a struck-through price appears only when the maker's own store lists one. Full method on the <a href="/about/">about page</a>.</p>
+<p><b>Affiliate disclosure:</b> some outbound links on this site are affiliate links. If you buy through them we may earn a commission at no extra cost to you. Prices shown come from the makers' stores, not from affiliate feeds.</p>
+<p>Sister trackers: <a href="https://12vlifepo4battery.com/">12V LiFePO4 Battery prices</a> · <a href="https://serverrackbatteries.com/">Server Rack Batteries prices</a></p>
+</footer>
+
+<script>
+(function(){
+  var f=document.getElementById('fetched');
+  if(f){var age=(Date.now()-new Date(f.dataset.ts).getTime())/36e5;
+    if(age>72){document.getElementById('stale').style.display='block';
+      document.querySelectorAll('.pricedata').forEach(function(e){e.style.display='none';});
+      document.querySelectorAll('.checkonly').forEach(function(e){e.style.display='';});}}
+  var q=document.getElementById('q'), brand=document.getElementById('brandf');
+  function filt(){var s=(q?q.value:'').toLowerCase(), b=brand?brand.value:'';
+    document.querySelectorAll('tbody tr').forEach(function(r){
+      var ok=(!s||r.textContent.toLowerCase().indexOf(s)>=0)&&(!b||r.dataset.brand===b);
+      r.style.display=ok?'':'none';});}
+  if(q)q.addEventListener('input',filt); if(brand)brand.addEventListener('change',filt);
+  document.querySelectorAll('th[data-k]').forEach(function(th){
+    th.addEventListener('click',function(){
+      var tb=th.closest('table').querySelector('tbody'),k=th.dataset.k,num=th.dataset.n==='1',dir=th.dataset.d==='a'?-1:1;
+      th.dataset.d=dir===1?'a':'d';
+      var rows=[].slice.call(tb.querySelectorAll('tr'));
+      rows.sort(function(a,b){var x=a.children[k].dataset.v||a.children[k].textContent,y=b.children[k].dataset.v||b.children[k].textContent;
+        return (num?parseFloat(x)-parseFloat(y):x.localeCompare(y))*dir;});
+      rows.forEach(function(r){tb.appendChild(r);});});});
+})();
+</script>
+
+</body>
+</html>
