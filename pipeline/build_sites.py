@@ -193,6 +193,8 @@ def faq_html(faqs):
 # Affiliate-network site-verification meta tags (homepage only), keyed by domain.
 VERIFY_META = {
     "48vlifepo4battery.com": "<meta name='impact-site-verification' value='ec050c2d-1e9d-48e1-a271-857624705cd2'>",
+    "12vlifepo4battery.com": "<meta name='impact-site-verification' value='09d7df7a-711d-4ada-bc8b-67df34ab4b5a'>",
+    "serverrackbatteries.com": "<meta name='impact-site-verification' value='63ba17d3-02ec-4189-ad44-68c1b729f522'>",
 }
 
 
