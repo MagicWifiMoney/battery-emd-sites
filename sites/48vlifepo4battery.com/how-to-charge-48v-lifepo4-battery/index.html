@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Charge a 48V LiFePO4 Battery: 58.4V Settings, Closed-Loop, Mistakes</title>
+<meta name="description" content="The correct charge profile for a 51.2V LiFePO4 pack: 58.4V absorption, no equalization, when closed-loop comms matter, and the charger mistakes that shorten battery life.">
+<link rel="canonical" href="https://48vlifepo4battery.com/how-to-charge-48v-lifepo4-battery/">
+<style>
+:root{--ink:#16202a;--mut:#5b6b7a;--line:#d9e1e8;--acc:#0b6e4f;--bg:#f7f9fa;--warn:#8a5a00;--warnbg:#fff4d6}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.55 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff}
+header.site{border-bottom:1px solid var(--line);background:var(--bg)}
+header.site .in{max-width:1080px;margin:0 auto;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{font-weight:700;font-size:17px;color:var(--ink);text-decoration:none}
+nav a{color:var(--mut);text-decoration:none;margin-left:14px;font-size:14px}
+nav a:hover{color:var(--acc)}
+main{max-width:1080px;margin:0 auto;padding:20px 16px 10px}
+h1{font-size:27px;line-height:1.2;margin:4px 0 8px}
+h2{font-size:20px;margin:26px 0 8px}
+h3{font-size:16px;margin:16px 0 6px}
+.lede{font-size:16.5px;color:#2c3e50;max-width:75ch}
+.updated{font-size:13px;color:var(--mut)}
+.disclosure{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:13px;margin:14px 0}
+#stale{display:none;background:var(--warnbg);color:var(--warn);border:1px solid #ecd28f;border-radius:8px;padding:10px 12px;font-size:14px;margin:10px 0}
+.stats{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0}
+.stat{border:1px solid var(--line);border-radius:8px;padding:10px 14px;min-width:150px;background:#fff}
+.stat b{display:block;font-size:19px;color:var(--acc)}
+.stat span{font-size:12.5px;color:var(--mut)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:14px 0}
+.card{border:1px solid var(--line);border-radius:8px;padding:12px 14px}
+.card h3{margin:0 0 4px;font-size:15px}
+.card p{margin:4px 0;font-size:13.5px;color:#2c3e50}
+.card .big{font-size:18px;font-weight:700;color:var(--acc)}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:10px 0}
+th,td{padding:8px 9px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--bg);white-space:nowrap;cursor:pointer;user-select:none}
+th:hover{color:var(--acc)}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.ppw{font-weight:700;color:var(--acc)}
+.was{color:var(--mut);text-decoration:line-through;font-size:12px}
+.oos{color:#b03a2e;font-size:12px}
+a.buy{display:inline-block;background:var(--acc);color:#fff;text-decoration:none;padding:5px 10px;border-radius:6px;font-size:13px;white-space:nowrap}
+.controls{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.controls input,.controls select{padding:8px 10px;border:1px solid var(--line);border-radius:6px;font-size:14px}
+.controls input{flex:1;min-width:200px}
+.faq h3{margin:14px 0 2px}
+.faq p{margin:2px 0 8px;max-width:78ch}
+ul.links{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+ul.links li{border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+ul.links a{font-weight:600;color:var(--acc);text-decoration:none}
+ul.links p{margin:3px 0 0;font-size:13px;color:var(--mut)}
+footer{max-width:1080px;margin:0 auto;padding:16px;color:var(--mut);font-size:13px;border-top:1px solid var(--line)}
+footer a{color:var(--acc)}
+.prose{max-width:78ch}
+.prose li{margin:4px 0}
+@media(max-width:760px){table{font-size:13px}th,td{padding:6px 5px}h1{font-size:22px}}
+</style>
+
+
+</head>
+<body>
+<header class="site"><div class="in">
+<a class="brand" href="/">48V LiFePO4 Battery</a>
+<nav><a href="/48v-100ah-lifepo4-battery/">100Ah</a><a href="/golf-cart-batteries/">Golf cart</a><a href="/solar-storage-batteries/">Solar storage</a><a href="/server-rack-batteries/">Server rack</a><a href="/home-battery-backup/">Home backup</a><a href="/about/">About &amp; method</a></nav>
+</div></header>
+<main>
+<h1>Charging a 48V LiFePO4 Battery: The 58.4V Rule</h1><p class="lede">A '48V' LiFePO4 battery is a 51.2V pack, and it charges at <b>58.4V absorption</b> (16 cells × 3.65V) — that single number, plus 'no equalization, ever,' is most of this guide. Whether the voltage comes from an inverter-charger, a solar controller or a bench charger matters less than the profile being a lithium one. What follows is the settings table and the failure modes.</p><div class="disclosure">Prices below come from the manufacturers' own stores and were last refreshed <span id="fetched" data-ts="2026-11-21T02:04:16Z">November 21, 2026</span>. We rank by price per watt-hour ($/Wh) — the fairest way to compare batteries of different sizes. Listings are data, not reviews: we have not hands-on tested these batteries.</div><div id="stale">These prices are more than 72 hours old, so we have hidden the numbers — click through to the maker's store for the current price.</div><h2>The settings (for voltage-based charging)</h2><table><thead><tr><th>Parameter</th><th>48V LiFePO4 (51.2V pack)</th><th>Notes</th></tr></thead><tbody><tr><td>Absorption / bulk target</td><td>58.4V (some makers specify 56.8–58.4V)</td><td>Hold briefly; LiFePO4 needs no long absorption soak</td></tr><tr><td>Float</td><td>54.0–54.4V, or float off</td><td>For standby systems; cyclic systems can skip float</td></tr><tr><td>Equalization</td><td><b>OFF — never</b></td><td>Equalize voltages (60V+) trip or damage the BMS</td></tr><tr><td>Low-temp charge cutoff</td><td>0°C / 32°F</td><td>The BMS should enforce it; the charger setting is the second lock</td></tr><tr><td>Charge current</td><td>0.2–0.5C typical (20–50A per 100Ah)</td><td>Check the model's max; slower is gentler</td></tr></tbody></table><p>If your battery talks to your inverter (CAN/RS485 closed-loop), the BMS sets these values itself and the table becomes a cross-check rather than an input — one reason rack modules, which almost all have comms, are forgiving in inverter systems. The <a href="/server-rack-batteries/">rack-format page</a> covers that class.</p><h2>The three charging mistakes that actually hurt</h2><ul><li><b>The lead-acid charger with equalization:</b> a 48V golf-cart or forklift charger that runs an automatic equalize cycle will push the pack over-voltage until the BMS disconnects — repeatedly, every charge. If the charger can't disable equalization, it can't charge lithium.</li><li><b>Charging below freezing:</b> lithium plates permanently when charged under 0°C. Unheated garage installs need a BMS with low-temp cutoff (verify it — not all have it) or a self-heating model.</li><li><b>Bank charging with mixed states of charge:</b> paralleling a full module with an empty one creates a large equalizing current between them. Bring modules to a similar voltage before connecting, and charge the bank as one battery thereafter.</li></ul><p>Charging from solar follows the same profile through the MPPT's lithium setting; charging from the grid or a generator is the inverter-charger's job. Either way the battery only cares about the voltage curve and the temperature — see the batteries themselves, ranked by $/Wh, on the <a href="/">48V table</a>.</p><h2>Keep comparing</h2><ul class="links"><li><a href="/">All 48V LiFePO4 battery prices</a><p>The full live table, every model ranked by $/Wh.</p></li><li><a href="/golf-cart-batteries/">48V LiFePO4 Golf Cart Batteries</a><p>Drop-in 48V lithium conversions for golf carts, ranked by $/Wh.</p></li><li><a href="/solar-storage-batteries/">48V LiFePO4 Batteries for Solar Storage</a><p>48V batteries sold for solar and off-grid home storage, compared on $/Wh.</p></li><li><a href="/how-to-choose/">How to Choose a 48V LiFePO4 Battery</a><p>The five checks that matter: $/Wh, BMS, comms, parallel limits, warranty.</p></li></ul><section class="faq"><h2>Frequently asked questions</h2><h3>What voltage should I charge a 48V LiFePO4 battery to?</h3><p>58.4V for a 51.2V (16-cell) pack — some manufacturers specify a 56.8–58.4V window, and their manual wins. Never use a charger whose profile exceeds 58.4V or runs an equalization stage.</p><h3>Can I use my 48V lead-acid golf cart charger on LiFePO4?</h3><p>Only if it has a lithium profile or its equalization can be fully disabled and its output capped at 58.4V. Most basic lead-acid cart chargers fail one of those tests; a LiFePO4-profile 58.4V charger is the correct replacement.</p><h3>How long does a 48V 100Ah battery take to charge?</h3><p>At a 50A charge rate, about 2 hours from empty plus a short absorption tail; at 20A, about 5 hours. In inverter systems the practical limit is usually the inverter-charger's charge rating or the solar array, not the battery.</p></section><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What voltage should I charge a 48V LiFePO4 battery to?", "acceptedAnswer": {"@type": "Answer", "text": "58.4V for a 51.2V (16-cell) pack \u2014 some manufacturers specify a 56.8\u201358.4V window, and their manual wins. Never use a charger whose profile exceeds 58.4V or runs an equalization stage."}}, {"@type": "Question", "name": "Can I use my 48V lead-acid golf cart charger on LiFePO4?", "acceptedAnswer": {"@type": "Answer", "text": "Only if it has a lithium profile or its equalization can be fully disabled and its output capped at 58.4V. Most basic lead-acid cart chargers fail one of those tests; a LiFePO4-profile 58.4V charger is the correct replacement."}}, {"@type": "Question", "name": "How long does a 48V 100Ah battery take to charge?", "acceptedAnswer": {"@type": "Answer", "text": "At a 50A charge rate, about 2 hours from empty plus a short absorption tail; at 20A, about 5 hours. In inverter systems the practical limit is usually the inverter-charger's charge rating or the solar array, not the battery."}}]}</script>
+</main>
+<footer>
+<p><b>How prices are gathered:</b> automatically from the manufacturers' own online stores, refreshed several times a day. We compute price per watt-hour from each battery's rated capacity. We never invent ratings or discounts — a struck-through price appears only when the maker's own store lists one. Full method on the <a href="/about/">about page</a>.</p>
+<p><b>Affiliate disclosure:</b> some outbound links on this site are affiliate links. If you buy through them we may earn a commission at no extra cost to you. Prices shown come from the makers' stores, not from affiliate feeds.</p>
+<p>Sister trackers: <a href="https://12vlifepo4battery.com/">12V LiFePO4 Battery prices</a> · <a href="https://serverrackbatteries.com/">Server Rack Batteries prices</a></p>
+</footer>
+
+<script>
+(function(){
+  var f=document.getElementById('fetched');
+  if(f){var age=(Date.now()-new Date(f.dataset.ts).getTime())/36e5;
+    if(age>72){document.getElementById('stale').style.display='block';
+      document.querySelectorAll('.pricedata').forEach(function(e){e.style.display='none';});
+      document.querySelectorAll('.checkonly').forEach(function(e){e.style.display='';});}}
+  var q=document.getElementById('q'), brand=document.getElementById('brandf');
+  function filt(){var s=(q?q.value:'').toLowerCase(), b=brand?brand.value:'';
+    document.querySelectorAll('tbody tr').forEach(function(r){
+      var ok=(!s||r.textContent.toLowerCase().indexOf(s)>=0)&&(!b||r.dataset.brand===b);
+      r.style.display=ok?'':'none';});}
+  if(q)q.addEventListener('input',filt); if(brand)brand.addEventListener('change',filt);
+  document.querySelectorAll('th[data-k]').forEach(function(th){
+    th.addEventListener('click',function(){
+      var tb=th.closest('table').querySelector('tbody'),k=th.dataset.k,num=th.dataset.n==='1',dir=th.dataset.d==='a'?-1:1;
+      th.dataset.d=dir===1?'a':'d';
+      var rows=[].slice.call(tb.querySelectorAll('tr'));
+      rows.sort(function(a,b){var x=a.children[k].dataset.v||a.children[k].textContent,y=b.children[k].dataset.v||b.children[k].textContent;
+        return (num?parseFloat(x)-parseFloat(y):x.localeCompare(y))*dir;});
+      rows.forEach(function(r){tb.appendChild(r);});});});
+})();
+</script>
+
+</body>
+</html>

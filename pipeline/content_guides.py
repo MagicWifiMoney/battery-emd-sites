@@ -205,6 +205,74 @@ GUIDES = {
         ],
         "related": ["48v-100ah-lifepo4-battery", "10kwh-battery", "solar-storage-batteries"],
     },
+    {
+        "slug": "off-grid-48v-battery-bank",
+        "title": "Off-Grid 48V Battery Bank Sizing: Daily Cycles, Autonomy Days, Live Costs",
+        "desc": "Off-grid banks are sized to daily consumption and cloudy-day autonomy, not outage hours. The method, a sizing table, and live 48V prices — refreshed {date}.",
+        "h1": "Building an Off-Grid 48V Battery Bank That Survives November",
+        "blurb": "Daily-cycle sizing for cabins and homesteads: consumption first, autonomy second, modules third.",
+        "lede": "An off-grid bank is not a backup battery — it is the power company. Sizing flips accordingly: you start from <b>daily consumption</b> (not outage loads) and multiply by <b>autonomy days</b> (how many sunless days the bank must bridge). A frugal cabin at 5kWh/day with 2 days of autonomy needs 10kWh usable — call it 12kWh of nameplate — while a full homestead at 20kWh/day needs four times that. The {n} batteries below build either, at a live median of <b>${medppw}/Wh</b>.",
+        "filter": "all",
+        "table_heading": "48V batteries for off-grid banks, ranked by $/Wh",
+        "sections": [
+            ("The sizing table (nameplate, before you shop)", [
+                "<table><thead><tr><th>Lifestyle</th><th>Daily use</th><th>2 days autonomy</th><th>Modules (5.12kWh)</th></tr></thead><tbody>"
+                "<tr><td>Weekend cabin (lights, fridge, devices)</td><td>~3kWh</td><td>~7.5kWh nameplate</td><td>2</td></tr>"
+                "<tr><td>Frugal full-time (efficient home, gas heat/cooking)</td><td>~8kWh</td><td>~20kWh nameplate</td><td>4</td></tr>"
+                "<tr><td>Typical homestead (well pump, workshop, laundry)</td><td>~15kWh</td><td>~37kWh nameplate</td><td>8</td></tr>"
+                "<tr><td>Comfort off-grid (mini-splits, EV top-ups)</td><td>25kWh+</td><td>62kWh+ nameplate</td><td>12+</td></tr>"
+                "</tbody></table>",
+                "<p>Nameplate includes the two off-grid realities: you plan to use ~80% of rated capacity day-to-day (LiFePO4 allows it, but headroom extends life), and autonomy is calculated on usable energy. The other half of the design is generation: the array must refill a day's use in a winter day's sun, or the biggest bank only delays the generator.</p>",
+            ]),
+            ("Why 48V is the off-grid default", [
+                "<ul><li><b>Current stays sane:</b> a 5kW load draws ~100A at 48V vs ~400A at 12V — thinner cables, smaller breakers, less heat.</li><li><b>Inverter selection:</b> the serious off-grid inverter-chargers (and every hybrid worth its warranty) are 48V machines.</li><li><b>Daily cycling economics:</b> at one cycle a day, cycle life is calendar life — a 6,000-cycle bank is a 16-year asset, which is why the $/Wh you pay for it matters more off-grid than anywhere else. The table's sort is the whole argument.</li></ul>",
+                "<p>For the grid-tied cousin of this math — sizing against outages instead of seasons — see the <a href=\"/whole-home-battery-backup/\">whole-home backup guide</a>; for the solar-first framing, the <a href=\"/solar-storage-batteries/\">solar storage table</a>.</p>",
+            ]),
+        ],
+        "faqs": [
+            ("How big should an off-grid battery bank be?",
+             "Daily consumption × autonomy days ÷ 0.8 (usable share). A home using 10kWh/day that wants 2 sunless days needs ~25kWh nameplate — five 5.12kWh modules. Measure or honestly estimate daily kWh first; it is the number everything else multiplies."),
+            ("How long does an off-grid LiFePO4 bank last?",
+             "At one cycle per day, a bank rated 4,000–6,000 cycles reaches its cycle rating in 11–16 years, and LiFePO4 typically continues at reduced capacity beyond it. Calendar aging, heat and chronic undercharging from an undersized array are the usual real-world limiters."),
+            ("Can I add modules to an off-grid bank later?",
+             "Yes, within the model's parallel limit and ideally within the first year or two, matching brand and model. Off-grid banks commonly grow in stages — array first, bank second, or the reverse — as budget allows."),
+        ],
+        "related": ["solar-storage-batteries", "whole-home-battery-backup", "48v-314ah-lifepo4-battery"],
+    },
+    {
+        "slug": "how-to-charge-48v-lifepo4-battery",
+        "title": "How to Charge a 48V LiFePO4 Battery: 58.4V Settings, Closed-Loop, Mistakes",
+        "desc": "The correct charge profile for a 51.2V LiFePO4 pack: 58.4V absorption, no equalization, when closed-loop comms matter, and the charger mistakes that shorten battery life.",
+        "h1": "Charging a 48V LiFePO4 Battery: The 58.4V Rule",
+        "blurb": "One voltage to remember, three ways to deliver it, and the lead-acid settings to never use.",
+        "lede": "A '48V' LiFePO4 battery is a 51.2V pack, and it charges at <b>58.4V absorption</b> (16 cells × 3.65V) — that single number, plus 'no equalization, ever,' is most of this guide. Whether the voltage comes from an inverter-charger, a solar controller or a bench charger matters less than the profile being a lithium one. What follows is the settings table and the failure modes.",
+        "filter": None,
+        "sections": [
+            ("The settings (for voltage-based charging)", [
+                "<table><thead><tr><th>Parameter</th><th>48V LiFePO4 (51.2V pack)</th><th>Notes</th></tr></thead><tbody>"
+                "<tr><td>Absorption / bulk target</td><td>58.4V (some makers specify 56.8–58.4V)</td><td>Hold briefly; LiFePO4 needs no long absorption soak</td></tr>"
+                "<tr><td>Float</td><td>54.0–54.4V, or float off</td><td>For standby systems; cyclic systems can skip float</td></tr>"
+                "<tr><td>Equalization</td><td><b>OFF — never</b></td><td>Equalize voltages (60V+) trip or damage the BMS</td></tr>"
+                "<tr><td>Low-temp charge cutoff</td><td>0°C / 32°F</td><td>The BMS should enforce it; the charger setting is the second lock</td></tr>"
+                "<tr><td>Charge current</td><td>0.2–0.5C typical (20–50A per 100Ah)</td><td>Check the model's max; slower is gentler</td></tr>"
+                "</tbody></table>",
+                "<p>If your battery talks to your inverter (CAN/RS485 closed-loop), the BMS sets these values itself and the table becomes a cross-check rather than an input — one reason rack modules, which almost all have comms, are forgiving in inverter systems. The <a href=\"/server-rack-batteries/\">rack-format page</a> covers that class.</p>",
+            ]),
+            ("The three charging mistakes that actually hurt", [
+                "<ul><li><b>The lead-acid charger with equalization:</b> a 48V golf-cart or forklift charger that runs an automatic equalize cycle will push the pack over-voltage until the BMS disconnects — repeatedly, every charge. If the charger can't disable equalization, it can't charge lithium.</li><li><b>Charging below freezing:</b> lithium plates permanently when charged under 0°C. Unheated garage installs need a BMS with low-temp cutoff (verify it — not all have it) or a self-heating model.</li><li><b>Bank charging with mixed states of charge:</b> paralleling a full module with an empty one creates a large equalizing current between them. Bring modules to a similar voltage before connecting, and charge the bank as one battery thereafter.</li></ul>",
+                "<p>Charging from solar follows the same profile through the MPPT's lithium setting; charging from the grid or a generator is the inverter-charger's job. Either way the battery only cares about the voltage curve and the temperature — see the batteries themselves, ranked by $/Wh, on the <a href=\"/\">48V table</a>.</p>",
+            ]),
+        ],
+        "faqs": [
+            ("What voltage should I charge a 48V LiFePO4 battery to?",
+             "58.4V for a 51.2V (16-cell) pack — some manufacturers specify a 56.8–58.4V window, and their manual wins. Never use a charger whose profile exceeds 58.4V or runs an equalization stage."),
+            ("Can I use my 48V lead-acid golf cart charger on LiFePO4?",
+             "Only if it has a lithium profile or its equalization can be fully disabled and its output capped at 58.4V. Most basic lead-acid cart chargers fail one of those tests; a LiFePO4-profile 58.4V charger is the correct replacement."),
+            ("How long does a 48V 100Ah battery take to charge?",
+             "At a 50A charge rate, about 2 hours from empty plus a short absorption tail; at 20A, about 5 hours. In inverter systems the practical limit is usually the inverter-charger's charge rating or the solar array, not the battery."),
+        ],
+        "related": ["golf-cart-batteries", "solar-storage-batteries", "how-to-choose"],
+    },
 ],
 "12vlifepo4battery.com": [
     {
@@ -336,6 +404,48 @@ GUIDES = {
         ],
         "related": ["12v-100ah-lifepo4-battery", "100ah-lifepo4-battery", "12v-200ah-lifepo4-battery"],
     },
+    {
+        "slug": "12v-lifepo4-charging-guide",
+        "title": "12V LiFePO4 Charging Guide: 14.4V Profile, Charge Times, Cold Rules",
+        "desc": "How to charge a 12V LiFePO4 battery correctly: 14.2–14.6V absorption, no float requirement, no equalization — plus charge-time math by charger size.",
+        "h1": "Charging a 12V LiFePO4 Battery: The 14.4V Profile",
+        "blurb": "The settings table, the charge-time table, and the two charger habits that shorten a lithium battery's life.",
+        "lede": "Charge a 12V LiFePO4 at <b>14.2–14.6V absorption</b> (14.4V is the safe middle), with <b>no equalization and no required float</b> — that is the whole profile, and most charging damage comes from chargers that can't do it. Below: the settings, how long charging actually takes by charger size, and the cold-weather rule that matters more than both.",
+        "filter": None,
+        "sections": [
+            ("The settings table", [
+                "<table><thead><tr><th>Parameter</th><th>12V LiFePO4 (12.8V pack)</th><th>Notes</th></tr></thead><tbody>"
+                "<tr><td>Absorption</td><td>14.2–14.6V</td><td>Short hold; the pack is ~full when current tapers at 14.4V</td></tr>"
+                "<tr><td>Float</td><td>13.5V or off</td><td>Needed only for standby/backup duty</td></tr>"
+                "<tr><td>Equalization</td><td><b>Never</b></td><td>Desulfation pulses are a lead-acid ritual lithium can't use</td></tr>"
+                "<tr><td>Charge current</td><td>0.2–0.5C (20–50A per 100Ah)</td><td>Per the model's spec sheet</td></tr>"
+                "<tr><td>Low-temp cutoff</td><td>No charging below 0°C / 32°F</td><td>BMS-enforced on packs with low-temp protection</td></tr>"
+                "</tbody></table>",
+            ]),
+            ("Charge times (100Ah battery, from empty)", [
+                "<table><thead><tr><th>Charger</th><th>Time to ~full</th><th>Typical source</th></tr></thead><tbody>"
+                "<tr><td>10A</td><td>~10–11 hrs</td><td>Small bench charger, stock RV converter on lithium profile</td></tr>"
+                "<tr><td>20A</td><td>~5–5.5 hrs</td><td>Mid-size LiFePO4 charger</td></tr>"
+                "<tr><td>40A</td><td>~2.5–3 hrs</td><td>Fast charger / strong alternator DC-DC</td></tr>"
+                "<tr><td>300W solar (real-world ~250W)</td><td>~5–6 sun-hours</td><td>One good panel day, nothing else drawing</td></tr>"
+                "</tbody></table>",
+                "<p>LiFePO4's flat voltage curve is why the times are nearly linear: unlike lead-acid, it accepts full current until ~90% charged, so a 20A charger really does halve the 10A time. It's also why voltage alone can't tell you the state of charge — a resting 13.3V and 13.1V can be 60% and 25%. Use a shunt monitor or a Bluetooth BMS readout, not a voltmeter guess.</p>",
+            ]),
+            ("The cold rule, and the charger you already own", [
+                "<p><b>Never charge below freezing without protection.</b> Charging a frozen LiFePO4 plates lithium metal onto the cells — permanent capacity loss, invisible until the battery fades early. If the battery will live anywhere that gets cold (RV, boat shed, ice season), low-temperature charge protection in the BMS is the feature that matters most; it is called out per-model in our <a href=\"/12v-100ah-lifepo4-battery/\">100Ah comparison</a>.</p>",
+                "<p>Your existing lead-acid charger is fine <i>if</i> it has a lithium mode or its voltages land in the table above with equalization off. Many RV converters have a lithium switch on newer models; older ones charge to ~13.6–14.4V without equalizing and will fill a LiFePO4 to roughly 90% — usable, not ideal. When in doubt, the battery maker's listed profile wins over any generic advice, including this page.</p>",
+            ]),
+        ],
+        "faqs": [
+            ("What voltage fully charges a 12V LiFePO4 battery?",
+             "14.2–14.6V at the charger (absorption), after which the pack rests at about 13.3–13.4V fully charged. The pack is 12.8V nominal — '12V' is the class name, not the charged voltage."),
+            ("Can I leave a LiFePO4 battery on a float charger?",
+             "A lithium-aware float at ~13.5V is fine for standby duty. What's harmful is a lead-acid maintainer that periodically pushes high-voltage desulfation pulses. For storage, the healthiest state is ~50–80% charge, charger disconnected."),
+            ("Why does my LiFePO4 battery stop charging in winter?",
+             "If it has low-temperature protection, the BMS is doing its job: it blocks charging below 0°C to prevent lithium plating. Warm the battery (use, sun, a heated space) and charging resumes. Models without the protection will accept the charge and quietly lose capacity."),
+        ],
+        "related": ["rv-batteries", "12v-lifepo4-battery-for-solar", "how-to-choose"],
+    },
 ],
 "serverrackbatteries.com": [
     {
@@ -394,6 +504,42 @@ GUIDES = {
              "Yes — $/kWh is $/Wh × 1,000. A module at $0.192/Wh costs $192 per kWh. This site shows both columns in every table because home-storage shoppers think in kWh and battery shoppers think in Wh."),
         ],
         "related": ["eco-worthy-cubix100-vs-litime-comflex", "48v-100ah-server-rack-battery", "10kwh-battery-bank"],
+    },
+    {
+        "slug": "server-rack-battery-vs-powerwall-cost",
+        "title": "Server Rack Bank vs Powerwall: A Line-by-Line Cost Breakdown",
+        "desc": "What 15kWh of storage costs as a DIY rack bank vs an installed wall battery — every line item, with the rack side priced live from maker stores.",
+        "h1": "Rack Bank vs Installed Wall Battery: Where the Money Actually Goes",
+        "blurb": "Same 15kWh, two very different invoices — batteries, gateway, labor and permits, itemized.",
+        "lede": "Compare like with like: about <b>15kWh of storage</b>. As an installed wall battery (Powerwall-class), that capacity is commonly quoted at <b>$11,000–$16,000 installed</b> in 2026 market coverage — a figure we cite as context, not a tracked price. As a rack bank, the batteries are three modules from the live table below (the cheapest is <b>{cheap_title}</b> at {cheap_price}), and the rest of the invoice is hardware and labor you can price line by line. This page itemizes both.",
+        "filter": "all",
+        "table_heading": "The rack modules this breakdown prices",
+        "sections": [
+            ("The two invoices, side by side", [
+                "<table><thead><tr><th>Line item</th><th>DIY rack bank (~15.36kWh)</th><th>Installed wall battery (~13.5–15kWh)</th></tr></thead><tbody>"
+                "<tr><td>Batteries</td><td>3 modules at the table's live prices</td><td>Included in the unit price</td></tr>"
+                "<tr><td>Inverter / gateway</td><td>Hybrid inverter, est. $900–$2,500</td><td>Included (integrated)</td></tr>"
+                "<tr><td>Rack / mounting</td><td>Cabinet or wall brackets, est. $150–$600</td><td>Included</td></tr>"
+                "<tr><td>Electrical work</td><td>Your time, or an electrician for the transfer panel</td><td>Included in install labor</td></tr>"
+                "<tr><td>Permits & inspection</td><td>Your paperwork (still required grid-tied)</td><td>Handled by installer</td></tr>"
+                "<tr><td>Warranty</td><td>Per-component (battery, inverter separate)</td><td>Single 10-year system warranty</td></tr>"
+                "</tbody></table>",
+                "<p>Estimates are planning figures, labeled as such; the only live-tracked numbers on this page are the module prices in the table. Even taking the high end of every estimate, the rack path lands at roughly half the installed quote — the gap is integration, labor and warranty structure, exactly the lines the table makes visible.</p>",
+            ]),
+            ("The honest middle path", [
+                "<p>Most rack-bank owners don't DIY the whole invoice: they buy modules and inverter themselves, then hire an electrician for the grid-side work (transfer panel, permits, inspection). That keeps the battery savings — the largest line — while the regulated work stays professional. What you give up versus the installed route is the single warranty and the app-polished whole-home automation; what you gain, beyond price, is expansion: a fourth module next year costs one module, not a second system.</p>",
+                "<p>Decide with your actual constraint. Cash-constrained and handy: rack. Time-constrained or selling the house soon (a permitted, warrantied system appraises cleaner): installed. Either way, price the storage itself first — the <a href=\"/server-rack-battery-price-per-kwh/\">$/kWh league table</a> is the number both invoices are built on.</p>",
+            ]),
+        ],
+        "faqs": [
+            ("How much cheaper is a rack bank than a Powerwall?",
+             "On the batteries alone, dramatically: three rack modules (15.36kWh) at live prices cost a fraction of an installed wall battery's $11,000–$16,000 typical installed range. After adding an inverter, rack and electrical work, a DIY or hybrid install usually lands around half the installed quote — with separate warranties instead of one system warranty."),
+            ("Does a rack bank work with solar like a Powerwall does?",
+             "Yes — paired with a hybrid inverter, a rack bank charges from solar, backs up loads on outage, and time-shifts energy the same way. The differences are packaging, software polish and warranty structure, not the underlying function."),
+            ("Can a rack bank be permitted and inspected?",
+             "Yes, when built from listed equipment and installed to code — the permit path is the same as any energy storage system; the difference is who shepherds the paperwork (you or your electrician, instead of an installer's office)."),
+        ],
+        "related": ["server-rack-battery-price-per-kwh", "home-energy-storage", "eco-worthy-cubix100-vs-litime-comflex"],
     },
 ],
 }
