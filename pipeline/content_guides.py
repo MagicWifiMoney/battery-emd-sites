@@ -136,6 +136,75 @@ GUIDES = {
         ],
         "related": ["48v-100ah-lifepo4-battery", "how-to-choose", "home-battery-system"],
     },
+    {
+        "slug": "whole-home-battery-backup",
+        "title": "Whole-Home Battery Backup: How Much Storage a House Really Needs",
+        "desc": "Whole-home backup is a loads problem, not a product: runtime math for 10, 20 and 30kWh banks, what stays on, and what the batteries cost at live $/Wh.",
+        "h1": "Whole-Home Battery Backup, Priced and Sized Honestly",
+        "blurb": "What 'whole-home' really takes: the load table, the 20kWh reality, and live battery costs.",
+        "lede": "'Whole-home battery backup' (2,400 searches a month on each of its two phrasings) promises the whole house, but the honest version is a load table and a runtime division. A 10.24kWh bank runs essentials for about a day; genuine whole-home posture — well pump, HVAC blower, most circuits — starts at <b>20kWh and four rack-class modules</b>. The batteries for that bank currently cost <b>{low10k}–{med10k} per 10.24kWh</b> at live prices across the {n} models below. Here is the math before the shopping.",
+        "filter": "all",
+        "table_heading": "The 48V batteries whole-home banks are built from",
+        "sections": [
+            ("The load table nobody shows you", [
+                "<table><thead><tr><th>Load</th><th>Draw</th><th>On 10.24kWh</th><th>On 20.48kWh</th></tr></thead><tbody>"
+                "<tr><td>Fridge + lights + internet + phones</td><td>~300W avg</td><td>~28 hrs</td><td>~56 hrs</td></tr>"
+                "<tr><td>Above + furnace blower (gas heat)</td><td>~600W avg</td><td>~14 hrs</td><td>~28 hrs</td></tr>"
+                "<tr><td>Above + well pump cycling</td><td>~800W avg</td><td>~10 hrs</td><td>~21 hrs</td></tr>"
+                "<tr><td>Above + mini-split AC (cycling)</td><td>~1,400W avg</td><td>~6 hrs</td><td>~12 hrs</td></tr>"
+                "<tr><td>Electric range / dryer / EV charging</td><td>3,000W+</td><td>under 3 hrs</td><td>under 6 hrs</td></tr>"
+                "</tbody></table>",
+                "<p>Averages assume typical duty cycles and ~12% inverter losses; your furnace blower and pump will differ. The pattern is the point: each comfort load roughly halves runtime, and cooking/EV loads end the conversation — whole-home systems shed them by design, via a critical-loads panel or smart load management.</p>",
+            ]),
+            ("Critical loads vs true whole-home", [
+                "<p>Most 'whole-home' installs are actually <b>critical-loads systems with a big bank</b>: a sub-panel carries the circuits that matter, and the 240V luxuries stay dark. True whole-home (a 200A service backed up wholesale) needs a high-power inverter stack and usually 30kWh+ — at live prices the batteries alone pass {med10k} well before that, which is why the honest middle is: 20kWh, a critical-loads panel, and a generator inlet for the multi-day outage.</p>",
+                "<p>Sizing steps: (1) list the loads from the table you refuse to lose; (2) multiply their average watts by your target hours; (3) divide by 5,120Wh per module and round up; (4) check the answer against the table below — the $/Wh column is your storage cost, and our <a href=\"/home-battery-system/\">home battery system page</a> compares the DIY total against installed quotes.</p>",
+            ]),
+        ],
+        "faqs": [
+            ("How many kWh do I need for whole-home battery backup?",
+             "For essentials-plus-comfort (fridge, lights, internet, furnace blower, well pump) through a full day, plan on ~20kWh — four 5.12kWh modules. Ten kWh covers the same loads for roughly half a day. True whole-service backup including electric cooking and AC starts around 30kWh and a much larger inverter."),
+            ("Can a battery bank run my well pump and furnace?",
+             "Yes — both are standard critical loads. A well pump's startup surge (often 2–3× its running watts) is the sizing constraint: the inverter must cover the surge, and the battery's discharge rating must feed it. That is an inverter spec check, not a storage problem."),
+            ("What does a 20kWh DIY bank cost in batteries?",
+             "At today's live prices, 10.24kWh of 48V storage runs {low10k} at the cheapest tracked $/Wh to {med10k} at the median — so roughly double that for 20.48kWh, before inverter, rack and electrical work. The table on this page is refreshed several times a day."),
+        ],
+        "related": ["home-battery-backup", "home-battery-system", "10kwh-battery"],
+    },
+    {
+        "slug": "48v-314ah-lifepo4-battery",
+        "title": "48V 314Ah LiFePO4 Batteries: 16kWh in One Case, Priced by $/Wh",
+        "desc": "The 314Ah class stores ~16kWh in a single 48V battery and holds the portfolio's lowest $/Wh. Live prices for every 48V 280–330Ah model, refreshed {date}.",
+        "h1": "48V 314Ah LiFePO4: The Biggest Single-Case Value in 48V",
+        "blurb": "One case, ~16kWh, and the lowest $/Wh in the 48V catalog — the 314Ah class compared live.",
+        "lede": "A 48V 314Ah battery stores about <b>16,000Wh in one case</b> — as much as three standard 100Ah modules — and because one case and one BMS carry all of it, the class holds the lowest $/Wh in this catalog: the current leader is <b>{cheap_price} (${cheap_ppw}/Wh)</b>. Only {n} models are tracked in this class today, so the table is short; the comparison math below is where the decision lives.",
+        "filter": "ah280_330",
+        "table_heading": "48V 314Ah-class batteries, ranked by $/Wh",
+        "sections": [
+            ("One 314Ah vs three 100Ah modules", [
+                "<table><thead><tr><th></th><th>1 × 314Ah</th><th>3 × 100Ah</th></tr></thead><tbody>"
+                "<tr><td>Energy</td><td>~16.0kWh</td><td>15.36kWh</td></tr>"
+                "<tr><td>Cases / BMS units</td><td>1</td><td>3</td></tr>"
+                "<tr><td>Wiring</td><td>One pair of cables</td><td>Busbar + 3 pairs, balanced leads</td></tr>"
+                "<tr><td>Failure mode</td><td>Whole bank down</td><td>One module down, 2/3 capacity remains</td></tr>"
+                "<tr><td>Expansion</td><td>Parallel a second 314Ah (32kWh)</td><td>Add modules one 5.12kWh step at a time</td></tr>"
+                "</tbody></table>",
+                "<p>The $/Wh column in the table prices the first option; the <a href=\"/48v-100ah-lifepo4-battery/\">100Ah table</a> prices the second. Neither is universally right: single-case wins on cost and simplicity, modules win on redundancy and incremental growth.</p>",
+            ]),
+            ("Who should not buy one", [
+                "<ul><li><b>Anyone who can't move it:</b> a 314Ah 48V battery is a ~300 lb class object. Plan the install location before the purchase.</li><li><b>Anyone building incrementally on a budget:</b> the first step is the whole 16kWh; modules let you start at 5.12kWh.</li><li><b>Anyone whose inverter caps battery current low:</b> one BMS must supply the full discharge — check its continuous rating against your inverter's draw.</li></ul>",
+            ]),
+        ],
+        "faqs": [
+            ("How many kWh is a 48V 314Ah battery?",
+             "51.2V × 314Ah ≈ 16.1kWh nominal; makers rate these units at about 16kWh. That equals roughly three 48V 100Ah modules (15.36kWh) in a single case."),
+            ("Why is the 314Ah class cheaper per Wh?",
+             "Fixed costs — case, BMS, terminals, shipping — are spread over 16kWh instead of 5.12kWh, and the cells themselves are the high-volume 314Ah format the industry standardized on. The table shows the result: this class holds the catalog's lowest $/Wh."),
+            ("Can I parallel two 48V 314Ah batteries?",
+             "Generally yes — most models in this class support parallel connection (commonly up to 4–16 units). Match brand and model, and confirm the limit and the communications wiring on the product page before ordering."),
+        ],
+        "related": ["48v-100ah-lifepo4-battery", "10kwh-battery", "solar-storage-batteries"],
+    },
 ],
 "12vlifepo4battery.com": [
     {
@@ -200,6 +269,73 @@ GUIDES = {
         ],
         "related": ["12v-100ah-lifepo4-battery", "100ah-lifepo4-battery", "12v-200ah-lifepo4-battery"],
     },
+    {
+        "slug": "12v-lifepo4-battery-for-solar",
+        "title": "12V LiFePO4 Batteries for Solar: Panel-to-Battery Sizing, Live Prices",
+        "desc": "Which 12V LiFePO4 batteries makers sell for solar, how much panel a 100Ah battery can absorb, and live $/Wh prices — refreshed {date}.",
+        "h1": "12V LiFePO4 for Solar: Sized Right, Priced by $/Wh",
+        "blurb": "Solar-marketed 12V packs, the panel-to-battery ratios that keep them full, ranked live.",
+        "lede": "A solar battery's job is different from an RV battery's: it cycles daily, sits at partial charge, and must drink everything the panels make by mid-afternoon. The {n} models below are the 12V LiFePO4 batteries makers position for solar and off-grid use, ranked by $/Wh from <b>${minppw}</b>. The sizing ratios come first, because the wrong ratio wastes panels or starves the bank.",
+        "filter": "solar_kw",
+        "table_heading": "12V LiFePO4 batteries sold for solar, ranked by $/Wh",
+        "sections": [
+            ("Panel-to-battery ratios that work", [
+                "<table><thead><tr><th>Battery</th><th>Energy</th><th>Sensible panel range</th><th>Full charge from empty*</th></tr></thead><tbody>"
+                "<tr><td>12V 100Ah</td><td>1,280Wh</td><td>200–400W</td><td>~4–5 sun-hours at 300W</td></tr>"
+                "<tr><td>12V 200Ah</td><td>2,560Wh</td><td>400–800W</td><td>~4–5 sun-hours at 600W</td></tr>"
+                "<tr><td>12V 314Ah</td><td>4,019Wh</td><td>600–1,200W</td><td>~4–5 sun-hours at 900W</td></tr>"
+                "</tbody></table>",
+                "<p>*After controller losses, on a clear day, with the battery as the only load. Undersize the panels and a big bank never fills (a LiFePO4 tolerates that, but you paid for capacity you can't fill); oversize them and a small bank is full by 10am while harvest is thrown away. Daily cycling is also where LiFePO4's cycle life pays: at one cycle a day, a 4,000-cycle rating is a decade of service.</p>",
+            ]),
+            ("Solar-specific checks", [
+                "<ul><li><b>Charge controller profile:</b> your MPPT must have a lithium/LiFePO4 profile (14.2–14.6V absorption, no equalization). A lead-acid-only controller undercharges and can damage the BMS over time.</li><li><b>Low-temp protection:</b> an unheated shed or cabin install needs a BMS that blocks sub-freezing charging — solar charges whenever the sun shines, including at -5°F.</li><li><b>Idle draw:</b> a battery that sits in a cabin system all winter should have a true off state or very low self-discharge; LiFePO4's ~1–3%/month is one of its quiet advantages over lead-acid.</li></ul>",
+                "<p>For loads-first sizing (what the bank must run, not what the panels make), the <a href=\"/how-to-choose/\">12V buying guide</a> starts from watt-hours of demand; the <a href=\"/rv-batteries/\">RV page</a> covers the same batteries in a vehicle context.</p>",
+            ]),
+        ],
+        "faqs": [
+            ("How many solar panels do I need for a 12V 100Ah LiFePO4 battery?",
+             "Roughly 200–400W of panel. At 300W and 4–5 good sun-hours, you harvest about 1.2–1.5kWh on a clear day — enough to refill a 1,280Wh battery from empty while covering light daytime loads. More panel helps in winter and cloudy climates."),
+            ("Can a 12V LiFePO4 battery sit at partial charge?",
+             "Yes — unlike lead-acid, LiFePO4 is comfortable at partial state of charge and does not sulfate. Storing it around 50–80% and cycling daily is normal solar service; avoid only the extremes of sitting at 100% for months in high heat."),
+            ("Do I need a special charge controller for LiFePO4 solar?",
+             "You need one with a LiFePO4/lithium profile: 14.2–14.6V absorption, no equalization stage, and ideally a low-temperature charge cutoff paired with the battery's own BMS protection. Most modern MPPT controllers include the profile."),
+        ],
+        "related": ["12v-100ah-lifepo4-battery", "12v-314ah-lifepo4-battery", "how-to-choose"],
+    },
+    {
+        "slug": "how-long-will-12v-100ah-run-a-fridge",
+        "title": "How Long Will a 12V 100Ah Battery Run a Fridge? The Honest Math",
+        "desc": "Runtime depends on the fridge, not the battery: duty-cycle math for home fridges, 12V compressor fridges and mini fridges on 1,280Wh — plus the batteries, priced live.",
+        "h1": "How Long a 12V 100Ah Battery Runs a Fridge (It's the Fridge's Fault)",
+        "blurb": "One battery, three fridges, three very different answers — the duty-cycle math, done openly.",
+        "lede": "The battery is the constant — <b>1,280Wh</b>, of which about <b>980Wh reaches a home fridge</b> after inverter losses. The fridge is the variable: a modern full-size fridge eats 1.0–1.5kWh a day (answer: <b>most of a day</b>), while a 12V compressor fridge sips 0.35–0.6kWh a day (answer: <b>2–3 days</b>). The table below shows the arithmetic for each fridge class, and the live table under it prices the batteries.",
+        "filter": "ah90_115",
+        "table_heading": "The 12V 100Ah batteries this math runs on",
+        "sections": [
+            ("Runtime by fridge class", [
+                "<table><thead><tr><th>Fridge</th><th>Daily energy</th><th>Runtime on 1 × 100Ah</th><th>Runtime on 2 × 100Ah</th></tr></thead><tbody>"
+                "<tr><td>12V compressor fridge/freezer (35–55L)</td><td>0.35–0.6kWh</td><td>~2–3 days (no inverter)</td><td>~4–6.5 days</td></tr>"
+                "<tr><td>Modern full-size home fridge</td><td>1.0–1.5kWh</td><td>~16–23 hrs</td><td>~1.3–2 days</td></tr>"
+                "<tr><td>Older / garage fridge</td><td>1.5–2.5kWh</td><td>~9–15 hrs</td><td>~1–1.3 days</td></tr>"
+                "<tr><td>Mini fridge</td><td>0.7–1.0kWh</td><td>~1–1.4 days</td><td>~2–3 days</td></tr>"
+                "</tbody></table>",
+                "<p>Daily-energy figures are typical consumption ranges, not measurements of your fridge — the next section shows how to get your number. Home-fridge runtimes assume a pure-sine inverter at ~85% efficiency and a battery used to ~90% depth, which LiFePO4 tolerates daily.</p>",
+            ]),
+            ("Why the nameplate watts lie (duty cycle)", [
+                "<p>A fridge rated '150W' does not draw 150W all day — its compressor cycles, typically running 30–50% of the time in a cool room and 60%+ in a hot garage. Runtime math must use <b>average</b> watts: nameplate × duty cycle. 150W × 40% = 60W average = 1.44kWh/day, which is why the home-fridge row above lands where it does. The reliable way to know yours: a plug-in energy meter (Kill A Watt style) over 48 hours gives you the exact kWh/day — a $20 measurement that replaces every estimate on this page.</p>",
+                "<p>Two levers extend runtime more than any battery upgrade: keep the fridge out of the heat (duty cycle falls), and skip the inverter where you can — a 12V compressor fridge runs straight off the battery, which is why its row laps the field. If the goal is multi-day fridge backup, the <a href=\"/12v-200ah-lifepo4-battery/\">200Ah class</a> doubles every number in the table at a lower $/Wh.</p>",
+            ]),
+        ],
+        "faqs": [
+            ("How long will a 100Ah LiFePO4 run a 12V fridge?",
+             "A 12V compressor fridge uses about 0.35–0.6kWh per day, and a 100Ah LiFePO4 delivers ~1,150Wh DC without inverter losses — so roughly 2 to 3 days, depending on ambient temperature and how often the lid opens."),
+            ("Will a 12V 100Ah battery run a full-size fridge overnight?",
+             "Yes, with margin: overnight (8–10 hours) a modern home fridge needs roughly 0.4–0.6kWh, and the battery delivers ~0.98kWh through an inverter. A full day is the realistic ceiling; two days needs a second battery or the 200Ah class."),
+            ("Does the inverter waste a lot of battery?",
+             "About 15%: conversion losses plus the inverter's own idle draw (10–25W just being on — up to 0.5kWh/day if left idling, which is why the runtime table assumes sensible use). A DC fridge avoids both penalties entirely."),
+        ],
+        "related": ["12v-100ah-lifepo4-battery", "100ah-lifepo4-battery", "12v-200ah-lifepo4-battery"],
+    },
 ],
 "serverrackbatteries.com": [
     {
@@ -229,6 +365,35 @@ GUIDES = {
              "Typically not — the module price is the battery in its rack-mount case; cabinets, busbars and cables are separate line items. Factor them into a bank build (the 10kWh bank page on this site lists what else a build needs)."),
         ],
         "related": ["48v-100ah-server-rack-battery", "10kwh-battery-bank", "inverter-compatibility"],
+    },
+    {
+        "slug": "server-rack-battery-price-per-kwh",
+        "title": "Server Rack Battery Price per kWh: The Live League Table",
+        "desc": "What a kWh of server rack storage costs right now, brand by brand — the $/kWh ranking the editorial listicles don't publish, refreshed {date}.",
+        "h1": "Server Rack Battery Price per kWh, Ranked Live",
+        "blurb": "The league table for rack storage: every module's true $/kWh, refreshed several times a day.",
+        "lede": "Ranked lists of rack batteries sort by an editor's judgment. This page sorts by the only reproducible metric: <b>price per kWh</b>. Across the {n} modules tracked below, rack storage currently runs from <b>${minppw}/Wh</b> at the low end to a <b>${medppw}/Wh median</b> — multiply by 1,000 for $/kWh. When a listicle tells you a module is 'best value' without showing this column, it is asking you to trust it. Here, the column is the page.",
+        "filter": "all",
+        "table_heading": "Every tracked rack module, ranked by $/Wh (=$/kWh ÷ 1,000)",
+        "sections": [
+            ("How to read the spread", [
+                "<ul><li><b>The floor (~$0.17/Wh):</b> value-brand 100Ah modules with standard features. This is close to the commodity price of the format.</li><li><b>The middle (~$0.20–0.23/Wh):</b> self-heating variants, stronger warranty brands, and newer models — features priced visibly.</li><li><b>The tail:</b> multi-pack bundle rows (2× and 4× listings carry bundle prices in the feed, so their per-unit math reads differently) and any premium or low-volume listings. Compare single modules to single modules.</li></ul>",
+                "<p>Per-kWh is also the only honest way to compare a rack module against the alternatives: a packaged wall battery or an installed system quotes storage at several times this page's median per kWh (see the cost breakdown on our sister site's <a href=\"https://48vlifepo4battery.com/home-battery-system/\">home battery system page</a>) — the difference is integration and labor, not stored energy.</p>",
+            ]),
+            ("What moves a module's $/kWh", [
+                "<ul><li><b>Cell format:</b> the industry-standard 100Ah module is the cheapest unit of storage; odd sizes pay a novelty premium.</li><li><b>Heating:</b> a self-heating BMS adds cost per module — worth it only where the bank actually gets cold.</li><li><b>Brand tier:</b> warranty length, US support presence and UL listings are real costs that show up in $/kWh. The metric prices them; it doesn't dismiss them.</li><li><b>Sales:</b> maker-store promotions move individual rows weekly — which is why this table refreshes several times a day instead of freezing a 'checked on' date.</li></ul>",
+                "<p>Ready to act on the numbers? The <a href=\"/eco-worthy-cubix100-vs-litime-comflex/\">three-way value comparison</a> works the cheapest end of this table in detail, and the <a href=\"/how-many-server-rack-batteries/\">sizing guide</a> turns your loads into a module count.</p>",
+            ]),
+        ],
+        "faqs": [
+            ("What is a good price per kWh for a server rack battery?",
+             "On live maker prices, value-brand 100Ah modules cluster near the bottom of this table (currently from ${minppw}/Wh — the $/kWh column shows the same figure × 1,000), with a tracked median of ${medppw}/Wh. Anything at or below the median is competitively priced for the format; the table shows where each module sits today."),
+            ("Why do some rack batteries cost twice as much per kWh?",
+             "Features (self-heating, premium BMS), brand and warranty tier, certifications, and bundle pricing in store feeds. The $/kWh column separates the energy price from the feature price so you can decide what the extras are worth to you."),
+            ("Is $/kWh the same as $/Wh?",
+             "Yes — $/kWh is $/Wh × 1,000. A module at $0.192/Wh costs $192 per kWh. This site shows both columns in every table because home-storage shoppers think in kWh and battery shoppers think in Wh."),
+        ],
+        "related": ["eco-worthy-cubix100-vs-litime-comflex", "48v-100ah-server-rack-battery", "10kwh-battery-bank"],
     },
 ],
 }
