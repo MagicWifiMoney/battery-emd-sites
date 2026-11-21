@@ -99,6 +99,105 @@ GUIDES = {
         "related": ["home-battery-system", "server-rack-batteries", "home-battery-backup"],
     },
     {
+        "slug": "48v-200ah-lifepo4-battery",
+        "title": "48V 200Ah LiFePO4 Battery Prices: The Single-Case ~10kWh Class by $/Wh",
+        "desc": "The 48V 200Ah LiFePO4 class priced live by $/Wh: exactly one direct maker listing today, the variant-selector reality behind the label, and the 9.6 vs 10.24kWh trap. Refreshed {date}.",
+        "h1": "48V 200Ah LiFePO4 Batteries: ~10kWh in One Case, Priced per Watt-Hour",
+        "blurb": "The single-case way to buy 10kWh — and the surprise: only one maker sells it as a standalone product. Priced live.",
+        "lede": "A 48V 200Ah LiFePO4 battery should be the single-case way to buy roughly 10kWh — no rack, no paralleled modules, one BMS. Here is what the maker stores actually hold today: <b>exactly {n} standalone 200Ah listing — {cheap_title} at {cheap_price} (${cheap_ppw}/Wh)</b>. Everything else wearing the 200Ah label is a variant on a shared product page or a multi-unit kit. This page shows the one real listing, explains the label, and prices the two-module alternative everyone actually buys.",
+        "filter": "ah180_230",
+        "stats": False,
+        "table_heading": "48V 200Ah batteries sold as single units, ranked by $/Wh",
+        "sections": [
+            ("Why this table has one row", [
+                "<p>It is not a tracking gap — it is the market. Makers sell '48V 200Ah' three ways, and only one of them is a standalone product:</p>",
+                "<ul><li><b>A true single-case unit</b> — the wall-mounted listing in the table below is the only one in the maker stores we track today.</li><li><b>A variant selector:</b> Renogy's 51.2V battery is one product page covering both 100Ah and 200Ah configurations (a single URL, four feed variants). This tracker lists each maker URL once, in its 100Ah configuration — so that 200Ah option lives on our <a href=\"/48v-100ah-lifepo4-battery/\">100Ah table</a>, not here.</li><li><b>A multi-unit kit:</b> at least one '200Ah-class' offer is four 50Ah units bundled as a 9.6kWh bank — a bank wearing a single battery's label.</li></ul>",
+                "<p>The demand the phrase represents is real (it is searched every month); the standalone product mostly is not. Buyers who go looking for one case almost always end up with two 100Ah modules instead — the rest of this page is about making that call with live numbers.</p>",
+            ]),
+            ("The 9.6kWh vs 10.24kWh trap", [
+                "<p>Both numbers come from the same multiplication with different voltages. Lead-acid-era math uses the nominal system voltage: 48V × 200Ah = <b>9,600Wh</b>. LiFePO4 math uses the pack's real nominal voltage: 51.2V × 200Ah = <b>10,240Wh</b>. Makers use both — the one direct listing below is a true 10,240Wh unit, while the kit configuration mentioned above is rated 9,600Wh for the same '200Ah' label.</p>",
+                "<p>The trap costs real money: a 9,600Wh unit has to be about 6% cheaper than a 10,240Wh unit just to tie on value. Sticker prices hide that; $/Wh cannot. Sort the table by $/Wh (it already is) and the honest ranking falls out — this is the entire reason this site ranks by watt-hours instead of amp-hours.</p>",
+            ]),
+            ("What the class looks like today", [
+                "<p>The one direct listing is the <b>{cheap_title}</b> at {cheap_price} (${cheap_ppw}/Wh) — a wall-mounted unit, which suits the format: a single-case 200Ah battery fits a slim wall box in a garage or utility room better than a floor footprint. What the class lacks is choice. The big value brands pour their volume into 100Ah modules instead, so a shopper cross-shopping '200Ah in one case' against '200Ah as two modules' will find a one-row table here and a long one on the <a href=\"/48v-100ah-lifepo4-battery/\">100Ah page</a>.</p>",
+                "<p>That thinness is itself the buying signal: if the exact 200Ah unit you want is out of stock or priced at a premium, the two-module build is not a compromise — it is the mainstream product, with the deeper discounting. Our <a href=\"/10kwh-battery/\">10kWh page</a> prices both paths side by side from the full catalog.</p>",
+            ]),
+            ("One 200Ah unit vs two 100Ah modules", [
+                "<table><thead><tr><th></th><th>1 × 200Ah</th><th>2 × 100Ah modules</th></tr></thead><tbody>"
+                "<tr><td>Energy</td><td>9.6–10.24kWh (check the Wh)</td><td>10.24kWh</td></tr>"
+                "<tr><td>Install</td><td>One wall/floor unit, one cable pair</td><td>Rack or shelf, busbar + two cable pairs</td></tr>"
+                "<tr><td>Inverter comms</td><td>Varies — check the model</td><td>CAN/RS485 is standard on rack modules</td></tr>"
+                "<tr><td>Expansion step</td><td>Another ~10kWh unit</td><td>One 5.12kWh module at a time</td></tr>"
+                "<tr><td>If one unit fails</td><td>Bank is down</td><td>Half capacity remains</td></tr>"
+                "</tbody></table>",
+                "<p>Neither column wins outright. The single unit wins on install simplicity and footprint; the modules win on price depth, communications and graceful failure. The $/Wh columns on this page and the 100Ah page are the tiebreaker — compare them on the same day, because both refresh several times a day.</p>",
+            ]),
+            ("Who should skip the 200Ah class", [
+                "<ul><li><b>Incremental builders:</b> the first step is the whole ~10kWh. Modules let you start at 5.12kWh and grow.</li><li><b>$/Wh-first buyers:</b> the module market is deeper and usually keener — verify on the linked tables before paying a single-case premium.</li><li><b>Anyone who needs closed-loop inverter comms:</b> confirm the specific 200Ah model speaks your inverter's protocol; rack modules publish compatibility lists more consistently.</li></ul>",
+            ]),
+        ],
+        "faqs": [
+            ("How much does a 48V 200Ah LiFePO4 battery cost?",
+             "There is exactly {n} standalone listing in the maker stores we track today: {cheap_price} (${cheap_ppw}/Wh) for the wall-mounted unit in the table. The other route to the label — the 200Ah configuration of a shared 100/200Ah product page — was feed-priced at $2,599.99 for its 10kWh configuration in the {date} catalog pull. Two 100Ah modules usually undercut both; that table is live on the 100Ah page."),
+            ("How many kWh is a 48V 200Ah battery?",
+             "It depends on the maker's math: 48V × 200Ah = 9.6kWh, while a true 51.2V LiFePO4 pack × 200Ah = 10.24kWh. Both are sold as '48V 200Ah'. Check the watt-hour figure — the table on this page shows it for every listing."),
+            ("Is one 48V 200Ah battery cheaper than two 100Ah modules?",
+             "Usually not on $/Wh — the 100Ah module market is larger and more competitive, and rack modules are routinely the cheapest stored energy in the 48V catalog. The 200Ah unit buys install simplicity instead. Both tables are live; compare them the same day."),
+            ("Can I connect 48V 200Ah batteries in parallel?",
+             "Most models in this class support parallel connection to grow the bank (limits vary, commonly 4–16 units). Match brand and model, and confirm the limit and communications wiring on the product page before ordering."),
+        ],
+        "related": ["48v-100ah-lifepo4-battery", "10kwh-battery", "48v-314ah-lifepo4-battery"],
+    },
+    {
+        "slug": "5kwh-battery",
+        "title": "5kWh Battery Cost: The First Step of the Ladder, Priced Live by $/Wh",
+        "desc": "A 5kWh battery in 48V LiFePO4 terms is one 100Ah module (5.12kWh). Live prices for every model in the band, what it runs, and what the next steps up cost. Refreshed {date}.",
+        "h1": "The 5kWh Battery: One Module, Priced Live — and the Ladder Above It",
+        "blurb": "In 48V terms, 5kWh is a single 100Ah module. What it costs, what it runs, and what 10–20kWh steps cost from the same shelf.",
+        "lede": "Search for a '5kWh battery' and the 48V world answers with a single object: <b>one 48V 100Ah module, storing 5.12kWh</b>. This page tracks every model in that band — <b>{n} listings today, from ${minppw}/Wh</b> — and prices the ladder above it, because 5kWh is rarely the final size: it is the first module of a bank that grows in identical 5.12kWh steps. Start here, and the expansion math is already done.",
+        "filter": "wh4800_5600",
+        "table_heading": "Every 48V battery in the 5kWh band (4.8–5.6kWh), ranked by $/Wh",
+        "sections": [
+            ("The ladder: what each step costs", [
+                "<table><thead><tr><th>Bank size</th><th>Build</th><th>Battery cost at today's $/Wh</th></tr></thead><tbody>"
+                "<tr><td>5.12kWh</td><td>1 module</td><td class='num'>{low5k}–{med5k}</td></tr>"
+                "<tr><td>10.24kWh</td><td>2 modules</td><td class='num'>{low10k}–{med10k}</td></tr>"
+                "<tr><td>15.36kWh</td><td>3 modules</td><td class='num'>1.5× the 10kWh row</td></tr>"
+                "<tr><td>20.48kWh</td><td>4 modules</td><td class='num'>2× the 10kWh row</td></tr>"
+                "</tbody></table>",
+                "<p>The low end of each range is today's cheapest tracked $/Wh (${minppw}); the high end is the median (${medppw}). Because the steps are the same module in parallel, climbing the ladder later costs the same per kWh as climbing it today — there is no starter-size penalty and nothing to replace. The <a href=\"/10kwh-battery/\">10kWh page</a> breaks the most common target down by build path.</p>",
+            ]),
+            ("What 5.12kWh actually runs", [
+                "<table><thead><tr><th>Load set</th><th>Average draw</th><th>Runtime on 5.12kWh</th></tr></thead><tbody>"
+                "<tr><td>Fridge, lights, internet, phones</td><td>~300W</td><td>~15 hours</td></tr>"
+                "<tr><td>Above + furnace blower (gas heat)</td><td>~600W</td><td>~7–8 hours</td></tr>"
+                "<tr><td>Above + home office (PC, monitors)</td><td>~800W</td><td>~5–6 hours</td></tr>"
+                "<tr><td>Space heater or window AC, alone</td><td>~1,200W</td><td>~3–4 hours</td></tr>"
+                "</tbody></table>",
+                "<p>Runtimes assume about 12% inverter losses and typical duty cycles. The honest summary: one module carries a home's essentials through the night or a workday outage, and pairs naturally with solar — a modest array refills 5kWh by early afternoon, which is why this size is the standard first step for off-grid cabins and RV-adjacent builds too.</p>",
+            ]),
+            ("'5kWh battery' can mean three different products", [
+                "<ul><li><b>One 48V 100Ah module (this page):</b> bare storage — needs a 48V inverter, wins on $/Wh, expands in matching steps.</li><li><b>A wall-mounted 5kWh unit:</b> the same 5.12kWh in a slim finished case (several are in the table below); tidier, usually a small $/Wh premium.</li><li><b>A ~5kWh portable power station:</b> battery, inverter and outlets in one box. A different purchase — the convenience is priced into its $/Wh, and it does not parallel into a home bank the way modules do. This tracker prices the module class; compare a station's $/Wh against the table before assuming it is the simpler buy.</li></ul>",
+                "<p>Nearly every listing in the table is the 100Ah class wearing different cases — rack, wall and floor formats of the same 5.12kWh. The format decision (our rack-module siblings are tracked in depth at <a href=\"https://serverrackbatteries.com/10kwh-battery-bank/\">serverrackbatteries.com</a>) matters more than the brand decision at this size; the $/Wh column prices whatever is left.</p>",
+            ]),
+            ("When 5kWh is enough — and the day it isn't", [
+                "<p><b>Enough:</b> overnight essentials backup, a cabin or workshop on solar, a home office that cannot go down, the first module of a planned bank. <b>Not enough:</b> multi-day outages without recharge, electric heating or cooking as backup loads, or a well pump plus everything else at once — those start at 10kWh and usually land at 20.</p>",
+                "<p>Expanding later is a wiring job, not a replacement: same brand and model, in parallel, within the model's parallel limit (commonly up to 16). The <a href=\"/48v-lifepo4-series-parallel-guide/\">series &amp; parallel guide</a> covers the rules, and the <a href=\"/home-battery-system/\">home battery system page</a> compares the grown bank against installed-system quotes.</p>",
+            ]),
+        ],
+        "faqs": [
+            ("How much does a 5kWh battery cost?",
+             "In the 48V module class, 5.12kWh of storage currently runs {low5k} at the cheapest tracked $/Wh to {med5k} at the median — the {n} listings in the table span {minprice}–{maxprice} per unit. Packaged and installed 5kWh systems cost more per kWh; the table is the live evidence."),
+            ("Is a 5kWh battery the same as a 48V 100Ah battery?",
+             "Yes, in this class: 51.2V × 100Ah = 5,120Wh = 5.12kWh. '5kWh battery' and '48V 100Ah' are two searches for the same shelf of products, which is why the table on this page and the 100Ah table overlap almost completely."),
+            ("How long will a 5kWh battery power a house?",
+             "Essentials only (fridge, lights, internet, ~300W average): roughly 15 hours. Add a furnace blower and it is about 7–8 hours. It will not carry electric heating, cooking or AC for long — those loads need a 10–20kWh bank."),
+            ("Can I start with 5kWh and add more later?",
+             "Yes — that is the design. Modules of the same brand and model connect in parallel up to the model's limit, so a bank grows 5.12kWh at a time without replacing the first module. Buy the second module from the same model line while it is current."),
+        ],
+        "related": ["10kwh-battery", "48v-100ah-lifepo4-battery", "home-battery-system"],
+    },
+    {
         "slug": "price-per-watt-hour",
         "title": "Price per Watt-Hour: The Only Fair Way to Compare Battery Prices",
         "desc": "Why $/Wh beats sticker price and amp-hours when comparing batteries — the method behind every table on this site, with worked examples from live listings.",
