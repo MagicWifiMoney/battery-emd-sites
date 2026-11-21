@@ -401,6 +401,48 @@ GUIDES = {
         ],
         "related": ["golf-cart-batteries", "how-to-charge-48v-lifepo4-battery", "eco-worthy-vs-litime-48v"],
     },
+    {
+        "slug": "48v-vs-12v-for-solar",
+        "title": "48V vs 12V for Solar: Current, Cable Loss and Inverter Classes Decide It",
+        "desc": "For solar, voltage is a current decision: the same 3,000W inverter draws ~234A at 12V and ~59A at 48V. The cable-loss math, the size thresholds, and live 48V prices — refreshed {date}.",
+        "h1": "48V vs 12V for Solar: The Same Watts, a Quarter of the Current",
+        "blurb": "12V wins small and mobile; 48V wins everything stationary above ~2kW. The current table and loss math that draw the line.",
+        "lede": "This is not a chemistry fight — both sides are the same LiFePO4 cells. It is a <b>current</b> fight. Power is volts × amps, so moving a given load at 48V instead of 12V needs <b>one quarter of the amps</b>, and cable losses fall with the <i>square</i> of current. That single fact sorts the solar world: 12V serves small, mobile, low-power systems well, and 48V takes over as soon as an inverter passes roughly <b>2kW</b> or a bank passes roughly <b>5kWh</b>. The 48V side of the argument is priced live below — {n} tracked models from <b>${minppw}/Wh</b> — and our sister tracker prices the 12V side the same way.",
+        "filter": "all",
+        "table_heading": "The 48V batteries this comparison lands on, ranked by $/Wh",
+        "sections": [
+            ("The current table (memorize this, not the marketing)", [
+                "<table><thead><tr><th>Inverter / load</th><th>Draw at 12.8V</th><th>Draw at 51.2V</th><th>What that means for cable</th></tr></thead><tbody>"
+                "<tr><td>1,000W</td><td>~78A</td><td>~20A</td><td>Both easy; 12V still in ordinary cable sizes</td></tr>"
+                "<tr><td>2,000W</td><td>~156A</td><td>~39A</td><td>12V needs heavy, short, expensive runs; 48V is routine</td></tr>"
+                "<tr><td>3,000W</td><td>~234A</td><td>~59A</td><td>12V is specialist territory; 48V still unremarkable</td></tr>"
+                "<tr><td>5,000W</td><td>~391A</td><td>~98A</td><td>Effectively 48V-only for a sane install</td></tr>"
+                "</tbody></table>",
+                "<p>Draws are watts ÷ nominal pack voltage, before inverter inefficiency — real draws run roughly 10% higher, which only widens the gap. Cable loss is I²R: at four times the current, the <i>same</i> cable wastes sixteen times the power as heat, and the voltage drop (four times larger in volts, on a system voltage four times smaller) is sixteen times worse in percentage terms. You can buy your way out at 12V with very thick, very short copper — past 2kW you are mostly paying to postpone the conclusion.</p>",
+            ]),
+            ("Where 12V genuinely wins", [
+                "<ul><li><b>Vehicles and boats:</b> the alternator, starter, lights and most accessories already speak 12V. A van or RV house bank at 12V charges from the engine through a DC-DC charger and runs native 12V loads with no conversion — the whole reason our sister site's <a href=\"https://12vlifepo4battery.com/van-life-battery-sizing/\">van-life sizing guide</a> stays at 12V.</li><li><b>Small solar:</b> a cabin or shed system under ~1kW of inverter and a battery or two has no current problem to solve, and 12V gear is the cheapest and most available in the category.</li><li><b>One-battery simplicity:</b> a single drop-in 12V pack plus a small inverter is an afternoon install; a 48V system is an inverter-charger, a bank plan and a wiring standard.</li></ul>",
+                "<p>The 12V catalog is also deeper and its small packs are cheaper in absolute dollars — compare it live on <a href=\"https://12vlifepo4battery.com/\">12vlifepo4battery.com</a>, ranked by the same $/Wh method. What 12V cannot do is repeal the current table above.</p>",
+            ]),
+            ("Where 48V takes over — and the trap in between", [
+                "<ul><li><b>Whole-home and off-grid solar:</b> hybrid inverter-chargers in the 3–12kW class are 48V machines, rack modules with closed-loop BMS communication are a 48V format, and banks of 10–40kWh wire in parallel without heroic copper. This site's <a href=\"/solar-storage-batteries/\">solar storage table</a> and <a href=\"/off-grid-48v-battery-bank/\">off-grid bank guide</a> are this world.</li><li><b>The in-between trap is 24V thinking applied at 48V scale:</b> builders sometimes series two or four 12V packs to reach a higher voltage instead of buying native 48V units. Series strings of drop-ins carry per-pack BMS limits and balancing headaches detailed in the <a href=\"/48v-lifepo4-series-parallel-guide/\">series-parallel guide</a> — if the system is 48V, buy 48V batteries.</li><li><b>Expansion economics:</b> at 48V the next 5.12kWh is one rack module on a busbar. At 12V, banks past ~5kWh mean paralleling many packs, each with its own BMS and leads, and current-sharing gets fussier with every addition.</li></ul>",
+                "<table><thead><tr><th>Your system</th><th>Verdict</th></tr></thead><tbody>"
+                "<tr><td>Van, RV, boat, &lt;1kW inverter</td><td>12V — native loads, alternator charging, deepest small-pack catalog</td></tr>"
+                "<tr><td>Cabin / shed solar, 1–2kW, 1–2 batteries</td><td>Either — decide by whether it will ever grow; growth argues 48V now</td></tr>"
+                "<tr><td>Home backup or off-grid, 3kW+, 10kWh+</td><td>48V — current, inverter class and rack format all point the same way</td></tr>"
+                "</tbody></table>",
+            ]),
+        ],
+        "faqs": [
+            ("Is 48V better than 12V for solar?",
+             "For stationary systems above roughly 2kW of inverter or 5kWh of storage, yes — a quarter of the current, a sixteenth of the cable loss on the same copper, and access to the mainstream hybrid inverter-chargers and rack modules. Below that, or in a vehicle, 12V's native loads, alternator charging and deeper small-pack catalog make it the practical choice."),
+            ("Can I series four 12V batteries to make a 48V solar bank?",
+             "Some 12V models permit 4-in-series use and some prohibit it — the model's stated series limit decides, and each pack's BMS must be rated for the full string voltage. Even when permitted, a series string balances worse and fails less gracefully than native 48V units, which is why this site prices native 48V batteries for 48V systems."),
+            ("Does 48V save money, or just cable?",
+             "Both, past the threshold: the batteries themselves are priced live in the table (currently from ${minppw}/Wh), thinner copper and smaller breakers cut install cost, and the rack format that dominates 48V storage is routinely the cheapest stored energy in either catalog. Under the threshold, a 12V system's cheaper small gear wins the total."),
+        ],
+        "related": ["solar-storage-batteries", "off-grid-48v-battery-bank", "48v-lifepo4-series-parallel-guide"],
+    },
 ],
 "12vlifepo4battery.com": [
     {
@@ -769,6 +811,51 @@ GUIDES = {
              "Fixed costs — the BMS, case and terminals — are spread over 150–600Wh instead of several thousand, and the cold features (low-temp protection, self-heating, sealed shuttle-ready cases) are real hardware. The table's $/Wh column makes the portability premium explicit instead of hiding it in a sticker price."),
         ],
         "related": ["marine-trolling-motor-batteries", "12v-lifepo4-charging-guide", "12v-100ah-lifepo4-battery"],
+    },
+    {
+        "slug": "van-life-battery-sizing",
+        "title": "Van Life Battery Sizing: The Load-Audit Worksheet, Worked in Amp-Hours",
+        "desc": "Van battery sizing fails on guessed loads, not bad batteries: audit a day's real watt-hours, divide by usable capacity, land on 100Ah, 200Ah or 314Ah — priced live, refreshed {date}.",
+        "h1": "Van Life Battery Sizing: Audit the Day Before You Buy the Battery",
+        "blurb": "A worksheet, not a guess: what a fridge, a fan, a heater and a laptop actually cost per day, and the Ah class each total lands in.",
+        "lede": "Most van batteries are the wrong size for the same reason: they were bought from a forum post instead of a load audit. The audit takes ten minutes — list what runs, for how long, and add the watt-hours. A frugal weekend van audits near <b>700Wh a day</b>; a full-time van with a fridge, heater and remote-work gear audits near <b>1,500–2,000Wh a day</b> — and those two vans need different battery classes. The van-sized class tracked here (100Ah to 314Ah, priced in the live table below) runs from <b>${minppw}/Wh</b>; this worksheet lands you on the right row of it.",
+        "filter": "ah90_330",
+        "table_heading": "Van-sized 12V LiFePO4 batteries (100Ah–314Ah class), ranked by $/Wh",
+        "sections": [
+            ("Step 1 — the load audit (planning ranges, per day)", [
+                "<table><thead><tr><th>Load</th><th>Planning draw</th><th>Hours</th><th>Wh per day</th></tr></thead><tbody>"
+                "<tr><td>12V compressor fridge</td><td>~40–60W, cycling about half the time</td><td>24</td><td>~480–720</td></tr>"
+                "<tr><td>Roof fan</td><td>~20–40W</td><td>6–10</td><td>~150–350</td></tr>"
+                "<tr><td>Diesel/gas heater fan + pump (winter)</td><td>~15–30W running</td><td>8–12</td><td>~150–300</td></tr>"
+                "<tr><td>Laptop + phones + lights</td><td>mixed</td><td>—</td><td>~150–300</td></tr>"
+                "<tr><td>Starlink / mobile router</td><td>~40–75W while on</td><td>6–10</td><td>~300–600</td></tr>"
+                "<tr><td>Water pump, USB, standby odds and ends</td><td>mixed</td><td>—</td><td>~50–100</td></tr>"
+                "</tbody></table>",
+                "<p>Planning ranges, not measurements — your fridge's duty cycle in a hot van and your heater's in a cold one move their rows the most, which is why winter full-timers audit a second, colder version of this table. Two rows deserve emphasis: the fridge is the only load that never sleeps, and the satellite internet row rivals it — a remote-work van's battery is mostly a fridge-and-Starlink battery. Inverter-powered loads (an induction hob, a kettle) draw hard but briefly; count them at their real minutes, not their sticker watts × a guessed hour.</p>",
+            ]),
+            ("Step 2 — the formula, and the class each total lands in", [
+                "<p><b>Amp-hours to buy = daily Wh × days between charges ÷ (12.8V × 0.8)</b>. The 0.8 is deliberate headroom: plan to use about 80% of nameplate so a cloudy day or a long drive-less stretch is an inconvenience, not a dead fridge. Worked at two days between charges:</p>",
+                "<table><thead><tr><th>Van profile</th><th>Daily audit</th><th>Ah the formula asks for</th><th>Class that answers it</th></tr></thead><tbody>"
+                "<tr><td>Weekender: fridge, fan, lights, phones</td><td>~700Wh</td><td>~137Ah</td><td>200Ah class — one pack, margin for a hot weekend</td></tr>"
+                "<tr><td>Full-time, no satellite internet</td><td>~1,200Wh</td><td>~234Ah</td><td>314Ah class, or 200Ah + reliable daily charging</td></tr>"
+                "<tr><td>Full-time remote work, winter</td><td>~2,000Wh</td><td>~391Ah</td><td>314Ah + a second pack in parallel, sized with the <a href=\"/12v-lifepo4-series-parallel-guide/\">series-parallel guide</a></td></tr>"
+                "</tbody></table>",
+                "<p>Note where the honest answers land: the single 100Ah pack (1,280Wh) is a <i>one-day</i> battery for all but the leanest audits, which is why the table below starts at the 100Ah class but the worksheet keeps walking past it. The $/Wh pattern helps the bigger answer: in the live table the 314Ah class holds the catalog floor (${minppw}/Wh — the {cheap_title} at {cheap_price}), because one case and one BMS carry 4,019Wh. In vans, unusually, the bigger battery is both the capacity answer and the value answer — if it fits the build's battery box.</p>",
+            ]),
+            ("Step 3 — size the refill, not just the tank", [
+                "<p>A van battery is refilled three ways, and the weakest of them sets your real autonomy. <b>Driving:</b> a DC-DC charger fed by the alternator typically restores a few hundred watt-hours per driving hour — a van that moves every second day can run a class smaller than the formula's answer. <b>Roof solar:</b> a van roof fits roughly 400–800W of panels, which in summer replaces a frugal day's audit and in winter replaces a fraction of it; the <a href=\"/12v-lifepo4-battery-for-solar/\">12V solar page</a> prices that pairing. <b>Shore power:</b> resets everything, and vans that camp plugged-in half the time should not buy batteries for the other half's worst case.</p>",
+                "<ul><li><b>Stationary in winter is the sizing case:</b> no driving, short solar days, heater running — if the battery survives that audit, every other season is easy.</li><li><b>Charge speed is a spec too:</b> check the pack's maximum charge current against your DC-DC charger's output; a big bank behind a small charger is a slow bank.</li><li><b>Stay at 12V in a van:</b> alternator charging and native 12V loads are the vehicle's whole electrical ecosystem — the case for ever going 48V in a stationary build is laid out on our sister site's <a href=\"https://48vlifepo4battery.com/48v-vs-12v-for-solar/\">48V vs 12V comparison</a>, and a van is not it.</li></ul>",
+            ]),
+        ],
+        "faqs": [
+            ("How big a battery do I need for van life?",
+             "From your audit: amp-hours = daily watt-hours × days between charges ÷ (12.8 × 0.8). A ~700Wh/day weekend van at two days lands near 137Ah (buy the 200Ah class); a ~1,200Wh/day full-time van lands near 234Ah (the 314Ah class); a winter remote-work van near 2,000Wh/day needs roughly 391Ah — a 314Ah plus a paralleled second pack."),
+            ("Is 100Ah enough for a van?",
+             "For a lean one-day-at-a-time setup, yes — 1,280Wh nameplate, about 1,024Wh planned-usable, covers a fridge, lights and phones for roughly a day, and daily driving or solar keeps it topped up. It is not enough for two stationary days with a fridge in summer heat, which is the trip profile that strands most 100Ah vans."),
+            ("Why does the 314Ah class cost less per watt-hour?",
+             "Fixed costs — case, BMS, terminals — spread over 4,019Wh instead of 1,280Wh, and 314Ah is the industry's high-volume cell format. The live table shows the result: the class currently holds this catalog's $/Wh floor. The trade-offs are weight (a ~60–70 lb class lift) and a single point of failure versus two smaller paralleled packs."),
+        ],
+        "related": ["rv-batteries", "12v-200ah-lifepo4-battery", "12v-314ah-lifepo4-battery"],
     },
 ],
 "serverrackbatteries.com": [

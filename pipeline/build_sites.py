@@ -396,6 +396,7 @@ def C(slug, nav, h1, blurb, filt, intro, title=None):
 FILTERS = {
     "all": lambda rows: rows,
     "ah5_60": lambda rows: [p for p in rows if ah_of(p) and 5 <= ah_of(p) <= 60],
+    "ah90_330": lambda rows: [p for p in rows if ah_of(p) and 90 <= ah_of(p) <= 330],
     "ah90_115": lambda rows: [p for p in rows if ah_of(p) and 90 <= ah_of(p) <= 115],
     "ah180_230": lambda rows: [p for p in rows if ah_of(p) and 180 <= ah_of(p) <= 235],
     "ah280_330": lambda rows: [p for p in rows if ah_of(p) and 280 <= ah_of(p) <= 330],
