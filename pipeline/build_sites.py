@@ -1239,6 +1239,11 @@ def build():
             sm.append(f'<url><loc>https://{site["domain"]}{u}</loc><lastmod>{dt.strftime("%Y-%m-%d")}</lastmod></url>')
         sm.append('</urlset>')
         (root / "sitemap.xml").write_text("\n".join(sm))
+        # Google Search Console HTML-file verification (account-level token,
+        # same file on every site; the meta-tag method in VERIFY_META is the
+        # backup). Must stay in place to remain verified.
+        (root / "google389f2fc75ee6ba5c.html").write_text(
+            "google-site-verification: google389f2fc75ee6ba5c.html")
         (root / "robots.txt").write_text(
             "User-agent: *\nAllow: /\n"
             "User-agent: GPTBot\nAllow: /\nUser-agent: OAI-SearchBot\nAllow: /\n"
