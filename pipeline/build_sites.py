@@ -536,7 +536,8 @@ HOME_DOMAIN = {"rack": "serverrackbatteries.com",
                "12v": "12vlifepo4battery.com"}
 DOMAIN_SEG = {v: k for k, v in HOME_DOMAIN.items()}
 # Wave rollout: sites whose product pages / facet hubs / deals render.
-PHASE2_SITES = {"serverrackbatteries.com", "12vlifepo4battery.com"}
+PHASE2_SITES = {"serverrackbatteries.com", "12vlifepo4battery.com",
+                "48vlifepo4battery.com"}
 
 def _has(t, *ws):
     return any(w in t for w in ws)
