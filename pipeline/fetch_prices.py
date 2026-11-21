@@ -45,7 +45,7 @@ import sys
 import urllib.error
 import urllib.request
 from collections import Counter
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -53,6 +53,8 @@ CONFIG_PATH = ROOT / "config" / "stores.json"
 OVERRIDES_PATH = ROOT / "config" / "capacity_overrides.json"
 OUT_PRODUCTS = ROOT / "data" / "products.json"
 OUT_LOG = ROOT / "data" / "fetch_log.json"
+OUT_HISTORY = ROOT / "data" / "price_history.json"
+HISTORY_KEEP_DAYS = 35
 
 
 def _load_overrides():
@@ -503,6 +505,31 @@ def normalize_title(t: str, brand: str) -> str:
     return re.sub(r"\s+", " ", s).strip()
 
 
+def append_price_snapshot(fetched_at: str, rows: list) -> None:
+    """Append one compact price snapshot to data/price_history.json and
+    prune snapshots older than HISTORY_KEEP_DAYS. Keyed by product URL
+    (the catalog's identity). Price only; $/Wh is recomputed at build.
+    A corrupt/unreadable history file is replaced, never fatal."""
+    try:
+        hist = json.loads(OUT_HISTORY.read_text())
+        if not isinstance(hist, dict) or hist.get("v") != 1:
+            hist = {"v": 1, "snapshots": []}
+    except Exception:
+        hist = {"v": 1, "snapshots": []}
+    snaps = [s for s in hist.get("snapshots", [])
+             if isinstance(s, dict) and s.get("ts") and s.get("prices")]
+    snaps.append({"ts": fetched_at,
+                  "prices": {r["url"]: r["price"] for r in rows}})
+    cutoff = (datetime.now(timezone.utc)
+              - timedelta(days=HISTORY_KEEP_DAYS)).strftime("%Y-%m-%dT%H:%M:%SZ")
+    snaps = [s for s in snaps if s["ts"] >= cutoff]
+    snaps.sort(key=lambda s: s["ts"])
+    OUT_HISTORY.write_text(json.dumps({"v": 1, "snapshots": snaps},
+                                      separators=(",", ":")))
+    print(f"[history] {len(snaps)} snapshots -> {OUT_HISTORY}",
+          file=sys.stderr)
+
+
 def main():
     cfg = json.loads(CONFIG_PATH.read_text())
     ua = cfg.get("user_agent", "BatteryPerWh-Prototype/0.1")
@@ -542,6 +569,7 @@ def main():
            "products": deduped}
     OUT_PRODUCTS.parent.mkdir(parents=True, exist_ok=True)
     OUT_PRODUCTS.write_text(json.dumps(out, indent=2))
+    append_price_snapshot(fetched_at, deduped)
     OUT_LOG.write_text(json.dumps(
         {"fetched_at": fetched_at, "total_kept": len(deduped),
          "stores": store_logs}, indent=2))
