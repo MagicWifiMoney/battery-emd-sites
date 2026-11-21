@@ -273,6 +273,41 @@ GUIDES = {
         ],
         "related": ["golf-cart-batteries", "solar-storage-batteries", "how-to-choose"],
     },
+    {
+        "slug": "eco-worthy-vs-litime-48v",
+        "title": "Eco-Worthy vs LiTime 48V LiFePO4: Rack, Golf Cart and 16kWh, Live $/Wh",
+        "desc": "Two different 48V catalogs: Eco-Worthy's {eco_worthy_n} tracked models (rack module, 16kWh floor battery, backup kit) vs LiTime's {litime_n} across golf cart, floor and rack — live $/Wh, refreshed {date}.",
+        "h1": "Eco-Worthy vs LiTime 48V: Concentrated vs Everywhere",
+        "blurb": "Eco-Worthy bets on a rack module and one huge floor battery; LiTime covers golf carts to rack. Live $/Wh sorts out the overlap.",
+        "lede": "At 48V these brands barely overlap — and that is the comparison. Eco-Worthy's tracked catalog is <b>{eco_worthy_n} models</b>: a server rack module, a 16kWh-class floor battery, and a battery-plus-inverter backup kit. LiTime's is <b>{litime_n} models</b>, from 30Ah golf-cart packs to 100Ah floor and rack units. Where they do meet, the numbers are close: the cheapest stored energy across both catalogs is <b>${minppw}/Wh</b>, and the current leader is the <b>{cheap_title}</b> at {cheap_price}. Pick your job first below; then let the table price it.",
+        "filter": "brand:Eco-Worthy+LiTime",
+        "table_heading": "Eco-Worthy and LiTime 48V batteries, ranked by $/Wh",
+        "sections": [
+            ("The job decides the brand before price does", [
+                "<table><thead><tr><th>Job</th><th>Eco-Worthy</th><th>LiTime</th></tr></thead><tbody>"
+                "<tr><td>Home storage in a rack</td><td>Cubix100 100Ah rack module — its home-storage bet</td><td>ComFlex 100Ah rack module, plus a shelf of 100Ah floor units</td></tr>"
+                "<tr><td>Big single-case storage (~16kWh)</td><td>314Ah-class floor battery — the $/Wh leader on this page</td><td>No 314Ah rival tracked; its big end is a 150Ah golf/UTV pack</td></tr>"
+                "<tr><td>Golf cart conversion</td><td>Not its fight in this catalog</td><td>30Ah/60Ah GC2-format packs, 100Ah cart batteries and a full conversion kit</td></tr>"
+                "<tr><td>One-box home backup</td><td>A 5.12kWh battery + 3.5kW inverter kit, priced as one row in the table</td><td>Batteries only — the inverter is a separate purchase</td></tr>"
+                "</tbody></table>",
+                "<p>That table is the honest summary: if your job is a golf cart, this head-to-head is over before price enters it, and the <a href=\"/golf-cart-batteries/\">golf cart table</a> is the right page. If your job is home storage, both brands are live options and the $/Wh column below is the arbiter.</p>",
+            ]),
+            ("Where they meet: the 100Ah / 5.12kWh class", [
+                "<p>The overlap class is 48V 100Ah — 5,120Wh, the standard storage brick. Eco-Worthy fields it as a single rack module with inverter communications. LiTime fields it nine ways in this catalog: rack, floor, marine, Bluetooth and Victron-ready variants at several price tiers. Same stored energy in every one of those rows, so the spread between them is the price of format and features, stated in $/Wh instead of adjectives.</p>",
+                "<ul><li><b>Rack format</b> buys CAN/RS485 closed-loop inverter pairing and one-module-at-a-time expansion — the home-storage default.</li><li><b>Floor format</b> buys simpler placement where no rack exists, often at a small $/Wh premium.</li><li><b>The 314Ah outlier:</b> Eco-Worthy's big floor battery undercuts every 100Ah row on $/Wh because one case and one BMS carry ~16kWh — the trade is a very heavy install and an all-or-nothing failure mode, detailed on the <a href=\"/48v-314ah-lifepo4-battery/\">314Ah page</a>.</li></ul>",
+                "<p>One caution on the kit row: Eco-Worthy's home-backup bundle prices a battery <i>and</i> an inverter together, so its $/Wh reads high against bare batteries. It is in the table because the maker sells it that way — compare it against a battery-plus-inverter total, not against bare-battery rows.</p>",
+            ]),
+        ],
+        "faqs": [
+            ("Is Eco-Worthy or LiTime cheaper at 48V?",
+             "By $/Wh, the current leader across both catalogs is the {cheap_title} at {cheap_price} (${cheap_ppw}/Wh). In the shared 100Ah class the brands sit within a few cents per watt-hour of each other and maker sales move the lead — the live table, refreshed several times a day, is the standing answer."),
+            ("Which brand is better for a 48V golf cart conversion?",
+             "In the catalogs tracked here, LiTime is the golf-cart brand: it fields GC2-format 30Ah/60Ah packs, cart-specific 100Ah units and a complete conversion kit, while Eco-Worthy's tracked 48V line is storage-focused. Whichever pack you choose, its continuous discharge rating must cover your controller's draw, and it needs a 58.4V LiFePO4-profile charger."),
+            ("Can I parallel Eco-Worthy and LiTime 48V batteries together?",
+             "Makers advise against it: match brand, model and age in a parallel bank, and closed-loop inverter communication needs one BMS protocol in charge. Build the bank from a single model — the per-module $/Wh saving compounds with every module you add."),
+        ],
+        "related": ["48v-100ah-lifepo4-battery", "48v-314ah-lifepo4-battery", "golf-cart-batteries"],
+    },
 ],
 "12vlifepo4battery.com": [
     {
@@ -445,6 +480,40 @@ GUIDES = {
              "If it has low-temperature protection, the BMS is doing its job: it blocks charging below 0°C to prevent lithium plating. Warm the battery (use, sun, a heated space) and charging resumes. Models without the protection will accept the charge and quietly lose capacity."),
         ],
         "related": ["rv-batteries", "12v-lifepo4-battery-for-solar", "how-to-choose"],
+    },
+    {
+        "slug": "eco-worthy-vs-litime-12v",
+        "title": "Eco-Worthy vs LiTime 12V LiFePO4: Depth vs the $/Wh Floor, Live Prices",
+        "desc": "Eco-Worthy tracks {eco_worthy_n} 12V models; LiTime tracks {litime_n}. The head-to-head on live $/Wh, the two capacity classes they share, and what lineup depth is worth — refreshed {date}.",
+        "h1": "Eco-Worthy vs LiTime 12V: A Short Catalog Against a Deep One",
+        "blurb": "Four tracked Eco-Worthy models vs LiTime's deep 12V bench — where each brand actually wins on live $/Wh.",
+        "lede": "This is not a fair fight in catalog size — and the table shows why that barely matters. We track <b>{eco_worthy_n} Eco-Worthy 12V models against {litime_n} LiTime models</b>, yet the cheapest stored energy on this page is Eco-Worthy's: the <b>{cheap_title}</b> at {cheap_price} (<b>${cheap_ppw}/Wh</b>). LiTime's depth buys choice — a size and a feature tier for nearly every job. Eco-Worthy's narrow line buys focus: it only shows up where it can price hard. The table below, ranked by $/Wh, is the evidence.",
+        "filter": "brand:Eco-Worthy+LiTime",
+        "table_heading": "Every tracked Eco-Worthy and LiTime 12V battery, ranked by $/Wh",
+        "sections": [
+            ("Four models vs forty-five: what depth actually buys", [
+                "<p><b>Eco-Worthy's 12V line, as tracked here, is two bets:</b> a 100Ah pack (1,280Wh — the RV, marine and small-solar staple) and a 314Ah pack (4,019Wh — the big single-case value play), each in two case variants. That is the whole catalog: {eco_worthy_n} rows. If your job is one of those two sizes, Eco-Worthy is in the fight; if it isn't, the brand simply doesn't sell you a battery.</p>",
+                "<p><b>LiTime's line is the opposite strategy:</b> {litime_n} tracked 12V rows spanning small fish-finder packs, a full 100Ah feature ladder (bare, Bluetooth, low-temperature and self-heating tiers), 200Ah and 300Ah-plus classes, and trolling-motor and RV specials. Depth means the exact tier you need exists — and that some of those tiers carry $/Wh figures a two-size catalog never has to defend. Read LiTime's rows by capacity class, not by brand average: its cheapest-per-Wh rows and its smallest packs sit at opposite ends of this table.</p>",
+            ]),
+            ("Where they actually meet: 100Ah and 314Ah", [
+                "<table><thead><tr><th>Class</th><th>Who fields what</th><th>How to judge it</th></tr></thead><tbody>"
+                "<tr><td>12V 100Ah (1,280Wh)</td><td>Eco-Worthy: two 100Ah variants. LiTime: the deepest ladder in the class</td><td>Compare row by row in the table — Bluetooth, low-temp protection and self-heating explain the spread</td></tr>"
+                "<tr><td>12V 314Ah (4,019Wh)</td><td>Eco-Worthy's two variants are the two cheapest rows on this page; LiTime answers nearby with 300Ah and 320Ah packs</td><td>One case, one BMS, ~4kWh: the big single-case class is where Eco-Worthy's $/Wh bottoms out</td></tr>"
+                "<tr><td>Everything else (12–460Ah)</td><td>LiTime only, in this catalog</td><td>Small packs cost far more per Wh by nature — price them against the job, not against the big packs</td></tr>"
+                "</tbody></table>",
+                "<p>The pattern generalizes: within a shared class, the two brands price within cents per watt-hour of each other, and the $/Wh sort — not the badge — picks the row. Across classes there is no contest to judge: a 12Ah fish-finder pack and a 314Ah bank battery are different tools, and the table keeps them honest by pricing the energy in each.</p>",
+                "<p>Shortlisting? Start from the class pages — <a href=\"/12v-100ah-lifepo4-battery/\">12V 100Ah</a> or <a href=\"/12v-314ah-lifepo4-battery/\">12V 314Ah</a> — where these two brands also face Renogy and SunGoldPower, then come back here for the brand-level picture. The earlier <a href=\"/litime-vs-renogy-12v-100ah/\">LiTime vs Renogy 100Ah comparison</a> covers LiTime's other big rivalry.</p>",
+            ]),
+        ],
+        "faqs": [
+            ("Is Eco-Worthy or LiTime cheaper for 12V LiFePO4?",
+             "On live prices, the cheapest stored energy in this head-to-head is the {cheap_title} at {cheap_price} (${cheap_ppw}/Wh) — an Eco-Worthy 314Ah model. In the shared 100Ah class the brands price closely and the lead changes with maker sales, which is why the table above refreshes several times a day instead of declaring a permanent winner."),
+            ("Why does LiTime have so many more 12V models than Eco-Worthy?",
+             "Different strategies: LiTime builds a variant for every feature tier and niche (Bluetooth, low-temperature, self-heating, trolling, small packs), while Eco-Worthy's tracked 12V catalog concentrates on 100Ah and 314Ah. Depth helps when you need a specific feature or size; it does not by itself lower the $/Wh of the classes both brands sell."),
+            ("Can I mix Eco-Worthy and LiTime batteries in one 12V bank?",
+             "Makers advise against mixing brands, models or ages in a series/parallel bank — BMS behavior and internal resistance differ, and the weakest unit limits the string. Pick one brand per bank; the table prices that commitment class by class."),
+        ],
+        "related": ["12v-100ah-lifepo4-battery", "12v-314ah-lifepo4-battery", "litime-vs-renogy-12v-100ah"],
     },
 ],
 "serverrackbatteries.com": [
