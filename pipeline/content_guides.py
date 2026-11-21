@@ -609,6 +609,46 @@ GUIDES = {
         ],
         "related": ["12v-100ah-lifepo4-battery", "12v-200ah-lifepo4-battery", "12v-lifepo4-battery-for-solar"],
     },
+    {
+        "slug": "lifepo4-vs-lead-acid-cost",
+        "title": "LiFePO4 vs Lead-Acid Cost: Cost per Delivered kWh, Not Sticker Price",
+        "desc": "The lead-acid battery is cheaper to buy and roughly ten times more expensive to use. Cost-per-cycle math for a 12V 100Ah swap, with the LiFePO4 side priced live — refreshed {date}.",
+        "h1": "LiFePO4 vs Lead-Acid: The Sticker Lies, the Cycle Count Doesn't",
+        "blurb": "Usable capacity and cycle life, priced out: what a delivered kWh costs from each chemistry over its working life.",
+        "lede": "Compare stickers and lead-acid wins: a 12V 100Ah AGM battery typically retails around $180–$250 (a market range — we don't track lead-acid prices), while the cheapest tracked 100Ah LiFePO4 in the table below is the <b>{cheap_title}</b> at {cheap_price}. Compare what each battery <b>delivers over its life</b> and the answer inverts by about an order of magnitude: lead-acid gives up roughly half its capacity to the 50% depth-of-discharge rule and a few hundred cycles to chemistry, so its cost per delivered kWh lands near <b>$0.63</b>, against roughly <b>$0.06</b> for LiFePO4 on the same math. This page shows the arithmetic, not an adjective.",
+        "filter": "ah90_115",
+        "table_heading": "The LiFePO4 side of the comparison — every tracked 12V 100Ah model, live",
+        "sections": [
+            ("The worked example: one 100Ah slot, two chemistries", [
+                "<table><thead><tr><th></th><th>12V 100Ah lead-acid (AGM)</th><th>12V 100Ah LiFePO4</th></tr></thead><tbody>"
+                "<tr><td>Sticker (typical / live cheapest)</td><td>~$200 typical retail</td><td class='num'>{cheap_price} (table below)</td></tr>"
+                "<tr><td>Nameplate energy</td><td>1,280Wh</td><td>1,280Wh</td></tr>"
+                "<tr><td>Usable per cycle</td><td>~640Wh (50% DoD before life collapses)</td><td>~1,024Wh (80% DoD, routine)</td></tr>"
+                "<tr><td>Cycles at that depth (planning figures)</td><td>~500</td><td>~3,000 (conservative for the class)</td></tr>"
+                "<tr><td>Lifetime energy delivered</td><td>~320kWh</td><td>~3,070kWh</td></tr>"
+                "<tr><td><b>Cost per delivered kWh</b></td><td class='num'><b>~$0.63</b></td><td class='num'><b>~$0.06</b></td></tr>"
+                "</tbody></table>",
+                "<p>The lead-acid figures are standard planning numbers for the chemistry (50% depth-of-discharge, ~500 cycles at that depth, ~$200 typical retail) — labeled as such because this site tracks LiFePO4 prices live and lead-acid prices not at all. The LiFePO4 cycle figure is deliberately conservative: makers in this class commonly rate 4,000+ cycles, and we used 3,000 so the comparison does not depend on believing a datasheet. Even if you halve LiFePO4's life and double lead-acid's, lithium still wins the per-kWh ledger several times over. The gap is structural — usable fraction × cycle count — not a sale price.</p>",
+            ]),
+            ("What ten years of daily cycling actually costs", [
+                "<p>Run the worked example as a calendar. A daily-cycled lead-acid bank reaches its ~500 cycles in under a year and a half, so a ten-year RV, cabin or solar installation buys the same battery <b>six or seven times</b> — roughly $1,200–$1,400 of lead-acid purchases, plus the labor of swapping 60 lb batteries and the capacity fade in between (a lead-acid at cycle 400 is not the battery you bought). The LiFePO4 side of the ledger is one purchase at the live prices below, with a second battery a plausible year-ten event rather than a scheduled one.</p>",
+                "<ul><li><b>Weight is a cost too:</b> ~60 lb vs ~24 lb for the same 100Ah slot — in a van or boat that difference is fuel, payload and handling, every trip.</li><li><b>Charge efficiency:</b> lead-acid returns roughly 80–85% of what you put in (and crawls through its last 20%); LiFePO4 returns ~95%+ and accepts full current almost to full. On solar, the wasted fifth of a lead-acid charge is panels you bought for nothing.</li><li><b>The honest exception:</b> a battery that barely cycles — an engine starter, or a backup pack floated for years and used twice — never lives long enough to collect LiFePO4's cycle dividend. There, lead-acid's low sticker is a real saving, not a trap. LiFePO4 also cannot crank an engine unless the model is specifically rated for it.</li></ul>",
+                "<p>So the decision rule is a single question: <b>how many cycles will this battery actually serve?</b> Daily or weekly cycling (solar, RV living, trolling, off-grid) makes LiFePO4 the cheaper battery by a wide margin. Rare-use standby keeps lead-acid rational. Everything else — brand, Bluetooth, case color — is priced in the table.</p>",
+            ]),
+            ("Making the swap without buying twice", [
+                "<ul><li><b>Charger profile:</b> your existing converter works only if it can hold a lithium profile (14.2–14.6V, no equalization) — the <a href=\"/12v-lifepo4-charging-guide/\">charging guide</a> has the settings table.</li><li><b>Size by usable Wh, not Ah:</b> one 100Ah LiFePO4 replaces roughly two 100Ah lead-acids in delivered energy, so a like-for-like Ah swap over-buys capacity — a pleasant surprise, but budget for the bank you need.</li><li><b>Low-temperature protection</b> matters if the battery charges anywhere unheated; lead-acid tolerates cold charging that damages unprotected lithium.</li></ul>",
+            ]),
+        ],
+        "faqs": [
+            ("Is LiFePO4 worth the extra cost over lead-acid?",
+             "For anything cycled regularly, yes — on planning figures, a 100Ah LiFePO4 delivers roughly ten times the lifetime energy of a 100Ah AGM at a similar sticker, putting its cost per delivered kWh near $0.06 against lead-acid's ~$0.63. For a rarely cycled starter or standby battery, lead-acid's cheaper sticker can be the rational buy."),
+            ("How many lead-acid batteries equal one LiFePO4?",
+             "In delivered energy over a working life, roughly six to seven 100Ah AGMs match one 100Ah LiFePO4 (~500 usable cycles each against ~3,000+). In per-cycle usable capacity alone, one LiFePO4 roughly equals two lead-acids of the same Ah rating, because it can use ~80% of its capacity against lead-acid's ~50%."),
+            ("Can I just drop a LiFePO4 battery into my lead-acid system?",
+             "Mechanically yes — same voltage class, same terminals. Electrically, check two things first: the charger needs a lithium profile (14.2–14.6V absorption, no equalization or desulfation), and alternator-charged systems (vans, boats) need a DC-DC charger so the alternator is not asked to feed a low-resistance lithium bank directly."),
+        ],
+        "related": ["12v-100ah-lifepo4-battery", "12v-lifepo4-charging-guide", "how-to-choose"],
+    },
 ],
 "serverrackbatteries.com": [
     {
@@ -703,6 +743,42 @@ GUIDES = {
              "Yes, when built from listed equipment and installed to code — the permit path is the same as any energy storage system; the difference is who shepherds the paperwork (you or your electrician, instead of an installer's office)."),
         ],
         "related": ["server-rack-battery-price-per-kwh", "home-energy-storage", "eco-worthy-cubix100-vs-litime-comflex"],
+    },
+    {
+        "slug": "server-rack-battery-for-off-grid-solar",
+        "title": "Server Rack Batteries for Off-Grid Solar: Sizing from Winter Sun, Priced Live",
+        "desc": "Off-grid rack banks are sized from daily use, autonomy days and the worst month's sun — not outage hours. Module counts and live battery costs, refreshed {date}.",
+        "h1": "Server Rack Batteries for Off-Grid Solar: The Bank Is Only Half the System",
+        "blurb": "Daily-cycle sizing for cabins and homesteads: autonomy math, the winter-array rule, and what the modules cost live.",
+        "lede": "A rack bank on an off-grid solar system has a harder job than a backup bank: it is cycled <b>every day</b>, refilled only by whatever sun the worst month offers, and expected to bridge multi-day storms. The sizing therefore starts from daily consumption and autonomy days, not outage loads. The hardware is the easy part — the {n} modules in the live table below all store the same 5.12kWh, run from <b>${minppw}/Wh</b>, and parallel into banks of any size. What follows is the math that decides how many of them an off-grid life actually needs.",
+        "filter": "all",
+        "table_heading": "Every tracked rack module — the off-grid building block, ranked by $/Wh",
+        "sections": [
+            ("Sizing: daily use × autonomy ÷ usable share", [
+                "<table><thead><tr><th>Off-grid lifestyle</th><th>Daily use</th><th>2 days autonomy (usable)</th><th>Modules to buy*</th><th>Batteries at live floor–median $/Wh</th></tr></thead><tbody>"
+                "<tr><td>Frugal cabin (fridge, lights, devices, no electric heat)</td><td>~5kWh</td><td>10kWh</td><td>3 (15.36kWh nameplate)</td><td class='num'>3 × {low5k}–{med5k}</td></tr>"
+                "<tr><td>Full-time efficient home (gas cooking/heat, well pump)</td><td>~10kWh</td><td>20kWh</td><td>5 (25.6kWh nameplate)</td><td class='num'>5 × {low5k}–{med5k}</td></tr>"
+                "<tr><td>Homestead (workshop, laundry, freezer, pump)</td><td>~15kWh</td><td>30kWh</td><td>8 (40.96kWh nameplate)</td><td class='num'>8 × {low5k}–{med5k}</td></tr>"
+                "</tbody></table>",
+                "<p>*Module counts round nameplate up so the bank cycles around 80% depth on a normal day — LiFePO4 allows deeper, but daily 100% cycling spends the cycle life you bought the bank for. Battery costs are computed per module from the live table's floor and median $/Wh (one module = 5.12kWh); inverter, array and rack are separate lines. For the grid-tied version of this math — sizing against outages instead of seasons — see <a href=\"/home-energy-storage/\">rack batteries for home storage</a>.</p>",
+            ]),
+            ("The winter rule: the array must refill a day, in the worst month", [
+                "<p>A bank sized perfectly still fails in December if the array cannot replace a day's use in a short winter day. The planning rule: <b>array kW ≈ daily kWh ÷ worst-month peak sun hours</b>. A 10kWh/day home under 2.5 winter sun-hours needs roughly a 4kW array just to break even on an average December day — before storm reserves. That is why off-grid systems are designed array-first and bank-second, and why the autonomy column above stops at two days: beyond that, a small generator run a few hours per storm is almost always cheaper than the extra modules and panels that would replace it. Size the bank for weather, the array for the season, and let the generator cover the tail.</p>",
+                "<ul><li><b>Daily cycling is the economic case for this format:</b> at one cycle a day, a module rated in the thousands of cycles is a decade-plus asset, and its $/Wh — the table's sort — is the price of every one of those days.</li><li><b>Closed-loop communications matter more off-grid:</b> with no grid to fall back on, the inverter must charge exactly as the BMS directs; every module class in the table offers CAN/RS485 pairing — verify your inverter on the maker's list via our <a href=\"/inverter-compatibility/\">compatibility guide</a>.</li><li><b>Cold sheds need heat:</b> a bank in an unheated outbuilding cannot charge below freezing, and two of the tracked module lines are self-heating variants (SunGoldPower's SGH48100T and Vatrer's heated rows in the table). In a heated space, that premium buys nothing — the $/Wh column prices the choice either way.</li></ul>",
+            ]),
+            ("Reading the table like an off-grid buyer", [
+                "<p>Two cautions before you multiply a row by eight. First, the SunGoldPower 2-pack and 4-pack bundle rows carry bundle prices against single-module watt-hours in the feed, so their $/Wh reads artificially high — price a bank from the <b>single-module rows</b>. Second, a bank is one model repeated: pick the module whose inverter list, heating and parallel limit fit, then hold that choice for every expansion — mixing models in a parallel bank is the classic off-grid own-goal. The <a href=\"/how-many-server-rack-batteries/\">module-count guide</a> cross-checks the sizing table against specific loads, and the <a href=\"/server-rack-battery-price-per-kwh/\">$/kWh league table</a> tracks how the module prices themselves move.</p>",
+            ]),
+        ],
+        "faqs": [
+            ("How many server rack batteries do I need for off-grid solar?",
+             "From your daily use: modules = daily kWh × autonomy days ÷ 0.8 usable share ÷ 5.12kWh per module, rounded up. A 10kWh/day home wanting two sunless days needs five modules (25.6kWh nameplate). Measure daily consumption first — it is the number everything else multiplies."),
+            ("Can server rack batteries run a home completely off-grid?",
+             "Yes — that is a standard use of the format: rack modules plus an off-grid or hybrid inverter and a correctly sized array. The constraints are system design, not the batteries: the array must replace a day's use in the worst month's sun, and the inverter must be an off-grid-capable model paired (ideally closed-loop) with the modules."),
+            ("Do I need self-heating rack batteries for an off-grid cabin?",
+             "Only if the bank will sit somewhere that drops below freezing while it needs to charge — an unheated shed or garage in a northern winter. LiFePO4 cannot accept a charge below 0°C without damage, so off-grid solar (which charges whenever the sun shines, cold or not) is exactly the case self-heating models exist for. In a heated utility space, standard modules are the cheaper $/Wh."),
+        ],
+        "related": ["home-energy-storage", "how-many-server-rack-batteries", "10kwh-battery-bank"],
     },
 ],
 }
