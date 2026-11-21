@@ -102,9 +102,12 @@ it will wrap `p.url` in the network deep-link (e.g. Awin
    that replace the two stores whose /products.json doesn't work).
 3. **Impact** — tax doc approval before payouts (BLUETTI, Jackery,
    Eco-Worthy, Walmart, Home Depot, Best Buy).
-4. **Domain purchase — LAST**, per Jay's instruction. Then: create the repo
-   from this folder, uncomment the Cloudflare Pages deploy step in
-   `.github/workflows/refresh.yml`, add the two Cloudflare secrets.
+4. **Domains — DONE 2026-11-20**: 48vlifepo4battery.com,
+   12vlifepo4battery.com and serverrackbatteries.com bought on Vercel
+   ($12.03 each); the three Vercel projects are git-connected to this repo
+   (each with its `sites/<domain>` root directory), so pushes auto-deploy.
+   `.github/workflows/refresh.yml` re-fetches prices and rebuilds every
+   6 hours; the repo is public, so Actions runs are free.
 
 ## Known limitations (honest list)
 
