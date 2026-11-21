@@ -1,9 +1,36 @@
 # Affiliate applications — battery EMD sites (prepped 2026-11-20)
 
 ## Live sites (use these in every application)
-- https://48vlifepo4battery.com — 48V LiFePO4 battery price tracker (33 models)
-- https://12vlifepo4battery.com — 12V LiFePO4 battery price tracker (80 models)
-- https://serverrackbatteries.com — server rack battery price tracker (9 modules)
+- https://48vlifepo4battery.com — 48V LiFePO4 battery price tracker
+- https://12vlifepo4battery.com — 12V LiFePO4 battery price tracker
+- https://24vlifepo4battery.com — 24V LiFePO4 battery price tracker (added 2026-11-21)
+- https://serverrackbatteries.com — server rack battery price tracker
+
+## Application status — 2026-11-21
+
+### Impact — COMPLETE
+- Account 8279972 (Quiet Coyote LLC, login magicwifimoney@gmail.com).
+- All four sites added as properties and verified "Connected" (24V property ID 9204903, verified 2026-11-21).
+- Marketplace application declined earlier (does not block direct brand partnerships).
+- Payout setup (bank, tax, identity verification, email-verify click) is Jay-only and still open — blocks payouts, not applications.
+
+### Awin — applications COMPLETE 2026-11-21
+- Existing publisher account 3113529 (login jake.giebel@gmail.com; approved 2026-10-03). Password reset by Jay 2026-11-21.
+- Promotional spaces added for all four battery sites (sectors: DIY, Green (Eco friendly), Home & Garden).
+- Brand applications (Advertisers → Join Programs), each with a tailored message naming all four trackers:
+  - Dakota Lithium (79634) — SUBMITTED, pending approval. 7% / 30-day cookie, ~$1,000 AOV, no product feed. Contact bjohnson@dakotalithium.com.
+  - Vatrer (119703) — JOINED (auto-accepted on application). Tracking link: https://www.awin1.com/cread.php?awinmid=119703&awinaffid=3113529 (deep links append &ued=<url-encoded target>). Product feed = Yes — future path to automate Vatrer prices instead of manual re-pulls.
+  - BLUETTI US (59271) — SUBMITTED, pending approval. Tiered 5–10%, 30-day cookie, data feed. Terms bar TM bidding (consistent with our no-brand-bidding stance).
+  - EcoFlow (59181) — SUBMITTED, pending approval. 5–8%, covers the US store.
+  - Jackery US (59183) — SUBMITTED, pending approval.
+  - Redodo Power (97969) — SUBMITTED, pending approval. 5–8%, 30-day cookie. Redodo is not yet in the catalog; the application asks to add its 12V/24V lineup.
+  - Eco-Worthy (73461) — SUBMITTED, pending approval. Product feed = Yes.
+- Join-dialog note: the Promotion dropdown cannot be set via automation; applications were filed under the default "Content" with the four sites named in the message.
+- Payout setup (W-9/tax, bank) is Jay-only and still open.
+- Not applied (spotted in directory, candidates only): Powerurus, YOSE POWER US.
+
+### Amazon Associates — blocked on Jay
+- magicwifimoney@gmail.com has no Amazon account; Jay must create it himself, then the Associates application runs from oldie. Stop at the tax interview and bank details.
 
 ## Promotional method (paste-ready)
 "Price-comparison / price-tracking websites. We collect prices directly from
