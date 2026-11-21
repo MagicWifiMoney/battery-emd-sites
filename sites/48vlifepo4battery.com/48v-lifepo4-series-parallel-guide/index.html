@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>48V LiFePO4 in Series &amp; Parallel: Why Parallel Is the Only Move</title>
+<meta name="description" content="Series-wiring 48V LiFePO4 would make a 102.4V battery almost no inverter accepts — and most makers prohibit it. Parallel is the scaling path: bank sizes priced live, busbar current math, and the expansion rules.">
+<link rel="canonical" href="https://48vlifepo4battery.com/48v-lifepo4-series-parallel-guide/">
+<style>
+:root{--ink:#16202a;--mut:#5b6b7a;--line:#d9e1e8;--acc:#0b6e4f;--bg:#f7f9fa;--warn:#8a5a00;--warnbg:#fff4d6}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.55 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff}
+header.site{border-bottom:1px solid var(--line);background:var(--bg)}
+header.site .in{max-width:1080px;margin:0 auto;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{font-weight:700;font-size:17px;color:var(--ink);text-decoration:none}
+nav a{color:var(--mut);text-decoration:none;margin-left:14px;font-size:14px}
+nav a:hover{color:var(--acc)}
+main{max-width:1080px;margin:0 auto;padding:20px 16px 10px}
+h1{font-size:27px;line-height:1.2;margin:4px 0 8px}
+h2{font-size:20px;margin:26px 0 8px}
+h3{font-size:16px;margin:16px 0 6px}
+.lede{font-size:16.5px;color:#2c3e50;max-width:75ch}
+.updated{font-size:13px;color:var(--mut)}
+.disclosure{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:13px;margin:14px 0}
+#stale{display:none;background:var(--warnbg);color:var(--warn);border:1px solid #ecd28f;border-radius:8px;padding:10px 12px;font-size:14px;margin:10px 0}
+.stats{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0}
+.stat{border:1px solid var(--line);border-radius:8px;padding:10px 14px;min-width:150px;background:#fff}
+.stat b{display:block;font-size:19px;color:var(--acc)}
+.stat span{font-size:12.5px;color:var(--mut)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:14px 0}
+.card{border:1px solid var(--line);border-radius:8px;padding:12px 14px}
+.card h3{margin:0 0 4px;font-size:15px}
+.card p{margin:4px 0;font-size:13.5px;color:#2c3e50}
+.card .big{font-size:18px;font-weight:700;color:var(--acc)}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:10px 0}
+th,td{padding:8px 9px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--bg);white-space:nowrap;cursor:pointer;user-select:none}
+th:hover{color:var(--acc)}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.ppw{font-weight:700;color:var(--acc)}
+.was{color:var(--mut);text-decoration:line-through;font-size:12px}
+.oos{color:#b03a2e;font-size:12px}
+a.buy{display:inline-block;background:var(--acc);color:#fff;text-decoration:none;padding:5px 10px;border-radius:6px;font-size:13px;white-space:nowrap}
+.controls{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.controls input,.controls select{padding:8px 10px;border:1px solid var(--line);border-radius:6px;font-size:14px}
+.controls input{flex:1;min-width:200px}
+.faq h3{margin:14px 0 2px}
+.faq p{margin:2px 0 8px;max-width:78ch}
+ul.links{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+ul.links li{border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+ul.links a{font-weight:600;color:var(--acc);text-decoration:none}
+ul.links p{margin:3px 0 0;font-size:13px;color:var(--mut)}
+footer{max-width:1080px;margin:0 auto;padding:16px;color:var(--mut);font-size:13px;border-top:1px solid var(--line)}
+footer a{color:var(--acc)}
+.prose{max-width:78ch}
+.prose li{margin:4px 0}
+@media(max-width:760px){table{font-size:13px}th,td{padding:6px 5px}h1{font-size:22px}}
+</style>
+
+
+</head>
+<body>
+<header class="site"><div class="in">
+<a class="brand" href="/">48V LiFePO4 Battery</a>
+<nav><a href="/48v-100ah-lifepo4-battery/">100Ah</a><a href="/golf-cart-batteries/">Golf cart</a><a href="/solar-storage-batteries/">Solar storage</a><a href="/server-rack-batteries/">Server rack</a><a href="/home-battery-backup/">Home backup</a><a href="/about/">About &amp; method</a></nav>
+</div></header>
+<main>
+<h1>48V LiFePO4 in Series and Parallel: Parallel Is the Whole Game</h1><p class="lede">At 12V, series and parallel are both tools. At 48V the answer flips: <b>series is effectively closed</b> — two 51.2V packs in series make a 102.4V battery that mainstream inverters cannot use and most makers explicitly prohibit — while <b>parallel is the designed scaling path</b>, commonly rated for <b>4–16 modules</b> depending on the model. Every bank this site prices, from a 10.24kWh backup to a 20kWh whole-home build, is a parallel story. The tracked 48V catalog (37 models) currently starts at <b>$0.150/Wh</b>; this guide is the parallel math that turns those rows into a bank.</p><div class="disclosure">Prices below come from the manufacturers' own stores and were last refreshed <span id="fetched" data-ts="2026-11-21T02:04:16Z">November 21, 2026</span>. We rank by price per watt-hour ($/Wh) — the fairest way to compare batteries of different sizes. Listings are data, not reviews: we have not hands-on tested these batteries.</div><div id="stale">These prices are more than 72 hours old, so we have hidden the numbers — click through to the maker's store for the current price.</div><h2>Why series stops at 48V</h2><table><thead><tr><th>Wiring two 48V 100Ah packs</th><th>Result</th><th>Verdict</th></tr></thead><tbody><tr><td>In series</td><td>102.4V nominal · 100Ah · 10.24kWh, charging near 116.8V</td><td><b>Not a supported system voltage</b> — no mainstream 48V inverter accepts it, and the packs' BMS hardware is built for 51.2V-class service</td></tr><tr><td>In parallel</td><td>51.2V · 200Ah · 10.24kWh</td><td>The standard bank step — same voltage, double the energy and double the available discharge current</td></tr></tbody></table><p>Higher-voltage storage does exist, but as a different product category: factory-matched high-voltage stacks with their own inverters, not loose 48V packs wired nose-to-tail. Within this category the rule is simple — <b>if a model's documentation does not explicitly rate it for series use, series is prohibited</b>, and in this catalog that documentation essentially never does. Treat any 'just wire two for 96V' forum advice as a warranty-voiding experiment: the first BMS to trip in a series string absorbs voltage it was never built for.</p><h2>Parallel bank sizes, priced at today&#x27;s $/Wh</h2><table><thead><tr><th>Modules in parallel (100Ah each)</th><th>Bank size</th><th>Batteries at the cheapest tracked $/Wh</th><th>Batteries at the median $/Wh</th></tr></thead><tbody><tr><td>1</td><td>5.12kWh</td><td class='num'>$768</td><td class='num'>$1,219</td></tr><tr><td>2</td><td>10.24kWh</td><td class='num'>$1,536</td><td class='num'>$2,437</td></tr><tr><td>4</td><td>20.48kWh</td><td class='num'>2× the 10.24kWh row</td><td class='num'>2× the 10.24kWh row</td></tr><tr><td>8</td><td>40.96kWh</td><td class='num'>4× the 10.24kWh row</td><td class='num'>4× the 10.24kWh row</td></tr></tbody></table><p>Costs are the battery line only, computed from the live $/Wh figures in the lede — rack, busbar, inverter and electrical work are separate, and the <a href="/10kwh-battery/">10kWh page</a> works the most common target in full. Module size changes the step, not the method: a 314Ah floor battery is ~16kWh in a single case, so one unit parallels the way three 100Ah modules do — the <a href="/48v-314ah-lifepo4-battery/">314Ah page</a> covers that class. What never changes is the ceiling: stay inside the model's stated parallel limit, however generous the bank table looks.</p><h2>Current is the real design constraint</h2><p>Parallel wiring adds more than capacity — it adds discharge current, because each module's BMS contributes its rating to the bank. It also concentrates that current in your cabling. Size the copper from the inverter, not from the batteries:</p><table><thead><tr><th>Inverter size</th><th>DC draw at 51.2V (approx.)</th><th>Wiring implication</th></tr></thead><tbody><tr><td>3kW</td><td>~60A</td><td>One module can feed it; standard interconnects cope</td></tr><tr><td>5kW</td><td>~100A</td><td>Two modules' BMS headroom; busbar territory begins</td></tr><tr><td>8kW</td><td>~160A</td><td>Busbar with equal-length module leads — daisy-chained cables starve the far modules</td></tr><tr><td>12kW</td><td>~235A</td><td>Serious copper and a main fuse rated for the full bank; professional design territory</td></tr></tbody></table><ul><li><b>Busbar over daisy-chain</b> once you pass two modules: every module gets its own equal-length pair to a common busbar, so current (and wear) shares evenly instead of favoring the module nearest the inverter.</li><li><b>Fuse the bank, not just the inverter:</b> a fuse or breaker per module string plus a main disconnect is the standard defensive layout for multi-module banks.</li><li><b>Communications are part of parallel wiring:</b> in an inverter system one module is the master — set the address/DIP switches per the manual and daisy-chain the CAN/RS485 link module to module, then master to inverter. A bank whose modules cannot agree on state of charge will charge unevenly no matter how good the copper is.</li></ul><h2>Adding modules later, without unbalancing the bank</h2><ol><li><b>Same brand, same model.</b> A bank is one product repeated; a different model's BMS will not share current or communicate as an equal.</li><li><b>Sooner beats later.</b> Add within the first year or two where you can — a fresh module paralleled with a heavily cycled one will be dragged toward the older bank's behavior.</li><li><b>Match voltage before you connect.</b> Charge (or discharge) the new module until its resting voltage sits within a few tenths of a volt of the bank's, then connect. Skipping this dumps a large equalizing current through the interconnects the moment the terminals meet.</li><li><b>Re-commission the communications.</b> New module gets the next address, the master re-reads the bank, and the inverter's battery capacity setting goes up by 5.12kWh per module.</li><li><b>Re-check the ceiling.</b> The model's parallel limit and the inverter's maximum charge/discharge current both still apply to the enlarged bank.</li></ol><p>Planned from the start, expansion is the format's whole advantage — it is why the <a href="/off-grid-48v-battery-bank/">off-grid bank guide</a> and the <a href="/server-rack-batteries/">rack-format page</a> both build their sizing around parallel steps rather than one heroic battery.</p><h2>Keep comparing</h2><ul class="links"><li><a href="/">All 48V LiFePO4 battery prices</a><p>The full live table, every model ranked by $/Wh.</p></li><li><a href="/48v-100ah-lifepo4-battery/">48V 100Ah LiFePO4 Batteries</a><p>The standard 5.12kWh building block — every 100Ah model compared by $/Wh.</p></li><li><a href="/server-rack-batteries/">48V Server Rack Batteries</a><p>Rack-mount 48V modules — the format that usually wins on $/Wh.</p></li><li><a href="/off-grid-48v-battery-bank/">Building an Off-Grid 48V Battery Bank That Survives November</a><p>Daily-cycle sizing for cabins and homesteads: consumption first, autonomy second, modules third.</p></li></ul><section class="faq"><h2>Frequently asked questions</h2><h3>Can I connect 48V LiFePO4 batteries in series?</h3><p>Assume no. Two 51.2V packs in series produce 102.4V nominal — beyond the ratings of 48V-class BMS hardware and outside the battery input range of mainstream 48V inverters — and most makers prohibit it outright. Unless a model's documentation explicitly rates it for series use (rare in this class), series wiring risks BMS damage and voids the warranty. Higher-voltage systems exist as factory-matched stacks, a different product category.</p><h3>How many 48V LiFePO4 batteries can I put in parallel?</h3><p>Commonly 4–16 units, depending on the model — rack modules often sit at the generous end because parallel expansion is their design brief. The exact limit is stated on the product page, and the bank must also respect the inverter's maximum battery current and capacity settings.</p><h3>Can I parallel a rack battery with a floor battery?</h3><p>Electrically both are 51.2V, but makers advise one brand and model per bank: BMS behavior differs, current shares unevenly, and closed-loop inverter communication needs a single protocol in charge — a mixed bank usually falls back to voltage-based charging and loses the smart features you paid for. The tables on this site price single-model banks; the saving from mixing rarely survives the compromises.</p></section><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can I connect 48V LiFePO4 batteries in series?", "acceptedAnswer": {"@type": "Answer", "text": "Assume no. Two 51.2V packs in series produce 102.4V nominal \u2014 beyond the ratings of 48V-class BMS hardware and outside the battery input range of mainstream 48V inverters \u2014 and most makers prohibit it outright. Unless a model's documentation explicitly rates it for series use (rare in this class), series wiring risks BMS damage and voids the warranty. Higher-voltage systems exist as factory-matched stacks, a different product category."}}, {"@type": "Question", "name": "How many 48V LiFePO4 batteries can I put in parallel?", "acceptedAnswer": {"@type": "Answer", "text": "Commonly 4\u201316 units, depending on the model \u2014 rack modules often sit at the generous end because parallel expansion is their design brief. The exact limit is stated on the product page, and the bank must also respect the inverter's maximum battery current and capacity settings."}}, {"@type": "Question", "name": "Can I parallel a rack battery with a floor battery?", "acceptedAnswer": {"@type": "Answer", "text": "Electrically both are 51.2V, but makers advise one brand and model per bank: BMS behavior differs, current shares unevenly, and closed-loop inverter communication needs a single protocol in charge \u2014 a mixed bank usually falls back to voltage-based charging and loses the smart features you paid for. The tables on this site price single-model banks; the saving from mixing rarely survives the compromises."}}]}</script>
+</main>
+<footer>
+<p><b>How prices are gathered:</b> automatically from the manufacturers' own online stores, refreshed several times a day. We compute price per watt-hour from each battery's rated capacity. We never invent ratings or discounts — a struck-through price appears only when the maker's own store lists one. Full method on the <a href="/about/">about page</a>.</p>
+<p><b>Affiliate disclosure:</b> some outbound links on this site are affiliate links. If you buy through them we may earn a commission at no extra cost to you. Prices shown come from the makers' stores, not from affiliate feeds.</p>
+<p>Sister trackers: <a href="https://12vlifepo4battery.com/">12V LiFePO4 Battery prices</a> · <a href="https://serverrackbatteries.com/">Server Rack Batteries prices</a></p>
+</footer>
+
+<script>
+(function(){
+  var f=document.getElementById('fetched');
+  if(f){var age=(Date.now()-new Date(f.dataset.ts).getTime())/36e5;
+    if(age>72){document.getElementById('stale').style.display='block';
+      document.querySelectorAll('.pricedata').forEach(function(e){e.style.display='none';});
+      document.querySelectorAll('.checkonly').forEach(function(e){e.style.display='';});}}
+  var q=document.getElementById('q'), brand=document.getElementById('brandf');
+  function filt(){var s=(q?q.value:'').toLowerCase(), b=brand?brand.value:'';
+    document.querySelectorAll('tbody tr').forEach(function(r){
+      var ok=(!s||r.textContent.toLowerCase().indexOf(s)>=0)&&(!b||r.dataset.brand===b);
+      r.style.display=ok?'':'none';});}
+  if(q)q.addEventListener('input',filt); if(brand)brand.addEventListener('change',filt);
+  document.querySelectorAll('th[data-k]').forEach(function(th){
+    th.addEventListener('click',function(){
+      var tb=th.closest('table').querySelector('tbody'),k=th.dataset.k,num=th.dataset.n==='1',dir=th.dataset.d==='a'?-1:1;
+      th.dataset.d=dir===1?'a':'d';
+      var rows=[].slice.call(tb.querySelectorAll('tr'));
+      rows.sort(function(a,b){var x=a.children[k].dataset.v||a.children[k].textContent,y=b.children[k].dataset.v||b.children[k].textContent;
+        return (num?parseFloat(x)-parseFloat(y):x.localeCompare(y))*dir;});
+      rows.forEach(function(r){tb.appendChild(r);});});});
+})();
+</script>
+
+</body>
+</html>

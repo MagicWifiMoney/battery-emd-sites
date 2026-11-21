@@ -308,6 +308,56 @@ GUIDES = {
         ],
         "related": ["48v-100ah-lifepo4-battery", "48v-314ah-lifepo4-battery", "golf-cart-batteries"],
     },
+    {
+        "slug": "48v-lifepo4-series-parallel-guide",
+        "title": "48V LiFePO4 in Series & Parallel: Why Parallel Is the Only Move",
+        "desc": "Series-wiring 48V LiFePO4 would make a 102.4V battery almost no inverter accepts — and most makers prohibit it. Parallel is the scaling path: bank sizes priced live, busbar current math, and the expansion rules.",
+        "h1": "48V LiFePO4 in Series and Parallel: Parallel Is the Whole Game",
+        "blurb": "At 48V the series door is closed and parallel does all the scaling: bank sizes, current math, and adding modules without unbalancing the bank.",
+        "lede": "At 12V, series and parallel are both tools. At 48V the answer flips: <b>series is effectively closed</b> — two 51.2V packs in series make a 102.4V battery that mainstream inverters cannot use and most makers explicitly prohibit — while <b>parallel is the designed scaling path</b>, commonly rated for <b>4–16 modules</b> depending on the model. Every bank this site prices, from a 10.24kWh backup to a 20kWh whole-home build, is a parallel story. The tracked 48V catalog ({n} models) currently starts at <b>${minppw}/Wh</b>; this guide is the parallel math that turns those rows into a bank.",
+        "filter": None,
+        "sections": [
+            ("Why series stops at 48V", [
+                "<table><thead><tr><th>Wiring two 48V 100Ah packs</th><th>Result</th><th>Verdict</th></tr></thead><tbody>"
+                "<tr><td>In series</td><td>102.4V nominal · 100Ah · 10.24kWh, charging near 116.8V</td><td><b>Not a supported system voltage</b> — no mainstream 48V inverter accepts it, and the packs' BMS hardware is built for 51.2V-class service</td></tr>"
+                "<tr><td>In parallel</td><td>51.2V · 200Ah · 10.24kWh</td><td>The standard bank step — same voltage, double the energy and double the available discharge current</td></tr>"
+                "</tbody></table>",
+                "<p>Higher-voltage storage does exist, but as a different product category: factory-matched high-voltage stacks with their own inverters, not loose 48V packs wired nose-to-tail. Within this category the rule is simple — <b>if a model's documentation does not explicitly rate it for series use, series is prohibited</b>, and in this catalog that documentation essentially never does. Treat any 'just wire two for 96V' forum advice as a warranty-voiding experiment: the first BMS to trip in a series string absorbs voltage it was never built for.</p>",
+            ]),
+            ("Parallel bank sizes, priced at today's $/Wh", [
+                "<table><thead><tr><th>Modules in parallel (100Ah each)</th><th>Bank size</th><th>Batteries at the cheapest tracked $/Wh</th><th>Batteries at the median $/Wh</th></tr></thead><tbody>"
+                "<tr><td>1</td><td>5.12kWh</td><td class='num'>{low5k}</td><td class='num'>{med5k}</td></tr>"
+                "<tr><td>2</td><td>10.24kWh</td><td class='num'>{low10k}</td><td class='num'>{med10k}</td></tr>"
+                "<tr><td>4</td><td>20.48kWh</td><td class='num'>2× the 10.24kWh row</td><td class='num'>2× the 10.24kWh row</td></tr>"
+                "<tr><td>8</td><td>40.96kWh</td><td class='num'>4× the 10.24kWh row</td><td class='num'>4× the 10.24kWh row</td></tr>"
+                "</tbody></table>",
+                "<p>Costs are the battery line only, computed from the live $/Wh figures in the lede — rack, busbar, inverter and electrical work are separate, and the <a href=\"/10kwh-battery/\">10kWh page</a> works the most common target in full. Module size changes the step, not the method: a 314Ah floor battery is ~16kWh in a single case, so one unit parallels the way three 100Ah modules do — the <a href=\"/48v-314ah-lifepo4-battery/\">314Ah page</a> covers that class. What never changes is the ceiling: stay inside the model's stated parallel limit, however generous the bank table looks.</p>",
+            ]),
+            ("Current is the real design constraint", [
+                "<p>Parallel wiring adds more than capacity — it adds discharge current, because each module's BMS contributes its rating to the bank. It also concentrates that current in your cabling. Size the copper from the inverter, not from the batteries:</p>",
+                "<table><thead><tr><th>Inverter size</th><th>DC draw at 51.2V (approx.)</th><th>Wiring implication</th></tr></thead><tbody>"
+                "<tr><td>3kW</td><td>~60A</td><td>One module can feed it; standard interconnects cope</td></tr>"
+                "<tr><td>5kW</td><td>~100A</td><td>Two modules' BMS headroom; busbar territory begins</td></tr>"
+                "<tr><td>8kW</td><td>~160A</td><td>Busbar with equal-length module leads — daisy-chained cables starve the far modules</td></tr>"
+                "<tr><td>12kW</td><td>~235A</td><td>Serious copper and a main fuse rated for the full bank; professional design territory</td></tr>"
+                "</tbody></table>",
+                "<ul><li><b>Busbar over daisy-chain</b> once you pass two modules: every module gets its own equal-length pair to a common busbar, so current (and wear) shares evenly instead of favoring the module nearest the inverter.</li><li><b>Fuse the bank, not just the inverter:</b> a fuse or breaker per module string plus a main disconnect is the standard defensive layout for multi-module banks.</li><li><b>Communications are part of parallel wiring:</b> in an inverter system one module is the master — set the address/DIP switches per the manual and daisy-chain the CAN/RS485 link module to module, then master to inverter. A bank whose modules cannot agree on state of charge will charge unevenly no matter how good the copper is.</li></ul>",
+            ]),
+            ("Adding modules later, without unbalancing the bank", [
+                "<ol><li><b>Same brand, same model.</b> A bank is one product repeated; a different model's BMS will not share current or communicate as an equal.</li><li><b>Sooner beats later.</b> Add within the first year or two where you can — a fresh module paralleled with a heavily cycled one will be dragged toward the older bank's behavior.</li><li><b>Match voltage before you connect.</b> Charge (or discharge) the new module until its resting voltage sits within a few tenths of a volt of the bank's, then connect. Skipping this dumps a large equalizing current through the interconnects the moment the terminals meet.</li><li><b>Re-commission the communications.</b> New module gets the next address, the master re-reads the bank, and the inverter's battery capacity setting goes up by 5.12kWh per module.</li><li><b>Re-check the ceiling.</b> The model's parallel limit and the inverter's maximum charge/discharge current both still apply to the enlarged bank.</li></ol>",
+                "<p>Planned from the start, expansion is the format's whole advantage — it is why the <a href=\"/off-grid-48v-battery-bank/\">off-grid bank guide</a> and the <a href=\"/server-rack-batteries/\">rack-format page</a> both build their sizing around parallel steps rather than one heroic battery.</p>",
+            ]),
+        ],
+        "faqs": [
+            ("Can I connect 48V LiFePO4 batteries in series?",
+             "Assume no. Two 51.2V packs in series produce 102.4V nominal — beyond the ratings of 48V-class BMS hardware and outside the battery input range of mainstream 48V inverters — and most makers prohibit it outright. Unless a model's documentation explicitly rates it for series use (rare in this class), series wiring risks BMS damage and voids the warranty. Higher-voltage systems exist as factory-matched stacks, a different product category."),
+            ("How many 48V LiFePO4 batteries can I put in parallel?",
+             "Commonly 4–16 units, depending on the model — rack modules often sit at the generous end because parallel expansion is their design brief. The exact limit is stated on the product page, and the bank must also respect the inverter's maximum battery current and capacity settings."),
+            ("Can I parallel a rack battery with a floor battery?",
+             "Electrically both are 51.2V, but makers advise one brand and model per bank: BMS behavior differs, current shares unevenly, and closed-loop inverter communication needs a single protocol in charge — a mixed bank usually falls back to voltage-based charging and loses the smart features you paid for. The tables on this site price single-model banks; the saving from mixing rarely survives the compromises."),
+        ],
+        "related": ["48v-100ah-lifepo4-battery", "server-rack-batteries", "off-grid-48v-battery-bank"],
+    },
 ],
 "12vlifepo4battery.com": [
     {
@@ -514,6 +564,50 @@ GUIDES = {
              "Makers advise against mixing brands, models or ages in a series/parallel bank — BMS behavior and internal resistance differ, and the weakest unit limits the string. Pick one brand per bank; the table prices that commitment class by class."),
         ],
         "related": ["12v-100ah-lifepo4-battery", "12v-314ah-lifepo4-battery", "litime-vs-renogy-12v-100ah"],
+    },
+    {
+        "slug": "12v-lifepo4-series-parallel-guide",
+        "title": "12V LiFePO4 in Series & Parallel: The 4-in-Series Ceiling, Wiring, Matching Rules",
+        "desc": "How series and parallel wiring actually work for 12V LiFePO4: series adds volts (four 12V packs = a 48V system), parallel adds amp-hours, the 4-in-series ceiling most models carry, and the matching rules that keep a bank balanced.",
+        "h1": "12V LiFePO4 in Series and Parallel: Volts Up or Amp-Hours Up",
+        "blurb": "Series raises voltage, parallel raises capacity: the configuration table, the 4S ceiling, and the matching rules to check before you wire a bank.",
+        "lede": "Most 12V LiFePO4 batteries can be wired in series, in parallel, or both — and the two moves do opposite jobs. <b>Series adds voltage</b>: two packs in series are a 24V battery, four are a 48V battery, and the amp-hours do not change. <b>Parallel adds amp-hours</b> at the same 12V. The catch is that the permission slip lives in each model's spec sheet, not in the chemistry: many models cap at <b>4 in series</b>, some budget packs are parallel-only, and every bank must be one brand, one model, one age. The wiring math and the rules are below; the batteries themselves are ranked by $/Wh on the <a href=\"/\">12V table</a> — {n} models tracked, with the cheapest stored energy currently at <b>${minppw}/Wh</b>.",
+        "filter": None,
+        "sections": [
+            ("What each wiring actually builds (100Ah packs)", [
+                "<table><thead><tr><th>Configuration</th><th>Voltage</th><th>Capacity</th><th>Energy</th><th>Typical job</th></tr></thead><tbody>"
+                "<tr><td>1 battery</td><td>12.8V</td><td>100Ah</td><td>1,280Wh</td><td>RV, boat or small solar, as-is</td></tr>"
+                "<tr><td>2 in parallel (2P)</td><td>12.8V</td><td>200Ah</td><td>2,560Wh</td><td>A bigger 12V bank — every charger and appliance you own still works</td></tr>"
+                "<tr><td>2 in series (2S)</td><td>25.6V</td><td>100Ah</td><td>2,560Wh</td><td>24V trolling motors and inverter systems</td></tr>"
+                "<tr><td>4 in series (4S)</td><td>51.2V</td><td>100Ah</td><td>5,120Wh</td><td>A 48V system assembled from 12V packs</td></tr>"
+                "<tr><td>2S2P (4 batteries)</td><td>25.6V</td><td>200Ah</td><td>5,120Wh</td><td>A 24V bank with doubled runtime</td></tr>"
+                "<tr><td>4S4P (16 batteries)</td><td>51.2V</td><td>400Ah</td><td>20,480Wh</td><td>The commonly published ceiling — a home-scale bank built entirely from 12V units</td></tr>"
+                "</tbody></table>",
+                "<p>Read the 2S and 2P rows together: identical energy, different shape. Series is how you reach a higher-voltage system (which moves the same power at lower current — thinner cable, less heat, and access to the efficient 24V/48V inverter class). Parallel is how you grow a 12V system without replacing a single charger, alternator or appliance. Pick the shape your loads need first; the battery count follows.</p>",
+            ]),
+            ("The limits: 4 in series is common, guaranteed is not", [
+                "<p>There is no chemistry-wide wiring limit — there is a per-model one, set by the BMS. Series is the demanding direction: in a 4S string each battery's BMS sits at a different point in a 51.2V circuit, and the pack must be built and rated for it. That is why the published ceilings cluster where they do — <b>up to 4 in series is the common rating</b> among models that allow series at all, parallel allowances are usually equal or larger, and a meaningful minority of budget packs are <b>parallel-only</b>. A model whose spec sheet is silent on series has answered the question: do not series-wire it.</p>",
+                "<ul><li><b>Same brand, model, capacity and age</b> — all four, in both directions. The bank behaves like its weakest unit, and mixed units make that unit weaker.</li><li><b>Buy the bank at once where you can.</b> A second purchase a year later is a different production batch; if you must expand, do it early and re-check voltages before connecting (next section).</li><li><b>The charger follows the string, not the battery.</b> A 2S bank charges at ~29.2V and a 4S bank at 58.4V — your 12V charger cannot charge a series string as a unit, and the inverter/charger must be a model for the target voltage.</li><li><b>Discharge current does not multiply in series.</b> A 4S string of 100A-BMS batteries is still a 100A battery system, just at 51.2V. Parallel is the direction that adds current.</li></ul>",
+                "<p>Before ordering for a wired bank, open the product page for your exact model and find its series/parallel line — the <a href=\"/12v-100ah-lifepo4-battery/\">100Ah table</a> and the <a href=\"/12v-200ah-lifepo4-battery/\">200Ah table</a> link every tracked model to its maker page, which is where that line lives.</p>",
+            ]),
+            ("Parallel wiring that shares current fairly", [
+                "<ol><li><b>Charge every battery individually to full</b> with a 12V LiFePO4 charger (14.2–14.6V — the <a href=\"/12v-lifepo4-charging-guide/\">charging guide</a> has the profile), let them rest, and confirm the resting voltages sit within about a tenth of a volt of each other. Paralleling a full pack with an empty one sends a large equalizing current through the interconnects the moment the terminals meet.</li><li><b>Connect negatives, then positives</b>, with the bank disconnected from loads and charger.</li><li><b>Take power off diagonally</b>: the main positive lead on the first battery, the main negative lead on the last. Diagonal take-off forces current through every interconnect instead of letting the nearest battery do all the work. On banks of three or more, a busbar with equal-length leads per battery does the same job better.</li><li><b>Fuse the bank</b> — a fuse on the main positive sized to your cabling and loads, as close to the batteries as practical.</li></ol>",
+                "<p>Done this way, a parallel bank behaves like one big battery: one charger, one state of charge, current shared roughly evenly. Done carelessly — mismatched voltages, corner take-off, mixed models — the nearest or strongest pack cycles hardest, ages fastest, and quietly caps the whole bank. The same fairness logic is why the <a href=\"/12v-lifepo4-battery-for-solar/\">solar sizing guide</a> treats the bank, not the individual battery, as the unit the panels must fill.</p>",
+            ]),
+            ("Series strings: the two ways they fail", [
+                "<p><b>Failure one — the string goes dark.</b> In series there is one current path, so if any single battery's BMS disconnects (over-current, a temperature limit, a fault), the whole string stops — a 48V inverter fed by four 12V packs has no partial mode. Size the string so one pack's discharge rating comfortably covers the load, and treat a string shutdown as a per-battery diagnosis, not a system failure.</p>",
+                "<p><b>Failure two — drift.</b> Each BMS balances the cells inside its own battery, but nothing balances one battery against the next. Over months the packs settle at slightly different states of charge; the weakest reaches empty first and caps the string's usable capacity, and reaches full first on charge and trips early. The maintenance is cheap and scheduled: every few months, or whenever runtime sags, charge each battery individually to full and re-check the set — the same individual charge you did before assembly. An external battery equalizer wired across the string can slow drift, but it does not replace matched batteries or the periodic individual charge.</p>",
+            ]),
+        ],
+        "faqs": [
+            ("How many 12V LiFePO4 batteries can I connect in series?",
+             "Four is the common published ceiling — 4S gives 51.2V, a 48V system — for models that allow series at all. It is a per-model specification, not a chemistry rule: some models allow fewer, and some budget packs prohibit series entirely. The product page for your exact model is the authority; never exceed its stated limit."),
+            ("Can I wire a 100Ah and a 200Ah LiFePO4 battery in parallel?",
+             "Makers advise against mixing capacities, brands, models or ages in one bank. In parallel, different internal resistances share current unevenly and the packs sit at different depths of discharge; in series, a mixed string is capped by its smallest battery and drifts out of balance quickly. Build the bank from identical units bought together — matched sets are also the honest way to use the $/Wh table on the homepage, since the price is per matched battery."),
+            ("Do batteries in a series string need a balancer?",
+             "Each battery's internal BMS balances its own cells, but nothing balances one whole battery against the next in a string. Standard practice: charge every battery individually to full before assembly, then re-check individual voltages every few months and top up any that drift. An external equalizer across the string can slow the drift, but it is an addition to that routine, not a substitute for it."),
+        ],
+        "related": ["12v-100ah-lifepo4-battery", "12v-200ah-lifepo4-battery", "12v-lifepo4-battery-for-solar"],
     },
 ],
 "serverrackbatteries.com": [
