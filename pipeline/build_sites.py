@@ -209,11 +209,18 @@ def faq_html(faqs):
     return f'<section class="faq"><h2>Frequently asked questions</h2>{items}</section><script type="application/ld+json">{json.dumps(ld)}</script>'
 
 
-# Affiliate-network site-verification meta tags (homepage only), keyed by domain.
+# Site-verification meta tags (homepage only), keyed by domain: Impact
+# affiliate network, Google Search Console, and Bing Webmaster Tools
+# (the Bing msvalidate.01 code is account-wide, identical on every site).
+BING_VERIFY = "<meta name='msvalidate.01' content='2FA47358EA1D4A7E3DF926ACEF53F410'>"
 VERIFY_META = {
-    "48vlifepo4battery.com": "<meta name='impact-site-verification' value='ec050c2d-1e9d-48e1-a271-857624705cd2'>",
-    "12vlifepo4battery.com": "<meta name='impact-site-verification' value='09d7df7a-711d-4ada-bc8b-67df34ab4b5a'>",
-    "serverrackbatteries.com": "<meta name='impact-site-verification' value='63ba17d3-02ec-4189-ad44-68c1b729f522'>",
+    "48vlifepo4battery.com": "<meta name='impact-site-verification' value='ec050c2d-1e9d-48e1-a271-857624705cd2'>"
+        "<meta name='google-site-verification' content='tbW4-K0LffGFfy0K6yYDgyJc1MuJYpSJqktIZnji4HE'>" + BING_VERIFY,
+    "12vlifepo4battery.com": "<meta name='impact-site-verification' value='09d7df7a-711d-4ada-bc8b-67df34ab4b5a'>"
+        "<meta name='google-site-verification' content='TXRvIcGdrLCX9GsI012j_PXULUWzMRIMcpJZBBI_ZTE'>" + BING_VERIFY,
+    "serverrackbatteries.com": "<meta name='impact-site-verification' value='63ba17d3-02ec-4189-ad44-68c1b729f522'>"
+        "<meta name='google-site-verification' content='uLL1hkMpkzoAYLMgg5EKA_RplqdXOVGaw5r3fQCXyfY'>" + BING_VERIFY,
+    "24vlifepo4battery.com": "<meta name='google-site-verification' content='zMEySrHVfidP_xfgtt7h7DzB0QWHIrFbInLrlCms_Qs'>" + BING_VERIFY,
 }
 
 
