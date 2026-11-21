@@ -23,6 +23,11 @@ import json, re, html, statistics
 from pathlib import Path
 from datetime import datetime, timezone
 
+try:
+    from content_guides import GUIDES
+except ImportError:
+    GUIDES = {}
+
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data" / "products.json"
 OUT = ROOT / "sites"
@@ -257,6 +262,56 @@ def itemlist_ld(rows, site):
 def cluster_cards(site):
     lis = "".join(f'<li><a href="/{c["slug"]}/">{esc(c["h1"])}</a><p>{esc(c["blurb"])}</p></li>' for c in site["clusters"])
     return f'<h2>Browse by need</h2><ul class="links">{lis}</ul>'
+
+# ---------- guide / comparison / blog pages (content_guides.py) ----------
+def resolve_rows(spec, pool):
+    """Guide table filter: None | FILTERS key | 'brand:A+B' | 'brand:A+B@filterkey'."""
+    if not spec:
+        return []
+    rows = list(pool)
+    if "@" in spec:
+        spec, fk = spec.split("@", 1)
+        rows = FILTERS[fk](rows)
+    if spec.startswith("brand:"):
+        brands = {b.strip() for b in spec[len("brand:"):].split("+")}
+        rows = [p for p in rows if p["brand"] in brands]
+    elif spec in FILTERS:
+        rows = FILTERS[spec](rows)
+    return sorted(rows, key=ppw)
+
+def guide_ctx(rows, pool, date_str):
+    base = rows if rows else pool
+    ppws = [ppw(p) for p in base]; prices = [p["price"] for p in base]
+    cheap = min(base, key=ppw)
+    ctx = {"n": len(base), "minppw": f"{min(ppws):.3f}", "medppw": f"{statistics.median(ppws):.3f}",
+           "maxppw": f"{max(ppws):.3f}", "minprice": money(min(prices)), "maxprice": money(max(prices)),
+           "date": date_str, "cheap_title": esc(cheap["title"]), "cheap_brand": esc(cheap["brand"]),
+           "cheap_price": money(cheap["price"]), "cheap_ppw": f"{ppw(cheap):.3f}",
+           "cheap_cap": cap_label(cheap),
+           "low5k": money(min(ppws) * 5120), "med5k": money(statistics.median(ppws) * 5120),
+           "low10k": money(min(ppws) * 10240), "med10k": money(statistics.median(ppws) * 10240)}
+    for b in sorted({p["brand"] for p in base}):
+        brows = [p for p in base if p["brand"] == b]
+        bk = re.sub(r"[^a-z0-9]+", "_", b.lower()).strip("_")
+        bcheap = min(brows, key=lambda p: p["price"])
+        ctx[f"{bk}_n"] = len(brows)
+        ctx[f"{bk}_min_price"] = money(bcheap["price"])
+        ctx[f"{bk}_min_ppw"] = f"{ppw(bcheap):.3f}"
+        ctx[f"{bk}_cheap_title"] = esc(bcheap["title"])
+    return ctx
+
+def fmt(s, ctx):
+    try:
+        return s.format(**ctx)
+    except (KeyError, IndexError, ValueError):
+        return s
+
+def guide_cards(site):
+    gs = GUIDES.get(site["domain"], [])
+    if not gs:
+        return ""
+    lis = "".join(f'<li><a href="/{g["slug"]}/">{esc(g["h1"])}</a><p>{esc(g["blurb"])}</p></li>' for g in gs)
+    return f'<h2>Guides &amp; explainers</h2><ul class="links">{lis}</ul>'
 
 def top_picks(rows):
     cheap = min(rows, key=ppw)
@@ -506,6 +561,7 @@ def build():
                 + f'<h2>All {esc(site["phrase"])} prices, ranked by $/Wh</h2>'
                 + table_html(pool, show_brand_filter=True)
                 + cluster_cards(site)
+                + guide_cards(site)
                 + faq_html(site["faqs"]))
         (root / "index.html").write_text(page(
             site, "/", f'{site["display"]} Prices Compared by $/Wh — Live Price Tracker',
@@ -533,6 +589,39 @@ def build():
             (d / "index.html").write_text(page(
                 site, f'/{c["slug"]}/', f'{c["h1"]} — Prices by $/Wh',
                 f'{c["blurb"]} Prices from the makers\' own stores, refreshed {date_str}.', cbody))
+        # guide / comparison / blog pages (content_guides.py)
+        guides = GUIDES.get(site["domain"], [])
+        by_slug = {c["slug"]: c for c in site["clusters"]}
+        for g in guides:
+            by_slug[g["slug"]] = g
+        for g in guides:
+            rows = resolve_rows(g.get("filter"), pool)[:40]
+            ctx = guide_ctx(resolve_rows(g.get("ctx_filter") or g.get("filter"), pool), pool, date_str)
+            parts = [f'<h1>{esc(g["h1"])}</h1>',
+                     f'<p class="lede">{fmt(g["lede"], ctx)}</p>',
+                     DISCLOSURE.format(ts=fetched, date=date_str)]
+            if rows and g.get("stats", True):
+                parts.append(stats_html(rows))
+            for head, blocks in g.get("sections", []):
+                parts.append(f'<h2>{esc(head)}</h2>')
+                for b in blocks:
+                    parts.append(fmt(b, ctx))
+            if rows:
+                parts.append(f'<h2>{esc(g.get("table_heading") or "Prices, ranked by $/Wh")}</h2>')
+                parts.append(table_html(rows))
+            rel = [f'<li><a href="/">All {esc(site["phrase"])} prices</a><p>The full live table, every model ranked by $/Wh.</p></li>']
+            for slug in g.get("related", [])[:3]:
+                o = by_slug.get(slug)
+                if o:
+                    rel.append(f'<li><a href="/{slug}/">{esc(o["h1"])}</a><p>{esc(o["blurb"])}</p></li>')
+            parts.append(f'<h2>Keep comparing</h2><ul class="links">{"".join(rel)}</ul>')
+            gfaqs = g.get("faqs") or site["faqs"][:3]
+            parts.append(faq_html([(q, fmt(a, ctx)) for q, a in gfaqs]))
+            urls.append(f'/{g["slug"]}/')
+            gd = root / g["slug"]; gd.mkdir(exist_ok=True)
+            (gd / "index.html").write_text(page(
+                site, f'/{g["slug"]}/', fmt(g["title"], ctx), fmt(g["desc"], ctx),
+                "".join(parts), extra_head=itemlist_ld(rows, site) if rows else ""))
         # about
         urls.append("/about/")
         adir = root / "about"; adir.mkdir(exist_ok=True)
