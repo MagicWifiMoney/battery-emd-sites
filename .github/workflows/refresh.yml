@@ -1,0 +1,43 @@
+name: Battery EMD price refresh
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: price-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch latest prices
+        run: python3 pipeline/fetch_prices.py
+
+      - name: Rebuild sites
+        run: python3 pipeline/build_sites.py
+
+      - name: Commit and push if anything changed
+        run: |
+          git config user.name "Jaycub Giebel"
+          git config user.email "magicwifimoney@gmail.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No price changes."
+          else
+            git commit -m "Price refresh $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            git push origin main
+          fi
