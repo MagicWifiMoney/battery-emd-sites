@@ -220,7 +220,8 @@ VERIFY_META = {
         "<meta name='google-site-verification' content='TXRvIcGdrLCX9GsI012j_PXULUWzMRIMcpJZBBI_ZTE'>" + BING_VERIFY,
     "serverrackbatteries.com": "<meta name='impact-site-verification' value='63ba17d3-02ec-4189-ad44-68c1b729f522'>"
         "<meta name='google-site-verification' content='uLL1hkMpkzoAYLMgg5EKA_RplqdXOVGaw5r3fQCXyfY'>" + BING_VERIFY,
-    "24vlifepo4battery.com": "<meta name='google-site-verification' content='zMEySrHVfidP_xfgtt7h7DzB0QWHIrFbInLrlCms_Qs'>" + BING_VERIFY,
+    "24vlifepo4battery.com": "<meta name='impact-site-verification' value='900cf588-76ca-4add-8122-f692fb2d1e15'>"
+        "<meta name='google-site-verification' content='zMEySrHVfidP_xfgtt7h7DzB0QWHIrFbInLrlCms_Qs'>" + BING_VERIFY,
 }
 
 
