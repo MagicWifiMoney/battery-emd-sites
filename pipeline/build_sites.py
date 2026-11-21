@@ -536,7 +536,7 @@ HOME_DOMAIN = {"rack": "serverrackbatteries.com",
                "12v": "12vlifepo4battery.com"}
 DOMAIN_SEG = {v: k for k, v in HOME_DOMAIN.items()}
 # Wave rollout: sites whose product pages / facet hubs / deals render.
-PHASE2_SITES = {"serverrackbatteries.com"}
+PHASE2_SITES = {"serverrackbatteries.com", "12vlifepo4battery.com"}
 
 def _has(t, *ws):
     return any(w in t for w in ws)
@@ -1132,6 +1132,8 @@ def build():
                          + f'<div class="stat"><b class="pricedata">${myppw:.3f}/Wh</b><span>price per watt-hour</span></div>'
                          + f'<div class="stat"><b class="pricedata">${myppw*1000:,.0f}/kWh</b><span>price per kilowatt-hour</span></div>'
                          + f'<div class="stat"><b>{esc(cap_label(p))}</b><span>rated capacity</span></div></div>'
+                         + (f'<p class="pricedata">Maker\'s list price: <span class="was">{money(p["compare_at"])}</span> — a struck-through price appears only when the maker\'s own store lists one.</p>'
+                            if p.get("compare_at") and p["compare_at"] > p["price"] else "")
                          + f'<p><a class="buy" href="{esc(p["url"])}" rel="nofollow sponsored noopener" target="_blank">View at {esc(p["brand"])}\'s store</a></p>'
                          + f'<h2>Where it ranks in its class</h2>{rankline}'
                          + mini_table(rows_c[lo:hi], p)
