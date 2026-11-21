@@ -649,6 +649,84 @@ GUIDES = {
         ],
         "related": ["12v-100ah-lifepo4-battery", "12v-lifepo4-charging-guide", "how-to-choose"],
     },
+    {
+        "slug": "12v-battery-for-cpap",
+        "title": "12V Battery for CPAP Camping: Nights per Charge, by Humidifier Setting",
+        "desc": "A CPAP's battery appetite is set by its heater, not its motor: runtime tables for therapy-only, humidifier and heated-tube settings on 100Ah and 200Ah, priced live.",
+        "h1": "A 12V Battery for CPAP Camping: The Heater Decides Your Nights",
+        "blurb": "Therapy-only sips ~20W; the heated humidifier and tube can quadruple it. Nights per charge, worked openly.",
+        "lede": "The CPAP motor is not the load — the <b>heaters</b> are. Run therapy-only (humidifier off, standard tube) and a typical machine averages roughly <b>15–25W</b>, so a 12V 100Ah battery's ~970Wh of delivered energy lasts <b>about 5–8 nights</b>. Turn the heated humidifier and heated tube up and the same machine can draw <b>60–90W</b> — the same battery is a <b>1–2 night</b> battery. Every camping-CPAP decision is that one settings choice, priced against the {n} 100Ah-class batteries in the live table below (cheapest today: <b>{cheap_title}</b> at {cheap_price}, ${cheap_ppw}/Wh).",
+        "filter": "ah90_115",
+        "table_heading": "The 12V 100Ah batteries this math runs on, ranked by $/Wh",
+        "sections": [
+            ("Nights per charge, by setting (8-hour nights)", [
+                "<table><thead><tr><th>CPAP setup</th><th>Average draw (planning range)</th><th>Energy per night</th><th>Nights on 100Ah (~970Wh delivered)</th><th>Nights on 200Ah (~1,940Wh)</th></tr></thead><tbody>"
+                "<tr><td>Therapy only — humidifier off, standard tube</td><td>15–25W</td><td>120–200Wh</td><td>~5–8</td><td>~10–16</td></tr>"
+                "<tr><td>Heated humidifier on, heated tube off</td><td>35–50W</td><td>280–400Wh</td><td>~2–3</td><td>~5–7</td></tr>"
+                "<tr><td>Humidifier + heated tube, high settings</td><td>60–90W</td><td>480–720Wh</td><td>~1–2</td><td>~3–4</td></tr>"
+                "</tbody></table>",
+                "<p>Draw ranges are planning figures for common travel and home machines (higher pressure settings sit toward the top of each range); your machine's exact appetite is on its power-supply label and in its manual. 'Delivered' energy assumes you plan on ~80% of the battery's 1,280Wh nameplate and lose a little in the DC converter — the reserve is deliberate, because a battery that dies at 4 a.m. on night three is worse than a conservative plan. The 200Ah column is the same math on the <a href=\"/12v-200ah-lifepo4-battery/\">200Ah class</a>.</p>",
+            ]),
+            ("Use the DC converter, not an inverter", [
+                "<p>Almost every CPAP is a DC machine wearing an AC brick: the therapy unit itself runs on low-voltage DC, and the maker sells a 12V DC converter for vehicle and battery use. Powering it through an AC inverter instead pays three taxes: conversion loss on the way up to AC and back down, the inverter's own idle draw (commonly 10–25W — over an 8-hour night that is 80–200Wh, up to a full therapy-only night, spent powering nothing), and one more box to pack. The DC converter route is why the table above can use a ~970Wh delivered figure at all.</p>",
+                "<ul><li><b>Buy the maker's converter for your exact model</b> — CPAP DC inputs are model-specific (voltage and connector), and a generic adapter that under-volts the machine can fault it mid-night.</li><li><b>Turn the heaters down before you buy a bigger battery:</b> dropping from heated-tube-max to therapy-only is worth more nights than doubling the battery, and it is free. A passive (water-filled, unheated) humidifier is the middle setting many campers settle on.</li><li><b>Test the whole rig at home for a full night first</b>, at the settings you will actually use, and note the battery's state of charge in the morning. That one rehearsal replaces every estimate on this page with your number — do not let the first real test be the trip.</li></ul>",
+            ]),
+            ("Sizing the trip, honestly", [
+                "<p>Work backwards from nights × your row in the table. A weekend (2–3 nights) at therapy-only or modest humidity fits inside one 100Ah battery with reserve — the class in the table below, where the same 1,280Wh in every row makes $/Wh a pure price ranking. A week with the humidifier running is a 200Ah conversation, or a 100Ah plus a way to recharge (vehicle DC-DC on driving days, or a folding panel at camp — the <a href=\"/12v-lifepo4-battery-for-solar/\">solar page</a> prices that pairing). And a note that outranks the math: if your therapy is not optional, carry the reserve — size for the worst row you might actually run, not the best row you hope to.</p>",
+            ]),
+        ],
+        "faqs": [
+            ("How long will a 12V 100Ah battery run a CPAP?",
+             "It depends almost entirely on the heaters. Therapy-only (humidifier off), a typical machine averages 15–25W and a 100Ah battery delivers roughly 5–8 eight-hour nights. With a heated humidifier, plan on 2–3 nights; with humidifier and heated tube at high settings, 1–2 nights. The maker's 12V DC converter (not an AC inverter) is assumed in all three figures."),
+            ("Can I run my CPAP straight off a 12V battery?",
+             "Not straight — through the machine maker's 12V DC converter for your exact model. CPAPs run on low-voltage DC internally but at model-specific voltages and connectors; the official converter steps the battery's 12V to what the machine expects. Never improvise the connection with a generic adapter."),
+            ("Is a 100Ah battery enough for a week of CPAP camping?",
+             "At therapy-only settings, yes — 5–8 nights covers most weeks, with the top of the range needing the lower-draw end. With a heated humidifier every night, no: a week needs roughly 2,000–2,800Wh delivered, which means the 200Ah class, a second 100Ah, or a recharge source during the trip."),
+        ],
+        "related": ["12v-100ah-lifepo4-battery", "12v-200ah-lifepo4-battery", "rv-batteries"],
+    },
+    {
+        "slug": "ice-fishing-battery-guide",
+        "title": "LiFePO4 Battery for Ice Fishing: Cold Rules, Sonar Loads, Shuttle Sizes",
+        "desc": "Ice fishing runs on small batteries in deep cold: what a flasher, a forward-facing sonar and shanty lights actually draw per day, which pack size covers it, and the below-freezing charging rule.",
+        "h1": "Ice Fishing with LiFePO4: Small Packs, Deep Cold, Honest Runtime",
+        "blurb": "A flasher day costs ~90Wh; a forward-facing-sonar day costs ~300Wh. The pack sizes that cover each — and why charging, not discharging, is the cold problem.",
+        "lede": "Ice fishing is the one use on this site where the battery lives at <b>-10°C or colder</b> and the loads are measured in tens of watts. A flasher-only day on the ice costs roughly <b>90Wh</b>; a forward-facing-sonar day costs roughly <b>300Wh</b>. That puts the decision in the small-pack class — the {n} tracked models of 60Ah and under below, from <b>${minppw}/Wh</b> — and makes one cold rule more important than any capacity figure: <b>a LiFePO4 battery can discharge in the cold, but it must not be charged below freezing</b> unless it heats itself first. This guide works both halves: the day math, then the cold math.",
+        "filter": "ah5_60",
+        "table_heading": "Small 12V LiFePO4 packs (60Ah and under), ranked by $/Wh",
+        "sections": [
+            ("What a day on the ice actually draws (8 hours)", [
+                "<table><thead><tr><th>Load</th><th>Draw (planning range)</th><th>Energy per 8h day</th></tr></thead><tbody>"
+                "<tr><td>Flasher / basic sonar</td><td>8–12W</td><td>~65–95Wh</td></tr>"
+                "<tr><td>Color sonar/GPS combo</td><td>15–20W</td><td>~120–160Wh</td></tr>"
+                "<tr><td>Forward-facing sonar (display + sonar box)</td><td>20–30W</td><td>~160–240Wh</td></tr>"
+                "<tr><td>LED shanty lights + phone top-ups</td><td>5–10W</td><td>~40–80Wh</td></tr>"
+                "</tbody></table>",
+                "<p>Planning ranges, not measurements of your unit — the rating is printed on each device, and a shuttle battery with a percentage readout settles it after one trip. Note the shape: even the heaviest electronic day (forward-facing sonar plus lights, ~300Wh) is a quarter of what a single 100Ah battery holds. On the ice, the constraint is rarely total energy — it is pack size, weight on the sled, and temperature.</p>",
+            ]),
+            ("Picking the pack: days per charge, cold-adjusted", [
+                "<table><thead><tr><th>Pack</th><th>Nameplate</th><th>Cold-day planning usable (~75%)</th><th>Flasher days (~90Wh/day)</th><th>Forward-facing days (~300Wh/day)</th></tr></thead><tbody>"
+                "<tr><td>12Ah</td><td>154Wh</td><td>~115Wh</td><td>~1</td><td>Not enough</td></tr>"
+                "<tr><td>30Ah</td><td>384Wh</td><td>~290Wh</td><td>~3</td><td>~1</td></tr>"
+                "<tr><td>50Ah</td><td>640Wh</td><td>~480Wh</td><td>~5</td><td>~1.5</td></tr>"
+                "</tbody></table>",
+                "<p>The ~75% planning figure bundles two cold realities: a LiFePO4 pack sitting at deep-cold temperatures delivers measurably less than its room-temperature rating, and you still leave a reserve rather than skating home on an empty shuttle. Both penalties shrink if the pack rides in an insulated shuttle box and sleeps indoors — a warm 30Ah outperforms a frozen 50Ah, which is why the cheapest capacity upgrade on the ice is a foam-lined box. The table below prices the class; note that small packs always cost more per watt-hour than the big RV-class batteries (one BMS and case spread over fewer Wh) — you are paying for portability, and the $/Wh column shows exactly how much.</p>",
+            ]),
+            ("The cold rules (the section that saves batteries)", [
+                "<ul><li><b>Discharge cold, charge warm.</b> Using the pack at -20°C is hard on runtime but not on the battery's life. Charging below 0°C is the opposite: it plates lithium onto the cells and permanently costs capacity. Charge indoors, overnight, at room temperature — which conveniently matches how ice fishing days actually run.</li><li><b>Low-temperature protection is the spec to verify.</b> A BMS with low-temp charge cutoff refuses a frozen charge instead of taking the damage. Not every small pack has it; it is the first line to check on the product page of any model in the table.</li><li><b>Self-heating is the exception that proves the rule:</b> the self-heating 30Ah class in the table (LiTime's LiHeat ice-fishing pack is the tracked example) warms its own cells before accepting a charge, which is what makes charging in a heated shanty or fish house legitimate. Its higher $/Wh is the visible price of that heater — worth it only if your routine actually charges away from a warm room.</li><li><b>Augers are a different battery.</b> Dedicated auger packs are tool batteries, not 12V LiFePO4 shuttles; nothing in the table is a substitute for one, and no shuttle pack should be asked to drill.</li></ul>",
+                "<p>Come summer, the same packs go straight into the kayak and the trolling-motor shuttle — the <a href=\"/marine-trolling-motor-batteries/\">marine table</a> is the warm-water version of this page, and the <a href=\"/12v-lifepo4-charging-guide/\">charging guide</a> covers the year-round profile behind the cold rules.</p>",
+            ]),
+        ],
+        "faqs": [
+            ("What size LiFePO4 battery do I need for ice fishing?",
+             "Match it to the sonar: a flasher-only angler is covered for a long day by a 12Ah pack and for a weekend by a 30Ah. Forward-facing sonar changes the class — budget ~300Wh per day, so a 30Ah is a one-day pack and a 50Ah gives a day and a half with cold reserve. Lights and phone charging add ~40–80Wh per day on top."),
+            ("Can a LiFePO4 battery be used in freezing weather?",
+             "Yes for discharging — expect reduced runtime in deep cold (plan on roughly three-quarters of nameplate for a pack that sits cold all day, less penalty if it rides insulated). The hard limit is charging: never charge a standard LiFePO4 below 0°C / 32°F. Either charge it warm indoors, choose a model whose BMS blocks cold charging, or use a self-heating model that warms itself first."),
+            ("Why are ice-fishing batteries so much more expensive per watt-hour?",
+             "Fixed costs — the BMS, case and terminals — are spread over 150–600Wh instead of several thousand, and the cold features (low-temp protection, self-heating, sealed shuttle-ready cases) are real hardware. The table's $/Wh column makes the portability premium explicit instead of hiding it in a sticker price."),
+        ],
+        "related": ["marine-trolling-motor-batteries", "12v-lifepo4-charging-guide", "12v-100ah-lifepo4-battery"],
+    },
 ],
 "serverrackbatteries.com": [
     {
