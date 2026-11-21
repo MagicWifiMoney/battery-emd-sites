@@ -19,7 +19,7 @@ after Awin/Impact approval the fetcher/config maps urls to network deep links.
 Freshness: prices carry the fetched_at date in copy; a JS guard hides numeric
 prices when data is >72h old and shows "Check price" instead.
 """
-import json, re, html, statistics
+import json, re, html, statistics, hashlib
 from pathlib import Path
 from datetime import datetime, timezone
 
@@ -162,9 +162,15 @@ def table_html(rows, show_brand_filter=False, tid="t"):
         was = f' <span class="was">{money(p["compare_at"])}</span>' if p.get("compare_at") and p["compare_at"] > p["price"] else ""
         avail = "" if p.get("available", True) else ' <span class="oos">check stock</span>'
         a = ah_of(p)
+        plink = PROD_URL.get(p["url"])
+        if plink:
+            title_cell = f'<a href="{esc(plink)}">{esc(p["title"])}</a>'
+        else:
+            title_cell = (f'<a href="{esc(p["url"])}" rel="nofollow sponsored noopener" '
+                          f'target="_blank">{esc(p["title"])}</a>')
         trs.append(
             f'<tr data-brand="{esc(p["brand"])}">'
-            f'<td data-v="{esc(p["title"])}"><a href="{esc(p["url"])}" rel="nofollow sponsored noopener" target="_blank">{esc(p["title"])}</a>{avail}</td>'
+            f'<td data-v="{esc(p["title"])}">{title_cell}{avail}</td>'
             f'<td data-v="{esc(p["brand"])}">{esc(p["brand"])}</td>'
             f'<td class="num" data-v="{a or 0}">{cap_label(p)}</td>'
             f'<td class="num pricedata" data-v="{p["price"]}">{money(p["price"])}{was}</td>'
@@ -520,6 +526,398 @@ SITES = [
 ]
 
 
+# ---------- phase 2: product pages, facet hubs, deals ----------
+# Spec: research/product-pages-spec-2026-11-21.md (verdicts binding).
+HISTORY_PATH = ROOT / "data" / "price_history.json"
+PROD_URL = {}   # catalog url -> absolute product-page url (enabled waves only)
+SLUG_OF = {}    # catalog url -> slug on its home site
+HOME_DOMAIN = {"rack": "serverrackbatteries.com",
+               "48v": "48vlifepo4battery.com",
+               "12v": "12vlifepo4battery.com"}
+DOMAIN_SEG = {v: k for k, v in HOME_DOMAIN.items()}
+# Wave rollout: sites whose product pages / facet hubs / deals render.
+PHASE2_SITES = {"serverrackbatteries.com"}
+
+def _has(t, *ws):
+    return any(w in t for w in ws)
+
+# Slug tokens, applied in this whitelist order (spec section 1).
+TOKEN_RULES = [
+    ("heated", lambda p, t: _has(t, "heated", "self-heating", "self heating", "liheat")),
+    ("bluetooth", lambda p, t: "bluetooth" in t),
+    ("wifi", lambda p, t: _has(t, "wifi", "wi-fi")),
+    ("wall", lambda p, t: _has(t, "wall-mounted", "wall mounted", "wall-mount")),
+    ("rack", lambda p, t: p["type"] == "rack-battery" or "rack" in t),
+    ("trolling", lambda p, t: "trolling" in t),
+    ("rv", lambda p, t: re.search(r"\brv\b", t) is not None),
+    ("golf", lambda p, t: "golf" in t),
+    ("marine", lambda p, t: "marine" in t),
+    ("low-temp", lambda p, t: _has(t, "low-temp", "low temp")),
+    ("smart", lambda p, t: "smart" in t),
+    ("8d", lambda p, t: re.search(r"\b8d\b", t) is not None),
+]
+
+def class_int(p):
+    v = volts(p)
+    if v is None:
+        return None
+    for nominal, ci in ((12.8, 12), (25.6, 24), (38.4, 36), (51.2, 48)):
+        if abs(v - nominal) < 1.5:
+            return ci
+    return int(round(v))
+
+def brand_slug(b):
+    return re.sub(r"[^a-z0-9]+", "-", b.lower()).strip("-")
+
+def descriptive_slug(p):
+    a = ah_of(p)
+    ci = class_int(p)
+    if a is None or ci is None:
+        return None
+    head = [brand_slug(p["brand"]), f"{ci}v", f"{int(round(a))}ah"]
+    t = p["title"].lower()
+    toks = [name for name, fn in TOKEN_RULES if fn(p, t)][:3]
+    while toks and len("-".join(head + toks)) > 63:
+        toks.pop()
+    return "-".join(head + toks)
+
+def assign_slugs(home_pool):
+    """{catalog url: slug} for one URL-deduped home pool. Colliding
+    descriptive slugs get a -<sha1(url)[:6]> suffix on every member."""
+    groups = {}
+    for p in home_pool:
+        s = descriptive_slug(p)
+        if s:
+            groups.setdefault(s, []).append(p)
+    out = {}
+    for s, rows in groups.items():
+        if len(rows) == 1:
+            out[rows[0]["url"]] = s
+        else:
+            for p in rows:
+                h = hashlib.sha1(p["url"].encode()).hexdigest()[:6]
+                out[p["url"]] = f"{s}-{h}"
+    return out
+
+# Price-position classes (spec section 1): home pool x Ah band.
+AH_BANDS = [("60Ah and under", lambda a: a <= 60),
+            ("90-115Ah", lambda a: 90 <= a <= 115),
+            ("180-235Ah", lambda a: 180 <= a <= 235),
+            ("280-330Ah", lambda a: 280 <= a <= 330)]
+
+def class_context(p, home_pool):
+    a = ah_of(p)
+    rows, label = None, "all tracked models on this site"
+    if a is not None:
+        for lab, fn in AH_BANDS:
+            if fn(a):
+                rows = [q for q in home_pool
+                        if ah_of(q) is not None and fn(ah_of(q))]
+                label = lab
+                break
+    if not rows:
+        rows = list(home_pool)
+    rows = sorted(rows, key=ppw)
+    rank = next(i for i, q in enumerate(rows) if q["url"] == p["url"]) + 1
+    med = statistics.median(ppw(q) for q in rows)
+    return {"rows": rows, "rank": rank, "n": len(rows), "label": label,
+            "median": med, "cheap": rows[0]}
+
+WH_METHOD_NOTES = {
+    "v-times-ah": "Capacity computed from the maker's rated volts x amp-hours.",
+    "variant-ah-x-title-v": "Capacity computed from the maker's rated volts x amp-hours for this variant.",
+    "explicit-wh": "Capacity as stated in watt-hours in the maker's own listing.",
+    "stated-kwh": "Capacity as stated in kilowatt-hours in the maker's own listing.",
+    "body-wh-before-capacity-label": "Capacity as stated in watt-hours in the maker's own listing.",
+    "explicit-wh-variant-bundle-sum": "Capacity is the sum of the bundled components' stated watt-hours in the maker's listing.",
+    "body-mode-wh": "Capacity taken from the watt-hour figure the maker's listing states most consistently.",
+    "override-curated": "Capacity verified against the maker's published specification for this model.",
+}
+
+def product_ld(p, site, slug):
+    a = ah_of(p)
+    ah_val = None
+    if a is not None:
+        ah_val = int(a) if float(a).is_integer() else round(a, 1)
+    props = [{"@type": "PropertyValue", "name": "Capacity",
+              "value": p["wh"], "unitText": "Wh"}]
+    if ah_val is not None:
+        props.append({"@type": "PropertyValue", "name": "Amp-hours",
+                      "value": ah_val, "unitText": "Ah"})
+    if volts(p) is not None:
+        props.append({"@type": "PropertyValue", "name": "Nominal voltage",
+                      "value": volts(p), "unitText": "V"})
+    props.append({"@type": "PropertyValue", "name": "Price per watt-hour",
+                  "value": ppw(p), "unitText": "USD/Wh"})
+    ld = {"@context": "https://schema.org", "@type": "Product",
+          "name": p["title"],
+          "brand": {"@type": "Brand", "name": p["brand"]},
+          "url": f"https://{site['domain']}/product/{slug}/",
+          "additionalProperty": props,
+          "offers": {"@type": "Offer", "url": p["url"],
+                     "priceCurrency": "USD", "price": p["price"],
+                     "availability": ("https://schema.org/InStock" if p.get("available", True)
+                                      else "https://schema.org/OutOfStock"),
+                     "seller": {"@type": "Organization",
+                                "name": f"{p['brand']} (maker's store)"}}}
+    return f'<script type="application/ld+json">{json.dumps(ld)}</script>'
+
+def mini_table(rows, self_p):
+    trs = []
+    for q in rows:
+        mark = ' <b style="color:var(--acc)">— this battery</b>' if q["url"] == self_p["url"] else ""
+        link = PROD_URL.get(q["url"])
+        name = (f'<a href="{esc(link)}">{esc(q["title"])}</a>' if link
+                else esc(q["title"]))
+        trs.append(f'<tr><td>{name}{mark}</td>'
+                   f'<td class="num pricedata" data-v="{q["price"]}">{money(q["price"])}</td>'
+                   f'<td class="num ppw pricedata" data-v="{ppw(q)}">${ppw(q):.3f}</td></tr>')
+    return ('<div style="overflow-x:auto"><table><thead><tr><th>Product</th>'
+            '<th class="num">Price</th><th class="num">$/Wh</th></tr></thead>'
+            f'<tbody>{"".join(trs)}</tbody></table></div>')
+
+def capacity_link(site, pool, p, by_slug):
+    """Most specific existing cluster/guide page (slug contains 'ah') whose
+    table contains this product — the product's capacity-class parent."""
+    cands = []
+    pages = [(c["slug"], FILTERS[c["filter"]](pool)) for c in site["clusters"]]
+    pages += [(g["slug"], resolve_rows(g.get("filter"), pool))
+              for g in GUIDES.get(site["domain"], [])]
+    for slug, rows in pages:
+        if "ah" not in slug or not rows:
+            continue
+        if any(q["url"] == p["url"] for q in rows):
+            cands.append((len(rows), slug))
+    if not cands:
+        return None
+    cands.sort()
+    return cands[0][1]
+
+# Facet hubs (spec section 3 verdicts). Hub renders only at >=3 rows.
+PRICE_BANDS = {
+    "12vlifepo4battery.com": [(0, 500, "Under $500", "under-500"),
+                              (500, 1000, "$500 to $1,000", "500-to-1000"),
+                              (1000, None, "$1,000 and up", "over-1000")],
+    "48vlifepo4battery.com": [(0, 1000, "Under $1,000", "under-1000"),
+                              (1000, 2000, "$1,000 to $2,000", "1000-to-2000"),
+                              (2000, None, "$2,000 and up", "over-2000")],
+    "serverrackbatteries.com": [(500, 1000, "$500 to $1,000", "500-to-1000"),
+                                (1000, 2000, "$1,000 to $2,000", "1000-to-2000"),
+                                (2000, None, "$2,000 and up", "over-2000")],
+}
+HEATED_TEST = lambda p: title_has(p, "heated", "self-heating", "self heating", "liheat")
+
+def plural_display(site):
+    d = site["display"]
+    return d[:-1] + "ies" if d.endswith("Battery") else d
+
+def facet_hubs(site, pool):
+    hubs = []
+    pd = plural_display(site)
+    counts = {}
+    for p in pool:
+        counts[p["brand"]] = counts.get(p["brand"], 0) + 1
+    for b in sorted(counts):
+        if counts[b] >= 3:
+            hubs.append({"slug": f"brand/{brand_slug(b)}", "kind": "brand", "key": b,
+                         "h1": f"{b} {pd}",
+                         "blurb": f"Every {b} model in this tracker, ranked by $/Wh.",
+                         "rows": sorted([p for p in pool if p["brand"] == b], key=ppw)})
+    for lo, hi, label, slug in PRICE_BANDS[site["domain"]]:
+        rows = sorted([p for p in pool
+                       if p["price"] >= lo and (hi is None or p["price"] < hi)], key=ppw)
+        if len(rows) >= 3:
+            hubs.append({"slug": slug, "kind": "price", "key": label,
+                         "h1": f"{pd} — {label}",
+                         "blurb": f"Tracked models priced {label.lower()}, ranked by $/Wh.",
+                         "rows": rows})
+    rows = sorted(FILTERS["ah5_60"](pool), key=ppw)
+    if len(rows) >= 3:
+        hubs.append({"slug": "compact-batteries", "kind": "capacity", "key": "5-60Ah",
+                     "h1": f"Compact {pd} (5-60Ah)",
+                     "blurb": "Small 5-60Ah packs for portable and space-tight jobs, ranked by $/Wh.",
+                     "rows": rows})
+    rows = sorted([p for p in pool if HEATED_TEST(p)], key=ppw)
+    if len(rows) >= 3:
+        hubs.append({"slug": "heated-batteries", "kind": "heated", "key": "heated",
+                     "h1": f"Heated {pd}",
+                     "blurb": "Models whose maker listing names self-heating, ranked by $/Wh.",
+                     "rows": rows})
+    rows = sorted([p for p in pool if title_has(p, "bluetooth")], key=ppw)
+    if len(rows) >= 3:
+        hubs.append({"slug": "bluetooth-batteries", "kind": "bluetooth", "key": "bluetooth",
+                     "h1": f"{pd} with Bluetooth",
+                     "blurb": "Models whose maker listing names Bluetooth monitoring, ranked by $/Wh.",
+                     "rows": rows})
+    if site["domain"] == "12vlifepo4battery.com":
+        rows = sorted([p for p in pool if title_has(p, "group")], key=ppw)
+        if len(rows) >= 4:
+            hubs.append({"slug": "group-size-batteries", "kind": "group", "key": "group",
+                         "h1": "12V LiFePO4 Batteries by Group Size",
+                         "blurb": "Drop-in group-size cases (Group 24, 27, 31, 8D and similar), ranked by $/Wh.",
+                         "rows": rows})
+    return hubs
+
+def hub_prose(site, hub):
+    rows = hub["rows"]
+    n = len(rows)
+    cheap = rows[0]
+    ppws = [ppw(p) for p in rows]
+    med = statistics.median(ppws)
+    if hub["kind"] == "brand":
+        return (f"<p>{esc(hub['key'])} lists {n} models in this tracker's {esc(site['phrase'])} pool, "
+                f"from {money(min(p['price'] for p in rows))} to {money(max(p['price'] for p in rows))}. "
+                f"The cheapest {esc(hub['key'])} stored energy right now is the {esc(cheap['title'])} "
+                f"at ${ppw(cheap):.3f}/Wh; the brand's median is ${med:.3f}/Wh. "
+                f"Every model below is ranked by $/Wh, the same order as the main table — "
+                f"no placement is paid for.</p>")
+    if hub["kind"] == "price":
+        medwh = statistics.median(p["wh"] for p in rows)
+        return (f"<p>{n} tracked models are priced {esc(hub['key'].lower())} right now. In this band the "
+                f"median battery stores {medwh:,.0f}Wh and the cheapest stored energy is "
+                f"${min(ppws):.3f}/Wh ({esc(cheap['brand'])}); the band median is ${med:.3f}/Wh. "
+                f"A lower sticker in this band is not automatically better value — the $/Wh column "
+                f"is the comparison that matters.</p>")
+    if hub["kind"] == "capacity":
+        return (f"<p>Compact 5-60Ah packs trade a higher $/Wh for portability: trolling motors, fish "
+                f"finders, portable power and tight battery boxes. {n} models are tracked here; the "
+                f"cheapest stored energy is ${min(ppws):.3f}/Wh ({esc(cheap['brand'])}), the median "
+                f"${med:.3f}/Wh. If your space allows a bigger case, the 100Ah class on the main table "
+                f"usually stores energy for less.</p>")
+    if hub["kind"] == "heated":
+        return (f"<p>This hub is built from listing titles: it collects the {n} models whose maker "
+                f"listing names self-heating (\"heated\", \"self-heating\" or \"LiHeat\" in the title). "
+                f"Low-temperature charge protection — a cutoff that blocks charging below freezing, "
+                f"not a heater — does not count here. We have not tested any heating function; the "
+                f"maker's own page (linked from each row) describes how each model implements it.</p>")
+    if hub["kind"] == "bluetooth":
+        return (f"<p>This hub is built from listing titles: it collects the {n} models whose maker "
+                f"listing names Bluetooth monitoring. State-of-charge guessing is the top complaint "
+                f"with budget packs, so an app-readable BMS is a real feature — but we have not tested "
+                f"any of these apps; check the maker's page for what its monitoring actually shows.</p>")
+    if hub["kind"] == "group":
+        return (f"<p>Group-size cases are built to drop into an existing lead-acid battery tray or box "
+                f"(Group 24, 27, 31, 8D and similar). This hub is built from listing titles — the "
+                f"{n} models whose maker listing names a group size — ranked by $/Wh. Measure your "
+                f"tray before ordering; group sizes are close but not identical across brands.</p>")
+    return ""
+
+def facet_cards(hubs):
+    if not hubs:
+        return ""
+    lis = "".join(f'<li><a href="/{h["slug"]}/">{esc(h["h1"])}</a><p>{esc(h["blurb"])}</p></li>'
+                  for h in hubs)
+    return f'<h2>Browse by brand, size &amp; price</h2><ul class="links">{lis}</ul>'
+
+# Deals (spec section 4): launch gate >=24 snapshots spanning >=7 days.
+def _parse_ts(ts):
+    return datetime.fromisoformat(ts.replace("Z", "+00:00"))
+
+def load_snapshots():
+    try:
+        h = json.loads(HISTORY_PATH.read_text())
+        snaps = [s for s in h.get("snapshots", []) if s.get("ts") and s.get("prices")]
+        return sorted(snaps, key=lambda s: s["ts"])
+    except Exception:
+        return []
+
+def deals_info(pool):
+    """(gate_open, baseline_snapshot, drops, snapshots). Baseline = oldest
+    snapshot at least 6 days older than the newest one."""
+    snaps = load_snapshots()
+    if not snaps:
+        return False, None, [], snaps
+    from datetime import timedelta
+    latest = _parse_ts(snaps[-1]["ts"])
+    span_days = (latest - _parse_ts(snaps[0]["ts"])).total_seconds() / 86400
+    if len(snaps) < 24 or span_days < 7:
+        return False, None, [], snaps
+    cutoff = latest - timedelta(days=6)
+    eligible = [s for s in snaps if _parse_ts(s["ts"]) <= cutoff]
+    if not eligible:
+        return False, None, [], snaps
+    base = eligible[0]
+    drops = []
+    for p in pool:
+        old = base["prices"].get(p["url"])
+        if old and p.get("available", True):
+            drop = old - p["price"]
+            if drop >= 25 and drop >= 0.05 * old:
+                drops.append({"p": p, "old": old, "drop": drop,
+                              "pct": drop / old * 100,
+                              "old_ppw": old / p["wh"]})
+    drops.sort(key=lambda d: -d["pct"])
+    return True, base, drops, snaps
+
+def deals_body(site, pool, fetched, date_str):
+    gate, base, drops, snaps = deals_info(pool)
+    if not gate:
+        if snaps:
+            from datetime import timedelta as _td
+            first = _parse_ts(snaps[0]["ts"])
+            last = _parse_ts(snaps[-1]["ts"])
+            span = (last - first).total_seconds() / 86400
+            status = (f"Price tracking began {first.strftime('%B %d, %Y')}. So far "
+                      f"{len(snaps)} snapshot{'s' if len(snaps) != 1 else ''} "
+                      f"span {span:.1f} days.")
+            eta = (first + _td(days=7)).strftime("%B %d, %Y")
+        else:
+            status = "Price tracking has just been switched on; no snapshots exist yet."
+            eta = "about a week after tracking starts"
+        body = (f'<h1>{esc(site["display"])} Price Drops — Tracker warming up</h1>'
+                f'<p class="lede">This page will rank the biggest price drops in the makers\' own '
+                f'stores over a rolling ~7-day window, by percentage and by $/Wh. It publishes its '
+                f'first edition once at least 7 days and 24 snapshots of price history exist — '
+                f'we would rather show no drops than invent them.</p>'
+                + DISCLOSURE.format(ts=fetched, date=date_str)
+                + f'<div class="prose"><p>{esc(status)}</p>'
+                f'<h2>How drops will be measured</h2>'
+                f'<p>Each refresh of this tracker stores a price snapshot. A model qualifies for '
+                f'this page when the same listing is available now and its price has fallen at least '
+                f'5% and at least $25 against the oldest snapshot at least 6 days old. Rankings are '
+                f'by percentage drop; the table will show the old and new prices and the $/Wh then '
+                f'and now, with the snapshot dates. A few hand-tracked models (for example Vatrer) '
+                f'have no snapshot history and will never appear here.</p>'
+                f'<p>Until the first edition lands (expected around {esc(eta)} plus a few days), the '
+                f'<a href="/">live price table</a> is the current picture.</p></div>')
+        return body, False
+    base_date = _parse_ts(base["ts"]).strftime("%B %d, %Y")
+    if drops:
+        trs = []
+        for d in drops:
+            p = d["p"]
+            link = PROD_URL.get(p["url"])
+            name = (f'<a href="{esc(link)}">{esc(p["title"])}</a>' if link else esc(p["title"]))
+            trs.append(f'<tr><td>{name}</td>'
+                       f'<td class="num pricedata">{money(d["old"])}</td>'
+                       f'<td class="num pricedata">{money(p["price"])}</td>'
+                       f'<td class="num pricedata">${d["old_ppw"]:.3f}</td>'
+                       f'<td class="num ppw pricedata">${ppw(p):.3f}</td>'
+                       f'<td class="num pricedata">-{d["pct"]:.0f}%</td></tr>')
+        table = ('<div style="overflow-x:auto"><table><thead><tr><th>Product</th>'
+                 '<th class="num">Price then</th><th class="num">Price now</th>'
+                 '<th class="num">$/Wh then</th><th class="num">$/Wh now</th>'
+                 '<th class="num">Drop</th></tr></thead>'
+                 f'<tbody>{"".join(trs)}</tbody></table></div>')
+    else:
+        table = ('<p>No tracked model currently qualifies — no listing in this pool has fallen '
+                 '5% and $25 or more against the baseline snapshot. That is a result too: '
+                 'prices in this category are holding.</p>')
+    body = (f'<h1>{esc(site["display"])} Price Drops — Biggest Falls in $/Wh</h1>'
+            f'<p class="lede">The biggest price drops in the makers\' own stores since '
+            f'{esc(base_date)}, ranked by percentage. A model qualifies at a drop of at least 5% '
+            f'and $25, still listed as available. Prices refreshed {esc(date_str)}.</p>'
+            + DISCLOSURE.format(ts=fetched, date=date_str)
+            + table
+            + '<div class="prose"><h2>Method</h2>'
+              '<p>Drops are measured against the oldest price snapshot at least 6 days old — the '
+              'maker\'s own store price then versus now. A struck-through "was" price elsewhere on '
+              'this site is the maker\'s list price, a different thing; this page only reports '
+              'actual price movement we recorded. A few hand-tracked models (for example Vatrer) '
+              'have no snapshot history and never appear here.</p></div>')
+    return body, True
+
+
 # ---------- build ----------
 def build():
     data = json.loads(DATA.read_text())
@@ -544,12 +942,27 @@ def build():
     for k in pools:
         pools[k].sort(key=ppw)
 
+    # Phase 2: home pools, URL-deduped with the same dict semantics as the
+    # site pools below (so a product page shows the same row its tables do),
+    # plus slug assignment for the enabled waves.
+    home_pools = {}
+    for seg, dom in HOME_DOMAIN.items():
+        hp = sorted({p["url"]: p for p in pools[seg]}.values(), key=ppw)
+        home_pools[seg] = hp
+        if dom in PHASE2_SITES:
+            for url, slug in assign_slugs(hp).items():
+                SLUG_OF[url] = slug
+                PROD_URL[url] = f"https://{dom}/product/{slug}/"
+
     summary = {}
     for site in SITES:
         pool = []
         for key in site["pool"]:
             pool.extend(pools[key])
         pool = sorted({p["url"]: p for p in pool}.values(), key=ppw)
+        p2 = site["domain"] in PHASE2_SITES
+        hubs = facet_hubs(site, pool) if p2 else []
+        dgate = deals_info(pool)[0] if p2 else False
         root = OUT / site["domain"]
         root.mkdir(parents=True, exist_ok=True)
         urls = ["/"]
@@ -566,6 +979,10 @@ def build():
                 + table_html(pool, show_brand_filter=True)
                 + cluster_cards(site)
                 + guide_cards(site)
+                + facet_cards(hubs)
+                + ('<h2>Price drops</h2><ul class="links"><li><a href="/deals/">Biggest price drops this week</a>'
+                   '<p>Models down at least 5% and $25 against the baseline snapshot, ranked by drop.</p></li></ul>'
+                   if dgate else "")
                 + faq_html(site["faqs"]))
         (root / "index.html").write_text(page(
             site, "/", f'{site["display"]} Prices Compared by $/Wh — Live Price Tracker',
@@ -626,6 +1043,122 @@ def build():
             (gd / "index.html").write_text(page(
                 site, f'/{g["slug"]}/', fmt(g["title"], ctx), fmt(g["desc"], ctx),
                 "".join(parts), extra_head=itemlist_ld(rows, site) if rows else ""))
+        # phase 2: facet hubs
+        for h in hubs:
+            urls.append(f'/{h["slug"]}/')
+            rows = h["rows"]
+            ppws_h = [ppw(p) for p in rows]
+            lede_h = (f'{esc(h["blurb"])} {len(rows)} models tracked — cheapest stored energy '
+                      f'<b>${min(ppws_h):.3f}/Wh</b>, median ${statistics.median(ppws_h):.3f}/Wh. '
+                      f'Prices refreshed {date_str}.')
+            sib = [o for o in hubs if o["slug"] != h["slug"]][:4]
+            sib_html = "".join(f'<li><a href="/{o["slug"]}/">{esc(o["h1"])}</a><p>{esc(o["blurb"])}</p></li>' for o in sib)
+            hbody = (f'<h1>{esc(h["h1"])}</h1>'
+                     f'<p class="lede">{lede_h}</p>'
+                     + DISCLOSURE.format(ts=fetched, date=date_str)
+                     + stats_html(rows)
+                     + f'<h2>Prices, ranked by $/Wh</h2>' + table_html(rows)
+                     + f'<div class="prose">{hub_prose(site, h)}</div>'
+                     + f'<h2>Keep comparing</h2><ul class="links"><li><a href="/">All {esc(site["phrase"])} prices</a><p>The full live table, every model ranked by $/Wh.</p></li>{sib_html}</ul>'
+                     + faq_html(site["faqs"][:3]))
+            hd = root
+            for part in h["slug"].split("/"):
+                hd = hd / part
+            hd.mkdir(parents=True, exist_ok=True)
+            (hd / "index.html").write_text(page(
+                site, f'/{h["slug"]}/', f'{h["h1"]} — Prices by $/Wh',
+                f'{h["blurb"]} Prices from the makers\' own stores, refreshed {date_str}.',
+                hbody, extra_head=itemlist_ld(rows, site)))
+        # phase 2: product pages (home site only — one canonical page each)
+        if p2:
+            hp = home_pools[DOMAIN_SEG[site["domain"]]]
+            by_slug_all = {c["slug"]: c for c in site["clusters"]}
+            for g in GUIDES.get(site["domain"], []):
+                by_slug_all[g["slug"]] = g
+            for p in hp:
+                slug = SLUG_OF.get(p["url"])
+                if not slug:
+                    continue
+                urls.append(f"/product/{slug}/")
+                cc = class_context(p, hp)
+                rows_c, rank, med = cc["rows"], cc["rank"], cc["median"]
+                myppw = ppw(p)
+                if rank == 1:
+                    pos = (f"It ranks #1 of {cc['n']} in the {cc['label']} class by price per "
+                           f"watt-hour — the cheapest stored energy in its class right now.")
+                elif myppw <= med:
+                    pos = (f"It ranks #{rank} of {cc['n']} in the {cc['label']} class by $/Wh, "
+                           f"below the class median of ${med:.3f}/Wh.")
+                else:
+                    pos = (f"It ranks #{rank} of {cc['n']} in the {cc['label']} class by $/Wh; "
+                           f"the class median is ${med:.3f}/Wh, so on price per watt-hour this "
+                           f"is a premium pick in its class.")
+                lede_p = (f"This {esc(cap_label(p))} LiFePO4 battery from {esc(p['brand'])} is "
+                          f"listed at {money(p['price'])} in the maker's own store — "
+                          f"${myppw:.3f}/Wh (${myppw*1000:,.0f}/kWh). {pos} "
+                          f"Prices refreshed {date_str}.")
+                pct = (myppw - med) / med * 100 if med else 0
+                if rank == 1:
+                    rankline = (f"<p>Cheapest in its class: this model itself. The class median is "
+                                f"${med:.3f}/Wh — {abs(pct):.0f}% above this model's $/Wh.</p>")
+                else:
+                    cheap = cc["cheap"]
+                    rankline = (f"<p>Cheapest in class: <a href=\"{esc(PROD_URL.get(cheap['url'], cheap['url']))}\">"
+                                f"{esc(cheap['title'])}</a> at ${ppw(cheap):.3f}/Wh ({money(cheap['price'])}). "
+                                f"This model sits {abs(pct):.0f}% {'below' if pct < 0 else 'above'} "
+                                f"the class median of ${med:.3f}/Wh.</p>")
+                lo = max(0, rank - 4)
+                hi = min(len(rows_c), rank + 3)
+                rel = [f'<li><a href="/">All {esc(site["phrase"])} prices</a><p>The full live table, every model ranked by $/Wh.</p></li>']
+                cap_slug = capacity_link(site, pool, p, by_slug_all)
+                if cap_slug and cap_slug in by_slug_all:
+                    o = by_slug_all[cap_slug]
+                    rel.append(f'<li><a href="/{cap_slug}/">{esc(o["h1"])}</a><p>{esc(o["blurb"])}</p></li>')
+                for h in hubs:
+                    if any(q["url"] == p["url"] for q in h["rows"]):
+                        rel.append(f'<li><a href="/{h["slug"]}/">{esc(h["h1"])}</a><p>{esc(h["blurb"])}</p></li>')
+                avail_txt = ("Listed as available at the maker's store." if p.get("available", True)
+                             else "Not currently listed as available at the maker's store — check the maker's page for stock.")
+                note = WH_METHOD_NOTES.get(p.get("wh_method"),
+                                           "Capacity from the maker's own listing.")
+                store_host = re.sub(r"^https?://", "", p.get("source_store", "")).rstrip("/")
+                v = volts(p)
+                cap_detail = f"{p['wh']:,.0f}Wh" + (f" at {v}V nominal" if v else "")
+                pbody = (f'<h1>{esc(p["title"])}</h1>'
+                         f'<p class="lede">{lede_p}</p>'
+                         + DISCLOSURE.format(ts=fetched, date=date_str)
+                         + '<div class="stats">'
+                         + f'<div class="stat"><b class="pricedata">{money(p["price"])}</b><span>price at the maker\'s store</span></div>'
+                         + f'<div class="stat"><b class="pricedata">${myppw:.3f}/Wh</b><span>price per watt-hour</span></div>'
+                         + f'<div class="stat"><b class="pricedata">${myppw*1000:,.0f}/kWh</b><span>price per kilowatt-hour</span></div>'
+                         + f'<div class="stat"><b>{esc(cap_label(p))}</b><span>rated capacity</span></div></div>'
+                         + f'<p><a class="buy" href="{esc(p["url"])}" rel="nofollow sponsored noopener" target="_blank">View at {esc(p["brand"])}\'s store</a></p>'
+                         + f'<h2>Where it ranks in its class</h2>{rankline}'
+                         + mini_table(rows_c[lo:hi], p)
+                         + '<h2>Details from the maker\'s listing</h2><div class="prose">'
+                         + f'<p><b>Capacity:</b> {esc(cap_label(p))} ({cap_detail}). {esc(note)}</p>'
+                         + f'<p><b>Availability:</b> {avail_txt}</p>'
+                         + f'<p><b>Seller:</b> {esc(p["brand"])}\'s own store ({esc(store_host)}). The buy link above goes to the maker\'s product page.</p></div>'
+                         + f'<h2>Keep comparing</h2><ul class="links">{"".join(rel)}</ul>'
+                         + faq_html(site["faqs"][:2]))
+                pd = root / "product" / slug
+                pd.mkdir(parents=True, exist_ok=True)
+                (pd / "index.html").write_text(page(
+                    site, f"/product/{slug}/", f'{p["title"]} — Price & $/Wh',
+                    f'{p["title"]}: {money(p["price"])} at the maker\'s store, ${myppw:.3f}/Wh for {cap_label(p)}. Ranked #{rank} of {cc["n"]} in its class by $/Wh, refreshed {date_str}.',
+                    pbody, extra_head=product_ld(p, site, slug)))
+        # phase 2: deals page — rendered in tracking state until the
+        # history gate passes; joins the sitemap only once it is live.
+        if p2:
+            dbody, dopen = deals_body(site, pool, fetched, date_str)
+            dd = root / "deals"
+            dd.mkdir(exist_ok=True)
+            (dd / "index.html").write_text(page(
+                site, "/deals/", f'{site["display"]} Price Drops — Biggest $/Wh Falls',
+                f'The biggest recorded price drops on {site["phrase"]} models in the makers\' own stores, ranked by percentage and $/Wh.',
+                dbody))
+            if dopen:
+                urls.append("/deals/")
         # about
         urls.append("/about/")
         adir = root / "about"; adir.mkdir(exist_ok=True)
