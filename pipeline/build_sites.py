@@ -19,7 +19,7 @@ after Awin/Impact approval the fetcher/config maps urls to network deep links.
 Freshness: prices carry the fetched_at date in copy; a JS guard hides numeric
 prices when data is >72h old and shows "Check price" instead.
 """
-import json, re, html, statistics, hashlib
+import json, re, html, statistics, hashlib, shutil
 from pathlib import Path
 from datetime import datetime, timezone
 
@@ -1044,6 +1044,11 @@ def build():
             (gd / "index.html").write_text(page(
                 site, f'/{g["slug"]}/', fmt(g["title"], ctx), fmt(g["desc"], ctx),
                 "".join(parts), extra_head=itemlist_ld(rows, site) if rows else ""))
+        # phase 2: clear the dynamic page trees so products/hubs that left
+        # the catalog lose their pages on this build (spec section 2).
+        if p2:
+            shutil.rmtree(root / "product", ignore_errors=True)
+            shutil.rmtree(root / "brand", ignore_errors=True)
         # phase 2: facet hubs
         for h in hubs:
             urls.append(f'/{h["slug"]}/')
