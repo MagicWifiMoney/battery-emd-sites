@@ -1126,4 +1126,148 @@ GUIDES = {
         "related": ["server-rack-battery-for-off-grid-solar", "inverter-compatibility", "48v-100ah-server-rack-battery"],
     },
 ],
+"24vlifepo4battery.com": [
+    {
+        "slug": "price-per-watt-hour",
+        "title": "Price per Watt-Hour ($/Wh) Explained: Comparing 24V Batteries Honestly",
+        "desc": "Why $/Wh is the only fair way to compare 24V LiFePO4 batteries of different sizes — with the live 24V table as the worked example, refreshed {date}.",
+        "h1": "Price per Watt-Hour: The One Number That Compares 24V Batteries Fairly",
+        "blurb": "A $350 battery can be worse value than a $1,080 one. $/Wh is why — the method behind every table on this site.",
+        "lede": "Batteries are sold by sticker price and amp-hours, and both mislead: a 50Ah pack and a 230Ah pack are not comparable until you price the energy itself. <b>Price per watt-hour ($/Wh) = price ÷ watt-hours stored.</b> Across the {n} 24V models tracked here, stored energy currently runs from <b>${minppw}/Wh</b> ({cheap_brand}) to ${maxppw}/Wh, with a median of ${medppw}/Wh. This page shows how the number is computed, where it settles arguments, and where it stops being the deciding factor.",
+        "filter": "all",
+        "table_heading": "The live 24V table — every model priced per watt-hour",
+        "sections": [
+            ("The arithmetic, on real rows", [
+                "<p>Take the two ends of today's table. The cheapest stored energy is the <b>{cheap_title}</b> at {cheap_price} — {cheap_cap}, which is ${cheap_ppw}/Wh. A compact 50Ah trolling pack stores 1,280Wh; even at a lower sticker it routinely lands above $0.25/Wh, because small cases carry the same BMS, terminals and shipping as big ones spread over fewer watt-hours. The 230Ah class stores 5,888Wh in one case and prices that energy near the bottom of the table. Same chemistry, same voltage — the $/Wh column is the difference between buying a battery and buying energy.</p>",
+                "<p>The conversion is always the same: watt-hours = volts × amp-hours, using nominal LiFePO4 voltage (25.6V for a '24V' battery). A 100Ah pack is 2,560Wh whether the listing shouts the Ah or hides it. $/kWh, used on our sister trackers for home storage, is the identical number × 1,000 — ${minppw}/Wh is the same fact as the cheapest row's $/kWh column.</p>",
+            ]),
+            ("Where $/Wh settles the argument — and where it doesn't", [
+                "<ul><li><b>Same size, different brands:</b> $/Wh is a pure price fight. Two 100Ah packs store identical energy; the cheaper $/Wh is simply the cheaper battery.</li><li><b>Different sizes:</b> $/Wh tells you what the extra capacity costs. If a 230Ah pack prices energy 20% below a 100Ah pack, you are paying a 20% premium for the smaller case's convenience — sometimes worth it, now at least visible.</li><li><b>Bundles:</b> multi-packs appear in the table at their bundle price with the bundle's total energy. A 2-pack whose $/Wh beats the single unit is a real discount; one that doesn't is packaging.</li></ul>",
+                "<p>What $/Wh does <i>not</i> price: the BMS continuous discharge rating (a trolling motor or inverter cares deeply), self-heating and low-temperature protection, Bluetooth monitoring, case format (a Group 31 drop-in vs a plain box), and warranty length. The method on this site is deliberate: rank by $/Wh so the price of energy is never hidden, then read the row's own product page for the features that justify a premium. A battery 15% above the median $/Wh with the heating and monitoring you need is a better buy than the table-topper without them.</p>",
+            ]),
+            ("Why this site exists", [
+                "<p>Maker listings lead with sale prices and amp-hours because both flatter the product. A tracker that recomputes every listing into $/Wh — from the makers' own stores, refreshed several times a day, with no ratings invented and no placement sold — turns a marketing page back into a price list. The full method, including how capacities are verified and what happens when a feed goes stale, is on the <a href=\"/about/\">about page</a>. The same method runs on our sister trackers for <a href=\"https://12vlifepo4battery.com/\">12V</a>, <a href=\"https://48vlifepo4battery.com/\">48V</a> and <a href=\"https://serverrackbatteries.com/\">server rack</a> batteries.</p>",
+            ]),
+        ],
+        "faqs": [
+            ("How do I calculate price per watt-hour?",
+             "Divide the price by the battery's watt-hours. Watt-hours = nominal volts × amp-hours: a 24V (25.6V nominal) 100Ah battery stores 2,560Wh, so a $520 price is $520 ÷ 2,560 = $0.203/Wh. Every row on this site has the math already done."),
+            ("What is a good $/Wh for a 24V LiFePO4 battery?",
+             "It moves with maker pricing, so this page quotes the live range instead of a fixed benchmark: currently ${minppw}/Wh at the low end and a ${medppw}/Wh median across {n} tracked models. In general the 100Ah and 230Ah classes price energy lowest; compact 50–60Ah packs cost more per watt-hour."),
+            ("Is $/Wh the same as $/kWh?",
+             "Yes — $/kWh is $/Wh × 1,000. Home-storage shoppers usually see $/kWh (a 5.12kWh module at $0.170/Wh is $170/kWh); smaller batteries are easier to compare in $/Wh. Both columns are shown in every table here."),
+        ],
+        "related": ["24v-100ah-lifepo4-battery", "how-to-choose-24v-lifepo4-battery", "24v-230ah-lifepo4-battery"],
+    },
+    {
+        "slug": "how-to-choose-24v-lifepo4-battery",
+        "title": "How to Choose a 24V LiFePO4 Battery: Size, BMS, Cold Weather, $/Wh",
+        "desc": "A decision-order guide to buying a 24V LiFePO4 battery: confirm 24V is your voltage, size in watt-hours, check the BMS rating, then let $/Wh rank the survivors.",
+        "h1": "How to Choose a 24V LiFePO4 Battery",
+        "blurb": "Four decisions in the right order: voltage fit, watt-hour sizing, BMS discharge rating, cold-weather features — then price per watt-hour ranks what's left.",
+        "lede": "Most bad battery purchases are order-of-operations errors: shoppers compare prices before confirming the battery fits the system. Work these four checks in order and the field narrows fast — the table below shows the 15 cheapest-by-$/Wh 24V models still standing after the method is applied, currently from <b>${minppw}/Wh</b> up. Prices refreshed {date}.",
+        "filter": "top15",
+        "table_heading": "The 15 cheapest 24V batteries per watt-hour right now",
+        "sections": [
+            ("Step 1 — confirm 24V is actually your voltage", [
+                "<p>24V is a means to an end: it halves the current (and cable size) of a 12V system at the same wattage, which is why it owns three niches — <b>24V trolling motors</b> (70 lb thrust and up), <b>mid-size inverters</b> (roughly 1,500–3,000W, where 12V currents get unwieldy), and <b>24V vehicle systems</b> (trucks, some RVs and military/commercial platforms). If your motor is a 12V or 36V model, or your inverter is a 48V hybrid, no 24V battery belongs in the cart — our sister trackers cover <a href=\"https://12vlifepo4battery.com/\">12V</a> and <a href=\"https://48vlifepo4battery.com/\">48V</a> instead. If you already own 12V packs, the <a href=\"/series-vs-native-24v/\">series vs native 24V guide</a> covers building 24V from pairs.</p>",
+            ]),
+            ("Step 2 — size in watt-hours, not amp-hours", [
+                "<p>Watt-hours are what your loads consume: watts × hours. A 24V trolling motor at a 45A cruise draw pulls about 1,150W — a 100Ah pack (2,560Wh) is roughly two hours at that draw, a day at mixed speeds. An RV running lights, fans, a fridge and device charging might use 1,500–2,500Wh a day, which is why the 230Ah class (5,888Wh) exists. LiFePO4 can use 80–100% of its rating (unlike lead-acid's ~50%), so size to your real daily number plus a weather margin, not to double it.</p>",
+                "<ul><li><b>50–60Ah (1,280–1,536Wh):</b> a morning of trolling, portable power, tight battery boxes.</li><li><b>100Ah (2,560Wh):</b> the default — full-day trolling, weekend RV loads, small solar banks.</li><li><b>230Ah (5,888Wh):</b> multi-day off-grid, trucks and cabins, one-case banks.</li></ul>",
+            ]),
+            ("Step 3 — the BMS rating is a hard gate, not a feature", [
+                "<p>Every LiFePO4 battery's BMS caps its continuous discharge current. Your biggest load must fit under it: a 112 lb-thrust motor at full draw (~55A) or a 2,000W inverter on 24V (~85A plus surge) will trip a 50A BMS no matter how good the battery's $/Wh is. Check the continuous rating on the product page of any row you shortlist — makers state it there — and leave surge headroom for inverter startup loads. This is the one spec where the cheapest row in the table can simply be wrong for your system.</p>",
+            ]),
+            ("Step 4 — cold weather and monitoring, then $/Wh", [
+                "<p>Two features separate otherwise-identical rows. <b>Low-temperature charge protection</b> (a BMS cutoff that refuses charging below freezing) is the minimum for any battery that will charge outdoors in winter; <b>self-heating</b> goes further and warms the cells so charging can proceed — the heated rows in the table name it in their titles. <b>Bluetooth monitoring</b> ends state-of-charge guesswork, the most common complaint about budget packs. With voltage, size, BMS and weather features settled, rank the survivors by $/Wh and buy the top row — that is exactly the order the table below is sorted in.</p>",
+            ]),
+        ],
+        "faqs": [
+            ("What size 24V LiFePO4 battery do I need?",
+             "Work in watt-hours: add up watts × hours for everything the battery must run. The classes tracked here are 50–60Ah (1,280–1,536Wh) for a morning of trolling or portable use, 100Ah (2,560Wh) as the full-day default, and 230Ah (5,888Wh) for multi-day off-grid and truck/RV banks."),
+            ("Can I use a 24V battery with a 12V trolling motor or inverter?",
+             "No. Voltage classes must match: a 24V battery needs a 24V motor, charger and inverter. Feeding 24V into 12V equipment damages it, and a 12V charger cannot charge a 24V battery."),
+            ("Do I need a heated 24V battery?",
+             "Only if the battery will be charged below freezing — early-season fishing, winter RV use, unheated cabins. Low-temperature charge protection (a cutoff) is the minimum; self-heating models can actually charge in the cold. Indoors or in mild climates, skip the premium."),
+        ],
+        "related": ["24v-100ah-lifepo4-battery", "series-vs-native-24v", "charging-24v-lifepo4-battery"],
+    },
+    {
+        "slug": "charging-24v-lifepo4-battery",
+        "title": "Charging a 24V LiFePO4 Battery: Voltages, Chargers & Solar Settings",
+        "desc": "The charge profile a 25.6V LiFePO4 pack actually wants — 29.2V absorption, no equalization — and which chargers deliver it: dedicated 24V, MPPT solar, DC-DC and onboard marine.",
+        "h1": "Charging a 24V LiFePO4 Battery, Correctly",
+        "blurb": "29.2V absorption, no equalization, no 12V charger. The settings and charger types that charge a 25.6V pack fully without shortening its life.",
+        "lede": "A 24V LiFePO4 battery (25.6V nominal, eight cells) wants one thing from a charger: a lithium profile that tops out at <b>29.2V</b> and never runs an equalization stage. Get that right and the battery charges fully and lasts its rated cycles; get it wrong and the usual symptom is a pack that quietly stops at 80%. This guide covers the settings and the four charger types that deliver them. Battery prices referenced are the live ones on this site, refreshed {date}.",
+        "filter": None,
+        "ctx_filter": "all",
+        "sections": [
+            ("The numbers a 25.6V pack charges at", [
+                "<table><thead><tr><th>Stage</th><th>Setting</th><th>Notes</th></tr></thead><tbody>"
+                "<tr><td>Absorption / charge voltage</td><td class='num'>29.2V</td><td>14.6V per 12V-equivalent × 2; some makers specify 28.8–29.2V — the product page wins</td></tr>"
+                "<tr><td>Float (if used)</td><td class='num'>27.2V or off</td><td>LiFePO4 does not need float; many lithium profiles disable it</td></tr>"
+                "<tr><td>Equalization</td><td class='num'>OFF, always</td><td>Equalization voltages overcharge lithium and trip the BMS</td></tr>"
+                "<tr><td>Charge current</td><td class='num'>0.2C–0.5C typical</td><td>20–50A for a 100Ah pack; the maker's max charge current is the ceiling</td></tr>"
+                "<tr><td>Low-temperature charging</td><td class='num'>Not below 0°C / 32°F</td><td>Unless the pack is self-heating; protected BMS units refuse the charge</td></tr>"
+                "</tbody></table>",
+                "<p>Why 29.2V: each LiFePO4 cell charges to 3.65V, and eight in series is 29.2V. A charger that stops at lead-acid 24V settings (about 28.8V absorption is close, but gel/AGM profiles with temperature compensation and equalization are not) leaves capacity on the table or abuses the pack — the lithium profile exists precisely to avoid both.</p>",
+            ]),
+            ("The four ways a 24V pack gets charged", [
+                "<ul><li><b>Dedicated 24V LiFePO4 charger</b> (shore power): the simplest correct answer for boats and garages. Pick one with a lithium profile and a current rating near 0.2–0.5C of your pack.</li><li><b>Solar MPPT controller:</b> set battery type to lithium/user and enter the voltages above; the controller must be rated for a 24V battery bank (most mid-size MPPTs auto-detect 12/24V — confirm before wiring panels).</li><li><b>DC-DC charger from a vehicle:</b> trucks and RVs charging from an alternator need a 24V-output DC-DC unit with a lithium profile; a bare alternator connection is not a charge profile.</li><li><b>Onboard marine charger:</b> multi-bank chargers charge each bank at its own voltage — a 24V trolling bank needs a 24V bank output, not a tap across a series pair.</li></ul>",
+            ]),
+            ("The series-pair trap", [
+                "<p>If your '24V battery' is actually two 12V batteries in series (see the <a href=\"/series-vs-native-24v/\">series vs native guide</a>), charging has an extra rule: charge the pair as a 24V bank with a 24V lithium charger, or charge each 12V battery individually — but do not leave one charger on one battery of a working pair, which unbalances them. A battery balancer across the pair keeps the two halves at the same state of charge over time. Native 24V packs sidestep all of this: one case, one BMS, one 29.2V charge.</p>",
+                "<p>Storage, briefly: LiFePO4 stores best near 50–70% charge, disconnected or with loads off, and self-discharges slowly. A pack put away full in a hot space ages fastest; a pack put away at half charge in a cool one barely notices the season.</p>",
+            ]),
+        ],
+        "faqs": [
+            ("Can I charge a 24V LiFePO4 battery with a 12V charger?",
+             "No. A 12V charger tops out around 14.6V — half of what a 25.6V pack needs. You need a 24V charger with a lithium profile (29.2V absorption), an MPPT controller set for a 24V lithium bank, or a 24V DC-DC charger."),
+            ("What voltage should I charge my 24V LiFePO4 battery to?",
+             "29.2V absorption (3.65V per cell × 8) is the standard full-charge setting; some makers specify 28.8V. Float is optional at about 27.2V or off entirely, and equalization must be disabled."),
+            ("Will my old lead-acid charger work on a 24V lithium battery?",
+             "Only if it has a true lithium profile. Lead-acid profiles with equalization or aggressive temperature compensation can overcharge lithium and trip the BMS; an absorption near 28.8–29.2V with no equalization is the requirement, and most basic lead-acid chargers cannot guarantee it."),
+        ],
+        "related": ["series-vs-native-24v", "how-to-choose-24v-lifepo4-battery", "24v-100ah-lifepo4-battery"],
+    },
+    {
+        "slug": "series-vs-native-24v",
+        "title": "Native 24V Battery vs Two 12V in Series: Which 24V Setup Is Better?",
+        "desc": "One 25.6V pack with one BMS, or two 12.8V packs wired in series? Balance, charging, cost and failure modes compared — with live prices for the native 100Ah class.",
+        "h1": "24V Two Ways: One Native Battery, or Two 12V Batteries in Series?",
+        "blurb": "The same 25.6V from one case or two. What actually differs: balancing, charging, cost per Wh and what happens when one half ages faster.",
+        "lede": "Every 24V system starts with this fork: buy a <b>native 24V battery</b> (eight cells, one BMS, one case) or wire <b>two 12V batteries in series</b> (the amp-hours stay the same, the voltage doubles). Both are legitimate; they differ in balance management, charging discipline and failure behavior. The table below prices the native side of the argument — the 24V 100Ah class, currently from <b>${minppw}/Wh</b> — and our 12V sister tracker prices the pairs. Prices refreshed {date}.",
+        "filter": "ah90_115",
+        "table_heading": "Native 24V 100Ah batteries — the one-case option, priced live",
+        "sections": [
+            ("What series wiring actually does", [
+                "<p>Two 12V 100Ah batteries in series make a 24V 100Ah battery: 25.6V nominal, 2,560Wh — identical energy to the native packs in the table. Amp-hours do <i>not</i> add in series (they add in parallel). The catch is that you now own two BMS units and two cell groups that must stay at the same state of charge. If one half drifts — and halves always drift a little — the weaker half limits the whole bank and ages faster, which widens the drift. A <b>battery balancer</b> (a small device wired across the pair) bleeds charge from the fuller half to the emptier one and is close to mandatory for a series pair you intend to keep for years.</p>",
+            ]),
+            ("The honest scorecard", [
+                "<table><thead><tr><th>Question</th><th>Native 24V</th><th>Two 12V in series</th></tr></thead><tbody>"
+                "<tr><td>Balancing</td><td>One BMS watches all 8 cells</td><td>Two BMS units; add a balancer to keep halves matched</td></tr>"
+                "<tr><td>Charging</td><td>One 24V lithium charger, done</td><td>Charge as a 24V bank or each battery separately; never one half alone (<a href=\"/charging-24v-lifepo4-battery/\">charging guide</a>)</td></tr>"
+                "<tr><td>Flexibility</td><td>24V only, forever</td><td>Split back into two 12V batteries for other jobs</td></tr>"
+                "<tr><td>Weight handling</td><td>One ~50 lb case for 100Ah</td><td>Two ~25 lb cases — easier to place in tight boats</td></tr>"
+                "<tr><td>Failure mode</td><td>One failure, whole bank down</td><td>One weak half drags the bank; either battery can be replaced alone</td></tr>"
+                "<tr><td>Model limits</td><td>No series question to ask</td><td>Confirm both models allow series wiring — some budget 12V packs are parallel-only</td></tr>"
+                "</tbody></table>",
+            ]),
+            ("The cost comparison, and a verdict by situation", [
+                "<p>Price the two paths in $/Wh, not stickers. The native 100Ah class above currently starts at ${minppw}/Wh ({cheap_brand}); the 12V 100Ah class on <a href=\"https://12vlifepo4battery.com/12v-100ah-lifepo4-battery/\">12vlifepo4battery.com</a> usually prices a little lower per Wh because it is the highest-volume class in the industry — two of them plus a balancer can undercut the native pack, or not, depending on the week's prices. Run both tables before deciding; the gap moves.</p>",
+                "<ul><li><b>New 24V trolling or inverter install, nothing owned yet:</b> native. One BMS, one charger, no balancer, no drift — the simple system wins.</li><li><b>You already own one good 12V battery:</b> series, with a matched twin (same brand, model and age) and a balancer. Reusing a paid-for battery beats any $/Wh gap.</li><li><b>Weight or space is split across two lockers:</b> series — two 25 lb cases go where one 50 lb case cannot.</li><li><b>Planning to grow to 48V later:</b> neither is a dead end, but price the jump now — four 12V in series is a common path, while native 24V packs do not series into most 48V systems.</li></ul>",
+            ]),
+        ],
+        "faqs": [
+            ("Do amp-hours add when batteries are in series?",
+             "No. Series adds voltage, not amp-hours: two 12V 100Ah batteries in series are a 24V 100Ah battery storing 2,560Wh. Parallel wiring is the opposite — voltage stays, amp-hours add."),
+            ("Can any two 12V LiFePO4 batteries be wired in series for 24V?",
+             "No — the model must explicitly allow series connection (some budget packs are parallel-only), and the pair should be the same brand, model, capacity and age, charged to the same state before wiring. A battery balancer across the pair is strongly recommended."),
+            ("Is a native 24V battery more expensive than two 12V batteries?",
+             "Sometimes. The 12V 100Ah class is the industry's highest-volume size and often prices lower per watt-hour; two of them plus a balancer can beat a native 24V pack, or lose to it, depending on current prices. Both tables on this site and 12vlifepo4battery.com are refreshed several times a day — compare the live $/Wh before buying."),
+        ],
+        "related": ["charging-24v-lifepo4-battery", "24v-100ah-lifepo4-battery", "how-to-choose-24v-lifepo4-battery"],
+    },
+],
 }

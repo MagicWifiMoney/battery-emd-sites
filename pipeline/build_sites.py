@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """
-build_sites.py — render the three EMD sites from data/products.json.
+build_sites.py — render the four EMD sites from data/products.json.
 
 Sites (each standalone, no redirects, cross-linked):
   48vlifepo4battery.com   — 48V bare + rack batteries
   12vlifepo4battery.com   — 12V bare batteries
+  24vlifepo4battery.com   — 24V bare batteries
   serverrackbatteries.com — server-rack batteries
 
 Playbook rules baked in (Notion AEO/GEO Playbook, Part 3):
@@ -56,6 +57,13 @@ def segment(p):
     if p["type"] == "bare-battery":
         v = volts(p)
         if v and v >= 44: return "48v"
+        # 24V guard: a row whose voltage comes ONLY from title text (no
+        # rated voltage and no rated Ah in the feed) is not classifiable —
+        # e.g. LiTime's RV conversion-kit listing, whose variants span
+        # 12V/24V systems under one shared URL and whose "Wh" is a
+        # kWh/day usage figure, not rated storage.
+        if v and 22 <= v <= 28 and not (p.get("voltage") is None and p.get("ah") is None):
+            return "24v"
         if v and 11 <= v <= 14.5: return "12v"
     return None
 
@@ -162,7 +170,7 @@ def table_html(rows, show_brand_filter=False, tid="t"):
         was = f' <span class="was">{money(p["compare_at"])}</span>' if p.get("compare_at") and p["compare_at"] > p["price"] else ""
         avail = "" if p.get("available", True) else ' <span class="oos">check stock</span>'
         a = ah_of(p)
-        plink = PROD_URL.get(p["url"])
+        plink = PROD_URL.get((segment(p), p["url"]))
         if plink:
             title_cell = f'<a href="{esc(plink)}">{esc(p["title"])}</a>'
         else:
@@ -247,6 +255,7 @@ def page(site, path, title, desc, body, extra_head=""):
 SISTER_LINKS = [
     ("48vlifepo4battery.com", "48V LiFePO4 Battery prices"),
     ("12vlifepo4battery.com", "12V LiFePO4 Battery prices"),
+    ("24vlifepo4battery.com", "24V LiFePO4 Battery prices"),
     ("serverrackbatteries.com", "Server Rack Batteries prices"),
 ]
 
@@ -361,6 +370,18 @@ FAQ_12V = [
     ("How long will a 12V 100Ah LiFePO4 battery run my gear?",
      "A 100Ah pack stores 1,280Wh. Divide by your load: a 100W fridge draw runs roughly 10–12 hours accounting for inverter losses, a 50W fan about a day. LiFePO4 can safely use 80–100% of its rated capacity, unlike lead-acid's ~50%."),
 ]
+FAQ_24V = [
+    ("What is the cheapest 24V LiFePO4 battery per watt-hour?",
+     "The table above is refreshed several times a day and ranked by $/Wh, so the top row is the live answer. In this category the 100Ah class (2,560Wh) usually holds the best $/Wh, while compact 50–60Ah trolling-motor packs cost more per watt-hour for their smaller, lighter cases."),
+    ("Is a 24V LiFePO4 battery really 25.6V?",
+     "Yes. Eight 3.2V LiFePO4 cells in series give 25.6V nominal and about 29.2V fully charged — the direct lithium replacement class for 24V lead-acid systems in boats, trucks, RVs and small solar setups."),
+    ("24V native battery or two 12V batteries in series — which is better?",
+     "A native 24V battery is one case, one BMS and one warranty, and it can never drift out of balance with a twin. Two 12V batteries in series give you two BMS units that must stay balanced (a battery balancer helps) but let you reuse packs you already own and split the weight. Our <a href=\"/series-vs-native-24v/\">series vs native 24V guide</a> walks through the trade-offs."),
+    ("What charger does a 24V LiFePO4 battery need?",
+     "A LiFePO4-profile charger set to about 29.2V absorption for a 25.6V pack, with no equalization stage. A 12V charger cannot charge a 24V battery; if you run two 12V packs in series, charge the bank with a 24V charger or charge each battery separately."),
+    ("How long will a 24V 100Ah battery run a trolling motor?",
+     "A 24V 100Ah pack stores 2,560Wh. A 70–80 lb-thrust 24V trolling motor draws roughly 40–55A at full throttle, so expect around 2 hours flat-out and much longer at cruising speeds — most anglers get a full day. LiFePO4 holds voltage flat through the discharge, so thrust does not fade the way it does on lead-acid."),
+]
 FAQ_RACK = [
     ("What is a server rack battery?",
      "A server rack battery is a LiFePO4 battery built into a standard 19-inch rack-mount case (typically 3U or 4U tall), almost always 48V/51.2V and 100Ah (5.12kWh) per module. Modules stack in a rack cabinet and connect in parallel to build banks from 5kWh to 100kWh+, with CAN/RS485 communication to hybrid inverters."),
@@ -405,6 +426,7 @@ FILTERS = {
     "ah90_330": lambda rows: [p for p in rows if ah_of(p) and 90 <= ah_of(p) <= 330],
     "ah90_115": lambda rows: [p for p in rows if ah_of(p) and 90 <= ah_of(p) <= 115],
     "ah180_230": lambda rows: [p for p in rows if ah_of(p) and 180 <= ah_of(p) <= 235],
+    "ah220_240": lambda rows: [p for p in rows if ah_of(p) and 220 <= ah_of(p) <= 240],
     "ah280_330": lambda rows: [p for p in rows if ah_of(p) and 280 <= ah_of(p) <= 330],
     "wh4800_5600": lambda rows: [p for p in rows if 4800 <= p["wh"] <= 5600],
     "golf": lambda rows: [p for p in rows if title_has(p, "golf")],
@@ -491,6 +513,28 @@ SITES = [
         ],
     },
     {
+        "domain": "24vlifepo4battery.com", "name": "24V LiFePO4 Battery",
+        "phrase": "24V LiFePO4 battery", "display": "24V LiFePO4 Battery", "pool": ["24v"], "faqs": FAQ_24V,
+        "lede": "Every {phrase} from the major makers' own stores, ranked by <b>price per watt-hour</b> — the honest way to compare a compact 50Ah trolling pack against a 230Ah bank battery. {n} models tracked; cheapest stored energy is <b>${minppw}/Wh</b>, median ${medppw}/Wh. Prices refreshed {date}.",
+        "clusters": [
+            C("24v-100ah-lifepo4-battery", "100Ah", "24V 100Ah LiFePO4 Batteries",
+              "The workhorse size: 2,560Wh for trolling motors, RVs and small solar — every 100Ah model by $/Wh.",
+              "ah90_115",
+              ["The 24V 100Ah battery (25.6V × 100Ah = 2,560Wh) is where 24V systems get serious: enough energy for a full day on a 24V trolling motor, a weekend of RV house loads, or a small off-grid solar bank — in one case with one BMS. Every model below stores the same 2,560Wh, so the $/Wh column is a pure price fight.",
+               "What separates the rows beyond price: Bluetooth monitoring, self-heating for cold mornings on the water, low-temperature charge cut-off, and case format — the Group 31 drop-ins fit standard marine trays, the plain cases do not always. Multi-packs appear in this table at their bundle price; compare their $/Wh against the single units before assuming the bundle wins."]),
+            C("24v-230ah-lifepo4-battery", "230Ah", "24V 230Ah LiFePO4 Batteries",
+              "5,888Wh in one Group 8D case — the big-bank option, compared by $/Wh.",
+              "ah220_240",
+              ["A 24V 230Ah battery stores 5,888Wh — as much energy as a 48V 100Ah rack module — in a single Group 8D case. It is the one-box answer for trucks, larger RVs and off-grid cabins that would otherwise wire two 100Ah packs in parallel, and one BMS means nothing to balance.",
+               "The trade-offs are honest ones: an 8D lithium pack is still a heavy two-hand lift, and a single battery is a single point of failure where paralleled 100Ah units degrade gracefully. The heated variants in the table add self-heating for winter use; check each row's availability, as the heated models sell out first."]),
+            C("trolling-motor-batteries", "Trolling motor", "24V LiFePO4 Trolling Motor Batteries",
+              "Lightweight 24V packs for 70–112 lb-thrust trolling motors, ranked by $/Wh.",
+              "marine",
+              ["A 24V trolling motor is the classic reason a 24V battery exists. Lithium changes the day on the water twice over: a 24V 100Ah LiFePO4 weighs roughly a third of the two lead-acids it replaces, and it holds voltage flat to empty, so the thrust you get at 90% charge is the thrust you get at 20%. The packs below are the ones makers sell for trolling and marine use, ranked by $/Wh.",
+               "Size by thrust: 70–80 lb motors draw about 40–55A at full throttle (a 50–60Ah pack covers a morning; 100Ah covers a day), and 112 lb motors want the 100Ah class. Confirm the BMS continuous rating covers your motor's max draw, and prefer low-temperature protection if you fish early-season cold water."]),
+        ],
+    },
+    {
         "domain": "serverrackbatteries.com", "name": "Server Rack Batteries",
         "phrase": "server rack batteries", "display": "Server Rack Batteries", "pool": ["rack"], "faqs": FAQ_RACK,
         "lede": "Every {phrase} module we can source from the makers' own stores, ranked by <b>price per watt-hour</b>. Rack modules are usually the cheapest way to buy lithium storage — currently <b>${minppw}/Wh</b> at the low end across {n} tracked modules. Prices refreshed {date}.",
@@ -529,15 +573,20 @@ SITES = [
 # ---------- phase 2: product pages, facet hubs, deals ----------
 # Spec: research/product-pages-spec-2026-11-21.md (verdicts binding).
 HISTORY_PATH = ROOT / "data" / "price_history.json"
-PROD_URL = {}   # catalog url -> absolute product-page url (enabled waves only)
-SLUG_OF = {}    # catalog url -> slug on its home site
+PROD_URL = {}   # (segment, catalog url) -> absolute product-page url.
+SLUG_OF = {}    # (segment, catalog url) -> slug on its home site.
+# Keyed by segment as well as URL: maker feeds emit variant rows that share
+# one listing URL across voltage classes (e.g. one LiTime listing selling
+# 12V and 24V variants), and each variant's canonical page lives on its own
+# home site.
 HOME_DOMAIN = {"rack": "serverrackbatteries.com",
                "48v": "48vlifepo4battery.com",
-               "12v": "12vlifepo4battery.com"}
+               "12v": "12vlifepo4battery.com",
+               "24v": "24vlifepo4battery.com"}
 DOMAIN_SEG = {v: k for k, v in HOME_DOMAIN.items()}
 # Wave rollout: sites whose product pages / facet hubs / deals render.
 PHASE2_SITES = {"serverrackbatteries.com", "12vlifepo4battery.com",
-                "48vlifepo4battery.com"}
+                "48vlifepo4battery.com", "24vlifepo4battery.com"}
 
 def _has(t, *ws):
     return any(w in t for w in ws)
@@ -667,7 +716,7 @@ def mini_table(rows, self_p):
     trs = []
     for q in rows:
         mark = ' <b style="color:var(--acc)">— this battery</b>' if q["url"] == self_p["url"] else ""
-        link = PROD_URL.get(q["url"])
+        link = PROD_URL.get((segment(q), q["url"]))
         name = (f'<a href="{esc(link)}">{esc(q["title"])}</a>' if link
                 else esc(q["title"]))
         trs.append(f'<tr><td>{name}{mark}</td>'
@@ -705,6 +754,11 @@ PRICE_BANDS = {
     "serverrackbatteries.com": [(500, 1000, "$500 to $1,000", "500-to-1000"),
                                 (1000, 2000, "$1,000 to $2,000", "1000-to-2000"),
                                 (2000, None, "$2,000 and up", "over-2000")],
+    # 24V pool prices run $350-$2,088 (19 SKUs, 2026-11-21 pull): bands
+    # split 5 / 6 / 8 rows.
+    "24vlifepo4battery.com": [(0, 500, "Under $500", "under-500"),
+                              (500, 1000, "$500 to $1,000", "500-to-1000"),
+                              (1000, None, "$1,000 and up", "over-1000")],
 }
 HEATED_TEST = lambda p: title_has(p, "heated", "self-heating", "self heating", "liheat")
 
@@ -887,7 +941,7 @@ def deals_body(site, pool, fetched, date_str):
         trs = []
         for d in drops:
             p = d["p"]
-            link = PROD_URL.get(p["url"])
+            link = PROD_URL.get((segment(p), p["url"]))
             name = (f'<a href="{esc(link)}">{esc(p["title"])}</a>' if link else esc(p["title"]))
             trs.append(f'<tr><td>{name}</td>'
                        f'<td class="num pricedata">{money(d["old"])}</td>'
@@ -935,7 +989,7 @@ def build():
             if mp["url"] not in seen:
                 prods.append(mp)
                 seen.add(mp["url"])
-    pools = {"48v": [], "12v": [], "rack": []}
+    pools = {"48v": [], "12v": [], "rack": [], "24v": []}
     for p in prods:
         s = segment(p)
         if s in pools:
@@ -952,8 +1006,8 @@ def build():
         home_pools[seg] = hp
         if dom in PHASE2_SITES:
             for url, slug in assign_slugs(hp).items():
-                SLUG_OF[url] = slug
-                PROD_URL[url] = f"https://{dom}/product/{slug}/"
+                SLUG_OF[(seg, url)] = slug
+                PROD_URL[(seg, url)] = f"https://{dom}/product/{slug}/"
 
     summary = {}
     for site in SITES:
@@ -1082,7 +1136,7 @@ def build():
             for g in GUIDES.get(site["domain"], []):
                 by_slug_all[g["slug"]] = g
             for p in hp:
-                slug = SLUG_OF.get(p["url"])
+                slug = SLUG_OF.get((DOMAIN_SEG[site["domain"]], p["url"]))
                 if not slug:
                     continue
                 urls.append(f"/product/{slug}/")
@@ -1109,7 +1163,7 @@ def build():
                                 f"${med:.3f}/Wh — {abs(pct):.0f}% above this model's $/Wh.</p>")
                 else:
                     cheap = cc["cheap"]
-                    rankline = (f"<p>Cheapest in class: <a href=\"{esc(PROD_URL.get(cheap['url'], cheap['url']))}\">"
+                    rankline = (f"<p>Cheapest in class: <a href=\"{esc(PROD_URL.get((segment(cheap), cheap['url']), cheap['url']))}\">"
                                 f"{esc(cheap['title'])}</a> at ${ppw(cheap):.3f}/Wh ({money(cheap['price'])}). "
                                 f"This model sits {abs(pct):.0f}% {'below' if pct < 0 else 'above'} "
                                 f"the class median of ${med:.3f}/Wh.</p>")
