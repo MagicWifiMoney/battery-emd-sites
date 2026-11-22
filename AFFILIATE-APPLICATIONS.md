@@ -29,6 +29,17 @@
 - Payout setup (W-9/tax, bank) is Jay-only and still open.
 - Not applied (spotted in directory, candidates only): Powerurus, YOSE POWER US.
 
+### Awin — battery-leftover sweep, 2026-11-21 evening (Jay's ask)
+- Directory searched for every catalog brand + adjacent brands (battery, solar, Renogy, LiTime, Anker, Battle Born, BougeRV, Rich Solar, WindyNation, HQST, SunGoldPower, Goal Zero, Victron, Ruixu, EG4).
+- NEW applications filed, all SUBMITTED / pending approval:
+  - LiTime (82429, US) — directory: 12.21% conv, 86.27% approval, USD 1.28 EPC, 72-day payment, product feed = No. Already in the catalog; on approval, swap its product links to Awin deep links. Contact aptshopmkt02@amperetime.com. (A second "litime" program for another region, feed = Yes, also exists.)
+  - Powerurus (79302) — 7% / 30-day cookie, product feed = Yes, 50% conv, 100% approval, USD 13.30 EPC. Not in the catalog yet; application offered to add its lineup via the feed.
+  - BougeRV (52765) — 6–10% / 30-day cookie, ~$500 AOV, product feed = Yes, 2.48% conv, USD 0.53 EPC. Not in the catalog yet; RV/trolling-motor fit. Contact affiliate@bougerv.com.
+  - Sun Gold Power Co.,Ltd (66184) — 6%, ~$1,000 AOV, product feed = No, 2.12% conv, USD 2.20 EPC. Already in the catalog (SG48200T); on approval, swap links to deep links.
+- Candidates only (not applied): YOSE POWER US (launched 2026-11-11, stats n/a, e-bike battery focus), Shop Solar (kit retailer, no feed, USD 0.30 EPC), Better Battery Co. (consumer battery subscription, USD 0.10 EPC — not LiFePO4).
+- NO Awin program exists for: Renogy, Anker/Anker SOLIX, Battle Born, Rich Solar, WindyNation, HQST, Goal Zero, Victron, Ruixu, EG4. Their programs (where they exist) live off-Awin.
+- Session note: the Awin web session expires within hours; Chrome's saved password on oldie (Jay's reset password) signs back in cleanly in one attempt.
+
 ### Amazon Associates — blocked on Jay
 - magicwifimoney@gmail.com has no Amazon account; Jay must create it himself, then the Associates application runs from oldie. Stop at the tax interview and bank details.
 
