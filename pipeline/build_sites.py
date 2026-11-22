@@ -80,55 +80,121 @@ def cap_label(p):
     return f"{p['wh']:,.0f}Wh"
 
 CSS = """
-:root{--ink:#16202a;--mut:#5b6b7a;--line:#d9e1e8;--acc:#0b6e4f;--bg:#f7f9fa;--warn:#8a5a00;--warnbg:#fff4d6}
+@font-face{font-family:'Inter';src:url('/fonts/inter-var.woff2') format('woff2');font-weight:100 900;font-display:swap}
+@font-face{font-family:'Space Grotesk';src:url('/fonts/spacegrotesk-var.woff2') format('woff2');font-weight:300 700;font-display:swap}
+:root{--ink:#131e29;--ink2:#2c3e50;--mut:#5b6b7a;--line:#dde5ec;--acc:#0b6e4f;--accs:#0b6e4f;--accsoft:#e6f4ee;--hero2:#0b2e23;--bg:#f4f7f9;--warn:#8a5a00;--warnbg:#fff4d6;--good:#0b6e4f;--bad:#b03a2e;--sh:0 1px 3px rgba(16,32,48,.07),0 4px 14px rgba(16,32,48,.05);--disp:'Space Grotesk','Inter',system-ui,sans-serif}
 *{box-sizing:border-box}
-body{margin:0;font:15px/1.55 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff}
-header.site{border-bottom:1px solid var(--line);background:var(--bg)}
-header.site .in{max-width:1080px;margin:0 auto;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.brand{font-weight:700;font-size:17px;color:var(--ink);text-decoration:none}
-nav a{color:var(--mut);text-decoration:none;margin-left:14px;font-size:14px}
-nav a:hover{color:var(--acc)}
-main{max-width:1080px;margin:0 auto;padding:20px 16px 10px}
-h1{font-size:27px;line-height:1.2;margin:4px 0 8px}
-h2{font-size:20px;margin:26px 0 8px}
+body{margin:0;font:15.5px/1.6 'Inter',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}
+header.site{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);box-shadow:0 1px 0 rgba(16,32,48,.03)}
+header.site .in{max-width:1120px;margin:0 auto;padding:10px 18px;display:flex;justify-content:space-between;align-items:center;gap:14px}
+.brand{display:flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none;font-family:var(--disp);font-weight:700;font-size:18px;letter-spacing:-.01em;white-space:nowrap}
+.brand svg{flex:none;display:block}
+.brand b{color:var(--accs)}
+header.site nav{display:flex;align-items:center;overflow-x:auto;scrollbar-width:none}
+header.site nav::-webkit-scrollbar{display:none}
+header.site nav a{color:var(--ink2);text-decoration:none;margin-left:4px;font-size:13.5px;font-weight:600;padding:6px 10px;border-radius:999px;white-space:nowrap}
+header.site nav a:hover{background:var(--accsoft);color:var(--accs)}
+main{max-width:1120px;margin:0 auto;padding:22px 18px 12px}
+h1{font-family:var(--disp);font-size:29px;line-height:1.15;letter-spacing:-.015em;margin:6px 0 10px}
+h2{font-family:var(--disp);font-size:21px;letter-spacing:-.01em;margin:32px 0 10px}
 h3{font-size:16px;margin:16px 0 6px}
-.lede{font-size:16.5px;color:#2c3e50;max-width:75ch}
-.updated{font-size:13px;color:var(--mut)}
-.disclosure{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:13px;margin:14px 0}
-#stale{display:none;background:var(--warnbg);color:var(--warn);border:1px solid #ecd28f;border-radius:8px;padding:10px 12px;font-size:14px;margin:10px 0}
-.stats{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0}
-.stat{border:1px solid var(--line);border-radius:8px;padding:10px 14px;min-width:150px;background:#fff}
-.stat b{display:block;font-size:19px;color:var(--acc)}
-.stat span{font-size:12.5px;color:var(--mut)}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:14px 0}
-.card{border:1px solid var(--line);border-radius:8px;padding:12px 14px}
-.card h3{margin:0 0 4px;font-size:15px}
-.card p{margin:4px 0;font-size:13.5px;color:#2c3e50}
-.card .big{font-size:18px;font-weight:700;color:var(--acc)}
-table{width:100%;border-collapse:collapse;font-size:14px;margin:10px 0}
-th,td{padding:8px 9px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
-th{background:var(--bg);white-space:nowrap;cursor:pointer;user-select:none}
-th:hover{color:var(--acc)}
-td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
-.ppw{font-weight:700;color:var(--acc)}
-.was{color:var(--mut);text-decoration:line-through;font-size:12px}
-.oos{color:#b03a2e;font-size:12px}
-a.buy{display:inline-block;background:var(--acc);color:#fff;text-decoration:none;padding:5px 10px;border-radius:6px;font-size:13px;white-space:nowrap}
-.controls{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
-.controls input,.controls select{padding:8px 10px;border:1px solid var(--line);border-radius:6px;font-size:14px}
-.controls input{flex:1;min-width:200px}
-.faq h3{margin:14px 0 2px}
-.faq p{margin:2px 0 8px;max-width:78ch}
+a{color:var(--accs)}
+.lede{font-size:16.5px;line-height:1.6;color:var(--ink2);max-width:74ch}
+.lede b{color:var(--ink)}
 .updated{font-size:13.5px;color:var(--mut);margin:2px 0 10px}
-ul.links{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
-ul.links li{border:1px solid var(--line);border-radius:8px;padding:10px 12px}
-ul.links a{font-weight:600;color:var(--acc);text-decoration:none}
-ul.links p{margin:3px 0 0;font-size:13px;color:var(--mut)}
-footer{max-width:1080px;margin:0 auto;padding:16px;color:var(--mut);font-size:13px;border-top:1px solid var(--line)}
-footer a{color:var(--acc)}
-.prose{max-width:78ch}
-.prose li{margin:4px 0}
-@media(max-width:760px){table{font-size:13px}th,td{padding:6px 5px}h1{font-size:22px}}
+.hero{position:relative;overflow:hidden;border-radius:20px;padding:34px 34px 28px;margin:6px 0 20px;color:#fff;background:radial-gradient(560px 300px at 88% -10%,var(--acc) 0%,rgba(0,0,0,0) 55%),linear-gradient(128deg,#0c1622 30%,var(--hero2) 115%);box-shadow:var(--sh)}
+.hero h1{color:#fff;font-size:36px;margin:10px 0 10px;max-width:22ch}
+.hero .lede{color:rgba(235,242,248,.88)}
+.hero .lede b{color:#fff}
+.kick{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.18);color:#eaf2f8;font-size:12.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:5px 12px;border-radius:999px}
+.kick i{width:8px;height:8px;border-radius:50%;background:#3ddc84;box-shadow:0 0 0 3px rgba(61,220,132,.25);flex:none}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.chip{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:14px;padding:10px 16px;min-width:148px}
+.chip b{display:block;font-family:var(--disp);font-size:21px;letter-spacing:-.01em;color:#fff}
+.chip span{font-size:12px;color:rgba(235,242,248,.66)}
+.disclosure{background:var(--accsoft);border:1px solid var(--line);border-left:4px solid var(--acc);border-radius:12px;padding:11px 14px;font-size:13.5px;margin:14px 0;color:var(--ink2)}
+#stale{display:none;background:var(--warnbg);color:var(--warn);border:1px solid #ecd28f;border-radius:12px;padding:10px 14px;font-size:14px;margin:10px 0}
+.stats{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0}
+.stat{border:1px solid var(--line);border-top:3px solid var(--acc);border-radius:12px;padding:11px 15px;min-width:150px;background:#fff;box-shadow:var(--sh)}
+.stat b{display:block;font-family:var(--disp);font-size:20px;letter-spacing:-.01em;color:var(--ink)}
+.stat span{font-size:12.5px;color:var(--mut)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin:14px 0}
+.card{border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:#fff;box-shadow:var(--sh);transition:transform .15s ease,box-shadow .15s ease}
+.card:hover{transform:translateY(-2px)}
+.card h3{margin:0 0 4px;font-family:var(--disp);font-size:14px;letter-spacing:.04em;text-transform:uppercase;color:var(--accs)}
+.card p{margin:4px 0;font-size:13.5px;color:var(--ink2)}
+.card .big{font-family:var(--disp);font-size:19px;font-weight:700;color:var(--ink)}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:14px;box-shadow:var(--sh);margin:12px 0;background:#fff}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle}
+thead th{background:#101c28;color:#e8eef4;font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap;cursor:pointer;user-select:none;border-bottom:none}
+thead th:hover{color:#fff;background:#18293c}
+tbody tr{transition:background .1s ease}
+tbody tr:hover{background:#f2f7fa}
+tbody tr:last-child td{border-bottom:none}
+tbody tr.best td{background:var(--accsoft)}
+tbody tr.best td:first-child{box-shadow:inset 4px 0 0 var(--acc)}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+td a{color:var(--ink);text-decoration:none;font-weight:600}
+td a:hover{color:var(--accs);text-decoration:underline}
+.ppw{display:inline-block;background:var(--accsoft);color:var(--accs);font-weight:700;padding:2.5px 10px;border-radius:999px;font-variant-numeric:tabular-nums}
+.best .ppw{background:#fff}
+.besttag{display:inline-block;background:var(--acc);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:2.5px 8px;border-radius:999px;margin-left:6px;vertical-align:1px;white-space:nowrap}
+.was{color:var(--mut);text-decoration:line-through;font-size:12px}
+.oos{color:var(--bad);font-size:12px;font-weight:600}
+a.buy{display:inline-block;background:var(--acc);color:#fff;text-decoration:none;padding:7px 15px;border-radius:999px;font-family:var(--disp);font-size:13.5px;font-weight:600;white-space:nowrap;box-shadow:var(--sh)}
+a.buy:hover{filter:brightness(.93);color:#fff;text-decoration:none}
+.controls{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.controls input,.controls select{padding:10px 13px;border:1px solid var(--line);border-radius:10px;font:inherit;font-size:14px;background:#fff;color:var(--ink)}
+.controls input{flex:1;min-width:200px}
+.controls input:focus,.controls select:focus{outline:2px solid var(--acc);outline-offset:1px;border-color:var(--acc)}
+.faq h3{font-family:var(--disp);font-weight:600;font-size:16.5px;margin:16px 0 2px}
+.faq p{margin:2px 0 8px;max-width:76ch;color:var(--ink2)}
+ul.links{list-style:none;padding:0;margin:12px 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+ul.links li{border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:#fff;box-shadow:var(--sh);transition:transform .15s ease}
+ul.links li:hover{transform:translateY(-2px)}
+ul.links a{font-family:var(--disp);font-weight:600;font-size:15.5px;color:var(--ink);text-decoration:none}
+ul.links a::after{content:' \\2192';color:var(--acc)}
+ul.links a:hover{color:var(--accs)}
+ul.links p{margin:4px 0 0;font-size:13px;color:var(--mut)}
+.trendcard{border:1px solid var(--line);border-radius:14px;padding:14px 16px;box-shadow:var(--sh);background:#fff;max-width:560px}
+.trendcard p{margin:8px 0 0;font-size:14px;color:var(--ink2)}
+.tdown{color:var(--good);font-weight:700}
+.tup{color:var(--bad);font-weight:700}
+footer{background:#0c1622;color:#a9bccf;margin-top:44px;font-size:13.5px}
+footer .fin{max-width:1120px;margin:0 auto;padding:30px 18px 26px;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
+footer h4{font-family:var(--disp);color:#fff;font-size:14px;letter-spacing:.04em;text-transform:uppercase;margin:0 0 8px}
+footer p{margin:0 0 8px;line-height:1.6}
+footer a{color:#d7e5f2}
+.sisters{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.sisters a{display:inline-flex;align-items:center;gap:7px;border:1px solid #263646;padding:6px 12px;border-radius:999px;color:#d7e5f2;text-decoration:none;font-weight:600}
+.sisters a:hover{border-color:#3d5a76;color:#fff}
+.sisters i{width:8px;height:8px;border-radius:50%;flex:none}
+.prose{max-width:74ch;font-size:16px;line-height:1.72;color:var(--ink2)}
+.prose h2{border-left:4px solid var(--acc);padding-left:11px;margin-left:-15px}
+.prose li{margin:5px 0}
+.prose b{color:var(--ink)}
+@media(max-width:760px){
+h1{font-size:24px}
+.hero{padding:24px 20px 20px;border-radius:16px}
+.hero h1{font-size:27px}
+.chip{flex:1 1 42%;min-width:0}
+header.site nav{max-width:52vw}
+.stat{flex:1 1 42%;min-width:0}
+.tw{overflow:visible;border:none;box-shadow:none;background:transparent}
+.tw table,.tw tbody,.tw tr,.tw td{display:block;width:100%}
+.tw thead{display:none}
+.tw tr{border:1px solid var(--line);border-radius:14px;margin:0 0 12px;padding:10px 14px;background:#fff;box-shadow:var(--sh)}
+.tw td{border:none;padding:5px 0;display:flex;justify-content:space-between;align-items:center;gap:14px;text-align:right;white-space:normal}
+.tw td::before{content:attr(data-l);font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--mut);text-align:left;flex:none}
+.tw td:first-child{display:block;text-align:left}
+.tw td:first-child::before{display:none}
+.tw td:first-child a{font-family:var(--disp);font-size:15.5px}
+.tw td.buy-cell{display:block;text-align:left}
+.tw td.buy-cell::before{display:none}
+.tw td.buy-cell a.buy{display:block;text-align:center;padding:10px}
+.prose h2{margin-left:0}
+}
 """
 
 JS = """
@@ -166,6 +232,7 @@ def table_html(rows, show_brand_filter=False, tid="t"):
         opts = "".join(f'<option value="{esc(b)}">{esc(b)}</option>' for b in brands)
         ctrl = (f'<div class="controls"><input id="q" type="search" placeholder="Search products, e.g. 100Ah, Bluetooth, golf cart">'
                 f'<select id="brandf"><option value="">All brands</option>{opts}</select></div>')
+    best_url = min(rows, key=ppw)["url"] if rows else None
     trs = []
     for p in rows:
         was = f' <span class="was">{money(p["compare_at"])}</span>' if p.get("compare_at") and p["compare_at"] > p["price"] else ""
@@ -177,17 +244,19 @@ def table_html(rows, show_brand_filter=False, tid="t"):
         else:
             title_cell = (f'<a href="{esc(p["url"])}" rel="nofollow sponsored noopener" '
                           f'target="_blank">{esc(p["title"])}</a>')
+        is_best = p["url"] == best_url
+        tag = '<span class="besttag">Best value</span>' if is_best else ""
         trs.append(
-            f'<tr data-brand="{esc(p["brand"])}">'
-            f'<td data-v="{esc(p["title"])}">{title_cell}{avail}</td>'
-            f'<td data-v="{esc(p["brand"])}">{esc(p["brand"])}</td>'
-            f'<td class="num" data-v="{a or 0}">{cap_label(p)}</td>'
-            f'<td class="num pricedata" data-v="{p["price"]}">{money(p["price"])}{was}</td>'
-            f'<td class="num ppw pricedata" data-v="{ppw(p)}">${ppw(p):.3f}</td>'
-            f'<td class="num pricedata" data-v="{ppw(p)*1000}">${ppw(p)*1000:,.0f}</td>'
-            f'<td><a class="buy" href="{esc(p["url"])}" rel="nofollow sponsored noopener" target="_blank">View deal</a>'
+            f'<tr data-brand="{esc(p["brand"])}"{" class=\"best\"" if is_best else ""}>'
+            f'<td data-l="Product" data-v="{esc(p["title"])}">{title_cell}{avail}</td>'
+            f'<td data-l="Brand" data-v="{esc(p["brand"])}">{esc(p["brand"])}</td>'
+            f'<td class="num" data-l="Capacity" data-v="{a or 0}">{cap_label(p)}</td>'
+            f'<td class="num pricedata" data-l="Price" data-v="{p["price"]}">{money(p["price"])}{was}</td>'
+            f'<td class="num pricedata" data-l="$/Wh" data-v="{ppw(p)}"><span class="ppw">${ppw(p):.3f}</span>{tag}</td>'
+            f'<td class="num pricedata" data-l="$/kWh" data-v="{ppw(p)*1000}">${ppw(p)*1000:,.0f}</td>'
+            f'<td class="buy-cell"><a class="buy" href="{esc(p["url"])}" rel="nofollow sponsored noopener" target="_blank">View deal</a>'
             f'<span class="checkonly" style="display:none"><a class="buy" href="{esc(p["url"])}" rel="nofollow sponsored noopener" target="_blank">Check price</a></span></td></tr>')
-    return (ctrl + f'<div style="overflow-x:auto"><table id="{tid}"><thead><tr>'
+    return (ctrl + f'<div class="tw"><table id="{tid}"><thead><tr>'
             '<th data-k="0">Product</th><th data-k="1">Brand</th><th data-k="2" data-n="1" class="num">Capacity</th>'
             '<th data-k="3" data-n="1" class="num">Price</th><th data-k="4" data-n="1" class="num">$/Wh</th>'
             '<th data-k="5" data-n="1" class="num">$/kWh</th><th></th></tr></thead>'
@@ -352,12 +421,51 @@ VERIFY_META = {
 }
 
 
+# ---------- per-site brand identity (redesign pass 2026-11-22) ----------
+# Shared layout DNA, one brand per domain: its own accent (used for the
+# logo mark, hero glow, pills, highlights and footer dot), a darker
+# accent-strong for text on white, a soft tint, and a deep hero gradient
+# stop. 48V = amber (high-voltage energy), 12V = blue (the marine/RV
+# everyman class), 24V = teal (the in-between workhorse), rack = violet
+# (datacenter hardware).
+THEMES = {
+    "48vlifepo4battery.com": {"acc": "#d97706", "accs": "#b45309",
+        "accsoft": "#fdf0dc", "hero2": "#3d1e02",
+        "wm": "<b>48V</b>&nbsp;LiFePO4 Battery"},
+    "12vlifepo4battery.com": {"acc": "#2563eb", "accs": "#1d4ed8",
+        "accsoft": "#e3ecfd", "hero2": "#12275e",
+        "wm": "<b>12V</b>&nbsp;LiFePO4 Battery"},
+    "24vlifepo4battery.com": {"acc": "#0d9488", "accs": "#0f766e",
+        "accsoft": "#dcf5f0", "hero2": "#043f39",
+        "wm": "<b>24V</b>&nbsp;LiFePO4 Battery"},
+    "serverrackbatteries.com": {"acc": "#7c3aed", "accs": "#6d28d9",
+        "accsoft": "#efe8fd", "hero2": "#2c1065",
+        "wm": "Server Rack&nbsp;<b>Batteries</b>"},
+}
+SISTER_ACCENTS = {d: t["acc"] for d, t in THEMES.items()}
+
+def logo_svg(acc):
+    return (f'<svg width="40" height="26" viewBox="0 0 44 28" aria-hidden="true">'
+            f'<rect x="1.6" y="4" width="35.5" height="20" rx="5.5" fill="none" stroke="{acc}" stroke-width="3"/>'
+            f'<rect x="39.6" y="10" width="3.4" height="8" rx="1.7" fill="{acc}"/>'
+            f'<path d="M20.6 6.6 13.2 15.4h4.8l-1.8 5.8 7.6-8.8h-4.9z" fill="{acc}"/></svg>')
+
+def favicon_link(acc):
+    enc = acc.replace("#", "%23")
+    return (f'<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' '
+            f'viewBox=\'0 0 44 28\'%3E%3Crect width=\'44\' height=\'28\' rx=\'7\' fill=\'{enc}\'/%3E'
+            f'%3Cpath d=\'M23 5 14 16h6l-2 7 9-11h-6z\' fill=\'white\'/%3E%3C/svg%3E">')
+
 # ---------- page shell ----------
 def page(site, path, title, desc, body, extra_head=""):
     verify = VERIFY_META.get(site["domain"], "") if path == "/" else ""
     nav = "".join(f'<a href="/{c["slug"]}/">{esc(c["nav"])}</a>' for c in site["clusters"][:5])
-    sisters = " · ".join(
-        f'<a href="https://{d}/">{esc(n)}</a>' for d, n in SISTER_LINKS if d != site["domain"])
+    th = THEMES[site["domain"]]
+    theme_css = (f":root{{--acc:{th['acc']};--accs:{th['accs']};"
+                 f"--accsoft:{th['accsoft']};--hero2:{th['hero2']}}}")
+    sisters = "".join(
+        f'<a href="https://{d}/"><i style="background:{SISTER_ACCENTS[d]}"></i>{esc(n)}</a>'
+        for d, n in SISTER_LINKS if d != site["domain"])
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -366,23 +474,28 @@ def page(site, path, title, desc, body, extra_head=""):
 <title>{esc(title)}</title>
 <meta name="description" content="{esc(desc)}">
 <link rel="canonical" href="https://{site['domain']}{path}">
+{favicon_link(th['acc'])}
+<link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
 <style>{CSS}</style>
+<style>{theme_css}</style>
 {verify}
 {extra_head}
 </head>
 <body>
 <header class="site"><div class="in">
-<a class="brand" href="/">{esc(site['name'])}</a>
+<a class="brand" href="/">{logo_svg(th['acc'])}<span>{th['wm']}</span></a>
 <nav>{nav}<a href="/about/">About &amp; method</a></nav>
 </div></header>
 <main>
 {body}
 </main>
-<footer>
-<p><b>How prices are gathered:</b> automatically from the manufacturers' own online stores, refreshed several times a day. We compute price per watt-hour from each battery's rated capacity. We never invent ratings or discounts — a struck-through price appears only when the maker's own store lists one. Full method on the <a href="/about/">about page</a>.</p>
-<p><b>Affiliate disclosure:</b> some outbound links on this site are affiliate links. If you buy through them we may earn a commission at no extra cost to you. Prices shown come from the makers' stores, not from affiliate feeds.</p>
-<p>Sister trackers: {sisters}</p>
-</footer>
+<footer><div class="fin">
+<div><h4>{esc(site['name'])}</h4>
+<p><b>How prices are gathered:</b> automatically from the manufacturers' own online stores, refreshed several times a day. We compute price per watt-hour from each battery's rated capacity. We never invent ratings or discounts — a struck-through price appears only when the maker's own store lists one. Full method on the <a href="/about/">about page</a>.</p></div>
+<div><h4>Affiliate disclosure</h4>
+<p>Some outbound links on this site are affiliate links. If you buy through them we may earn a commission at no extra cost to you. Prices shown come from the makers' stores, not from affiliate feeds.</p></div>
+<div><h4>Sister trackers</h4><div class="sisters">{sisters}</div></div>
+</div></footer>
 {JS}
 </body>
 </html>"""
@@ -859,10 +972,10 @@ def mini_table(rows, self_p):
         link = PROD_URL.get((segment(q), q["url"]))
         name = (f'<a href="{esc(link)}">{esc(q["title"])}</a>' if link
                 else esc(q["title"]))
-        trs.append(f'<tr><td>{name}{mark}</td>'
-                   f'<td class="num pricedata" data-v="{q["price"]}">{money(q["price"])}</td>'
-                   f'<td class="num ppw pricedata" data-v="{ppw(q)}">${ppw(q):.3f}</td></tr>')
-    return ('<div style="overflow-x:auto"><table><thead><tr><th>Product</th>'
+        trs.append(f'<tr><td data-l="Product">{name}{mark}</td>'
+                   f'<td class="num pricedata" data-l="Price" data-v="{q["price"]}">{money(q["price"])}</td>'
+                   f'<td class="num pricedata" data-l="$/Wh" data-v="{ppw(q)}"><span class="ppw">${ppw(q):.3f}</span></td></tr>')
+    return ('<div class="tw"><table><thead><tr><th>Product</th>'
             '<th class="num">Price</th><th class="num">$/Wh</th></tr></thead>'
             f'<tbody>{"".join(trs)}</tbody></table></div>')
 
@@ -1016,6 +1129,61 @@ def load_snapshots():
     except Exception:
         return []
 
+# ---------- price-trend sparklines (redesign pass 2026-11-22) ----------
+# Rendered ONLY from real recorded snapshots in data/price_history.json:
+# a product page gets a trend card when >=2 snapshots carry its URL, and
+# the copy states the actual first/last snapshot dates. No points, no
+# card — nothing is interpolated or projected.
+_SNAP_CACHE = None
+
+def price_series(url):
+    global _SNAP_CACHE
+    if _SNAP_CACHE is None:
+        _SNAP_CACHE = load_snapshots()
+    return [(s["ts"], s["prices"][url]) for s in _SNAP_CACHE
+            if url in s.get("prices", {})]
+
+def sparkline_svg(pts, acc):
+    w, h, pad = 264, 54, 5
+    vals = [v for _, v in pts]
+    lo, hi = min(vals), max(vals)
+    rng = (hi - lo) or 1.0
+    n = len(pts)
+    coords = []
+    for i, (_, v) in enumerate(pts):
+        x = pad + i * (w - 2 * pad) / (n - 1)
+        y = pad + (hi - v) / rng * (h - 2 * pad)
+        coords.append((x, y))
+    line = " ".join(f"{x:.1f},{y:.1f}" for x, y in coords)
+    area = (f"M{coords[0][0]:.1f},{h - 1} L"
+            + " L".join(f"{x:.1f},{y:.1f}" for x, y in coords)
+            + f" L{coords[-1][0]:.1f},{h - 1} Z")
+    lx, ly = coords[-1]
+    return (f'<svg width="{w}" height="{h}" viewBox="0 0 {w} {h}" role="img" aria-label="Recorded price trend">'
+            f'<path d="{area}" fill="{acc}" opacity="0.14"/>'
+            f'<polyline points="{line}" fill="none" stroke="{acc}" stroke-width="2.2" '
+            f'stroke-linejoin="round" stroke-linecap="round"/>'
+            f'<circle cx="{lx:.1f}" cy="{ly:.1f}" r="3.2" fill="{acc}"/></svg>')
+
+def trend_html(p, site):
+    pts = price_series(p["url"])
+    if len(pts) < 2:
+        return ""
+    (t0, v0), (t1, v1) = pts[0], pts[-1]
+    d0 = _parse_ts(t0).strftime("%B %d, %Y")
+    d1 = _parse_ts(t1).strftime("%B %d, %Y")
+    svg = sparkline_svg(pts, THEMES[site["domain"]]["acc"])
+    if v1 == v0:
+        txt = (f'Held steady at {money(v1)} across all {len(pts)} recorded snapshots '
+               f'since tracking began {d0}.')
+    else:
+        pct = (v1 - v0) / v0 * 100
+        cls = "tdown" if pct < 0 else "tup"
+        word = "Down" if pct < 0 else "Up"
+        txt = (f'<span class="{cls}">{word} {abs(pct):.1f}%</span> since tracking began {d0}: '
+               f'{money(v0)} then, {money(v1)} as of {d1} — {len(pts)} recorded snapshots.')
+    return f'<h2>Price trend</h2><div class="trendcard">{svg}<p>{txt}</p></div>'
+
 def deals_info(pool):
     """(gate_open, baseline_snapshot, drops, snapshots). Baseline = oldest
     snapshot at least 6 days older than the newest one."""
@@ -1083,13 +1251,13 @@ def deals_body(site, pool, fetched, date_str):
             p = d["p"]
             link = PROD_URL.get((segment(p), p["url"]))
             name = (f'<a href="{esc(link)}">{esc(p["title"])}</a>' if link else esc(p["title"]))
-            trs.append(f'<tr><td>{name}</td>'
-                       f'<td class="num pricedata">{money(d["old"])}</td>'
-                       f'<td class="num pricedata">{money(p["price"])}</td>'
-                       f'<td class="num pricedata">${d["old_ppw"]:.3f}</td>'
-                       f'<td class="num ppw pricedata">${ppw(p):.3f}</td>'
-                       f'<td class="num pricedata">-{d["pct"]:.0f}%</td></tr>')
-        table = ('<div style="overflow-x:auto"><table><thead><tr><th>Product</th>'
+            trs.append(f'<tr><td data-l="Product">{name}</td>'
+                       f'<td class="num pricedata" data-l="Price then">{money(d["old"])}</td>'
+                       f'<td class="num pricedata" data-l="Price now">{money(p["price"])}</td>'
+                       f'<td class="num pricedata" data-l="$/Wh then">${d["old_ppw"]:.3f}</td>'
+                       f'<td class="num pricedata" data-l="$/Wh now"><span class="ppw">${ppw(p):.3f}</span></td>'
+                       f'<td class="num pricedata" data-l="Drop">-{d["pct"]:.0f}%</td></tr>')
+        table = ('<div class="tw"><table><thead><tr><th>Product</th>'
                  '<th class="num">Price then</th><th class="num">Price now</th>'
                  '<th class="num">$/Wh then</th><th class="num">$/Wh now</th>'
                  '<th class="num">Drop</th></tr></thead>'
@@ -1168,10 +1336,18 @@ def build():
         lede = site["lede"].format(phrase=site["phrase"], n=len(pool),
                                    minppw=f"{min(ppws):.3f}", medppw=f"{statistics.median(ppws):.3f}",
                                    date=date_str)
-        body = (f'<h1>{esc(site["display"])} — Prices per Watt-Hour, Compared Live</h1>'
+        cheap_home = min(pool, key=ppw)
+        hero = (f'<div class="hero"><span class="kick"><i></i>Live price tracker · refreshed {date_str}</span>'
+                f'<h1>{esc(site["display"])} — Prices per Watt-Hour, Compared Live</h1>'
                 f'<p class="lede">{lede}</p>'
+                f'<div class="chips">'
+                f'<div class="chip"><b>{len(pool)}</b><span>models tracked</span></div>'
+                f'<div class="chip"><b>${min(ppws):.3f}/Wh</b><span>lowest $/Wh — {esc(cheap_home["brand"])}</span></div>'
+                f'<div class="chip"><b>${statistics.median(ppws):.3f}/Wh</b><span>median $/Wh</span></div>'
+                f'<div class="chip"><b>{money(min(p["price"] for p in pool))}–{money(max(p["price"] for p in pool))}</b><span>price range</span></div>'
+                f'</div></div>')
+        body = (hero
                 + DISCLOSURE.format(ts=fetched, date=date_str)
-                + stats_html(pool)
                 + top_picks(pool)
                 + f'<h2>All {esc(site["phrase"])} prices, ranked by $/Wh</h2>'
                 + table_html(pool, show_brand_filter=True)
@@ -1225,10 +1401,12 @@ def build():
                          "on this page refresh several times a day.</p>")
             if rows and g.get("stats", True):
                 parts.append(stats_html(rows))
+            parts.append('<div class="prose">')
             for head, blocks in g.get("sections", []):
                 parts.append(f'<h2>{esc(head)}</h2>')
                 for b in blocks:
                     parts.append(fmt(b, ctx))
+            parts.append('</div>')
             if rows:
                 parts.append(f'<h2>{esc(g.get("table_heading") or "Prices, ranked by $/Wh")}</h2>')
                 parts.append(table_html(rows))
@@ -1350,6 +1528,7 @@ def build():
                          + (f'<p class="pricedata">Maker\'s list price: <span class="was">{money(p["compare_at"])}</span> — a struck-through price appears only when the maker\'s own store lists one.</p>'
                             if p.get("compare_at") and p["compare_at"] > p["price"] else "")
                          + f'<p><a class="buy" href="{esc(p["url"])}" rel="nofollow sponsored noopener" target="_blank">View at {esc(p["brand"])}\'s store</a></p>'
+                         + trend_html(p, site)
                          + f'<h2>Where it ranks in its class</h2>{rankline}'
                          + mini_table(rows_c[lo:hi], p)
                          + '<h2>Details from the maker\'s listing</h2><div class="prose">'
@@ -1401,6 +1580,13 @@ def build():
             "User-agent: PerplexityBot\nAllow: /\nUser-agent: Bingbot\nAllow: /\n"
             f"Sitemap: https://{site['domain']}/sitemap.xml\n")
         (root / f"{INDEXNOW_KEY}.txt").write_text(INDEXNOW_KEY)
+        # Self-hosted variable fonts (no CDN): copied from the committed
+        # pipeline assets into every site root at /fonts/.
+        fonts_src = ROOT / "pipeline" / "assets" / "fonts"
+        if fonts_src.exists():
+            fdir = root / "fonts"; fdir.mkdir(exist_ok=True)
+            for ff in fonts_src.glob("*.woff2"):
+                shutil.copyfile(ff, fdir / ff.name)
         post_hashes = _hash_tree(root)
         indexnow_changes[site["domain"]] = [
             f"https://{site['domain']}{u}" for u in urls
