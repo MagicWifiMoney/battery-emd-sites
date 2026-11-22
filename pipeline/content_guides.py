@@ -675,6 +675,7 @@ GUIDES = {
     },
     {
         "slug": "12v-lifepo4-charging-guide",
+        "updated": "2026-11-22",
         "title": "12V LiFePO4 Charging Guide: 14.4V Profile, Charge Times, Cold Rules",
         "desc": "How to charge a 12V LiFePO4 battery correctly: 14.2–14.6V absorption, no float requirement, no equalization — plus charge-time math by charger size.",
         "h1": "Charging a 12V LiFePO4 Battery: The 14.4V Profile",
@@ -712,6 +713,8 @@ GUIDES = {
              "A lithium-aware float at ~13.5V is fine for standby duty. What's harmful is a lead-acid maintainer that periodically pushes high-voltage desulfation pulses. For storage, the healthiest state is ~50–80% charge, charger disconnected."),
             ("Why does my LiFePO4 battery stop charging in winter?",
              "If it has low-temperature protection, the BMS is doing its job: it blocks charging below 0°C to prevent lithium plating. Warm the battery (use, sun, a heated space) and charging resumes. Models without the protection will accept the charge and quietly lose capacity."),
+            ("What size charger do I need for a 12V 100Ah LiFePO4 battery?",
+             "A 20A lithium-profile charger is the common sweet spot: it refills a 100Ah pack from empty in about 5 hours. A 10A charger takes roughly 10 hours (fine overnight), and 50A — the maximum charge rate most makers allow for a 100Ah pack (0.5C) — takes about 2 hours. Whatever the size, the charger must hold a 14.2–14.6V absorption profile with equalization off."),
         ],
         "related": ["rv-batteries", "12v-lifepo4-battery-for-solar", "how-to-choose"],
     },

@@ -119,6 +119,7 @@ a.buy{display:inline-block;background:var(--acc);color:#fff;text-decoration:none
 .controls input{flex:1;min-width:200px}
 .faq h3{margin:14px 0 2px}
 .faq p{margin:2px 0 8px;max-width:78ch}
+.updated{font-size:13.5px;color:var(--mut);margin:2px 0 10px}
 ul.links{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
 ul.links li{border:1px solid var(--line);border-radius:8px;padding:10px 12px}
 ul.links a{font-weight:600;color:var(--acc);text-decoration:none}
@@ -209,10 +210,136 @@ def faq_html(faqs):
     return f'<section class="faq"><h2>Frequently asked questions</h2>{items}</section><script type="application/ld+json">{json.dumps(ld)}</script>'
 
 
+# ---------- page-specific FAQs (playbook pass 2026-11-22) ----------
+# Product, cluster and hub pages used to repeat the same 2-3 site-wide
+# questions on every page. These builders compute FAQs from the page's own
+# rows instead: named cheapest model, rank, counts, price range, and a
+# freshness answer carrying the refresh date. No invented facts — every
+# number comes from the catalog rows rendered on the page itself.
+
+def _long_date(iso):
+    try:
+        return datetime.fromisoformat(iso).strftime("%B %d, %Y")
+    except Exception:
+        return iso
+
+
+def _fresh_q(date_str):
+    return ("How current are the prices on this page?",
+            f"Prices were last refreshed {date_str} and are re-checked several times a day "
+            "against the manufacturers' own stores. If the data ever goes more than 72 hours "
+            "without a refresh, this page hides the numbers rather than show stale prices.")
+
+
+def product_faqs(p, cc, site, date_str):
+    myppw = ppw(p)
+    cheap = cc["cheap"]
+    if cheap["url"] == p["url"]:
+        rank_a = (f"It is the cheapest in its class right now: #1 of {cc['n']} in the "
+                  f"{cc['label']} class by $/Wh, against a class median of ${cc['median']:.3f}/Wh.")
+    else:
+        rank_a = (f"It ranks #{cc['rank']} of {cc['n']} in the {cc['label']} class by $/Wh. "
+                  f"The class median is ${cc['median']:.3f}/Wh and the cheapest in class is a "
+                  f"{cheap['brand']} model at ${ppw(cheap):.3f}/Wh ({money(cheap['price'])}).")
+    avail = ("The maker's store listed it as available" if p.get("available", True)
+             else "The maker's store did not list it as available")
+    return [
+        (f"What does this {p['brand']} battery cost per watt-hour?",
+         f"As of {date_str} it is listed at {money(p['price'])} in {p['brand']}'s own store — "
+         f"${myppw:.3f}/Wh (${myppw * 1000:,.0f}/kWh) for its rated {p['wh']:,.0f}Wh."),
+        (f"How does this {p['brand']} battery rank on value?",
+         rank_a),
+        (f"Is this {p['brand']} battery in stock?",
+         f"{avail} when prices were refreshed on {date_str}. Stock moves faster than price "
+         "tracking, so confirm on the maker's page (linked above) before ordering."),
+        _fresh_q(date_str),
+    ]
+
+
+def cluster_faqs(c, sub, site, date_str):
+    rows = sorted(sub, key=ppw)
+    cheap = rows[0]
+    ppws = [ppw(p) for p in rows]
+    brands = sorted({p["brand"] for p in rows})
+    faqs = [
+        ("Which battery on this page is cheapest per watt-hour?",
+         f"The {cheap['title']} from {cheap['brand']}, at ${ppw(cheap):.3f}/Wh "
+         f"({money(cheap['price'])}) as of {date_str}. The table is sorted by $/Wh, "
+         "so the top row is always the current answer."),
+        ((f"How many {site['phrase']} are compared on this page?"
+          if site["phrase"].endswith("s") else
+          f"How many {site['phrase']} models are compared on this page?"),
+         f"{len(rows)} models from {len(brands)} makers ({', '.join(brands)}), priced from "
+         f"{money(min(p['price'] for p in rows))} to {money(max(p['price'] for p in rows))}, "
+         f"with a median of ${statistics.median(ppws):.3f}/Wh."),
+    ]
+    whs = [p["wh"] for p in rows]
+    if max(whs) > min(whs):
+        faqs.append(("Why not just buy the cheapest sticker price here?",
+                     f"These models store different amounts of energy — from {min(whs):,.0f}Wh "
+                     f"to {max(whs):,.0f}Wh — so the sticker alone misleads. $/Wh normalizes "
+                     "for size: it is the price of one watt-hour of storage, whichever case "
+                     "it comes in."))
+    if "100ah" in c["slug"] and site["domain"] == "serverrackbatteries.com":
+        faqs.append(("Is a 48V 100Ah server rack battery the same as a 51.2V 100Ah battery?",
+                     "Yes — same battery, two labels. LiFePO4 cells are 3.2V nominal, so a "
+                     "16-cell '48V' pack is 51.2V nominal and stores 5,120Wh at 100Ah. Makers "
+                     "title the identical class both ways; this page tracks them together."))
+    faqs.append(_fresh_q(date_str))
+    return faqs
+
+
+def hub_faqs(h, rows, site, date_str):
+    rows = sorted(rows, key=ppw)
+    cheap = rows[0]
+    ppws = [ppw(p) for p in rows]
+    if h["kind"] == "brand":
+        first = (f"Which {h['key']} battery is the best value?",
+                 f"By price per watt-hour, the {cheap['title']} at ${ppw(cheap):.3f}/Wh "
+                 f"({money(cheap['price'])}). {h['key']}'s median across its {len(rows)} "
+                 f"tracked models is ${statistics.median(ppws):.3f}/Wh.")
+    elif h["kind"] == "price":
+        first = (f"What is the best-value battery {h['key'].lower()}?",
+                 f"The {cheap['title']} from {cheap['brand']} stores energy cheapest in this "
+                 f"band at ${ppw(cheap):.3f}/Wh ({money(cheap['price'])}); the band median "
+                 f"is ${statistics.median(ppws):.3f}/Wh.")
+    else:
+        first = ("Which battery on this page is cheapest per watt-hour?",
+                 f"The {cheap['title']} from {cheap['brand']} at ${ppw(cheap):.3f}/Wh "
+                 f"({money(cheap['price'])}), as of {date_str}.")
+    return [first,
+            ("How many models are in this list?",
+             f"{len(rows)} models, priced from {money(min(p['price'] for p in rows))} to "
+             f"{money(max(p['price'] for p in rows))}, every one ranked by $/Wh rather "
+             "than sticker price."),
+            _fresh_q(date_str)]
+
+
+def _hash_tree(root):
+    """{url path: sha1} for every built page under root, with the volatile
+    fetch timestamp normalized out — a page counts as changed only when its
+    prices, date text or copy actually changed (IndexNow change detection)."""
+    out = {}
+    if not root.exists():
+        return out
+    for f in sorted(root.rglob("index.html")):
+        rel = f.relative_to(root)
+        parts = rel.parts[:-1]
+        url = "/" + "/".join(parts) + ("/" if parts else "")
+        raw = re.sub(rb'data-ts="[^"]*"', b"", f.read_bytes())
+        out[url] = hashlib.sha1(raw).hexdigest()
+    return out
+
+
 # Site-verification meta tags (homepage only), keyed by domain: Impact
 # affiliate network, Google Search Console, and Bing Webmaster Tools
 # (the Bing msvalidate.01 code is account-wide, identical on every site).
 BING_VERIFY = "<meta name='msvalidate.01' content='2FA47358EA1D4A7E3DF926ACEF53F410'>"
+# IndexNow: the key is public by design — it is hosted at /<key>.txt on
+# every site so search engines can verify URL submissions (playbook:
+# "run IndexNow only when the main content really changes" — the build
+# writes indexnow-changed.json with just the pages whose content moved).
+INDEXNOW_KEY = "bc6f8735fbff4ded8c2d59d70508943f"
 VERIFY_META = {
     "48vlifepo4battery.com": "<meta name='impact-site-verification' value='ec050c2d-1e9d-48e1-a271-857624705cd2'>"
         "<meta name='google-site-verification' content='tbW4-K0LffGFfy0K6yYDgyJc1MuJYpSJqktIZnji4HE'>" + BING_VERIFY,
@@ -540,6 +667,11 @@ SITES = [
               "marine",
               ["A 24V trolling motor is the classic reason a 24V battery exists. Lithium changes the day on the water twice over: a 24V 100Ah LiFePO4 weighs roughly a third of the two lead-acids it replaces, and it holds voltage flat to empty, so the thrust you get at 90% charge is the thrust you get at 20%. The packs below are the ones makers sell for trolling and marine use, ranked by $/Wh.",
                "Size by thrust: 70–80 lb motors draw about 40–55A at full throttle (a 50–60Ah pack covers a morning; 100Ah covers a day), and 112 lb motors want the 100Ah class. Confirm the BMS continuous rating covers your motor's max draw, and prefer low-temperature protection if you fish early-season cold water."]),
+            C("rv-batteries", "RV", "24V LiFePO4 Batteries for RVs & Trucks",
+              "24V house banks for larger RVs, trucks and off-grid rigs — the models makers sell for vehicle systems, by $/Wh.",
+              "rv",
+              ["Most RV house banks are 12V, but 24V is the right call for larger rigs: at the same wattage it halves the current, so cables run thinner and inverter losses drop — which is why trucks, big fifth-wheels and serious off-grid builds standardize on it. The models below are the 24V packs the makers sell for RV, truck and off-grid vehicle use, ranked by $/Wh.",
+               "Sizing: a 24V 100Ah pack stores 2,560Wh (about a day of lights, fridge, furnace fan and device charging); the 230Ah class stores 5,888Wh for multi-day boondocking. If your rig is wired 12V today, price the conversion honestly — DC-DC charging from the alternator and 24V-native loads are part of the bill — and compare the 12V table on our sister tracker before switching."]),
         ],
     },
     {
@@ -1018,6 +1150,7 @@ def build():
                 PROD_URL[(seg, url)] = f"https://{dom}/product/{slug}/"
 
     summary = {}
+    indexnow_changes = {}
     for site in SITES:
         pool = []
         for key in site["pool"]:
@@ -1028,7 +1161,9 @@ def build():
         dgate = deals_info(pool)[0] if p2 else False
         root = OUT / site["domain"]
         root.mkdir(parents=True, exist_ok=True)
+        pre_hashes = _hash_tree(root)
         urls = ["/"]
+        lastmods = {}
         ppws = [ppw(p) for p in pool]
         lede = site["lede"].format(phrase=site["phrase"], n=len(pool),
                                    minppw=f"{min(ppws):.3f}", medppw=f"{statistics.median(ppws):.3f}",
@@ -1068,7 +1203,7 @@ def build():
                      + f'<h2>Prices, ranked by $/Wh</h2>' + table_html(sub)
                      + f'<div class="prose">{paras}</div>'
                      + f'<h2>Keep comparing</h2><ul class="links"><li><a href="/">All {esc(site["phrase"])} prices</a><p>The full live table, every model ranked by $/Wh.</p></li>{sib_html}</ul>'
-                     + faq_html(site["faqs"][:3]))
+                     + faq_html(cluster_faqs(c, sub, site, date_str)))
             d = root / c["slug"]; d.mkdir(exist_ok=True)
             (d / "index.html").write_text(page(
                 site, f'/{c["slug"]}/', f'{c["h1"]} — Prices by $/Wh',
@@ -1084,6 +1219,10 @@ def build():
             parts = [f'<h1>{esc(g["h1"])}</h1>',
                      f'<p class="lede">{fmt(g["lede"], ctx)}</p>',
                      DISCLOSURE.format(ts=fetched, date=date_str)]
+            updated_iso = g.get("updated", "2026-11-21")
+            parts.append(f'<p class="updated">Guide last updated {_long_date(updated_iso)}. '
+                         "The advice is reviewed when it changes; the prices and rankings "
+                         "on this page refresh several times a day.</p>")
             if rows and g.get("stats", True):
                 parts.append(stats_html(rows))
             for head, blocks in g.get("sections", []):
@@ -1102,10 +1241,18 @@ def build():
             gfaqs = g.get("faqs") or site["faqs"][:3]
             parts.append(faq_html([(q, fmt(a, ctx)) for q, a in gfaqs]))
             urls.append(f'/{g["slug"]}/')
+            lastmods[f'/{g["slug"]}/'] = updated_iso
+            art_ld = {"@context": "https://schema.org", "@type": "Article",
+                      "headline": re.sub("<[^>]+>", "", fmt(g["h1"], ctx)),
+                      "dateModified": updated_iso,
+                      "author": {"@type": "Organization", "name": "Quiet Coyote"},
+                      "publisher": {"@type": "Organization", "name": "Quiet Coyote"}}
+            extra = (itemlist_ld(rows, site) if rows else "") + \
+                f'<script type="application/ld+json">{json.dumps(art_ld)}</script>'
             gd = root / g["slug"]; gd.mkdir(exist_ok=True)
             (gd / "index.html").write_text(page(
                 site, f'/{g["slug"]}/', fmt(g["title"], ctx), fmt(g["desc"], ctx),
-                "".join(parts), extra_head=itemlist_ld(rows, site) if rows else ""))
+                "".join(parts), extra_head=extra))
         # phase 2: clear the dynamic page trees so products/hubs that left
         # the catalog lose their pages on this build (spec section 2).
         if p2:
@@ -1128,7 +1275,7 @@ def build():
                      + f'<h2>Prices, ranked by $/Wh</h2>' + table_html(rows)
                      + f'<div class="prose">{hub_prose(site, h)}</div>'
                      + f'<h2>Keep comparing</h2><ul class="links"><li><a href="/">All {esc(site["phrase"])} prices</a><p>The full live table, every model ranked by $/Wh.</p></li>{sib_html}</ul>'
-                     + faq_html(site["faqs"][:3]))
+                     + faq_html(hub_faqs(h, rows, site, date_str)))
             hd = root
             for part in h["slug"].split("/"):
                 hd = hd / part
@@ -1210,7 +1357,7 @@ def build():
                          + f'<p><b>Availability:</b> {avail_txt}</p>'
                          + f'<p><b>Seller:</b> {esc(p["brand"])}\'s own store ({esc(store_host)}). The buy link above goes to the maker\'s product page.</p></div>'
                          + f'<h2>Keep comparing</h2><ul class="links">{"".join(rel)}</ul>'
-                         + faq_html(site["faqs"][:2]))
+                         + faq_html(product_faqs(p, cc, site, date_str)))
                 pd = root / "product" / slug
                 pd.mkdir(parents=True, exist_ok=True)
                 (pd / "index.html").write_text(page(
@@ -1231,13 +1378,15 @@ def build():
                 urls.append("/deals/")
         # about
         urls.append("/about/")
+        lastmods["/about/"] = "2026-11-21"
         adir = root / "about"; adir.mkdir(exist_ok=True)
         (adir / "index.html").write_text(page(site, "/about/", f'About & method — {site["name"]}',
                                               "How this tracker gathers prices and computes price per watt-hour.", ABOUT_BODY))
         # sitemap + robots
         sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
         for u in urls:
-            sm.append(f'<url><loc>https://{site["domain"]}{u}</loc><lastmod>{dt.strftime("%Y-%m-%d")}</lastmod></url>')
+            lm = lastmods.get(u, dt.strftime("%Y-%m-%d"))
+            sm.append(f'<url><loc>https://{site["domain"]}{u}</loc><lastmod>{lm}</lastmod></url>')
         sm.append('</urlset>')
         (root / "sitemap.xml").write_text("\n".join(sm))
         # Google Search Console HTML-file verification (account-level token,
@@ -1251,8 +1400,16 @@ def build():
             "User-agent: ChatGPT-User\nAllow: /\nUser-agent: ClaudeBot\nAllow: /\n"
             "User-agent: PerplexityBot\nAllow: /\nUser-agent: Bingbot\nAllow: /\n"
             f"Sitemap: https://{site['domain']}/sitemap.xml\n")
+        (root / f"{INDEXNOW_KEY}.txt").write_text(INDEXNOW_KEY)
+        post_hashes = _hash_tree(root)
+        indexnow_changes[site["domain"]] = [
+            f"https://{site['domain']}{u}" for u in urls
+            if post_hashes.get(u) != pre_hashes.get(u)]
         summary[site["domain"]] = {"pages": len(urls), "products": len(pool)}
         print(f'[build] {site["domain"]}: {len(urls)} pages, {len(pool)} products in pool')
+    (ROOT / "indexnow-changed.json").write_text(json.dumps(
+        {"key": INDEXNOW_KEY, "generated_at": fetched,
+         "sites": indexnow_changes}, indent=1))
     return summary
 
 if __name__ == "__main__":
