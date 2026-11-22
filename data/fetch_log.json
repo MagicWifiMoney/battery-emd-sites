@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-22T06:50:04Z",
+  "fetched_at": "2026-11-22T07:42:04Z",
   "total_kept": 469,
   "stores": [
     {
@@ -39,9 +39,9 @@
       "base_url": "https://checkout.bluettipower.com",
       "enabled": true,
       "pages": 2,
-      "raw_products": 436,
+      "raw_products": 437,
       "kept": 164,
-      "skipped_irrelevant": 194,
+      "skipped_irrelevant": 195,
       "skipped_refurb": 0,
       "skipped_unparsed": 87,
       "dropped_guard": 5,
