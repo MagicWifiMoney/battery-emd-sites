@@ -821,6 +821,11 @@ SITES = [
               "rv",
               ["Most RV house banks are 12V, but 24V is the right call for larger rigs: at the same wattage it halves the current, so cables run thinner and inverter losses drop — which is why trucks, big fifth-wheels and serious off-grid builds standardize on it. The models below are the 24V packs the makers sell for RV, truck and off-grid vehicle use, ranked by $/Wh.",
                "Sizing: a 24V 100Ah pack stores 2,560Wh (about a day of lights, fridge, furnace fan and device charging); the 230Ah class stores 5,888Wh for multi-day boondocking. If your rig is wired 12V today, price the conversion honestly — DC-DC charging from the alternator and 24V-native loads are part of the bill — and compare the 12V table on our sister tracker before switching."]),
+            C("solar-batteries", "Solar", "24V LiFePO4 Batteries for Solar & Off-Grid",
+              "24V batteries sold for solar and off-grid use, compared on $/Wh.",
+              "solar_kw",
+              ["Solar is the daily-cycling job: the bank charges from the panels by day and carries the loads at night, so cycle life and cost per watt-hour matter more than peak specs. The packs below are the 24V LiFePO4 models the makers sell for solar and off-grid use, ranked by $/Wh.",
+               "When is 24V the right solar bus voltage? In the middle: a 24V bank pairs with the 1–3kW inverter class that runs cabins, workshops, larger RVs and small off-grid homes — at 2,000W a 24V system draws about half the current of a 12V one (~78A vs ~156A), so cables and losses stay sane, while the bank stays one or two batteries instead of a rack. Below that class, 12V is simpler; above it, 48V takes over. Building the bank from two 12V packs in series instead of a native 24V battery is the other real option — our <a href=\"/series-vs-native-24v/\">series vs native 24V guide</a> walks through the trade-offs, and the <a href=\"/how-to-choose-24v-lifepo4-battery/\">24V buying guide</a> covers sizing from your daily loads."]),
         ],
     },
     {
