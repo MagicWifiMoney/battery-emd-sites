@@ -1272,5 +1272,51 @@ GUIDES = {
         ],
         "related": ["charging-24v-lifepo4-battery", "24v-100ah-lifepo4-battery", "how-to-choose-24v-lifepo4-battery"],
     },
+    {
+        "slug": "litime-vs-eco-worthy-24v",
+        "title": "LiTime vs Eco-Worthy 24V 100Ah LiFePO4: Matched Pair, Live $/Wh",
+        "desc": "The same 2,560Wh from both brands: LiTime's {litime_n} tracked 24V 100Ah models vs Eco-Worthy's {eco_worthy_n} — maker-verified dimensions, BMS and cold-weather specs, priced live by $/Wh, refreshed {date}.",
+        "h1": "LiTime vs Eco-Worthy 24V 100Ah: Same Energy, Different Bets",
+        "blurb": "Both brands sell a 24V 100Ah / 2,560Wh battery. Eco-Worthy prices the energy lower; LiTime fields the deeper feature bench. Maker specs and live $/Wh settle it.",
+        "lede": "This is the cleanest comparison in the 24V catalog: both brands sell a <b>24V 100Ah battery storing exactly 2,560Wh</b>, so price per watt-hour is a pure price fight — and right now it is not close. Eco-Worthy's 100Ah models start at <b>${eco_worthy_min_ppw}/Wh</b> ({eco_worthy_min_price}); LiTime's start at <b>${litime_min_ppw}/Wh</b> ({litime_min_price}). What LiTime's premium buys is choice: {litime_n} tracked 100Ah variants (base, Bluetooth, Victron-ready ComFlex, Group 31 drop-ins) against Eco-Worthy's {eco_worthy_n}. We sell neither brand; the specs below are from the makers' own product pages, checked November 22, 2026, and every price is the live feed, refreshed {date}.",
+        "filter": "brand:LiTime+Eco-Worthy@ah90_115_native",
+        "updated": "2026-11-22",
+        "table_heading": "LiTime and Eco-Worthy 24V 100Ah batteries, ranked by $/Wh",
+        "sections": [
+            ("The matched pair, maker specs side by side", [
+                "<table><thead><tr><th>Spec (maker pages, checked Nov 22, 2026)</th><th>LiTime 24V 100Ah (base)</th><th>Eco-Worthy 24V 100Ah Metal Case</th></tr></thead><tbody>"
+                "<tr><td>Energy / nominal voltage</td><td>2,560Wh · 25.6V</td><td>2,560Wh · 25.6V</td></tr>"
+                "<tr><td>Price / $/Wh (live feed)</td><td>{litime_min_price} · ${litime_min_ppw}/Wh</td><td>{eco_worthy_min_price} · ${eco_worthy_min_ppw}/Wh</td></tr>"
+                "<tr><td>Dimensions</td><td>20.95 × 8.15 × 8.5 in — long and low</td><td>15.36 × 11.82 × 5.79 in — short, wide, flat metal case</td></tr>"
+                "<tr><td>Weight</td><td>45.85 lb</td><td>Not stated on the maker's spec table</td></tr>"
+                "<tr><td>BMS / max discharge</td><td>Built-in 100A BMS</td><td>Integrated BMS, 100±5A max charge/discharge</td></tr>"
+                "<tr><td>Monitoring</td><td>None on the base model (Bluetooth is a separate variant)</td><td>Bluetooth 5.1 monitoring included</td></tr>"
+                "<tr><td>Cold weather</td><td>No low-temp or heating feature on the base model</td><td>Low-temperature protection included (maker states charging stops below 20°F)</td></tr>"
+                "<tr><td>Charge voltage</td><td>See the <a href=\"/charging-24v-lifepo4-battery/\">24V charging guide</a></td><td>29.2V max, per the maker's spec table</td></tr>"
+                "<tr><td>Warranty (maker framing)</td><td>5 years</td><td>Up to 10 years</td></tr>"
+                "</tbody></table>",
+                "<p>The dimension row is the one shoppers miss: these batteries do <b>not</b> fit the same space. LiTime's base case is a long, low profile (20.95 in long); Eco-Worthy's metal case is nearly square and flat (15.36 × 11.82 in, under 6 in tall). Measure your battery box before the $/Wh gap decides for you — a battery that does not fit is not cheaper at any price. Eco-Worthy's second 100Ah model (in the table below) is a different case again: 16.3 × 8.46 × 10.24 in, 44.1 lb, Bluetooth with low-temperature protection.</p>",
+            ]),
+            ("What the price gap actually is", [
+                "<p>At the live prices in the table, the base-model gap is the difference between {eco_worthy_min_price} and {litime_min_price} for identical stored energy — roughly a 30% premium for the LiTime badge at this capacity, or, read the other way, Eco-Worthy selling the same 2,560Wh at ${eco_worthy_min_ppw}/Wh against LiTime's ${litime_min_ppw}/Wh. Neither brand is crowned here: Eco-Worthy wins the $/Wh column today, and maker sales move these numbers several times a week, which is why this page prices the fight live instead of printing a verdict. The full method is on the <a href=\"/price-per-watt-hour/\">price-per-watt-hour page</a>.</p>",
+                "<p>Where LiTime's money goes is visible in the table: it fields the same 100Ah energy at several feature tiers — a Bluetooth model with low-temperature charging cut-off (32°F, per its maker page), a ComFlex model with Victron communications for inverter systems, and Group 31 drop-ins that fit standard marine trays. Eco-Worthy includes Bluetooth and low-temperature protection in its base price instead of tiering them. If you need none of LiTime's tiers, you are paying for a bench you will not use; if you need Victron comms or a Group 31 fit, Eco-Worthy simply does not field that row.</p>",
+            ]),
+            ("Which one, by situation", [
+                "<ul><li><b>Tightest budget, standard install:</b> Eco-Worthy's metal case — the pool's lowest $/Wh at this capacity, with Bluetooth and low-temp protection already included.</li><li><b>A battery box shaped long and low, or a brand-matched existing bank:</b> LiTime's base model — check the 20.95 in length first.</li><li><b>Trolling motor in a standard tray:</b> LiTime's Group 31 rows are the drop-in fit; confirm the tray dimensions against the maker page.</li><li><b>Inverter system wanting closed-loop comms:</b> LiTime's ComFlex row is the only one of the seven priced here with Victron communications.</li><li><b>Expanding later:</b> makers advise one brand and model per bank — pick the brand whose 100Ah line you would happily buy twice, and check its stated parallel limit on the product page.</li></ul>",
+                "<p>Shortlisting beyond this pair? The <a href=\"/24v-100ah-lifepo4-battery/\">24V 100Ah class page</a> prices these seven rows against every other brand in the class, and the brand hubs carry each maker's full 24V line: <a href=\"/brand/litime/\">LiTime</a> and <a href=\"/brand/eco-worthy/\">Eco-Worthy</a>.</p>",
+            ]),
+        ],
+        "faqs": [
+            ("Is LiTime or Eco-Worthy cheaper for a 24V 100Ah battery?",
+             "On live $/Wh today, Eco-Worthy: its 100Ah models start at {eco_worthy_min_price} (${eco_worthy_min_ppw}/Wh) against LiTime's {litime_min_price} (${litime_min_ppw}/Wh) for the same 2,560Wh. Both brands run frequent maker-store sales, so the table on this page — refreshed several times a day — is the standing answer."),
+            ("Do LiTime and Eco-Worthy 24V 100Ah batteries fit the same space?",
+             "No. Per the makers' own pages (checked November 22, 2026), LiTime's base 100Ah case is 20.95 × 8.15 × 8.5 in, while Eco-Worthy's metal case is 15.36 × 11.82 × 5.79 in — a long low box versus a short flat one. Measure your compartment; LiTime also sells Group 31 drop-in variants for standard marine trays."),
+            ("Can I parallel a LiTime and an Eco-Worthy 24V battery together?",
+             "Makers advise against mixing brands in a bank: BMS behavior and protection thresholds differ, current shares unevenly, and warranties assume matched units. Build the bank from one brand and model — the $/Wh saving from mixing rarely survives the compromises."),
+            ("Which 24V 100Ah battery is better for cold weather?",
+             "Of the base pair, Eco-Worthy's metal case includes low-temperature protection as standard (its maker states charging stops below 20°F). LiTime's base model carries no cold-weather feature; its Bluetooth variant adds a low-temperature charging cut-off at 32°F, and self-heating in this catalog lives in LiTime's 230Ah class, not at 100Ah."),
+        ],
+        "related": ["24v-100ah-lifepo4-battery", "price-per-watt-hour", "how-to-choose-24v-lifepo4-battery"],
+    },
 ],
 }

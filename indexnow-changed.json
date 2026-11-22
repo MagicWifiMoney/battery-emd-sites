@@ -2,41 +2,11 @@
  "key": "bc6f8735fbff4ded8c2d59d70508943f",
  "generated_at": "2026-11-22T19:41:49Z",
  "sites": {
-  "48vlifepo4battery.com": [
-   "https://48vlifepo4battery.com/brand/eco-worthy/",
-   "https://48vlifepo4battery.com/brand/litime/"
-  ],
-  "12vlifepo4battery.com": [
-   "https://12vlifepo4battery.com/",
-   "https://12vlifepo4battery.com/brand/eco-worthy/",
-   "https://12vlifepo4battery.com/brand/litime/",
-   "https://12vlifepo4battery.com/brand/renogy/",
-   "https://12vlifepo4battery.com/brand/sungoldpower/",
-   "https://12vlifepo4battery.com/under-500/",
-   "https://12vlifepo4battery.com/500-to-1000/",
-   "https://12vlifepo4battery.com/over-1000/",
-   "https://12vlifepo4battery.com/compact-batteries/",
-   "https://12vlifepo4battery.com/heated-batteries/",
-   "https://12vlifepo4battery.com/bluetooth-batteries/",
-   "https://12vlifepo4battery.com/group-size-batteries/",
-   "https://12vlifepo4battery.com/product/bluetti-12v-314ah/",
-   "https://12vlifepo4battery.com/product/bluetti-12v-100ah/"
-  ],
+  "48vlifepo4battery.com": [],
+  "12vlifepo4battery.com": [],
   "24vlifepo4battery.com": [
-   "https://24vlifepo4battery.com/",
-   "https://24vlifepo4battery.com/brand/litime/",
-   "https://24vlifepo4battery.com/brand/sungoldpower/",
-   "https://24vlifepo4battery.com/under-500/",
-   "https://24vlifepo4battery.com/500-to-1000/",
-   "https://24vlifepo4battery.com/over-1000/",
-   "https://24vlifepo4battery.com/compact-batteries/",
-   "https://24vlifepo4battery.com/heated-batteries/",
-   "https://24vlifepo4battery.com/bluetooth-batteries/",
-   "https://24vlifepo4battery.com/product/eco-worthy-24v-100ah-bluetooth/",
-   "https://24vlifepo4battery.com/product/eco-worthy-24v-100ah-bluetooth-low-temp/"
+   "https://24vlifepo4battery.com/litime-vs-eco-worthy-24v/"
   ],
-  "serverrackbatteries.com": [
-   "https://serverrackbatteries.com/brand/sungoldpower/"
-  ]
+  "serverrackbatteries.com": []
  }
 }

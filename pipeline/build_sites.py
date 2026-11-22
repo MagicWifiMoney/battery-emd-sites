@@ -705,6 +705,10 @@ FILTERS = {
     "ah5_60": lambda rows: [p for p in rows if ah_of(p) and 5 <= ah_of(p) <= 60],
     "ah90_330": lambda rows: [p for p in rows if ah_of(p) and 90 <= ah_of(p) <= 330],
     "ah90_115": lambda rows: [p for p in rows if ah_of(p) and 90 <= ah_of(p) <= 115],
+    # Native single batteries only: excludes multi-pack / upgrade-kit listings
+    # whose parsed Ah matches the class but which are not one native battery
+    # (e.g. LiTime's 2x12V trolling upgrade kit in the 24V 100Ah class).
+    "ah90_115_native": lambda rows: [p for p in rows if ah_of(p) and 90 <= ah_of(p) <= 115 and not title_has(p, "kit")],
     "ah180_230": lambda rows: [p for p in rows if ah_of(p) and 180 <= ah_of(p) <= 235],
     "ah220_240": lambda rows: [p for p in rows if ah_of(p) and 220 <= ah_of(p) <= 240],
     "ah280_330": lambda rows: [p for p in rows if ah_of(p) and 280 <= ah_of(p) <= 330],
@@ -801,7 +805,7 @@ SITES = [
               "The workhorse size: 2,560Wh for trolling motors, RVs and small solar — every 100Ah model by $/Wh.",
               "ah90_115",
               ["The 24V 100Ah battery (25.6V × 100Ah = 2,560Wh) is where 24V systems get serious: enough energy for a full day on a 24V trolling motor, a weekend of RV house loads, or a small off-grid solar bank — in one case with one BMS. Every model below stores the same 2,560Wh, so the $/Wh column is a pure price fight.",
-               "What separates the rows beyond price: Bluetooth monitoring, self-heating for cold mornings on the water, low-temperature charge cut-off, and case format — the Group 31 drop-ins fit standard marine trays, the plain cases do not always. Multi-packs appear in this table at their bundle price; compare their $/Wh against the single units before assuming the bundle wins."]),
+               "What separates the rows beyond price: Bluetooth monitoring, self-heating for cold mornings on the water, low-temperature charge cut-off, and case format — the Group 31 drop-ins fit standard marine trays, the plain cases do not always. Multi-packs appear in this table at their bundle price; compare their $/Wh against the single units before assuming the bundle wins. Comparing the two brands that dominate this class head to head? Our <a href=\"/litime-vs-eco-worthy-24v/\">LiTime vs Eco-Worthy 24V 100Ah comparison</a> puts their matched 100Ah models side by side on maker specs and live $/Wh."]),
             C("24v-230ah-lifepo4-battery", "230Ah", "24V 230Ah LiFePO4 Batteries",
               "5,888Wh in one Group 8D case — the big-bank option, compared by $/Wh.",
               "ah220_240",
