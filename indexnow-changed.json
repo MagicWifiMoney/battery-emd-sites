@@ -1,6 +1,6 @@
 {
  "key": "bc6f8735fbff4ded8c2d59d70508943f",
- "generated_at": "2026-11-22T08:43:31Z",
+ "generated_at": "2026-11-22T08:52:24Z",
  "sites": {
   "48vlifepo4battery.com": [
    "https://48vlifepo4battery.com/",
@@ -106,6 +106,10 @@
    "https://12vlifepo4battery.com/product/litime-12v-200ah-bluetooth-marine/",
    "https://12vlifepo4battery.com/product/litime-12v-320ah-bluetooth/",
    "https://12vlifepo4battery.com/product/litime-12v-320ah-bluetooth-rv-marine/",
+   "https://12vlifepo4battery.com/product/sungoldpower-12v-200ah-heated-bluetooth-c6d23a/",
+   "https://12vlifepo4battery.com/product/sungoldpower-12v-100ah-heated-bluetooth-91d5e2/",
+   "https://12vlifepo4battery.com/product/sungoldpower-12v-200ah-heated-bluetooth-c6bfb5/",
+   "https://12vlifepo4battery.com/product/sungoldpower-12v-100ah-heated-bluetooth-ac8190/",
    "https://12vlifepo4battery.com/product/sungoldpower-12v-100ah-heated-bluetooth-d2a750/",
    "https://12vlifepo4battery.com/product/sungoldpower-12v-100ah-heated-bluetooth-5a5547/",
    "https://12vlifepo4battery.com/product/litime-12v-320ah-heated-smart/",
@@ -153,8 +157,6 @@
    "https://12vlifepo4battery.com/product/litime-12v-50ah-bluetooth-trolling/",
    "https://12vlifepo4battery.com/product/litime-12v-45ah-trolling/",
    "https://12vlifepo4battery.com/product/renogy-12v-200ah-heated-bluetooth-smart-193012/",
-   "https://12vlifepo4battery.com/product/sungoldpower-12v-200ah-heated-bluetooth-c6bfb5/",
-   "https://12vlifepo4battery.com/product/sungoldpower-12v-100ah-heated-bluetooth-ac8190/",
    "https://12vlifepo4battery.com/product/renogy-12v-100ah-heated-bluetooth-rack/",
    "https://12vlifepo4battery.com/product/litime-12v-12ah/",
    "https://12vlifepo4battery.com/product/renogy-12v-120ah/",
@@ -168,8 +170,6 @@
    "https://12vlifepo4battery.com/product/renogy-12v-400ah/",
    "https://12vlifepo4battery.com/product/renogy-12v-200ah-124982/",
    "https://12vlifepo4battery.com/product/renogy-12v-50ah-fe7e7c/",
-   "https://12vlifepo4battery.com/product/sungoldpower-12v-200ah-heated-bluetooth-c6d23a/",
-   "https://12vlifepo4battery.com/product/sungoldpower-12v-100ah-heated-bluetooth-91d5e2/",
    "https://12vlifepo4battery.com/about/"
   ],
   "24vlifepo4battery.com": [
@@ -198,6 +198,8 @@
    "https://24vlifepo4battery.com/product/litime-24v-230ah-heated-rv/",
    "https://24vlifepo4battery.com/product/litime-24v-230ah-heated-975db2/",
    "https://24vlifepo4battery.com/product/litime-24v-100ah-rv/",
+   "https://24vlifepo4battery.com/product/sungoldpower-24v-100ah-heated-bluetooth-2f8b08/",
+   "https://24vlifepo4battery.com/product/sungoldpower-24v-100ah-heated-bluetooth-683b37/",
    "https://24vlifepo4battery.com/product/sungoldpower-24v-100ah-heated-bluetooth-8edcb3/",
    "https://24vlifepo4battery.com/product/litime-24v-100ah-bluetooth-trolling-marine/",
    "https://24vlifepo4battery.com/product/litime-24v-100ah-bluetooth-smart/",
@@ -207,8 +209,6 @@
    "https://24vlifepo4battery.com/product/litime-24v-50ah-bluetooth-rv-marine/",
    "https://24vlifepo4battery.com/product/litime-24v-50ah-bluetooth-trolling/",
    "https://24vlifepo4battery.com/product/litime-24v-100ah-trolling/",
-   "https://24vlifepo4battery.com/product/sungoldpower-24v-100ah-heated-bluetooth-683b37/",
-   "https://24vlifepo4battery.com/product/sungoldpower-24v-100ah-heated-bluetooth-2f8b08/",
    "https://24vlifepo4battery.com/about/"
   ],
   "serverrackbatteries.com": [
@@ -234,15 +234,15 @@
    "https://serverrackbatteries.com/product/vatrer-48v-100ah-bluetooth-wifi-rack/",
    "https://serverrackbatteries.com/product/vatrer-48v-100ah-bluetooth-rack/",
    "https://serverrackbatteries.com/product/vatrer-48v-100ah-heated-wifi-rack/",
+   "https://serverrackbatteries.com/product/sungoldpower-48v-100ah-rack-b97c91/",
+   "https://serverrackbatteries.com/product/sungoldpower-48v-100ah-rack-a60824/",
    "https://serverrackbatteries.com/product/sungoldpower-48v-100ah-rack-e94d83/",
    "https://serverrackbatteries.com/product/vatrer-48v-100ah-heated-rack/",
+   "https://serverrackbatteries.com/product/sungoldpower-48v-100ah-heated-rack-6ebf7f/",
+   "https://serverrackbatteries.com/product/sungoldpower-48v-100ah-heated-rack-eedcb4/",
    "https://serverrackbatteries.com/product/sungoldpower-48v-100ah-heated-rack-0b15a6/",
    "https://serverrackbatteries.com/product/litime-48v-100ah-rack/",
    "https://serverrackbatteries.com/product/sungoldpower-48v-100ah-bluetooth-rack/",
-   "https://serverrackbatteries.com/product/sungoldpower-48v-100ah-rack-a60824/",
-   "https://serverrackbatteries.com/product/sungoldpower-48v-100ah-heated-rack-eedcb4/",
-   "https://serverrackbatteries.com/product/sungoldpower-48v-100ah-rack-b97c91/",
-   "https://serverrackbatteries.com/product/sungoldpower-48v-100ah-heated-rack-6ebf7f/",
    "https://serverrackbatteries.com/about/"
   ]
  }
