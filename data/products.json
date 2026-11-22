@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-22T08:52:24Z",
+  "fetched_at": "2026-11-22T19:41:49Z",
   "stores": [
     {
       "store": "EcoFlow",
@@ -3977,7 +3977,7 @@
       "ah": null,
       "price": 99.0,
       "compare_at": null,
-      "available": true,
+      "available": false,
       "price_per_wh": 0.516,
       "url": "https://ecoflow.com/products/trail-series",
       "source_store": "https://ecoflow.com",
@@ -5442,22 +5442,6 @@
     },
     {
       "brand": "Jackery",
-      "title": "Jackery Solar Generator  2000 v2 \u2014 Explorer 2000 v2 + 100W air x2",
-      "type": "station",
-      "wh": 2040,
-      "voltage": null,
-      "ah": null,
-      "price": 1379.0,
-      "compare_at": 1379.0,
-      "available": true,
-      "price_per_wh": 0.676,
-      "url": "https://www.jackery.com/products/jackery-solar-generator-2000-v2",
-      "source_store": "https://www.jackery.com",
-      "image": null,
-      "wh_method": "override-curated"
-    },
-    {
-      "brand": "Jackery",
       "title": "Solar Generator 2000 v2\uff08100 Mini\uff09 \u2014 Explorer 2000 v2 + SolarSaga 100W Mini x 2",
       "type": "station",
       "wh": 2040,
@@ -6063,6 +6047,22 @@
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh"
+    },
+    {
+      "brand": "Jackery",
+      "title": "Jackery Solar Generator  2000 v2 \u2014 Explorer 2000 v2 + SolarSaga 200W x 2",
+      "type": "station",
+      "wh": 2040,
+      "voltage": null,
+      "ah": null,
+      "price": 1649.0,
+      "compare_at": 1649.0,
+      "available": true,
+      "price_per_wh": 0.808,
+      "url": "https://www.jackery.com/products/jackery-solar-generator-2000-v2",
+      "source_store": "https://www.jackery.com",
+      "image": null,
+      "wh_method": "override-curated"
     },
     {
       "brand": "EcoFlow",
