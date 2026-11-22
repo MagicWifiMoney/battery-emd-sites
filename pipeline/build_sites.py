@@ -1028,7 +1028,8 @@ def capacity_link(site, pool, p, by_slug):
     cands.sort()
     return cands[0][1]
 
-# Facet hubs (spec section 3 verdicts). Hub renders only at >=3 rows.
+# Facet hubs (spec section 3 verdicts). Facets render only at >=3 rows;
+# brand hubs render at >=2 (entity pages — see facet_hubs).
 PRICE_BANDS = {
     "12vlifepo4battery.com": [(0, 500, "Under $500", "under-500"),
                               (500, 1000, "$500 to $1,000", "500-to-1000"),
@@ -1058,7 +1059,12 @@ def facet_hubs(site, pool):
     for p in pool:
         counts[p["brand"]] = counts.get(p["brand"], 0) + 1
     for b in sorted(counts):
-        if counts[b] >= 3:
+        # Brand hubs are entity pages, not facets: they render at >=2
+        # models so a brand that holds homepage top-pick slots always has
+        # a hub (Eco-Worthy on 24V: exactly 2 models, both pool leaders at
+        # $0.156/Wh, previously hub-less while 3+ model brands had hubs —
+        # Phase A completion spec 1, 2026-11-22). Other facets stay >=3.
+        if counts[b] >= 2:
             hubs.append({"slug": f"brand/{brand_slug(b)}", "kind": "brand", "key": b,
                          "h1": f"{b} {pd}",
                          "blurb": f"Every {b} model in this tracker, ranked by $/Wh.",
@@ -1497,6 +1503,18 @@ def build():
                       f'Prices refreshed {date_str}.')
             sib = [o for o in hubs if o["slug"] != h["slug"]][:4]
             sib_html = "".join(f'<li><a href="/{o["slug"]}/">{esc(o["h1"])}</a><p>{esc(o["blurb"])}</p></li>' for o in sib)
+            # Brand hubs link out to any vs/comparison guide whose table
+            # filter names this brand (e.g. a LiTime vs Eco-Worthy page) —
+            # rendered only when that guide exists, so the link can never
+            # point at an unbuilt page (Phase A spec 1 link rule, 2026-11-22).
+            if h["kind"] == "brand":
+                for g in guides:
+                    gf = g.get("filter") or ""
+                    if gf.startswith("brand:"):
+                        gbrands = {x.strip() for x in gf[len("brand:"):].split("@")[0].split("+")}
+                        if h["key"] in gbrands and len(gbrands) >= 2:
+                            sib_html += (f'<li><a href="/{g["slug"]}/">{esc(g["h1"])}</a>'
+                                         f'<p>{esc(g["blurb"])}</p></li>')
             hbody = (f'<h1>{esc(h["h1"])}</h1>'
                      f'<p class="lede">{lede_h}</p>'
                      + DISCLOSURE.format(ts=fetched, date=date_str)
