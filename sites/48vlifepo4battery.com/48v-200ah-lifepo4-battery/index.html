@@ -6,73 +6,144 @@
 <title>48V 200Ah LiFePO4 Battery Prices: The Single-Case ~10kWh Class by $/Wh</title>
 <meta name="description" content="The 48V 200Ah LiFePO4 class priced live by $/Wh: exactly one direct maker listing today, the variant-selector reality behind the label, and the 9.6 vs 10.24kWh trap. Refreshed November 22, 2026.">
 <link rel="canonical" href="https://48vlifepo4battery.com/48v-200ah-lifepo4-battery/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 28'%3E%3Crect width='44' height='28' rx='7' fill='%23d97706'/%3E%3Cpath d='M23 5 14 16h6l-2 7 9-11h-6z' fill='white'/%3E%3C/svg%3E">
+<link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
 <style>
-:root{--ink:#16202a;--mut:#5b6b7a;--line:#d9e1e8;--acc:#0b6e4f;--bg:#f7f9fa;--warn:#8a5a00;--warnbg:#fff4d6}
+@font-face{font-family:'Inter';src:url('/fonts/inter-var.woff2') format('woff2');font-weight:100 900;font-display:swap}
+@font-face{font-family:'Space Grotesk';src:url('/fonts/spacegrotesk-var.woff2') format('woff2');font-weight:300 700;font-display:swap}
+:root{--ink:#131e29;--ink2:#2c3e50;--mut:#5b6b7a;--line:#dde5ec;--acc:#0b6e4f;--accs:#0b6e4f;--accsoft:#e6f4ee;--hero2:#0b2e23;--bg:#f4f7f9;--warn:#8a5a00;--warnbg:#fff4d6;--good:#0b6e4f;--bad:#b03a2e;--sh:0 1px 3px rgba(16,32,48,.07),0 4px 14px rgba(16,32,48,.05);--disp:'Space Grotesk','Inter',system-ui,sans-serif}
 *{box-sizing:border-box}
-body{margin:0;font:15px/1.55 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff}
-header.site{border-bottom:1px solid var(--line);background:var(--bg)}
-header.site .in{max-width:1080px;margin:0 auto;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.brand{font-weight:700;font-size:17px;color:var(--ink);text-decoration:none}
-nav a{color:var(--mut);text-decoration:none;margin-left:14px;font-size:14px}
-nav a:hover{color:var(--acc)}
-main{max-width:1080px;margin:0 auto;padding:20px 16px 10px}
-h1{font-size:27px;line-height:1.2;margin:4px 0 8px}
-h2{font-size:20px;margin:26px 0 8px}
+body{margin:0;font:15.5px/1.6 'Inter',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}
+header.site{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);box-shadow:0 1px 0 rgba(16,32,48,.03)}
+header.site .in{max-width:1120px;margin:0 auto;padding:10px 18px;display:flex;justify-content:space-between;align-items:center;gap:14px}
+.brand{display:flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none;font-family:var(--disp);font-weight:700;font-size:18px;letter-spacing:-.01em;white-space:nowrap}
+.brand svg{flex:none;display:block}
+.brand b{color:var(--accs)}
+header.site nav{display:flex;align-items:center;overflow-x:auto;scrollbar-width:none}
+header.site nav::-webkit-scrollbar{display:none}
+header.site nav a{color:var(--ink2);text-decoration:none;margin-left:4px;font-size:13.5px;font-weight:600;padding:6px 10px;border-radius:999px;white-space:nowrap}
+header.site nav a:hover{background:var(--accsoft);color:var(--accs)}
+main{max-width:1120px;margin:0 auto;padding:22px 18px 12px}
+h1{font-family:var(--disp);font-size:29px;line-height:1.15;letter-spacing:-.015em;margin:6px 0 10px}
+h2{font-family:var(--disp);font-size:21px;letter-spacing:-.01em;margin:32px 0 10px}
 h3{font-size:16px;margin:16px 0 6px}
-.lede{font-size:16.5px;color:#2c3e50;max-width:75ch}
-.updated{font-size:13px;color:var(--mut)}
-.disclosure{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:13px;margin:14px 0}
-#stale{display:none;background:var(--warnbg);color:var(--warn);border:1px solid #ecd28f;border-radius:8px;padding:10px 12px;font-size:14px;margin:10px 0}
-.stats{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0}
-.stat{border:1px solid var(--line);border-radius:8px;padding:10px 14px;min-width:150px;background:#fff}
-.stat b{display:block;font-size:19px;color:var(--acc)}
-.stat span{font-size:12.5px;color:var(--mut)}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:14px 0}
-.card{border:1px solid var(--line);border-radius:8px;padding:12px 14px}
-.card h3{margin:0 0 4px;font-size:15px}
-.card p{margin:4px 0;font-size:13.5px;color:#2c3e50}
-.card .big{font-size:18px;font-weight:700;color:var(--acc)}
-table{width:100%;border-collapse:collapse;font-size:14px;margin:10px 0}
-th,td{padding:8px 9px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
-th{background:var(--bg);white-space:nowrap;cursor:pointer;user-select:none}
-th:hover{color:var(--acc)}
-td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
-.ppw{font-weight:700;color:var(--acc)}
-.was{color:var(--mut);text-decoration:line-through;font-size:12px}
-.oos{color:#b03a2e;font-size:12px}
-a.buy{display:inline-block;background:var(--acc);color:#fff;text-decoration:none;padding:5px 10px;border-radius:6px;font-size:13px;white-space:nowrap}
-.controls{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
-.controls input,.controls select{padding:8px 10px;border:1px solid var(--line);border-radius:6px;font-size:14px}
-.controls input{flex:1;min-width:200px}
-.faq h3{margin:14px 0 2px}
-.faq p{margin:2px 0 8px;max-width:78ch}
+a{color:var(--accs)}
+.lede{font-size:16.5px;line-height:1.6;color:var(--ink2);max-width:74ch}
+.lede b{color:var(--ink)}
 .updated{font-size:13.5px;color:var(--mut);margin:2px 0 10px}
-ul.links{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
-ul.links li{border:1px solid var(--line);border-radius:8px;padding:10px 12px}
-ul.links a{font-weight:600;color:var(--acc);text-decoration:none}
-ul.links p{margin:3px 0 0;font-size:13px;color:var(--mut)}
-footer{max-width:1080px;margin:0 auto;padding:16px;color:var(--mut);font-size:13px;border-top:1px solid var(--line)}
-footer a{color:var(--acc)}
-.prose{max-width:78ch}
-.prose li{margin:4px 0}
-@media(max-width:760px){table{font-size:13px}th,td{padding:6px 5px}h1{font-size:22px}}
+.hero{position:relative;overflow:hidden;border-radius:20px;padding:34px 34px 28px;margin:6px 0 20px;color:#fff;background:radial-gradient(560px 300px at 88% -10%,var(--acc) 0%,rgba(0,0,0,0) 55%),linear-gradient(128deg,#0c1622 30%,var(--hero2) 115%);box-shadow:var(--sh)}
+.hero h1{color:#fff;font-size:36px;margin:10px 0 10px;max-width:22ch}
+.hero .lede{color:rgba(235,242,248,.88)}
+.hero .lede b{color:#fff}
+.kick{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.18);color:#eaf2f8;font-size:12.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:5px 12px;border-radius:999px}
+.kick i{width:8px;height:8px;border-radius:50%;background:#3ddc84;box-shadow:0 0 0 3px rgba(61,220,132,.25);flex:none}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.chip{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:14px;padding:10px 16px;min-width:148px}
+.chip b{display:block;font-family:var(--disp);font-size:21px;letter-spacing:-.01em;color:#fff}
+.chip span{font-size:12px;color:rgba(235,242,248,.66)}
+.disclosure{background:var(--accsoft);border:1px solid var(--line);border-left:4px solid var(--acc);border-radius:12px;padding:11px 14px;font-size:13.5px;margin:14px 0;color:var(--ink2)}
+#stale{display:none;background:var(--warnbg);color:var(--warn);border:1px solid #ecd28f;border-radius:12px;padding:10px 14px;font-size:14px;margin:10px 0}
+.stats{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0}
+.stat{border:1px solid var(--line);border-top:3px solid var(--acc);border-radius:12px;padding:11px 15px;min-width:150px;background:#fff;box-shadow:var(--sh)}
+.stat b{display:block;font-family:var(--disp);font-size:20px;letter-spacing:-.01em;color:var(--ink)}
+.stat span{font-size:12.5px;color:var(--mut)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin:14px 0}
+.card{border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:#fff;box-shadow:var(--sh);transition:transform .15s ease,box-shadow .15s ease}
+.card:hover{transform:translateY(-2px)}
+.card h3{margin:0 0 4px;font-family:var(--disp);font-size:14px;letter-spacing:.04em;text-transform:uppercase;color:var(--accs)}
+.card p{margin:4px 0;font-size:13.5px;color:var(--ink2)}
+.card .big{font-family:var(--disp);font-size:19px;font-weight:700;color:var(--ink)}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:14px;box-shadow:var(--sh);margin:12px 0;background:#fff}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle}
+thead th{background:#101c28;color:#e8eef4;font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap;cursor:pointer;user-select:none;border-bottom:none}
+thead th:hover{color:#fff;background:#18293c}
+tbody tr{transition:background .1s ease}
+tbody tr:hover{background:#f2f7fa}
+tbody tr:last-child td{border-bottom:none}
+tbody tr.best td{background:var(--accsoft)}
+tbody tr.best td:first-child{box-shadow:inset 4px 0 0 var(--acc)}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+td a{color:var(--ink);text-decoration:none;font-weight:600}
+td a:hover{color:var(--accs);text-decoration:underline}
+.ppw{display:inline-block;background:var(--accsoft);color:var(--accs);font-weight:700;padding:2.5px 10px;border-radius:999px;font-variant-numeric:tabular-nums}
+.best .ppw{background:#fff}
+.besttag{display:inline-block;background:var(--acc);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:2.5px 8px;border-radius:999px;margin-left:6px;vertical-align:1px;white-space:nowrap}
+.was{color:var(--mut);text-decoration:line-through;font-size:12px}
+.oos{color:var(--bad);font-size:12px;font-weight:600}
+a.buy{display:inline-block;background:var(--acc);color:#fff;text-decoration:none;padding:7px 15px;border-radius:999px;font-family:var(--disp);font-size:13.5px;font-weight:600;white-space:nowrap;box-shadow:var(--sh)}
+a.buy:hover{filter:brightness(.93);color:#fff;text-decoration:none}
+.controls{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.controls input,.controls select{padding:10px 13px;border:1px solid var(--line);border-radius:10px;font:inherit;font-size:14px;background:#fff;color:var(--ink)}
+.controls input{flex:1;min-width:200px}
+.controls input:focus,.controls select:focus{outline:2px solid var(--acc);outline-offset:1px;border-color:var(--acc)}
+.faq h3{font-family:var(--disp);font-weight:600;font-size:16.5px;margin:16px 0 2px}
+.faq p{margin:2px 0 8px;max-width:76ch;color:var(--ink2)}
+ul.links{list-style:none;padding:0;margin:12px 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+ul.links li{border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:#fff;box-shadow:var(--sh);transition:transform .15s ease}
+ul.links li:hover{transform:translateY(-2px)}
+ul.links a{font-family:var(--disp);font-weight:600;font-size:15.5px;color:var(--ink);text-decoration:none}
+ul.links a::after{content:' \2192';color:var(--acc)}
+ul.links a:hover{color:var(--accs)}
+ul.links p{margin:4px 0 0;font-size:13px;color:var(--mut)}
+.trendcard{border:1px solid var(--line);border-radius:14px;padding:14px 16px;box-shadow:var(--sh);background:#fff;max-width:560px}
+.trendcard p{margin:8px 0 0;font-size:14px;color:var(--ink2)}
+.tdown{color:var(--good);font-weight:700}
+.tup{color:var(--bad);font-weight:700}
+footer{background:#0c1622;color:#a9bccf;margin-top:44px;font-size:13.5px}
+footer .fin{max-width:1120px;margin:0 auto;padding:30px 18px 26px;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
+footer h4{font-family:var(--disp);color:#fff;font-size:14px;letter-spacing:.04em;text-transform:uppercase;margin:0 0 8px}
+footer p{margin:0 0 8px;line-height:1.6}
+footer a{color:#d7e5f2}
+.sisters{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.sisters a{display:inline-flex;align-items:center;gap:7px;border:1px solid #263646;padding:6px 12px;border-radius:999px;color:#d7e5f2;text-decoration:none;font-weight:600}
+.sisters a:hover{border-color:#3d5a76;color:#fff}
+.sisters i{width:8px;height:8px;border-radius:50%;flex:none}
+.prose{max-width:74ch;font-size:16px;line-height:1.72;color:var(--ink2)}
+.prose h2{border-left:4px solid var(--acc);padding-left:11px;margin-left:-15px}
+.prose li{margin:5px 0}
+.prose b{color:var(--ink)}
+@media(max-width:760px){
+h1{font-size:24px}
+.hero{padding:24px 20px 20px;border-radius:16px}
+.hero h1{font-size:27px}
+.chip{flex:1 1 42%;min-width:0}
+header.site nav{max-width:52vw}
+.stat{flex:1 1 42%;min-width:0}
+.tw{overflow:visible;border:none;box-shadow:none;background:transparent}
+.tw table,.tw tbody,.tw tr,.tw td{display:block;width:100%}
+.tw thead{display:none}
+.tw tr{border:1px solid var(--line);border-radius:14px;margin:0 0 12px;padding:10px 14px;background:#fff;box-shadow:var(--sh)}
+.tw td{border:none;padding:5px 0;display:flex;justify-content:space-between;align-items:center;gap:14px;text-align:right;white-space:normal}
+.tw td::before{content:attr(data-l);font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--mut);text-align:left;flex:none}
+.tw td:first-child{display:block;text-align:left}
+.tw td:first-child::before{display:none}
+.tw td:first-child a{font-family:var(--disp);font-size:15.5px}
+.tw td.buy-cell{display:block;text-align:left}
+.tw td.buy-cell::before{display:none}
+.tw td.buy-cell a.buy{display:block;text-align:center;padding:10px}
+.prose h2{margin-left:0}
+}
 </style>
+<style>:root{--acc:#d97706;--accs:#b45309;--accsoft:#fdf0dc;--hero2:#3d1e02}</style>
 
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "position": 1, "item": {"@type": "Product", "name": "Wall-mounted X LiFePO4 LITHIUM BATTERY 10.24kWh 51.2V 200AH SG48200T", "brand": {"@type": "Brand", "name": "SunGoldPower"}, "offers": {"@type": "Offer", "url": "https://www.sungoldpower.com/products/powerwall-x-lithium-battery-51-2v-200ah-sg48200t", "priceCurrency": "USD", "price": 2151.0, "availability": "https://schema.org/InStock"}}}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "48V 200Ah LiFePO4 Batteries: ~10kWh in One Case, Priced per Watt-Hour", "dateModified": "2026-11-21", "author": {"@type": "Organization", "name": "Quiet Coyote"}, "publisher": {"@type": "Organization", "name": "Quiet Coyote"}}</script>
 </head>
 <body>
 <header class="site"><div class="in">
-<a class="brand" href="/">48V LiFePO4 Battery</a>
+<a class="brand" href="/"><svg width="40" height="26" viewBox="0 0 44 28" aria-hidden="true"><rect x="1.6" y="4" width="35.5" height="20" rx="5.5" fill="none" stroke="#d97706" stroke-width="3"/><rect x="39.6" y="10" width="3.4" height="8" rx="1.7" fill="#d97706"/><path d="M20.6 6.6 13.2 15.4h4.8l-1.8 5.8 7.6-8.8h-4.9z" fill="#d97706"/></svg><span><b>48V</b>&nbsp;LiFePO4 Battery</span></a>
 <nav><a href="/48v-100ah-lifepo4-battery/">100Ah</a><a href="/golf-cart-batteries/">Golf cart</a><a href="/solar-storage-batteries/">Solar storage</a><a href="/server-rack-batteries/">Server rack</a><a href="/home-battery-backup/">Home backup</a><a href="/about/">About &amp; method</a></nav>
 </div></header>
 <main>
-<h1>48V 200Ah LiFePO4 Batteries: ~10kWh in One Case, Priced per Watt-Hour</h1><p class="lede">A 48V 200Ah LiFePO4 battery should be the single-case way to buy roughly 10kWh — no rack, no paralleled modules, one BMS. Here is what the maker stores actually hold today: <b>exactly 1 standalone 200Ah listing — Wall-mounted X LiFePO4 LITHIUM BATTERY 10.24kWh 51.2V 200AH SG48200T at $2,151 ($0.210/Wh)</b>. Everything else wearing the 200Ah label is a variant on a shared product page or a multi-unit kit. This page shows the one real listing, explains the label, and prices the two-module alternative everyone actually buys.</p><div class="disclosure">Prices below come from the manufacturers' own stores and were last refreshed <span id="fetched" data-ts="2026-11-22T07:42:04Z">November 22, 2026</span>. We rank by price per watt-hour ($/Wh) — the fairest way to compare batteries of different sizes. Listings are data, not reviews: we have not hands-on tested these batteries.</div><div id="stale">These prices are more than 72 hours old, so we have hidden the numbers — click through to the maker's store for the current price.</div><p class="updated">Guide last updated November 21, 2026. The advice is reviewed when it changes; the prices and rankings on this page refresh several times a day.</p><h2>Why this table has one row</h2><p>It is not a tracking gap — it is the market. Makers sell '48V 200Ah' three ways, and only one of them is a standalone product:</p><ul><li><b>A true single-case unit</b> — the wall-mounted listing in the table below is the only one in the maker stores we track today.</li><li><b>A variant selector:</b> Renogy's 51.2V battery is one product page covering both 100Ah and 200Ah configurations (a single URL, four feed variants). This tracker lists each maker URL once, in its 100Ah configuration — so that 200Ah option lives on our <a href="/48v-100ah-lifepo4-battery/">100Ah table</a>, not here.</li><li><b>A multi-unit kit:</b> at least one '200Ah-class' offer is four 50Ah units bundled as a 9.6kWh bank — a bank wearing a single battery's label.</li></ul><p>The demand the phrase represents is real (it is searched every month); the standalone product mostly is not. Buyers who go looking for one case almost always end up with two 100Ah modules instead — the rest of this page is about making that call with live numbers.</p><h2>The 9.6kWh vs 10.24kWh trap</h2><p>Both numbers come from the same multiplication with different voltages. Lead-acid-era math uses the nominal system voltage: 48V × 200Ah = <b>9,600Wh</b>. LiFePO4 math uses the pack's real nominal voltage: 51.2V × 200Ah = <b>10,240Wh</b>. Makers use both — the one direct listing below is a true 10,240Wh unit, while the kit configuration mentioned above is rated 9,600Wh for the same '200Ah' label.</p><p>The trap costs real money: a 9,600Wh unit has to be about 6% cheaper than a 10,240Wh unit just to tie on value. Sticker prices hide that; $/Wh cannot. Sort the table by $/Wh (it already is) and the honest ranking falls out — this is the entire reason this site ranks by watt-hours instead of amp-hours.</p><h2>What the class looks like today</h2><p>The one direct listing is the <b>Wall-mounted X LiFePO4 LITHIUM BATTERY 10.24kWh 51.2V 200AH SG48200T</b> at $2,151 ($0.210/Wh) — a wall-mounted unit, which suits the format: a single-case 200Ah battery fits a slim wall box in a garage or utility room better than a floor footprint. What the class lacks is choice. The big value brands pour their volume into 100Ah modules instead, so a shopper cross-shopping '200Ah in one case' against '200Ah as two modules' will find a one-row table here and a long one on the <a href="/48v-100ah-lifepo4-battery/">100Ah page</a>.</p><p>That thinness is itself the buying signal: if the exact 200Ah unit you want is out of stock or priced at a premium, the two-module build is not a compromise — it is the mainstream product, with the deeper discounting. Our <a href="/10kwh-battery/">10kWh page</a> prices both paths side by side from the full catalog.</p><h2>One 200Ah unit vs two 100Ah modules</h2><table><thead><tr><th></th><th>1 × 200Ah</th><th>2 × 100Ah modules</th></tr></thead><tbody><tr><td>Energy</td><td>9.6–10.24kWh (check the Wh)</td><td>10.24kWh</td></tr><tr><td>Install</td><td>One wall/floor unit, one cable pair</td><td>Rack or shelf, busbar + two cable pairs</td></tr><tr><td>Inverter comms</td><td>Varies — check the model</td><td>CAN/RS485 is standard on rack modules</td></tr><tr><td>Expansion step</td><td>Another ~10kWh unit</td><td>One 5.12kWh module at a time</td></tr><tr><td>If one unit fails</td><td>Bank is down</td><td>Half capacity remains</td></tr></tbody></table><p>Neither column wins outright. The single unit wins on install simplicity and footprint; the modules win on price depth, communications and graceful failure. The $/Wh columns on this page and the 100Ah page are the tiebreaker — compare them on the same day, because both refresh several times a day.</p><h2>Who should skip the 200Ah class</h2><ul><li><b>Incremental builders:</b> the first step is the whole ~10kWh. Modules let you start at 5.12kWh and grow.</li><li><b>$/Wh-first buyers:</b> the module market is deeper and usually keener — verify on the linked tables before paying a single-case premium.</li><li><b>Anyone who needs closed-loop inverter comms:</b> confirm the specific 200Ah model speaks your inverter's protocol; rack modules publish compatibility lists more consistently.</li></ul><h2>48V 200Ah batteries sold as single units, ranked by $/Wh</h2><div style="overflow-x:auto"><table id="t"><thead><tr><th data-k="0">Product</th><th data-k="1">Brand</th><th data-k="2" data-n="1" class="num">Capacity</th><th data-k="3" data-n="1" class="num">Price</th><th data-k="4" data-n="1" class="num">$/Wh</th><th data-k="5" data-n="1" class="num">$/kWh</th><th></th></tr></thead><tbody><tr data-brand="SunGoldPower"><td data-v="Wall-mounted X LiFePO4 LITHIUM BATTERY 10.24kWh 51.2V 200AH SG48200T"><a href="https://48vlifepo4battery.com/product/sungoldpower-48v-200ah-wall/">Wall-mounted X LiFePO4 LITHIUM BATTERY 10.24kWh 51.2V 200AH SG48200T</a></td><td data-v="SunGoldPower">SunGoldPower</td><td class="num" data-v="200.0">200Ah · 10,240Wh</td><td class="num pricedata" data-v="2151.0">$2,151 <span class="was">$3,073</span></td><td class="num ppw pricedata" data-v="0.21">$0.210</td><td class="num pricedata" data-v="210.0">$210</td><td><a class="buy" href="https://www.sungoldpower.com/products/powerwall-x-lithium-battery-51-2v-200ah-sg48200t" rel="nofollow sponsored noopener" target="_blank">View deal</a><span class="checkonly" style="display:none"><a class="buy" href="https://www.sungoldpower.com/products/powerwall-x-lithium-battery-51-2v-200ah-sg48200t" rel="nofollow sponsored noopener" target="_blank">Check price</a></span></td></tr></tbody></table></div><h2>Keep comparing</h2><ul class="links"><li><a href="/">All 48V LiFePO4 battery prices</a><p>The full live table, every model ranked by $/Wh.</p></li><li><a href="/48v-100ah-lifepo4-battery/">48V 100Ah LiFePO4 Batteries</a><p>The standard 5.12kWh building block — every 100Ah model compared by $/Wh.</p></li><li><a href="/10kwh-battery/">A 10kWh Battery, Three Ways — Each Priced from Live Listings</a><p>One big unit, two rack modules, or a wall battery: what 10kWh actually costs today, path by path.</p></li><li><a href="/48v-314ah-lifepo4-battery/">48V 314Ah LiFePO4: The Biggest Single-Case Value in 48V</a><p>One case, ~16kWh, and the lowest $/Wh in the 48V catalog — the 314Ah class compared live.</p></li></ul><section class="faq"><h2>Frequently asked questions</h2><h3>How much does a 48V 200Ah LiFePO4 battery cost?</h3><p>There is exactly 1 standalone listing in the maker stores we track today: $2,151 ($0.210/Wh) for the wall-mounted unit in the table. The other route to the label — the 200Ah configuration of a shared 100/200Ah product page — was feed-priced at $2,599.99 for its 10kWh configuration in the November 22, 2026 catalog pull. Two 100Ah modules usually undercut both; that table is live on the 100Ah page.</p><h3>How many kWh is a 48V 200Ah battery?</h3><p>It depends on the maker's math: 48V × 200Ah = 9.6kWh, while a true 51.2V LiFePO4 pack × 200Ah = 10.24kWh. Both are sold as '48V 200Ah'. Check the watt-hour figure — the table on this page shows it for every listing.</p><h3>Is one 48V 200Ah battery cheaper than two 100Ah modules?</h3><p>Usually not on $/Wh — the 100Ah module market is larger and more competitive, and rack modules are routinely the cheapest stored energy in the 48V catalog. The 200Ah unit buys install simplicity instead. Both tables are live; compare them the same day.</p><h3>Can I connect 48V 200Ah batteries in parallel?</h3><p>Most models in this class support parallel connection to grow the bank (limits vary, commonly 4–16 units). Match brand and model, and confirm the limit and communications wiring on the product page before ordering.</p></section><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much does a 48V 200Ah LiFePO4 battery cost?", "acceptedAnswer": {"@type": "Answer", "text": "There is exactly 1 standalone listing in the maker stores we track today: $2,151 ($0.210/Wh) for the wall-mounted unit in the table. The other route to the label \u2014 the 200Ah configuration of a shared 100/200Ah product page \u2014 was feed-priced at $2,599.99 for its 10kWh configuration in the November 22, 2026 catalog pull. Two 100Ah modules usually undercut both; that table is live on the 100Ah page."}}, {"@type": "Question", "name": "How many kWh is a 48V 200Ah battery?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on the maker's math: 48V \u00d7 200Ah = 9.6kWh, while a true 51.2V LiFePO4 pack \u00d7 200Ah = 10.24kWh. Both are sold as '48V 200Ah'. Check the watt-hour figure \u2014 the table on this page shows it for every listing."}}, {"@type": "Question", "name": "Is one 48V 200Ah battery cheaper than two 100Ah modules?", "acceptedAnswer": {"@type": "Answer", "text": "Usually not on $/Wh \u2014 the 100Ah module market is larger and more competitive, and rack modules are routinely the cheapest stored energy in the 48V catalog. The 200Ah unit buys install simplicity instead. Both tables are live; compare them the same day."}}, {"@type": "Question", "name": "Can I connect 48V 200Ah batteries in parallel?", "acceptedAnswer": {"@type": "Answer", "text": "Most models in this class support parallel connection to grow the bank (limits vary, commonly 4\u201316 units). Match brand and model, and confirm the limit and communications wiring on the product page before ordering."}}]}</script>
+<h1>48V 200Ah LiFePO4 Batteries: ~10kWh in One Case, Priced per Watt-Hour</h1><p class="lede">A 48V 200Ah LiFePO4 battery should be the single-case way to buy roughly 10kWh — no rack, no paralleled modules, one BMS. Here is what the maker stores actually hold today: <b>exactly 1 standalone 200Ah listing — Wall-mounted X LiFePO4 LITHIUM BATTERY 10.24kWh 51.2V 200AH SG48200T at $2,151 ($0.210/Wh)</b>. Everything else wearing the 200Ah label is a variant on a shared product page or a multi-unit kit. This page shows the one real listing, explains the label, and prices the two-module alternative everyone actually buys.</p><div class="disclosure">Prices below come from the manufacturers' own stores and were last refreshed <span id="fetched" data-ts="2026-11-22T08:43:31Z">November 22, 2026</span>. We rank by price per watt-hour ($/Wh) — the fairest way to compare batteries of different sizes. Listings are data, not reviews: we have not hands-on tested these batteries.</div><div id="stale">These prices are more than 72 hours old, so we have hidden the numbers — click through to the maker's store for the current price.</div><p class="updated">Guide last updated November 21, 2026. The advice is reviewed when it changes; the prices and rankings on this page refresh several times a day.</p><div class="prose"><h2>Why this table has one row</h2><p>It is not a tracking gap — it is the market. Makers sell '48V 200Ah' three ways, and only one of them is a standalone product:</p><ul><li><b>A true single-case unit</b> — the wall-mounted listing in the table below is the only one in the maker stores we track today.</li><li><b>A variant selector:</b> Renogy's 51.2V battery is one product page covering both 100Ah and 200Ah configurations (a single URL, four feed variants). This tracker lists each maker URL once, in its 100Ah configuration — so that 200Ah option lives on our <a href="/48v-100ah-lifepo4-battery/">100Ah table</a>, not here.</li><li><b>A multi-unit kit:</b> at least one '200Ah-class' offer is four 50Ah units bundled as a 9.6kWh bank — a bank wearing a single battery's label.</li></ul><p>The demand the phrase represents is real (it is searched every month); the standalone product mostly is not. Buyers who go looking for one case almost always end up with two 100Ah modules instead — the rest of this page is about making that call with live numbers.</p><h2>The 9.6kWh vs 10.24kWh trap</h2><p>Both numbers come from the same multiplication with different voltages. Lead-acid-era math uses the nominal system voltage: 48V × 200Ah = <b>9,600Wh</b>. LiFePO4 math uses the pack's real nominal voltage: 51.2V × 200Ah = <b>10,240Wh</b>. Makers use both — the one direct listing below is a true 10,240Wh unit, while the kit configuration mentioned above is rated 9,600Wh for the same '200Ah' label.</p><p>The trap costs real money: a 9,600Wh unit has to be about 6% cheaper than a 10,240Wh unit just to tie on value. Sticker prices hide that; $/Wh cannot. Sort the table by $/Wh (it already is) and the honest ranking falls out — this is the entire reason this site ranks by watt-hours instead of amp-hours.</p><h2>What the class looks like today</h2><p>The one direct listing is the <b>Wall-mounted X LiFePO4 LITHIUM BATTERY 10.24kWh 51.2V 200AH SG48200T</b> at $2,151 ($0.210/Wh) — a wall-mounted unit, which suits the format: a single-case 200Ah battery fits a slim wall box in a garage or utility room better than a floor footprint. What the class lacks is choice. The big value brands pour their volume into 100Ah modules instead, so a shopper cross-shopping '200Ah in one case' against '200Ah as two modules' will find a one-row table here and a long one on the <a href="/48v-100ah-lifepo4-battery/">100Ah page</a>.</p><p>That thinness is itself the buying signal: if the exact 200Ah unit you want is out of stock or priced at a premium, the two-module build is not a compromise — it is the mainstream product, with the deeper discounting. Our <a href="/10kwh-battery/">10kWh page</a> prices both paths side by side from the full catalog.</p><h2>One 200Ah unit vs two 100Ah modules</h2><table><thead><tr><th></th><th>1 × 200Ah</th><th>2 × 100Ah modules</th></tr></thead><tbody><tr><td>Energy</td><td>9.6–10.24kWh (check the Wh)</td><td>10.24kWh</td></tr><tr><td>Install</td><td>One wall/floor unit, one cable pair</td><td>Rack or shelf, busbar + two cable pairs</td></tr><tr><td>Inverter comms</td><td>Varies — check the model</td><td>CAN/RS485 is standard on rack modules</td></tr><tr><td>Expansion step</td><td>Another ~10kWh unit</td><td>One 5.12kWh module at a time</td></tr><tr><td>If one unit fails</td><td>Bank is down</td><td>Half capacity remains</td></tr></tbody></table><p>Neither column wins outright. The single unit wins on install simplicity and footprint; the modules win on price depth, communications and graceful failure. The $/Wh columns on this page and the 100Ah page are the tiebreaker — compare them on the same day, because both refresh several times a day.</p><h2>Who should skip the 200Ah class</h2><ul><li><b>Incremental builders:</b> the first step is the whole ~10kWh. Modules let you start at 5.12kWh and grow.</li><li><b>$/Wh-first buyers:</b> the module market is deeper and usually keener — verify on the linked tables before paying a single-case premium.</li><li><b>Anyone who needs closed-loop inverter comms:</b> confirm the specific 200Ah model speaks your inverter's protocol; rack modules publish compatibility lists more consistently.</li></ul></div><h2>48V 200Ah batteries sold as single units, ranked by $/Wh</h2><div class="tw"><table id="t"><thead><tr><th data-k="0">Product</th><th data-k="1">Brand</th><th data-k="2" data-n="1" class="num">Capacity</th><th data-k="3" data-n="1" class="num">Price</th><th data-k="4" data-n="1" class="num">$/Wh</th><th data-k="5" data-n="1" class="num">$/kWh</th><th></th></tr></thead><tbody><tr data-brand="SunGoldPower" class="best"><td data-l="Product" data-v="Wall-mounted X LiFePO4 LITHIUM BATTERY 10.24kWh 51.2V 200AH SG48200T"><a href="https://48vlifepo4battery.com/product/sungoldpower-48v-200ah-wall/">Wall-mounted X LiFePO4 LITHIUM BATTERY 10.24kWh 51.2V 200AH SG48200T</a></td><td data-l="Brand" data-v="SunGoldPower">SunGoldPower</td><td class="num" data-l="Capacity" data-v="200.0">200Ah · 10,240Wh</td><td class="num pricedata" data-l="Price" data-v="2151.0">$2,151 <span class="was">$3,073</span></td><td class="num pricedata" data-l="$/Wh" data-v="0.21"><span class="ppw">$0.210</span><span class="besttag">Best value</span></td><td class="num pricedata" data-l="$/kWh" data-v="210.0">$210</td><td class="buy-cell"><a class="buy" href="https://www.sungoldpower.com/products/powerwall-x-lithium-battery-51-2v-200ah-sg48200t" rel="nofollow sponsored noopener" target="_blank">View deal</a><span class="checkonly" style="display:none"><a class="buy" href="https://www.sungoldpower.com/products/powerwall-x-lithium-battery-51-2v-200ah-sg48200t" rel="nofollow sponsored noopener" target="_blank">Check price</a></span></td></tr></tbody></table></div><h2>Keep comparing</h2><ul class="links"><li><a href="/">All 48V LiFePO4 battery prices</a><p>The full live table, every model ranked by $/Wh.</p></li><li><a href="/48v-100ah-lifepo4-battery/">48V 100Ah LiFePO4 Batteries</a><p>The standard 5.12kWh building block — every 100Ah model compared by $/Wh.</p></li><li><a href="/10kwh-battery/">A 10kWh Battery, Three Ways — Each Priced from Live Listings</a><p>One big unit, two rack modules, or a wall battery: what 10kWh actually costs today, path by path.</p></li><li><a href="/48v-314ah-lifepo4-battery/">48V 314Ah LiFePO4: The Biggest Single-Case Value in 48V</a><p>One case, ~16kWh, and the lowest $/Wh in the 48V catalog — the 314Ah class compared live.</p></li></ul><section class="faq"><h2>Frequently asked questions</h2><h3>How much does a 48V 200Ah LiFePO4 battery cost?</h3><p>There is exactly 1 standalone listing in the maker stores we track today: $2,151 ($0.210/Wh) for the wall-mounted unit in the table. The other route to the label — the 200Ah configuration of a shared 100/200Ah product page — was feed-priced at $2,599.99 for its 10kWh configuration in the November 22, 2026 catalog pull. Two 100Ah modules usually undercut both; that table is live on the 100Ah page.</p><h3>How many kWh is a 48V 200Ah battery?</h3><p>It depends on the maker's math: 48V × 200Ah = 9.6kWh, while a true 51.2V LiFePO4 pack × 200Ah = 10.24kWh. Both are sold as '48V 200Ah'. Check the watt-hour figure — the table on this page shows it for every listing.</p><h3>Is one 48V 200Ah battery cheaper than two 100Ah modules?</h3><p>Usually not on $/Wh — the 100Ah module market is larger and more competitive, and rack modules are routinely the cheapest stored energy in the 48V catalog. The 200Ah unit buys install simplicity instead. Both tables are live; compare them the same day.</p><h3>Can I connect 48V 200Ah batteries in parallel?</h3><p>Most models in this class support parallel connection to grow the bank (limits vary, commonly 4–16 units). Match brand and model, and confirm the limit and communications wiring on the product page before ordering.</p></section><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much does a 48V 200Ah LiFePO4 battery cost?", "acceptedAnswer": {"@type": "Answer", "text": "There is exactly 1 standalone listing in the maker stores we track today: $2,151 ($0.210/Wh) for the wall-mounted unit in the table. The other route to the label \u2014 the 200Ah configuration of a shared 100/200Ah product page \u2014 was feed-priced at $2,599.99 for its 10kWh configuration in the November 22, 2026 catalog pull. Two 100Ah modules usually undercut both; that table is live on the 100Ah page."}}, {"@type": "Question", "name": "How many kWh is a 48V 200Ah battery?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on the maker's math: 48V \u00d7 200Ah = 9.6kWh, while a true 51.2V LiFePO4 pack \u00d7 200Ah = 10.24kWh. Both are sold as '48V 200Ah'. Check the watt-hour figure \u2014 the table on this page shows it for every listing."}}, {"@type": "Question", "name": "Is one 48V 200Ah battery cheaper than two 100Ah modules?", "acceptedAnswer": {"@type": "Answer", "text": "Usually not on $/Wh \u2014 the 100Ah module market is larger and more competitive, and rack modules are routinely the cheapest stored energy in the 48V catalog. The 200Ah unit buys install simplicity instead. Both tables are live; compare them the same day."}}, {"@type": "Question", "name": "Can I connect 48V 200Ah batteries in parallel?", "acceptedAnswer": {"@type": "Answer", "text": "Most models in this class support parallel connection to grow the bank (limits vary, commonly 4\u201316 units). Match brand and model, and confirm the limit and communications wiring on the product page before ordering."}}]}</script>
 </main>
-<footer>
-<p><b>How prices are gathered:</b> automatically from the manufacturers' own online stores, refreshed several times a day. We compute price per watt-hour from each battery's rated capacity. We never invent ratings or discounts — a struck-through price appears only when the maker's own store lists one. Full method on the <a href="/about/">about page</a>.</p>
-<p><b>Affiliate disclosure:</b> some outbound links on this site are affiliate links. If you buy through them we may earn a commission at no extra cost to you. Prices shown come from the makers' stores, not from affiliate feeds.</p>
-<p>Sister trackers: <a href="https://12vlifepo4battery.com/">12V LiFePO4 Battery prices</a> · <a href="https://24vlifepo4battery.com/">24V LiFePO4 Battery prices</a> · <a href="https://serverrackbatteries.com/">Server Rack Batteries prices</a></p>
-</footer>
+<footer><div class="fin">
+<div><h4>48V LiFePO4 Battery</h4>
+<p><b>How prices are gathered:</b> automatically from the manufacturers' own online stores, refreshed several times a day. We compute price per watt-hour from each battery's rated capacity. We never invent ratings or discounts — a struck-through price appears only when the maker's own store lists one. Full method on the <a href="/about/">about page</a>.</p></div>
+<div><h4>Affiliate disclosure</h4>
+<p>Some outbound links on this site are affiliate links. If you buy through them we may earn a commission at no extra cost to you. Prices shown come from the makers' stores, not from affiliate feeds.</p></div>
+<div><h4>Sister trackers</h4><div class="sisters"><a href="https://12vlifepo4battery.com/"><i style="background:#2563eb"></i>12V LiFePO4 Battery prices</a><a href="https://24vlifepo4battery.com/"><i style="background:#0d9488"></i>24V LiFePO4 Battery prices</a><a href="https://serverrackbatteries.com/"><i style="background:#7c3aed"></i>Server Rack Batteries prices</a></div></div>
+</div></footer>
 
 <script>
 (function(){

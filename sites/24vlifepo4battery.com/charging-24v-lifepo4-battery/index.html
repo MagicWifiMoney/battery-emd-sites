@@ -6,73 +6,144 @@
 <title>Charging a 24V LiFePO4 Battery: Voltages, Chargers &amp; Solar Settings</title>
 <meta name="description" content="The charge profile a 25.6V LiFePO4 pack actually wants — 29.2V absorption, no equalization — and which chargers deliver it: dedicated 24V, MPPT solar, DC-DC and onboard marine.">
 <link rel="canonical" href="https://24vlifepo4battery.com/charging-24v-lifepo4-battery/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 28'%3E%3Crect width='44' height='28' rx='7' fill='%230d9488'/%3E%3Cpath d='M23 5 14 16h6l-2 7 9-11h-6z' fill='white'/%3E%3C/svg%3E">
+<link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
 <style>
-:root{--ink:#16202a;--mut:#5b6b7a;--line:#d9e1e8;--acc:#0b6e4f;--bg:#f7f9fa;--warn:#8a5a00;--warnbg:#fff4d6}
+@font-face{font-family:'Inter';src:url('/fonts/inter-var.woff2') format('woff2');font-weight:100 900;font-display:swap}
+@font-face{font-family:'Space Grotesk';src:url('/fonts/spacegrotesk-var.woff2') format('woff2');font-weight:300 700;font-display:swap}
+:root{--ink:#131e29;--ink2:#2c3e50;--mut:#5b6b7a;--line:#dde5ec;--acc:#0b6e4f;--accs:#0b6e4f;--accsoft:#e6f4ee;--hero2:#0b2e23;--bg:#f4f7f9;--warn:#8a5a00;--warnbg:#fff4d6;--good:#0b6e4f;--bad:#b03a2e;--sh:0 1px 3px rgba(16,32,48,.07),0 4px 14px rgba(16,32,48,.05);--disp:'Space Grotesk','Inter',system-ui,sans-serif}
 *{box-sizing:border-box}
-body{margin:0;font:15px/1.55 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff}
-header.site{border-bottom:1px solid var(--line);background:var(--bg)}
-header.site .in{max-width:1080px;margin:0 auto;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.brand{font-weight:700;font-size:17px;color:var(--ink);text-decoration:none}
-nav a{color:var(--mut);text-decoration:none;margin-left:14px;font-size:14px}
-nav a:hover{color:var(--acc)}
-main{max-width:1080px;margin:0 auto;padding:20px 16px 10px}
-h1{font-size:27px;line-height:1.2;margin:4px 0 8px}
-h2{font-size:20px;margin:26px 0 8px}
+body{margin:0;font:15.5px/1.6 'Inter',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}
+header.site{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);box-shadow:0 1px 0 rgba(16,32,48,.03)}
+header.site .in{max-width:1120px;margin:0 auto;padding:10px 18px;display:flex;justify-content:space-between;align-items:center;gap:14px}
+.brand{display:flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none;font-family:var(--disp);font-weight:700;font-size:18px;letter-spacing:-.01em;white-space:nowrap}
+.brand svg{flex:none;display:block}
+.brand b{color:var(--accs)}
+header.site nav{display:flex;align-items:center;overflow-x:auto;scrollbar-width:none}
+header.site nav::-webkit-scrollbar{display:none}
+header.site nav a{color:var(--ink2);text-decoration:none;margin-left:4px;font-size:13.5px;font-weight:600;padding:6px 10px;border-radius:999px;white-space:nowrap}
+header.site nav a:hover{background:var(--accsoft);color:var(--accs)}
+main{max-width:1120px;margin:0 auto;padding:22px 18px 12px}
+h1{font-family:var(--disp);font-size:29px;line-height:1.15;letter-spacing:-.015em;margin:6px 0 10px}
+h2{font-family:var(--disp);font-size:21px;letter-spacing:-.01em;margin:32px 0 10px}
 h3{font-size:16px;margin:16px 0 6px}
-.lede{font-size:16.5px;color:#2c3e50;max-width:75ch}
-.updated{font-size:13px;color:var(--mut)}
-.disclosure{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:13px;margin:14px 0}
-#stale{display:none;background:var(--warnbg);color:var(--warn);border:1px solid #ecd28f;border-radius:8px;padding:10px 12px;font-size:14px;margin:10px 0}
-.stats{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0}
-.stat{border:1px solid var(--line);border-radius:8px;padding:10px 14px;min-width:150px;background:#fff}
-.stat b{display:block;font-size:19px;color:var(--acc)}
-.stat span{font-size:12.5px;color:var(--mut)}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:14px 0}
-.card{border:1px solid var(--line);border-radius:8px;padding:12px 14px}
-.card h3{margin:0 0 4px;font-size:15px}
-.card p{margin:4px 0;font-size:13.5px;color:#2c3e50}
-.card .big{font-size:18px;font-weight:700;color:var(--acc)}
-table{width:100%;border-collapse:collapse;font-size:14px;margin:10px 0}
-th,td{padding:8px 9px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
-th{background:var(--bg);white-space:nowrap;cursor:pointer;user-select:none}
-th:hover{color:var(--acc)}
-td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
-.ppw{font-weight:700;color:var(--acc)}
-.was{color:var(--mut);text-decoration:line-through;font-size:12px}
-.oos{color:#b03a2e;font-size:12px}
-a.buy{display:inline-block;background:var(--acc);color:#fff;text-decoration:none;padding:5px 10px;border-radius:6px;font-size:13px;white-space:nowrap}
-.controls{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
-.controls input,.controls select{padding:8px 10px;border:1px solid var(--line);border-radius:6px;font-size:14px}
-.controls input{flex:1;min-width:200px}
-.faq h3{margin:14px 0 2px}
-.faq p{margin:2px 0 8px;max-width:78ch}
+a{color:var(--accs)}
+.lede{font-size:16.5px;line-height:1.6;color:var(--ink2);max-width:74ch}
+.lede b{color:var(--ink)}
 .updated{font-size:13.5px;color:var(--mut);margin:2px 0 10px}
-ul.links{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
-ul.links li{border:1px solid var(--line);border-radius:8px;padding:10px 12px}
-ul.links a{font-weight:600;color:var(--acc);text-decoration:none}
-ul.links p{margin:3px 0 0;font-size:13px;color:var(--mut)}
-footer{max-width:1080px;margin:0 auto;padding:16px;color:var(--mut);font-size:13px;border-top:1px solid var(--line)}
-footer a{color:var(--acc)}
-.prose{max-width:78ch}
-.prose li{margin:4px 0}
-@media(max-width:760px){table{font-size:13px}th,td{padding:6px 5px}h1{font-size:22px}}
+.hero{position:relative;overflow:hidden;border-radius:20px;padding:34px 34px 28px;margin:6px 0 20px;color:#fff;background:radial-gradient(560px 300px at 88% -10%,var(--acc) 0%,rgba(0,0,0,0) 55%),linear-gradient(128deg,#0c1622 30%,var(--hero2) 115%);box-shadow:var(--sh)}
+.hero h1{color:#fff;font-size:36px;margin:10px 0 10px;max-width:22ch}
+.hero .lede{color:rgba(235,242,248,.88)}
+.hero .lede b{color:#fff}
+.kick{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.18);color:#eaf2f8;font-size:12.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:5px 12px;border-radius:999px}
+.kick i{width:8px;height:8px;border-radius:50%;background:#3ddc84;box-shadow:0 0 0 3px rgba(61,220,132,.25);flex:none}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.chip{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:14px;padding:10px 16px;min-width:148px}
+.chip b{display:block;font-family:var(--disp);font-size:21px;letter-spacing:-.01em;color:#fff}
+.chip span{font-size:12px;color:rgba(235,242,248,.66)}
+.disclosure{background:var(--accsoft);border:1px solid var(--line);border-left:4px solid var(--acc);border-radius:12px;padding:11px 14px;font-size:13.5px;margin:14px 0;color:var(--ink2)}
+#stale{display:none;background:var(--warnbg);color:var(--warn);border:1px solid #ecd28f;border-radius:12px;padding:10px 14px;font-size:14px;margin:10px 0}
+.stats{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0}
+.stat{border:1px solid var(--line);border-top:3px solid var(--acc);border-radius:12px;padding:11px 15px;min-width:150px;background:#fff;box-shadow:var(--sh)}
+.stat b{display:block;font-family:var(--disp);font-size:20px;letter-spacing:-.01em;color:var(--ink)}
+.stat span{font-size:12.5px;color:var(--mut)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin:14px 0}
+.card{border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:#fff;box-shadow:var(--sh);transition:transform .15s ease,box-shadow .15s ease}
+.card:hover{transform:translateY(-2px)}
+.card h3{margin:0 0 4px;font-family:var(--disp);font-size:14px;letter-spacing:.04em;text-transform:uppercase;color:var(--accs)}
+.card p{margin:4px 0;font-size:13.5px;color:var(--ink2)}
+.card .big{font-family:var(--disp);font-size:19px;font-weight:700;color:var(--ink)}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:14px;box-shadow:var(--sh);margin:12px 0;background:#fff}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle}
+thead th{background:#101c28;color:#e8eef4;font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap;cursor:pointer;user-select:none;border-bottom:none}
+thead th:hover{color:#fff;background:#18293c}
+tbody tr{transition:background .1s ease}
+tbody tr:hover{background:#f2f7fa}
+tbody tr:last-child td{border-bottom:none}
+tbody tr.best td{background:var(--accsoft)}
+tbody tr.best td:first-child{box-shadow:inset 4px 0 0 var(--acc)}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+td a{color:var(--ink);text-decoration:none;font-weight:600}
+td a:hover{color:var(--accs);text-decoration:underline}
+.ppw{display:inline-block;background:var(--accsoft);color:var(--accs);font-weight:700;padding:2.5px 10px;border-radius:999px;font-variant-numeric:tabular-nums}
+.best .ppw{background:#fff}
+.besttag{display:inline-block;background:var(--acc);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:2.5px 8px;border-radius:999px;margin-left:6px;vertical-align:1px;white-space:nowrap}
+.was{color:var(--mut);text-decoration:line-through;font-size:12px}
+.oos{color:var(--bad);font-size:12px;font-weight:600}
+a.buy{display:inline-block;background:var(--acc);color:#fff;text-decoration:none;padding:7px 15px;border-radius:999px;font-family:var(--disp);font-size:13.5px;font-weight:600;white-space:nowrap;box-shadow:var(--sh)}
+a.buy:hover{filter:brightness(.93);color:#fff;text-decoration:none}
+.controls{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.controls input,.controls select{padding:10px 13px;border:1px solid var(--line);border-radius:10px;font:inherit;font-size:14px;background:#fff;color:var(--ink)}
+.controls input{flex:1;min-width:200px}
+.controls input:focus,.controls select:focus{outline:2px solid var(--acc);outline-offset:1px;border-color:var(--acc)}
+.faq h3{font-family:var(--disp);font-weight:600;font-size:16.5px;margin:16px 0 2px}
+.faq p{margin:2px 0 8px;max-width:76ch;color:var(--ink2)}
+ul.links{list-style:none;padding:0;margin:12px 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+ul.links li{border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:#fff;box-shadow:var(--sh);transition:transform .15s ease}
+ul.links li:hover{transform:translateY(-2px)}
+ul.links a{font-family:var(--disp);font-weight:600;font-size:15.5px;color:var(--ink);text-decoration:none}
+ul.links a::after{content:' \2192';color:var(--acc)}
+ul.links a:hover{color:var(--accs)}
+ul.links p{margin:4px 0 0;font-size:13px;color:var(--mut)}
+.trendcard{border:1px solid var(--line);border-radius:14px;padding:14px 16px;box-shadow:var(--sh);background:#fff;max-width:560px}
+.trendcard p{margin:8px 0 0;font-size:14px;color:var(--ink2)}
+.tdown{color:var(--good);font-weight:700}
+.tup{color:var(--bad);font-weight:700}
+footer{background:#0c1622;color:#a9bccf;margin-top:44px;font-size:13.5px}
+footer .fin{max-width:1120px;margin:0 auto;padding:30px 18px 26px;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
+footer h4{font-family:var(--disp);color:#fff;font-size:14px;letter-spacing:.04em;text-transform:uppercase;margin:0 0 8px}
+footer p{margin:0 0 8px;line-height:1.6}
+footer a{color:#d7e5f2}
+.sisters{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.sisters a{display:inline-flex;align-items:center;gap:7px;border:1px solid #263646;padding:6px 12px;border-radius:999px;color:#d7e5f2;text-decoration:none;font-weight:600}
+.sisters a:hover{border-color:#3d5a76;color:#fff}
+.sisters i{width:8px;height:8px;border-radius:50%;flex:none}
+.prose{max-width:74ch;font-size:16px;line-height:1.72;color:var(--ink2)}
+.prose h2{border-left:4px solid var(--acc);padding-left:11px;margin-left:-15px}
+.prose li{margin:5px 0}
+.prose b{color:var(--ink)}
+@media(max-width:760px){
+h1{font-size:24px}
+.hero{padding:24px 20px 20px;border-radius:16px}
+.hero h1{font-size:27px}
+.chip{flex:1 1 42%;min-width:0}
+header.site nav{max-width:52vw}
+.stat{flex:1 1 42%;min-width:0}
+.tw{overflow:visible;border:none;box-shadow:none;background:transparent}
+.tw table,.tw tbody,.tw tr,.tw td{display:block;width:100%}
+.tw thead{display:none}
+.tw tr{border:1px solid var(--line);border-radius:14px;margin:0 0 12px;padding:10px 14px;background:#fff;box-shadow:var(--sh)}
+.tw td{border:none;padding:5px 0;display:flex;justify-content:space-between;align-items:center;gap:14px;text-align:right;white-space:normal}
+.tw td::before{content:attr(data-l);font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--mut);text-align:left;flex:none}
+.tw td:first-child{display:block;text-align:left}
+.tw td:first-child::before{display:none}
+.tw td:first-child a{font-family:var(--disp);font-size:15.5px}
+.tw td.buy-cell{display:block;text-align:left}
+.tw td.buy-cell::before{display:none}
+.tw td.buy-cell a.buy{display:block;text-align:center;padding:10px}
+.prose h2{margin-left:0}
+}
 </style>
+<style>:root{--acc:#0d9488;--accs:#0f766e;--accsoft:#dcf5f0;--hero2:#043f39}</style>
 
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Charging a 24V LiFePO4 Battery, Correctly", "dateModified": "2026-11-21", "author": {"@type": "Organization", "name": "Quiet Coyote"}, "publisher": {"@type": "Organization", "name": "Quiet Coyote"}}</script>
 </head>
 <body>
 <header class="site"><div class="in">
-<a class="brand" href="/">24V LiFePO4 Battery</a>
+<a class="brand" href="/"><svg width="40" height="26" viewBox="0 0 44 28" aria-hidden="true"><rect x="1.6" y="4" width="35.5" height="20" rx="5.5" fill="none" stroke="#0d9488" stroke-width="3"/><rect x="39.6" y="10" width="3.4" height="8" rx="1.7" fill="#0d9488"/><path d="M20.6 6.6 13.2 15.4h4.8l-1.8 5.8 7.6-8.8h-4.9z" fill="#0d9488"/></svg><span><b>24V</b>&nbsp;LiFePO4 Battery</span></a>
 <nav><a href="/24v-100ah-lifepo4-battery/">100Ah</a><a href="/24v-230ah-lifepo4-battery/">230Ah</a><a href="/trolling-motor-batteries/">Trolling motor</a><a href="/rv-batteries/">RV</a><a href="/about/">About &amp; method</a></nav>
 </div></header>
 <main>
-<h1>Charging a 24V LiFePO4 Battery, Correctly</h1><p class="lede">A 24V LiFePO4 battery (25.6V nominal, eight cells) wants one thing from a charger: a lithium profile that tops out at <b>29.2V</b> and never runs an equalization stage. Get that right and the battery charges fully and lasts its rated cycles; get it wrong and the usual symptom is a pack that quietly stops at 80%. This guide covers the settings and the four charger types that deliver them. Battery prices referenced are the live ones on this site, refreshed November 22, 2026.</p><div class="disclosure">Prices below come from the manufacturers' own stores and were last refreshed <span id="fetched" data-ts="2026-11-22T07:42:04Z">November 22, 2026</span>. We rank by price per watt-hour ($/Wh) — the fairest way to compare batteries of different sizes. Listings are data, not reviews: we have not hands-on tested these batteries.</div><div id="stale">These prices are more than 72 hours old, so we have hidden the numbers — click through to the maker's store for the current price.</div><p class="updated">Guide last updated November 21, 2026. The advice is reviewed when it changes; the prices and rankings on this page refresh several times a day.</p><h2>The numbers a 25.6V pack charges at</h2><table><thead><tr><th>Stage</th><th>Setting</th><th>Notes</th></tr></thead><tbody><tr><td>Absorption / charge voltage</td><td class='num'>29.2V</td><td>14.6V per 12V-equivalent × 2; some makers specify 28.8–29.2V — the product page wins</td></tr><tr><td>Float (if used)</td><td class='num'>27.2V or off</td><td>LiFePO4 does not need float; many lithium profiles disable it</td></tr><tr><td>Equalization</td><td class='num'>OFF, always</td><td>Equalization voltages overcharge lithium and trip the BMS</td></tr><tr><td>Charge current</td><td class='num'>0.2C–0.5C typical</td><td>20–50A for a 100Ah pack; the maker's max charge current is the ceiling</td></tr><tr><td>Low-temperature charging</td><td class='num'>Not below 0°C / 32°F</td><td>Unless the pack is self-heating; protected BMS units refuse the charge</td></tr></tbody></table><p>Why 29.2V: each LiFePO4 cell charges to 3.65V, and eight in series is 29.2V. A charger that stops at lead-acid 24V settings (about 28.8V absorption is close, but gel/AGM profiles with temperature compensation and equalization are not) leaves capacity on the table or abuses the pack — the lithium profile exists precisely to avoid both.</p><h2>The four ways a 24V pack gets charged</h2><ul><li><b>Dedicated 24V LiFePO4 charger</b> (shore power): the simplest correct answer for boats and garages. Pick one with a lithium profile and a current rating near 0.2–0.5C of your pack.</li><li><b>Solar MPPT controller:</b> set battery type to lithium/user and enter the voltages above; the controller must be rated for a 24V battery bank (most mid-size MPPTs auto-detect 12/24V — confirm before wiring panels).</li><li><b>DC-DC charger from a vehicle:</b> trucks and RVs charging from an alternator need a 24V-output DC-DC unit with a lithium profile; a bare alternator connection is not a charge profile.</li><li><b>Onboard marine charger:</b> multi-bank chargers charge each bank at its own voltage — a 24V trolling bank needs a 24V bank output, not a tap across a series pair.</li></ul><h2>The series-pair trap</h2><p>If your '24V battery' is actually two 12V batteries in series (see the <a href="/series-vs-native-24v/">series vs native guide</a>), charging has an extra rule: charge the pair as a 24V bank with a 24V lithium charger, or charge each 12V battery individually — but do not leave one charger on one battery of a working pair, which unbalances them. A battery balancer across the pair keeps the two halves at the same state of charge over time. Native 24V packs sidestep all of this: one case, one BMS, one 29.2V charge.</p><p>Storage, briefly: LiFePO4 stores best near 50–70% charge, disconnected or with loads off, and self-discharges slowly. A pack put away full in a hot space ages fastest; a pack put away at half charge in a cool one barely notices the season.</p><h2>Keep comparing</h2><ul class="links"><li><a href="/">All 24V LiFePO4 battery prices</a><p>The full live table, every model ranked by $/Wh.</p></li><li><a href="/series-vs-native-24v/">24V Two Ways: One Native Battery, or Two 12V Batteries in Series?</a><p>The same 25.6V from one case or two. What actually differs: balancing, charging, cost per Wh and what happens when one half ages faster.</p></li><li><a href="/how-to-choose-24v-lifepo4-battery/">How to Choose a 24V LiFePO4 Battery</a><p>Four decisions in the right order: voltage fit, watt-hour sizing, BMS discharge rating, cold-weather features — then price per watt-hour ranks what&#x27;s left.</p></li><li><a href="/24v-100ah-lifepo4-battery/">24V 100Ah LiFePO4 Batteries</a><p>The workhorse size: 2,560Wh for trolling motors, RVs and small solar — every 100Ah model by $/Wh.</p></li></ul><section class="faq"><h2>Frequently asked questions</h2><h3>Can I charge a 24V LiFePO4 battery with a 12V charger?</h3><p>No. A 12V charger tops out around 14.6V — half of what a 25.6V pack needs. You need a 24V charger with a lithium profile (29.2V absorption), an MPPT controller set for a 24V lithium bank, or a 24V DC-DC charger.</p><h3>What voltage should I charge my 24V LiFePO4 battery to?</h3><p>29.2V absorption (3.65V per cell × 8) is the standard full-charge setting; some makers specify 28.8V. Float is optional at about 27.2V or off entirely, and equalization must be disabled.</p><h3>Will my old lead-acid charger work on a 24V lithium battery?</h3><p>Only if it has a true lithium profile. Lead-acid profiles with equalization or aggressive temperature compensation can overcharge lithium and trip the BMS; an absorption near 28.8–29.2V with no equalization is the requirement, and most basic lead-acid chargers cannot guarantee it.</p></section><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can I charge a 24V LiFePO4 battery with a 12V charger?", "acceptedAnswer": {"@type": "Answer", "text": "No. A 12V charger tops out around 14.6V \u2014 half of what a 25.6V pack needs. You need a 24V charger with a lithium profile (29.2V absorption), an MPPT controller set for a 24V lithium bank, or a 24V DC-DC charger."}}, {"@type": "Question", "name": "What voltage should I charge my 24V LiFePO4 battery to?", "acceptedAnswer": {"@type": "Answer", "text": "29.2V absorption (3.65V per cell \u00d7 8) is the standard full-charge setting; some makers specify 28.8V. Float is optional at about 27.2V or off entirely, and equalization must be disabled."}}, {"@type": "Question", "name": "Will my old lead-acid charger work on a 24V lithium battery?", "acceptedAnswer": {"@type": "Answer", "text": "Only if it has a true lithium profile. Lead-acid profiles with equalization or aggressive temperature compensation can overcharge lithium and trip the BMS; an absorption near 28.8\u201329.2V with no equalization is the requirement, and most basic lead-acid chargers cannot guarantee it."}}]}</script>
+<h1>Charging a 24V LiFePO4 Battery, Correctly</h1><p class="lede">A 24V LiFePO4 battery (25.6V nominal, eight cells) wants one thing from a charger: a lithium profile that tops out at <b>29.2V</b> and never runs an equalization stage. Get that right and the battery charges fully and lasts its rated cycles; get it wrong and the usual symptom is a pack that quietly stops at 80%. This guide covers the settings and the four charger types that deliver them. Battery prices referenced are the live ones on this site, refreshed November 22, 2026.</p><div class="disclosure">Prices below come from the manufacturers' own stores and were last refreshed <span id="fetched" data-ts="2026-11-22T08:43:31Z">November 22, 2026</span>. We rank by price per watt-hour ($/Wh) — the fairest way to compare batteries of different sizes. Listings are data, not reviews: we have not hands-on tested these batteries.</div><div id="stale">These prices are more than 72 hours old, so we have hidden the numbers — click through to the maker's store for the current price.</div><p class="updated">Guide last updated November 21, 2026. The advice is reviewed when it changes; the prices and rankings on this page refresh several times a day.</p><div class="prose"><h2>The numbers a 25.6V pack charges at</h2><table><thead><tr><th>Stage</th><th>Setting</th><th>Notes</th></tr></thead><tbody><tr><td>Absorption / charge voltage</td><td class='num'>29.2V</td><td>14.6V per 12V-equivalent × 2; some makers specify 28.8–29.2V — the product page wins</td></tr><tr><td>Float (if used)</td><td class='num'>27.2V or off</td><td>LiFePO4 does not need float; many lithium profiles disable it</td></tr><tr><td>Equalization</td><td class='num'>OFF, always</td><td>Equalization voltages overcharge lithium and trip the BMS</td></tr><tr><td>Charge current</td><td class='num'>0.2C–0.5C typical</td><td>20–50A for a 100Ah pack; the maker's max charge current is the ceiling</td></tr><tr><td>Low-temperature charging</td><td class='num'>Not below 0°C / 32°F</td><td>Unless the pack is self-heating; protected BMS units refuse the charge</td></tr></tbody></table><p>Why 29.2V: each LiFePO4 cell charges to 3.65V, and eight in series is 29.2V. A charger that stops at lead-acid 24V settings (about 28.8V absorption is close, but gel/AGM profiles with temperature compensation and equalization are not) leaves capacity on the table or abuses the pack — the lithium profile exists precisely to avoid both.</p><h2>The four ways a 24V pack gets charged</h2><ul><li><b>Dedicated 24V LiFePO4 charger</b> (shore power): the simplest correct answer for boats and garages. Pick one with a lithium profile and a current rating near 0.2–0.5C of your pack.</li><li><b>Solar MPPT controller:</b> set battery type to lithium/user and enter the voltages above; the controller must be rated for a 24V battery bank (most mid-size MPPTs auto-detect 12/24V — confirm before wiring panels).</li><li><b>DC-DC charger from a vehicle:</b> trucks and RVs charging from an alternator need a 24V-output DC-DC unit with a lithium profile; a bare alternator connection is not a charge profile.</li><li><b>Onboard marine charger:</b> multi-bank chargers charge each bank at its own voltage — a 24V trolling bank needs a 24V bank output, not a tap across a series pair.</li></ul><h2>The series-pair trap</h2><p>If your '24V battery' is actually two 12V batteries in series (see the <a href="/series-vs-native-24v/">series vs native guide</a>), charging has an extra rule: charge the pair as a 24V bank with a 24V lithium charger, or charge each 12V battery individually — but do not leave one charger on one battery of a working pair, which unbalances them. A battery balancer across the pair keeps the two halves at the same state of charge over time. Native 24V packs sidestep all of this: one case, one BMS, one 29.2V charge.</p><p>Storage, briefly: LiFePO4 stores best near 50–70% charge, disconnected or with loads off, and self-discharges slowly. A pack put away full in a hot space ages fastest; a pack put away at half charge in a cool one barely notices the season.</p></div><h2>Keep comparing</h2><ul class="links"><li><a href="/">All 24V LiFePO4 battery prices</a><p>The full live table, every model ranked by $/Wh.</p></li><li><a href="/series-vs-native-24v/">24V Two Ways: One Native Battery, or Two 12V Batteries in Series?</a><p>The same 25.6V from one case or two. What actually differs: balancing, charging, cost per Wh and what happens when one half ages faster.</p></li><li><a href="/how-to-choose-24v-lifepo4-battery/">How to Choose a 24V LiFePO4 Battery</a><p>Four decisions in the right order: voltage fit, watt-hour sizing, BMS discharge rating, cold-weather features — then price per watt-hour ranks what&#x27;s left.</p></li><li><a href="/24v-100ah-lifepo4-battery/">24V 100Ah LiFePO4 Batteries</a><p>The workhorse size: 2,560Wh for trolling motors, RVs and small solar — every 100Ah model by $/Wh.</p></li></ul><section class="faq"><h2>Frequently asked questions</h2><h3>Can I charge a 24V LiFePO4 battery with a 12V charger?</h3><p>No. A 12V charger tops out around 14.6V — half of what a 25.6V pack needs. You need a 24V charger with a lithium profile (29.2V absorption), an MPPT controller set for a 24V lithium bank, or a 24V DC-DC charger.</p><h3>What voltage should I charge my 24V LiFePO4 battery to?</h3><p>29.2V absorption (3.65V per cell × 8) is the standard full-charge setting; some makers specify 28.8V. Float is optional at about 27.2V or off entirely, and equalization must be disabled.</p><h3>Will my old lead-acid charger work on a 24V lithium battery?</h3><p>Only if it has a true lithium profile. Lead-acid profiles with equalization or aggressive temperature compensation can overcharge lithium and trip the BMS; an absorption near 28.8–29.2V with no equalization is the requirement, and most basic lead-acid chargers cannot guarantee it.</p></section><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can I charge a 24V LiFePO4 battery with a 12V charger?", "acceptedAnswer": {"@type": "Answer", "text": "No. A 12V charger tops out around 14.6V \u2014 half of what a 25.6V pack needs. You need a 24V charger with a lithium profile (29.2V absorption), an MPPT controller set for a 24V lithium bank, or a 24V DC-DC charger."}}, {"@type": "Question", "name": "What voltage should I charge my 24V LiFePO4 battery to?", "acceptedAnswer": {"@type": "Answer", "text": "29.2V absorption (3.65V per cell \u00d7 8) is the standard full-charge setting; some makers specify 28.8V. Float is optional at about 27.2V or off entirely, and equalization must be disabled."}}, {"@type": "Question", "name": "Will my old lead-acid charger work on a 24V lithium battery?", "acceptedAnswer": {"@type": "Answer", "text": "Only if it has a true lithium profile. Lead-acid profiles with equalization or aggressive temperature compensation can overcharge lithium and trip the BMS; an absorption near 28.8\u201329.2V with no equalization is the requirement, and most basic lead-acid chargers cannot guarantee it."}}]}</script>
 </main>
-<footer>
-<p><b>How prices are gathered:</b> automatically from the manufacturers' own online stores, refreshed several times a day. We compute price per watt-hour from each battery's rated capacity. We never invent ratings or discounts — a struck-through price appears only when the maker's own store lists one. Full method on the <a href="/about/">about page</a>.</p>
-<p><b>Affiliate disclosure:</b> some outbound links on this site are affiliate links. If you buy through them we may earn a commission at no extra cost to you. Prices shown come from the makers' stores, not from affiliate feeds.</p>
-<p>Sister trackers: <a href="https://48vlifepo4battery.com/">48V LiFePO4 Battery prices</a> · <a href="https://12vlifepo4battery.com/">12V LiFePO4 Battery prices</a> · <a href="https://serverrackbatteries.com/">Server Rack Batteries prices</a></p>
-</footer>
+<footer><div class="fin">
+<div><h4>24V LiFePO4 Battery</h4>
+<p><b>How prices are gathered:</b> automatically from the manufacturers' own online stores, refreshed several times a day. We compute price per watt-hour from each battery's rated capacity. We never invent ratings or discounts — a struck-through price appears only when the maker's own store lists one. Full method on the <a href="/about/">about page</a>.</p></div>
+<div><h4>Affiliate disclosure</h4>
+<p>Some outbound links on this site are affiliate links. If you buy through them we may earn a commission at no extra cost to you. Prices shown come from the makers' stores, not from affiliate feeds.</p></div>
+<div><h4>Sister trackers</h4><div class="sisters"><a href="https://48vlifepo4battery.com/"><i style="background:#d97706"></i>48V LiFePO4 Battery prices</a><a href="https://12vlifepo4battery.com/"><i style="background:#2563eb"></i>12V LiFePO4 Battery prices</a><a href="https://serverrackbatteries.com/"><i style="background:#7c3aed"></i>Server Rack Batteries prices</a></div></div>
+</div></footer>
 
 <script>
 (function(){
