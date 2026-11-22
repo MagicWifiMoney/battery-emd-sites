@@ -19,7 +19,10 @@ body copy override the title and produced wrong Wh on ~15% of rows):
      24V -> 25.6V, 36V -> 38.4V, 48V -> 51.2V (3.2V/cell nominal; using
      12.0V would understate Wh ~6%). A stated decimal nominal is used as-is.
      Multi-pack variants (variant title says "2 Pack", "*2") multiply the
-     single-unit Wh by the pack quantity.
+     single-unit Wh by the pack quantity. The same applies when the pack
+     count is stated in the product title instead (SunGoldPower sells each
+     pack size as its own listing: "4 X 48V 100AH ...", "2X SGH...") —
+     see title_pack_qty().
   3. Body copy: a Wh value next to a capacity/energy label, skipping values
      introduced by "expandable / up to / max" (system-max marketing numbers).
   4. Body mode: the most frequently mentioned Wh value in body copy
@@ -85,6 +88,9 @@ TIMEOUT = 40
 
 # Sanity guards (drops are logged, never silent)
 WH_MIN, WH_MAX = 50, 20000
+# A declared multi-pack's TOTAL capacity legitimately exceeds the
+# single-unit ceiling (a 4-pack of 5,120Wh units is a 20,480Wh SKU).
+PACK_TOTAL_WH_MAX = 40000
 PRICE_MIN, PRICE_MAX = 20.0, 15000.0
 PPW_MIN, PPW_MAX = 0.05, 3.00
 
@@ -156,6 +162,31 @@ def pack_qty(variant_title: str):
     # "9.6 kWh (4x2.4kWh)" are multiplication expressions, not pack counts —
     # v2 inspection caught qty=2 misfiring on exactly that and doubling Wh.
     m = re.search(r"\*\s*(\d+)\b", t)
+    if m and int(m.group(1)) >= 2:
+        return int(m.group(1))
+    return 1
+
+
+def title_pack_qty(title: str):
+    """Multi-pack quantity stated in the PRODUCT title itself, for stores
+    that sell each pack size as its own single-variant listing
+    (SunGoldPower: '4 X 48V 100AH ...', '2X SGH48100T ...'). The price on
+    such a row buys the whole pack, so the single-unit Wh parsed from the
+    same title must be multiplied or $/Wh is overstated by the pack count.
+    Conservative, explicit forms only — never inferred:
+      - a leading 'N X ' / 'NX ' pack prefix,
+      - 'Pack of N',
+      - 'N Pack(s)'.
+    A bare 'xN' elsewhere in the title is NOT used (multiplication
+    expressions like '(x2.4kWh)' are not pack counts)."""
+    t = title or ""
+    m = re.match(r"\s*(\d+)\s*[xX]\s", t)
+    if m and int(m.group(1)) >= 2:
+        return int(m.group(1))
+    m = re.search(r"\bpack of (\d+)\b", t, re.I)
+    if m and int(m.group(1)) >= 2:
+        return int(m.group(1))
+    m = re.search(r"(\d+)\s*[- ]?packs?\b", t, re.I)
     if m and int(m.group(1)) >= 2:
         return int(m.group(1))
     return 1
@@ -440,10 +471,17 @@ def make_row(brand, title, variant_title, ptype, body_text, variant, url, log):
         ow = find_override(brand, title, variant_title)
         if ow and ow != wh:
             wh, volt, ah, method = float(ow), None, None, "override-curated"
+    qty = 1
     if wh:
         qty = pack_qty(variant_title)
-        # Multiply only when capacity came from a single-unit signal and the
-        # variant title itself declares a multi-pack (not bundle-sum rows).
+        if qty == 1:
+            # The pack count can live in the product title instead of the
+            # variant title (SunGoldPower pack listings have a bare
+            # 'Default Title' variant) — the variant signal wins when both
+            # exist, since it describes the exact SKU being priced.
+            qty = title_pack_qty(title)
+        # Multiply only when capacity came from a single-unit signal and a
+        # multi-pack is declared (not bundle-sum rows).
         if qty > 1 and method in ("explicit-wh", "v-times-ah",
                                   "variant-ah-x-title-v"):
             wh = wh * qty
@@ -457,7 +495,8 @@ def make_row(brand, title, variant_title, ptype, body_text, variant, url, log):
     price = to_float(variant.get("price"))
     compare_at = to_float(variant.get("compare_at_price"))
     ppw = price / wh if price else None
-    if not (WH_MIN <= wh <= WH_MAX and price and PRICE_MIN <= price <= PRICE_MAX
+    wh_cap = PACK_TOTAL_WH_MAX if qty > 1 else WH_MAX
+    if not (WH_MIN <= wh <= wh_cap and price and PRICE_MIN <= price <= PRICE_MAX
             and ppw and PPW_MIN <= ppw <= PPW_MAX):
         log["dropped_guard"] += 1
         if len(log["guard_samples"]) < 15:

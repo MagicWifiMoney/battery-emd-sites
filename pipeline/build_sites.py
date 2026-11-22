@@ -72,6 +72,22 @@ def title_has(p, *words):
     return any(w in t for w in words)
 
 # ---------- formatting ----------
+# Display-title corrections for garbled strings in maker feeds. Literal
+# pairs only, each verified in the live feed — no fuzzy rewriting. Applied
+# to the in-memory catalog inside build() AFTER slug assignment, so a
+# correction can never change a product URL; stored data and feed
+# matching are never touched.
+TITLE_FIXES = {
+    "Home Energy Stroage": "Home Energy Storage",
+    "40Ah4 8V": "40Ah 48V",
+}
+
+def fix_display_title(t):
+    for bad, good in TITLE_FIXES.items():
+        if bad in t:
+            t = t.replace(bad, good)
+    return t
+
 def money(x): return f"${x:,.0f}" if x >= 100 else f"${x:,.2f}"
 def ppw(p): return p["price_per_wh"]
 def cap_label(p):
@@ -154,7 +170,7 @@ ul.links{list-style:none;padding:0;margin:12px 0;display:grid;grid-template-colu
 ul.links li{border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:#fff;box-shadow:var(--sh);transition:transform .15s ease}
 ul.links li:hover{transform:translateY(-2px)}
 ul.links a{font-family:var(--disp);font-weight:600;font-size:15.5px;color:var(--ink);text-decoration:none}
-ul.links a::after{content:' \\2192';color:var(--acc)}
+ul.links a::after{content:'\\2192';margin-left:.32em;color:var(--acc)}
 ul.links a:hover{color:var(--accs)}
 ul.links p{margin:4px 0 0;font-size:13px;color:var(--mut)}
 .trendcard{border:1px solid var(--line);border-radius:14px;padding:14px 16px;box-shadow:var(--sh);background:#fff;max-width:560px}
@@ -577,18 +593,34 @@ def guide_cards(site):
     return f'<h2>Guides &amp; explainers</h2><ul class="links">{lis}</ul>'
 
 def top_picks(rows):
+    """Homepage picks, all computed from the exact pool the homepage
+    renders. The three cards must name DISTINCT products: the under-$1,000
+    card falls to the next distinct product when the overall winner is
+    itself under $1,000, and the biggest-capacity card is the pool's true
+    max Wh (on a tie, a product other than the $/Wh winner)."""
     cheap = min(rows, key=ppw)
-    under = [p for p in rows if p["price"] <= 1000]
-    best_value_small = min(under, key=ppw) if under else cheap
-    big = [p for p in rows if p["wh"] >= 5000]
-    premium = max(big, key=lambda p: p["price"]) if big else max(rows, key=lambda p: p["price"])
+    maxwh = max(p["wh"] for p in rows)
+    tied = sorted((p for p in rows if p["wh"] == maxwh), key=ppw)
+    premium = next((p for p in tied if p["url"] != cheap["url"]), tied[0])
+    under = sorted((p for p in rows
+                    if p["price"] <= 1000 and p["url"] != cheap["url"]), key=ppw)
+    under_distinct = [p for p in under if p["url"] != premium["url"]]
     def card(label, p, why):
         return (f'<div class="card"><h3>{esc(label)}</h3><p><b>{esc(p["title"])}</b></p>'
                 f'<p class="big pricedata">${ppw(p):.3f}/Wh · {money(p["price"])}</p>'
                 f'<p>{esc(why)}</p><p><a class="buy" href="{esc(p["url"])}" rel="nofollow sponsored noopener" target="_blank">View deal</a></p></div>')
+    if under:
+        small = (under_distinct or under)[0]
+        card2 = card("Lowest $/Wh under $1,000", small, f'{cap_label(small)} from {small["brand"]}. Best cost per watt-hour without crossing four figures.')
+    else:
+        # No second product at or under $1,000: swap the slot to a
+        # lowest-total-price pick rather than repeat the overall winner.
+        others = [p for p in rows if p["url"] != cheap["url"]]
+        lowp = min(others, key=lambda p: p["price"]) if others else cheap
+        card2 = card("Lowest total price", lowp, f'{cap_label(lowp)} from {lowp["brand"]}. The smallest bill in this category right now.')
     return ('<h2>Top picks by the numbers</h2><div class="cards">'
             + card("Lowest $/Wh overall", cheap, f'{cap_label(cheap)} from {cheap["brand"]}. The cheapest stored energy in this category right now.')
-            + card("Lowest $/Wh under $1,000", best_value_small, f'{cap_label(best_value_small)} from {best_value_small["brand"]}. Best cost per watt-hour without crossing four figures.')
+            + card2
             + card("Biggest capacity tracked", premium, f'{cap_label(premium)} from {premium["brand"]}. For large banks and whole-home builds.')
             + '</div>')
 
@@ -1144,23 +1176,36 @@ def price_series(url):
             if url in s.get("prices", {})]
 
 def sparkline_svg(pts, acc):
-    w, h, pad = 264, 54, 5
     vals = [v for _, v in pts]
     lo, hi = min(vals), max(vals)
-    rng = (hi - lo) or 1.0
     n = len(pts)
-    coords = []
-    for i, (_, v) in enumerate(pts):
-        x = pad + i * (w - 2 * pad) / (n - 1)
-        y = pad + (hi - v) / rng * (h - 2 * pad)
-        coords.append((x, y))
+    w, pad = 264, 5
+    if hi == lo:
+        # Flat series: a shorter chart with the line dead-center reads as
+        # a deliberate "held steady" graphic. (The old full-height scaling
+        # pinned the line to the top edge over a big empty fill, which
+        # read as a broken/empty chart.)
+        h = 30
+        coords = [(pad + i * (w - 2 * pad) / (n - 1), h / 2) for i in range(n)]
+        area = ""
+    else:
+        # Scale to the data range with 15% headroom on both ends, so the
+        # line and its end dot never clip against the chart edges.
+        h = 54
+        rng = hi - lo
+        lo_p, hi_p = lo - 0.15 * rng, hi + 0.15 * rng
+        coords = []
+        for i, (_, v) in enumerate(pts):
+            x = pad + i * (w - 2 * pad) / (n - 1)
+            y = pad + (hi_p - v) / (hi_p - lo_p) * (h - 2 * pad)
+            coords.append((x, y))
+        area = (f'<path d="M{coords[0][0]:.1f},{h - 1} L'
+                + " L".join(f"{x:.1f},{y:.1f}" for x, y in coords)
+                + f' L{coords[-1][0]:.1f},{h - 1} Z" fill="{acc}" opacity="0.14"/>')
     line = " ".join(f"{x:.1f},{y:.1f}" for x, y in coords)
-    area = (f"M{coords[0][0]:.1f},{h - 1} L"
-            + " L".join(f"{x:.1f},{y:.1f}" for x, y in coords)
-            + f" L{coords[-1][0]:.1f},{h - 1} Z")
     lx, ly = coords[-1]
     return (f'<svg width="{w}" height="{h}" viewBox="0 0 {w} {h}" role="img" aria-label="Recorded price trend">'
-            f'<path d="{area}" fill="{acc}" opacity="0.14"/>'
+            f'{area}'
             f'<polyline points="{line}" fill="none" stroke="{acc}" stroke-width="2.2" '
             f'stroke-linejoin="round" stroke-linecap="round"/>'
             f'<circle cx="{lx:.1f}" cy="{ly:.1f}" r="3.2" fill="{acc}"/></svg>')
@@ -1316,6 +1361,12 @@ def build():
             for url, slug in assign_slugs(hp).items():
                 SLUG_OF[(seg, url)] = slug
                 PROD_URL[(seg, url)] = f"https://{dom}/product/{slug}/"
+
+    # Display-title corrections (TITLE_FIXES): applied only now that every
+    # slug is assigned, so corrected titles render everywhere (tables,
+    # cards, FAQs, JSON-LD) but can never change a product page URL.
+    for p in prods:
+        p["title"] = fix_display_title(p["title"])
 
     summary = {}
     indexnow_changes = {}
