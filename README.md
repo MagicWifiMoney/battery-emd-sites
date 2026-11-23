@@ -1,3 +1,38 @@
+# Battery EMD Sites — $/Wh LiFePO4 Price Comparison (LIVE)
+
+**Status: LIVE since 2026-11-20/21.** This repo builds and operates four
+live exact-match comparison sites. It is no longer a pre-launch pipeline —
+the Stage A document further down is the 2026-11-19 pre-launch plan the
+sites grew from, kept as history.
+
+| Site | Focus | Vercel project |
+|---|---|---|
+| https://48vlifepo4battery.com | 48V LiFePO4 (flagship) | `48vlifepo4battery` |
+| https://12vlifepo4battery.com | 12V LiFePO4 | `12vlifepo4battery` |
+| https://serverrackbatteries.com | Server-rack batteries | `serverrackbatteries` |
+| https://24vlifepo4battery.com | 24V LiFePO4 (added 2026-11-21) | `24vlifepo4battery` |
+
+- **Layout:** one folder per site under `sites/<domain>/`; the pipeline
+  (`pipeline/fetch_prices.py` → `pipeline/build_sites.py`) polls maker
+  Shopify stores, computes $/Wh, and renders every site from
+  `data/products.json`.
+- **Deploy:** each Vercel project above is git-connected to this repo;
+  pushing to `main` deploys. A GitHub Actions workflow also refreshes
+  prices on a schedule and commits the new snapshot back (runs at $0
+  inside the free Actions allowance).
+- **Programs:** affiliate/discovery programs (Impact, Awin, Directory.stack,
+  GSC/Bing) are documented in [PROGRAMS.md](PROGRAMS.md); the detailed
+  application log is [AFFILIATE-APPLICATIONS.md](AFFILIATE-APPLICATIONS.md).
+
+---
+
+# History — Stage A pre-launch pipeline (2026-11-19, superseded)
+
+_The document below is the original Stage A plan, written before any domain
+was bought. Its "pre-launch, NO domain, no deployment" framing no longer
+applies; it is preserved unchanged as the record of how the sites were
+built._
+
 # Stage A Pipeline — $/Wh Battery Comparison Site (pre-launch, NO domain)
 
 A local, runnable pipeline that polls maker stores' own prices, computes
