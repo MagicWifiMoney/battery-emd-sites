@@ -554,6 +554,7 @@ GUIDES = {
 "12vlifepo4battery.com": [
     {
         "slug": "100ah-lifepo4-battery",
+        "updated": "2026-11-24",
         "title": "100Ah LiFePO4 Battery: 12V, 24V and 48V Compared by $/Wh",
         "desc": "A 100Ah LiFePO4 battery is three different products depending on voltage — 1,280Wh, 2,560Wh or 5,120Wh. Live 12V prices ranked by $/Wh, refreshed {date}.",
         "h1": "100Ah LiFePO4 Batteries: Voltage Changes Everything",
@@ -572,7 +573,7 @@ GUIDES = {
             ]),
             ("Buying the 12V version: the three checks that matter", [
                 "<ul><li><b>Group size:</b> Group 24 and Group 31 are the common cases; measure your battery box before ordering — a 100Ah label says nothing about dimensions.</li><li><b>Low-temperature protection:</b> a BMS that blocks charging below freezing is essential for RV, marine and ice-season use; not every budget 100Ah has it.</li><li><b>Series rating:</b> if you might wire two for 24V later, the model must be series-rated (many are 4S-capable; some budget packs are parallel-only).</li></ul>",
-                "<p>Beyond those, the table is the decision: every row stores the same 1,280Wh, so the $/Wh column is a pure price ranking. The dedicated <a href=\"/12v-100ah-lifepo4-battery/\">12V 100Ah page</a> goes deeper on this class; the <a href=\"/how-to-choose/\">buying guide</a> covers the rest of the checklist.</p>",
+                "<p>Beyond those, the table is the decision: every row stores the same 1,280Wh, so the $/Wh column is a pure price ranking. The dedicated <a href=\"/12v-100ah-lifepo4-battery/\">12V 100Ah page</a> goes deeper on this class; the <a href=\"/how-to-choose/\">buying guide</a> covers the rest of the checklist. Within the 12V class, the two brands that set the price floor are compared in <a href=\"/eco-worthy-vs-litime-12v/\">Eco-Worthy vs LiTime</a>.</p>",
             ]),
         ],
         "faqs": [
@@ -587,6 +588,7 @@ GUIDES = {
     },
     {
         "slug": "litime-vs-renogy-12v-100ah",
+        "updated": "2026-11-24",
         "title": "LiTime vs Renogy 12V 100Ah: Live Prices, Lineup Depth, $/Wh",
         "desc": "The two deepest 12V catalogs head to head in the 100Ah class — live $/Wh, cheapest models and lineup depth from maker-store prices, refreshed {date}.",
         "h1": "LiTime vs Renogy: The 12V 100Ah Price Fight, Live",
@@ -601,7 +603,7 @@ GUIDES = {
             ]),
             ("Reading the table like a buyer", [
                 "<ul><li><b>Same energy, every row:</b> all models here are ~1,280Wh, so $/Wh is a pure price comparison — no capacity excuses.</li><li><b>Feature tiers explain the spread:</b> within each brand, the jump from the cheapest row buys Bluetooth, low-temp protection or self-heating. Decide which features you need before comparing stickers across brands.</li><li><b>Depth is a tiebreaker:</b> {litime_n} vs {renogy_n} tracked models means both brands will have a variant that fits your box and your charger; neither leaves you stranded on sizing.</li></ul>",
-                "<p>For the full class — including the budget brands undercutting both — see the complete <a href=\"/12v-100ah-lifepo4-battery/\">12V 100Ah table</a>. If your shortlist is really 'value vs premium,' the two cheapest rows of each brand in the table above are the honest shortlist.</p>",
+                "<p>For the full class — including the budget brands undercutting both — see the complete <a href=\"/12v-100ah-lifepo4-battery/\">12V 100Ah table</a>. If your shortlist is really 'value vs premium,' the two cheapest rows of each brand in the table above are the honest shortlist. Eco-Worthy is the other value brand in this class — its fight with LiTime is the <a href=\"/eco-worthy-vs-litime-12v/\">Eco-Worthy vs LiTime comparison</a>.</p>",
             ]),
         ],
         "faqs": [
@@ -616,6 +618,7 @@ GUIDES = {
     },
     {
         "slug": "12v-lifepo4-battery-for-solar",
+        "updated": "2026-11-24",
         "title": "12V LiFePO4 Batteries for Solar: Panel-to-Battery Sizing, Live Prices",
         "desc": "Which 12V LiFePO4 batteries makers sell for solar, how much panel a 100Ah battery can absorb, and live $/Wh prices — refreshed {date}.",
         "h1": "12V LiFePO4 for Solar: Sized Right, Priced by $/Wh",
@@ -630,11 +633,11 @@ GUIDES = {
                 "<tr><td>12V 200Ah</td><td>2,560Wh</td><td>400–800W</td><td>~4–5 sun-hours at 600W</td></tr>"
                 "<tr><td>12V 314Ah</td><td>4,019Wh</td><td>600–1,200W</td><td>~4–5 sun-hours at 900W</td></tr>"
                 "</tbody></table>",
-                "<p>*After controller losses, on a clear day, with the battery as the only load. Undersize the panels and a big bank never fills (a LiFePO4 tolerates that, but you paid for capacity you can't fill); oversize them and a small bank is full by 10am while harvest is thrown away. Daily cycling is also where LiFePO4's cycle life pays: at one cycle a day, a 4,000-cycle rating is a decade of service.</p>",
+                "<p>*After controller losses, on a clear day, with the battery as the only load. Undersize the panels and a big bank never fills (a LiFePO4 tolerates that, but you paid for capacity you can't fill); oversize them and a small bank is full by 10am while harvest is thrown away. Daily cycling is also where LiFePO4's cycle life pays: at one cycle a day, a 4,000-cycle rating is a decade of service — the arithmetic is priced against lead-acid in the <a href=\"/lifepo4-vs-lead-acid-cost/\">cost-per-delivered-kWh comparison</a>. Multi-pack banks behind those panels follow the <a href=\"/12v-lifepo4-series-parallel-guide/\">series-parallel guide's</a> matching rules, and the load most solar banks are sized around is the fridge, whose <a href=\"/how-long-will-12v-100ah-run-a-fridge/\">runtime guide</a> works the duty-cycle math.</p>",
             ]),
             ("Solar-specific checks", [
                 "<ul><li><b>Charge controller profile:</b> your MPPT must have a lithium/LiFePO4 profile (14.2–14.6V absorption, no equalization). A lead-acid-only controller undercharges and can damage the BMS over time.</li><li><b>Low-temp protection:</b> an unheated shed or cabin install needs a BMS that blocks sub-freezing charging — solar charges whenever the sun shines, including at -5°F.</li><li><b>Idle draw:</b> a battery that sits in a cabin system all winter should have a true off state or very low self-discharge; LiFePO4's ~1–3%/month is one of its quiet advantages over lead-acid.</li></ul>",
-                "<p>For loads-first sizing (what the bank must run, not what the panels make), the <a href=\"/how-to-choose/\">12V buying guide</a> starts from watt-hours of demand; the <a href=\"/rv-batteries/\">RV page</a> covers the same batteries in a vehicle context.</p>",
+                "<p>For loads-first sizing (what the bank must run, not what the panels make), the <a href=\"/how-to-choose/\">12V buying guide</a> starts from watt-hours of demand; the <a href=\"/rv-batteries/\">RV page</a> covers the same batteries in a vehicle context. The same packs power winter ice houses and sonar — the <a href=\"/ice-fishing-battery-guide/\">ice fishing guide</a> works that cold-weather day math — and the off-grid cabin's overnight load is often a CPAP, whose <a href=\"/12v-battery-for-cpap/\">nights-per-charge math</a> is worked separately. In a vehicle, the <a href=\"/van-life-battery-sizing/\">van-life sizing guide</a> sizes the roof array alongside the tank, and the two value catalogs that dominate the table below are compared head to head in <a href=\"/eco-worthy-vs-litime-12v/\">Eco-Worthy vs LiTime</a>.</p>",
             ]),
         ],
         "faqs": [
@@ -649,6 +652,7 @@ GUIDES = {
     },
     {
         "slug": "how-long-will-12v-100ah-run-a-fridge",
+        "updated": "2026-11-24",
         "title": "How Long Will a 12V 100Ah Battery Run a Fridge? The Honest Math",
         "desc": "Runtime depends on the fridge, not the battery: duty-cycle math for home fridges, 12V compressor fridges and mini fridges on 1,280Wh — plus the batteries, priced live.",
         "h1": "How Long a 12V 100Ah Battery Runs a Fridge (It's the Fridge's Fault)",
@@ -664,11 +668,11 @@ GUIDES = {
                 "<tr><td>Older / garage fridge</td><td>1.5–2.5kWh</td><td>~9–15 hrs</td><td>~1–1.3 days</td></tr>"
                 "<tr><td>Mini fridge</td><td>0.7–1.0kWh</td><td>~1–1.4 days</td><td>~2–3 days</td></tr>"
                 "</tbody></table>",
-                "<p>Daily-energy figures are typical consumption ranges, not measurements of your fridge — the next section shows how to get your number. Home-fridge runtimes assume a pure-sine inverter at ~85% efficiency and a battery used to ~90% depth, which LiFePO4 tolerates daily.</p>",
+                "<p>Daily-energy figures are typical consumption ranges, not measurements of your fridge — the next section shows how to get your number. Home-fridge runtimes assume a pure-sine inverter at ~85% efficiency and a battery used to ~90% depth, which LiFePO4 tolerates daily. The usable-capacity gap behind those runtimes is also what decides the <a href=\"/lifepo4-vs-lead-acid-cost/\">LiFePO4 vs lead-acid cost comparison</a>: lead-acid's 50% rule halves the same nameplate before the duty cycle even starts.</p>",
             ]),
             ("Why the nameplate watts lie (duty cycle)", [
-                "<p>A fridge rated '150W' does not draw 150W all day — its compressor cycles, typically running 30–50% of the time in a cool room and 60%+ in a hot garage. Runtime math must use <b>average</b> watts: nameplate × duty cycle. 150W × 40% = 60W average = 1.44kWh/day, which is why the home-fridge row above lands where it does. The reliable way to know yours: a plug-in energy meter (Kill A Watt style) over 48 hours gives you the exact kWh/day — a $20 measurement that replaces every estimate on this page.</p>",
-                "<p>Two levers extend runtime more than any battery upgrade: keep the fridge out of the heat (duty cycle falls), and skip the inverter where you can — a 12V compressor fridge runs straight off the battery, which is why its row laps the field. If the goal is multi-day fridge backup, the <a href=\"/12v-200ah-lifepo4-battery/\">200Ah class</a> doubles every number in the table at a lower $/Wh.</p>",
+                "<p>A fridge rated '150W' does not draw 150W all day — its compressor cycles, typically running 30–50% of the time in a cool room and 60%+ in a hot garage. Runtime math must use <b>average</b> watts: nameplate × duty cycle. 150W × 40% = 60W average = 1.44kWh/day, which is why the home-fridge row above lands where it does. The reliable way to know yours: a plug-in energy meter (Kill A Watt style) over 48 hours gives you the exact kWh/day — a $20 measurement that replaces every estimate on this page. The checks that apply to the battery itself — group size, low-temperature protection, series rating — are the <a href=\"/how-to-choose/\">buying guide's</a> checklist.</p>",
+                "<p>Two levers extend runtime more than any battery upgrade: keep the fridge out of the heat (duty cycle falls), and skip the inverter where you can — a 12V compressor fridge runs straight off the battery, which is why its row laps the field. If the goal is multi-day fridge backup, the <a href=\"/12v-200ah-lifepo4-battery/\">200Ah class</a> doubles every number in the table at a lower $/Wh. The same duty-cycle math sizes this site's other two runtime questions: a <a href=\"/12v-battery-for-cpap/\">CPAP's nights per charge</a> are set by its heaters the way a fridge's hours are set by its compressor, and a <a href=\"/van-life-battery-sizing/\">van's battery audit</a> starts from this same fridge row.</p>",
             ]),
         ],
         "faqs": [
@@ -719,10 +723,10 @@ GUIDES = {
                 "<tr><td>40A</td><td>~2.5–3 hrs</td><td>Fast charger / strong alternator DC-DC</td></tr>"
                 "<tr><td>300W solar (real-world ~250W)</td><td>~5–6 sun-hours</td><td>One good panel day, nothing else drawing</td></tr>"
                 "</tbody></table>",
-                "<p>LiFePO4's flat voltage curve is why the times are nearly linear: unlike lead-acid, it accepts full current until ~90% charged, so a 20A charger really does halve the 10A time. It's also why voltage alone can't tell you the state of charge — a resting 13.3V and 13.1V can be 60% and 25%. Use a shunt monitor or a Bluetooth BMS readout, not a voltmeter guess.</p>",
+                "<p>LiFePO4's flat voltage curve is why the times are nearly linear: unlike lead-acid, it accepts full current until ~90% charged, so a 20A charger really does halve the 10A time. It's also why voltage alone can't tell you the state of charge — a resting 13.3V and 13.1V can be 60% and 25%. Use a shunt monitor or a Bluetooth BMS readout, not a voltmeter guess. These times are per battery: a bank wired in series charges at the string's voltage, not 14.4V — the <a href=\"/12v-lifepo4-series-parallel-guide/\">series-parallel guide</a> covers bank wiring and string charging.</p>",
             ]),
             ("The cold rule, and the charger you already own", [
-                "<p><b>Never charge below freezing without protection.</b> Charging a frozen LiFePO4 plates lithium metal onto the cells — permanent capacity loss, invisible until the battery fades early. If the battery will live anywhere that gets cold (RV, boat shed, ice season), low-temperature charge protection in the BMS is the feature that matters most; it is called out per-model in our <a href=\"/12v-100ah-lifepo4-battery/\">100Ah comparison</a>.</p>",
+                "<p><b>Never charge below freezing without protection.</b> Charging a frozen LiFePO4 plates lithium metal onto the cells — permanent capacity loss, invisible until the battery fades early. If the battery will live anywhere that gets cold (RV, boat shed, ice season), low-temperature charge protection in the BMS is the feature that matters most; it is called out per-model in our <a href=\"/12v-100ah-lifepo4-battery/\">100Ah comparison</a>. The <a href=\"/ice-fishing-battery-guide/\">ice fishing guide</a> works the same rule from the other side — discharge cold, charge warm.</p>",
                 "<p>Your existing lead-acid charger is fine <i>if</i> it has a lithium mode or its voltages land in the table above with equalization off. Many RV converters have a lithium switch on newer models; older ones charge to ~13.6–14.4V without equalizing and will fill a LiFePO4 to roughly 90% — usable, not ideal. When in doubt, the battery maker's listed profile wins over any generic advice, including this page.</p>",
             ]),
         ],
@@ -774,6 +778,7 @@ GUIDES = {
     },
     {
         "slug": "12v-lifepo4-series-parallel-guide",
+        "updated": "2026-11-24",
         "title": "12V LiFePO4 in Series & Parallel: The 4-in-Series Ceiling, Wiring, Matching Rules",
         "desc": "How series and parallel wiring actually work for 12V LiFePO4: series adds volts (four 12V packs = a 48V system), parallel adds amp-hours, the 4-in-series ceiling most models carry, and the matching rules that keep a bank balanced.",
         "h1": "12V LiFePO4 in Series and Parallel: Volts Up or Amp-Hours Up",
@@ -790,7 +795,7 @@ GUIDES = {
                 "<tr><td>2S2P (4 batteries)</td><td>25.6V</td><td>200Ah</td><td>5,120Wh</td><td>A 24V bank with doubled runtime</td></tr>"
                 "<tr><td>4S4P (16 batteries)</td><td>51.2V</td><td>400Ah</td><td>20,480Wh</td><td>The commonly published ceiling — a home-scale bank built entirely from 12V units</td></tr>"
                 "</tbody></table>",
-                "<p>Read the 2S and 2P rows together: identical energy, different shape. Series is how you reach a higher-voltage system (which moves the same power at lower current — thinner cable, less heat, and access to the efficient 24V/48V inverter class). Parallel is how you grow a 12V system without replacing a single charger, alternator or appliance. Pick the shape your loads need first; the battery count follows.</p>",
+                "<p>Read the 2S and 2P rows together: identical energy, different shape. Series is how you reach a higher-voltage system (which moves the same power at lower current — thinner cable, less heat, and access to the efficient 24V/48V inverter class). Parallel is how you grow a 12V system without replacing a single charger, alternator or appliance. Pick the shape your loads need first; the battery count follows. The most common parallel build on this site is the van bank — the <a href=\"/van-life-battery-sizing/\">van-life sizing worksheet</a> lands on a paralleled second pack at its top end.</p>",
             ]),
             ("The limits: 4 in series is common, guaranteed is not", [
                 "<p>There is no chemistry-wide wiring limit — there is a per-model one, set by the BMS. Series is the demanding direction: in a 4S string each battery's BMS sits at a different point in a 51.2V circuit, and the pack must be built and rated for it. That is why the published ceilings cluster where they do — <b>up to 4 in series is the common rating</b> among models that allow series at all, parallel allowances are usually equal or larger, and a meaningful minority of budget packs are <b>parallel-only</b>. A model whose spec sheet is silent on series has answered the question: do not series-wire it.</p>",
@@ -818,6 +823,7 @@ GUIDES = {
     },
     {
         "slug": "lifepo4-vs-lead-acid-cost",
+        "updated": "2026-11-24",
         "title": "LiFePO4 vs Lead-Acid Cost: Cost per Delivered kWh, Not Sticker Price",
         "desc": "The lead-acid battery is cheaper to buy and roughly ten times more expensive to use. Cost-per-cycle math for a 12V 100Ah swap, with the LiFePO4 side priced live — refreshed {date}.",
         "h1": "LiFePO4 vs Lead-Acid: The Sticker Lies, the Cycle Count Doesn't",
@@ -843,7 +849,7 @@ GUIDES = {
                 "<p>So the decision rule is a single question: <b>how many cycles will this battery actually serve?</b> Daily or weekly cycling (solar, RV living, trolling, off-grid) makes LiFePO4 the cheaper battery by a wide margin. Rare-use standby keeps lead-acid rational. Everything else — brand, Bluetooth, case color — is priced in the table.</p>",
             ]),
             ("Making the swap without buying twice", [
-                "<ul><li><b>Charger profile:</b> your existing converter works only if it can hold a lithium profile (14.2–14.6V, no equalization) — the <a href=\"/12v-lifepo4-charging-guide/\">charging guide</a> has the settings table.</li><li><b>Size by usable Wh, not Ah:</b> one 100Ah LiFePO4 replaces roughly two 100Ah lead-acids in delivered energy, so a like-for-like Ah swap over-buys capacity — a pleasant surprise, but budget for the bank you need.</li><li><b>Low-temperature protection</b> matters if the battery charges anywhere unheated; lead-acid tolerates cold charging that damages unprotected lithium.</li></ul>",
+                "<ul><li><b>Charger profile:</b> your existing converter works only if it can hold a lithium profile (14.2–14.6V, no equalization) — the <a href=\"/12v-lifepo4-charging-guide/\">charging guide</a> has the settings table.</li><li><b>Size by usable Wh, not Ah:</b> one 100Ah LiFePO4 replaces roughly two 100Ah lead-acids in delivered energy, so a like-for-like Ah swap over-buys capacity — a pleasant surprise, but budget for the bank you need — the <a href=\"/how-long-will-12v-100ah-run-a-fridge/\">fridge runtime guide</a> shows what that usable figure buys in hours.</li><li><b>Low-temperature protection</b> matters if the battery charges anywhere unheated; lead-acid tolerates cold charging that damages unprotected lithium.</li></ul>",
             ]),
         ],
         "faqs": [
@@ -858,6 +864,7 @@ GUIDES = {
     },
     {
         "slug": "12v-battery-for-cpap",
+        "updated": "2026-11-24",
         "title": "12V Battery for CPAP Camping: Nights per Charge, by Humidifier Setting",
         "desc": "A CPAP's battery appetite is set by its heater, not its motor: runtime tables for therapy-only, humidifier and heated-tube settings on 100Ah and 200Ah, priced live.",
         "h1": "A 12V Battery for CPAP Camping: The Heater Decides Your Nights",
@@ -872,14 +879,14 @@ GUIDES = {
                 "<tr><td>Heated humidifier on, heated tube off</td><td>35–50W</td><td>280–400Wh</td><td>~2–3</td><td>~5–7</td></tr>"
                 "<tr><td>Humidifier + heated tube, high settings</td><td>60–90W</td><td>480–720Wh</td><td>~1–2</td><td>~3–4</td></tr>"
                 "</tbody></table>",
-                "<p>Draw ranges are planning figures for common travel and home machines (higher pressure settings sit toward the top of each range); your machine's exact appetite is on its power-supply label and in its manual. 'Delivered' energy assumes you plan on ~80% of the battery's 1,280Wh nameplate and lose a little in the DC converter — the reserve is deliberate, because a battery that dies at 4 a.m. on night three is worse than a conservative plan. The 200Ah column is the same math on the <a href=\"/12v-200ah-lifepo4-battery/\">200Ah class</a>.</p>",
+                "<p>Draw ranges are planning figures for common travel and home machines (higher pressure settings sit toward the top of each range); your machine's exact appetite is on its power-supply label and in its manual. 'Delivered' energy assumes you plan on ~80% of the battery's 1,280Wh nameplate and lose a little in the DC converter — the reserve is deliberate, because a battery that dies at 4 a.m. on night three is worse than a conservative plan. The 200Ah column is the same math on the <a href=\"/12v-200ah-lifepo4-battery/\">200Ah class</a>. The sibling runtime question — hours, not nights — is the <a href=\"/how-long-will-12v-100ah-run-a-fridge/\">fridge runtime guide</a>, which works the same delivered-Wh math through an inverter.</p>",
             ]),
             ("Use the DC converter, not an inverter", [
                 "<p>Almost every CPAP is a DC machine wearing an AC brick: the therapy unit itself runs on low-voltage DC, and the maker sells a 12V DC converter for vehicle and battery use. Powering it through an AC inverter instead pays three taxes: conversion loss on the way up to AC and back down, the inverter's own idle draw (commonly 10–25W — over an 8-hour night that is 80–200Wh, up to a full therapy-only night, spent powering nothing), and one more box to pack. The DC converter route is why the table above can use a ~970Wh delivered figure at all.</p>",
                 "<ul><li><b>Buy the maker's converter for your exact model</b> — CPAP DC inputs are model-specific (voltage and connector), and a generic adapter that under-volts the machine can fault it mid-night.</li><li><b>Turn the heaters down before you buy a bigger battery:</b> dropping from heated-tube-max to therapy-only is worth more nights than doubling the battery, and it is free. A passive (water-filled, unheated) humidifier is the middle setting many campers settle on.</li><li><b>Test the whole rig at home for a full night first</b>, at the settings you will actually use, and note the battery's state of charge in the morning. That one rehearsal replaces every estimate on this page with your number — do not let the first real test be the trip.</li></ul>",
             ]),
             ("Sizing the trip, honestly", [
-                "<p>Work backwards from nights × your row in the table. A weekend (2–3 nights) at therapy-only or modest humidity fits inside one 100Ah battery with reserve — the class in the table below, where the same 1,280Wh in every row makes $/Wh a pure price ranking. A week with the humidifier running is a 200Ah conversation, or a 100Ah plus a way to recharge (vehicle DC-DC on driving days, or a folding panel at camp — the <a href=\"/12v-lifepo4-battery-for-solar/\">solar page</a> prices that pairing). And a note that outranks the math: if your therapy is not optional, carry the reserve — size for the worst row you might actually run, not the best row you hope to.</p>",
+                "<p>Work backwards from nights × your row in the table. A weekend (2–3 nights) at therapy-only or modest humidity fits inside one 100Ah battery with reserve — the class in the table below, where the same 1,280Wh in every row makes $/Wh a pure price ranking. A week with the humidifier running is a 200Ah conversation, or a 100Ah plus a way to recharge (vehicle DC-DC on driving days, or a folding panel at camp — the <a href=\"/12v-lifepo4-battery-for-solar/\">solar page</a> prices that pairing). And a note that outranks the math: if your therapy is not optional, carry the reserve — size for the worst row you might actually run, not the best row you hope to. In a van or RV the CPAP is one row of a bigger audit — the <a href=\"/van-life-battery-sizing/\">van-life sizing worksheet</a> counts it alongside the fridge and the heater — and the battery checks behind every row here (low-temperature protection, series limits, monitoring) are the <a href=\"/how-to-choose/\">buying guide's</a> checklist.</p>",
             ]),
         ],
         "faqs": [
@@ -936,6 +943,7 @@ GUIDES = {
     },
     {
         "slug": "van-life-battery-sizing",
+        "updated": "2026-11-24",
         "title": "Van Life Battery Sizing: The Load-Audit Worksheet, Worked in Amp-Hours",
         "desc": "Van battery sizing fails on guessed loads, not bad batteries: audit a day's real watt-hours, divide by usable capacity, land on 100Ah, 200Ah or 314Ah — priced live, refreshed {date}.",
         "h1": "Van Life Battery Sizing: Audit the Day Before You Buy the Battery",
@@ -953,7 +961,7 @@ GUIDES = {
                 "<tr><td>Starlink / mobile router</td><td>~40–75W while on</td><td>6–10</td><td>~300–600</td></tr>"
                 "<tr><td>Water pump, USB, standby odds and ends</td><td>mixed</td><td>—</td><td>~50–100</td></tr>"
                 "</tbody></table>",
-                "<p>Planning ranges, not measurements — your fridge's duty cycle in a hot van and your heater's in a cold one move their rows the most, which is why winter full-timers audit a second, colder version of this table. Two rows deserve emphasis: the fridge is the only load that never sleeps, and the satellite internet row rivals it — a remote-work van's battery is mostly a fridge-and-Starlink battery. Inverter-powered loads (an induction hob, a kettle) draw hard but briefly; count them at their real minutes, not their sticker watts × a guessed hour.</p>",
+                "<p>Planning ranges, not measurements — your fridge's duty cycle in a hot van and your heater's in a cold one move their rows the most, which is why winter full-timers audit a second, colder version of this table. Two rows deserve emphasis: the fridge is the only load that never sleeps, and the satellite internet row rivals it — a remote-work van's battery is mostly a fridge-and-Starlink battery. The fridge row's own math, by fridge class and ambient temperature, is worked in the <a href=\"/how-long-will-12v-100ah-run-a-fridge/\">fridge runtime guide</a>. Inverter-powered loads (an induction hob, a kettle) draw hard but briefly; count them at their real minutes, not their sticker watts × a guessed hour.</p>",
             ]),
             ("Step 2 — the formula, and the class each total lands in", [
                 "<p><b>Amp-hours to buy = daily Wh × days between charges ÷ (12.8V × 0.8)</b>. The 0.8 is deliberate headroom: plan to use about 80% of nameplate so a cloudy day or a long drive-less stretch is an inconvenience, not a dead fridge. Worked at two days between charges:</p>",
@@ -962,10 +970,10 @@ GUIDES = {
                 "<tr><td>Full-time, no satellite internet</td><td>~1,200Wh</td><td>~234Ah</td><td>314Ah class, or 200Ah + reliable daily charging</td></tr>"
                 "<tr><td>Full-time remote work, winter</td><td>~2,000Wh</td><td>~391Ah</td><td>314Ah + a second pack in parallel, sized with the <a href=\"/12v-lifepo4-series-parallel-guide/\">series-parallel guide</a></td></tr>"
                 "</tbody></table>",
-                "<p>Note where the honest answers land: the single 100Ah pack (1,280Wh) is a <i>one-day</i> battery for all but the leanest audits, which is why the table below starts at the 100Ah class but the worksheet keeps walking past it. The $/Wh pattern helps the bigger answer: in the live table the 314Ah class holds the catalog floor (${minppw}/Wh — the {cheap_title} at {cheap_price}), because one case and one BMS carry 4,019Wh. In vans, unusually, the bigger battery is both the capacity answer and the value answer — if it fits the build's battery box.</p>",
+                "<p>Note where the honest answers land: the single 100Ah pack (1,280Wh) is a <i>one-day</i> battery for all but the leanest audits, which is why the table below starts at the 100Ah class but the worksheet keeps walking past it. The $/Wh pattern helps the bigger answer: in the live table the 314Ah class holds the catalog floor (${minppw}/Wh — the {cheap_title} at {cheap_price}), because one case and one BMS carry 4,019Wh. In vans, unusually, the bigger battery is both the capacity answer and the value answer — if it fits the build's battery box. The feature checks behind whichever class you land on — low-temperature protection, charge rate, monitoring — are the <a href=\"/how-to-choose/\">buying guide's</a> list.</p>",
             ]),
             ("Step 3 — size the refill, not just the tank", [
-                "<p>A van battery is refilled three ways, and the weakest of them sets your real autonomy. <b>Driving:</b> a DC-DC charger fed by the alternator typically restores a few hundred watt-hours per driving hour — a van that moves every second day can run a class smaller than the formula's answer. <b>Roof solar:</b> a van roof fits roughly 400–800W of panels, which in summer replaces a frugal day's audit and in winter replaces a fraction of it; the <a href=\"/12v-lifepo4-battery-for-solar/\">12V solar page</a> prices that pairing. <b>Shore power:</b> resets everything, and vans that camp plugged-in half the time should not buy batteries for the other half's worst case.</p>",
+                "<p>A van battery is refilled three ways, and the weakest of them sets your real autonomy. <b>Driving:</b> a DC-DC charger fed by the alternator typically restores a few hundred watt-hours per driving hour — a van that moves every second day can run a class smaller than the formula's answer. <b>Roof solar:</b> a van roof fits roughly 400–800W of panels, which in summer replaces a frugal day's audit and in winter replaces a fraction of it; the <a href=\"/12v-lifepo4-battery-for-solar/\">12V solar page</a> prices that pairing. <b>Shore power:</b> resets everything, and vans that camp plugged-in half the time should not buy batteries for the other half's worst case. Overnight medical loads belong in the audit too: a CPAP's nights per charge, by humidifier setting, are worked in the <a href=\"/12v-battery-for-cpap/\">CPAP battery guide</a>.</p>",
                 "<ul><li><b>Stationary in winter is the sizing case:</b> no driving, short solar days, heater running — if the battery survives that audit, every other season is easy.</li><li><b>Charge speed is a spec too:</b> check the pack's maximum charge current against your DC-DC charger's output; a big bank behind a small charger is a slow bank.</li><li><b>Stay at 12V in a van:</b> alternator charging and native 12V loads are the vehicle's whole electrical ecosystem — the case for ever going 48V in a stationary build is laid out on our sister site's <a href=\"https://48vlifepo4battery.com/48v-vs-12v-for-solar/\">48V vs 12V comparison</a>, and a van is not it.</li></ul>",
             ]),
         ],
