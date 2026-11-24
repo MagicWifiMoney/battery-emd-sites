@@ -1,6 +1,6 @@
 {
-  "fetched_at": "2026-11-24T09:55:05Z",
-  "total_kept": 467,
+  "fetched_at": "2026-11-24T22:27:23Z",
+  "total_kept": 472,
   "stores": [
     {
       "store": "EcoFlow",
@@ -42,10 +42,10 @@
       "enabled": true,
       "pages": 2,
       "raw_products": 437,
-      "kept": 164,
-      "skipped_irrelevant": 195,
+      "kept": 169,
+      "skipped_irrelevant": 189,
       "skipped_refurb": 0,
-      "skipped_unparsed": 87,
+      "skipped_unparsed": 88,
       "dropped_guard": 5,
       "errors": [],
       "unparsed_samples": [
@@ -184,9 +184,9 @@
       "base_url": "https://www.sungoldpower.com",
       "enabled": true,
       "pages": 1,
-      "raw_products": 133,
+      "raw_products": 135,
       "kept": 23,
-      "skipped_irrelevant": 110,
+      "skipped_irrelevant": 112,
       "skipped_refurb": 0,
       "skipped_unparsed": 1,
       "dropped_guard": 0,

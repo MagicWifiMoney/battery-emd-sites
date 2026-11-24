@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-24T09:55:05Z",
+  "fetched_at": "2026-11-24T22:27:23Z",
   "stores": [
     {
       "store": "EcoFlow",
@@ -14,7 +14,7 @@
     {
       "store": "BLUETTI",
       "enabled": true,
-      "kept": 164
+      "kept": 169
     },
     {
       "store": "Jackery",
@@ -60,6 +60,7 @@
       "available": true,
       "price_per_wh": 0.112,
       "url": "https://www.eco-worthy.com/products/eco-worthy-12v-314ah-lifepo4-lithium-battery-bluetooth-with-soc-leds-and-low-temp-protection",
+      "variant_id": 47134639063289,
       "source_store": "https://www.eco-worthy.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -76,6 +77,7 @@
       "available": true,
       "price_per_wh": 0.114,
       "url": "https://www.eco-worthy.com/products/eco-worthy-12v-314ah-metal-case-lifepo4-lithium-battery-with-bluetooth-and-low-temp-protection",
+      "variant_id": 48539244921081,
       "source_store": "https://www.eco-worthy.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -91,7 +93,8 @@
       "compare_at": 509.99,
       "available": false,
       "price_per_wh": 0.117,
-      "url": "https://www.litime.com/products/starry-sea-batteries",
+      "url": "https://www.litime.com/products/starry-sea-batteries?variant=45829990908124",
+      "variant_id": 45829990908124,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -108,6 +111,7 @@
       "available": false,
       "price_per_wh": 0.148,
       "url": "https://www.litime.com/products/starry-sea-batteries",
+      "variant_id": 45830144753884,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -124,6 +128,7 @@
       "available": true,
       "price_per_wh": 0.15,
       "url": "https://www.eco-worthy.com/products/eco-worthy-48v-314ah-lifepo4-battery-solar-battery-backup-for-home-wall-mount",
+      "variant_id": 47059697664249,
       "source_store": "https://www.eco-worthy.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -140,6 +145,7 @@
       "available": true,
       "price_per_wh": 0.156,
       "url": "https://www.eco-worthy.com/products/eco-worthy-24v-100ah-bluetooth-lithium-battery-with-soc-led-display-built-in-bms-with-low-temperature-protection",
+      "variant_id": 46964520419577,
       "source_store": "https://www.eco-worthy.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -156,6 +162,7 @@
       "available": true,
       "price_per_wh": 0.156,
       "url": "https://www.litime.com/products/litime-12v-300ah-lifepo4-lithium-battery",
+      "variant_id": 43673520341212,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -172,6 +179,7 @@
       "available": false,
       "price_per_wh": 0.156,
       "url": "https://www.litime.com/products/48v-100ah-8d-lithium-battery",
+      "variant_id": 44081522082012,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -188,6 +196,7 @@
       "available": true,
       "price_per_wh": 0.156,
       "url": "https://www.eco-worthy.com/products/lifepo4-24v-100ah-lithium-iron-phosphate-battery",
+      "variant_id": 44121077711097,
       "source_store": "https://www.eco-worthy.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -204,6 +213,7 @@
       "available": true,
       "price_per_wh": 0.165,
       "url": "https://www.litime.com/products/12v-230ah-plus-truck-lithium-battery",
+      "variant_id": 52271226945756,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -220,6 +230,7 @@
       "available": true,
       "price_per_wh": 0.165,
       "url": "https://www.litime.com/products/litime-diy-solar-generator-complete-power-kit-for-camping-rv-and-off-grid-living",
+      "variant_id": 47440661676252,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -236,6 +247,7 @@
       "available": true,
       "price_per_wh": 0.168,
       "url": "https://www.sungoldpower.com/products/powermax-51-2v-314ah-outdoor-energy-storage-battery-ul1973-ul9540a",
+      "variant_id": 44573538386057,
       "source_store": "https://www.sungoldpower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -252,6 +264,7 @@
       "available": true,
       "price_per_wh": 0.168,
       "url": "https://www.eco-worthy.com/products/eco-worthy-51-2v-100ah-lifepo4-lithium-battery-5-12kwh-capacity-server-rack-battery",
+      "variant_id": 45599081890041,
       "source_store": "https://www.eco-worthy.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -268,6 +281,7 @@
       "available": true,
       "price_per_wh": 0.172,
       "url": "https://www.eco-worthy.com/products/lifepo4-12v-100ah-lithium-battery-with-battery-status-display-100a-bms-with-low-temperature-protection",
+      "variant_id": 45524043137273,
       "source_store": "https://www.eco-worthy.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -284,6 +298,7 @@
       "available": true,
       "price_per_wh": 0.172,
       "url": "https://www.eco-worthy.com/products/lifepo4-12v-100ah-lithium-iron-phosphate-battery-with-bluetooth-and-low-temperature-protection",
+      "variant_id": 45714738741497,
       "source_store": "https://www.eco-worthy.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -300,6 +315,7 @@
       "available": true,
       "price_per_wh": 0.183,
       "url": "https://www.litime.com/products/12v-460ah-truck-lithium-battery",
+      "variant_id": 52271237267676,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -316,6 +332,7 @@
       "available": true,
       "price_per_wh": 0.183,
       "url": "https://www.litime.com/products/12v-460ah-lithium-battery",
+      "variant_id": 44069497929948,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -332,6 +349,7 @@
       "available": true,
       "price_per_wh": 0.183,
       "url": "https://www.litime.com/products/24v-230ah-truck-lithium-battery",
+      "variant_id": 52271253782748,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -348,6 +366,7 @@
       "available": true,
       "price_per_wh": 0.183,
       "url": "https://www.litime.com/products/24v-230ah-lithium-battery",
+      "variant_id": 44068628103388,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -364,6 +383,7 @@
       "available": true,
       "price_per_wh": 0.19,
       "url": "https://www.sungoldpower.com/products/4-x-48v-100ah-server-rack-lifepo4-lithium-battery-sg48100p",
+      "variant_id": 41268442988681,
       "source_store": "https://www.sungoldpower.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -380,6 +400,7 @@
       "available": true,
       "price_per_wh": 0.19,
       "url": "https://www.litime.com/products/24v-230ah-self-heating-truck-lithium-battery",
+      "variant_id": 52271257190620,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -396,6 +417,7 @@
       "available": true,
       "price_per_wh": 0.19,
       "url": "https://www.litime.com/products/24v-230ah-smart-self-heating-lithium-battery",
+      "variant_id": 47213945127132,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -412,6 +434,7 @@
       "available": true,
       "price_per_wh": 0.19,
       "url": "https://www.litime.com/products/litime-smart-self-heating-lithium-battery-for-winter",
+      "variant_id": 47539464470748,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -428,6 +451,7 @@
       "available": true,
       "price_per_wh": 0.191,
       "url": "https://www.sungoldpower.com/products/2-x-48v-100ah-server-rack-lifepo4-lithium-battery-sg48100p",
+      "variant_id": 41268442366089,
       "source_store": "https://www.sungoldpower.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -444,6 +468,7 @@
       "available": true,
       "price_per_wh": 0.192,
       "url": "https://www.sungoldpower.com/products/48v-100ah-server-rack-lifepo4-lithium-battery-sg48100p",
+      "variant_id": 41974919987337,
       "source_store": "https://www.sungoldpower.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -460,6 +485,7 @@
       "available": true,
       "price_per_wh": 0.194,
       "url": "https://www.litime.com/products/12v-230ah-plus-lifepo4-battery",
+      "variant_id": 43846095339740,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -476,6 +502,7 @@
       "available": true,
       "price_per_wh": 0.195,
       "url": "https://www.litime.com/products/48v-100ah-lithium-marine-bluetooth-battery",
+      "variant_id": 50367519359196,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -492,6 +519,7 @@
       "available": true,
       "price_per_wh": 0.195,
       "url": "https://www.litime.com/products/48v-100ah-lithium-golf-cart-bluetooth-battery",
+      "variant_id": 44768227786972,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -508,6 +536,7 @@
       "available": true,
       "price_per_wh": 0.195,
       "url": "https://www.litime.com/products/12v-460ah-smart-self-heating-lithium-battery",
+      "variant_id": 67715574333660,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -524,6 +553,7 @@
       "available": true,
       "price_per_wh": 0.195,
       "url": "https://www.litime.com/products/48v-lithium-lawn-mower-battery",
+      "variant_id": 47147198415068,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -540,6 +570,7 @@
       "available": false,
       "price_per_wh": 0.197,
       "url": "https://www.litime.com/products/36v-45ah-gc2-lithium-golf-cart-battery",
+      "variant_id": 45992315912412,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -556,6 +587,7 @@
       "available": false,
       "price_per_wh": 0.197,
       "url": "https://www.litime.com/products/36v-45ah-lithium-trolling-motor-battery",
+      "variant_id": 50214763102428,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -572,6 +604,7 @@
       "available": true,
       "price_per_wh": 0.199,
       "url": "https://www.bluettipower.com/products/bluetti-b1232-lifepo-battery-12-8-v-314-ah",
+      "variant_id": 47618478407899,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -588,6 +621,7 @@
       "available": true,
       "price_per_wh": 0.2,
       "url": "https://www.sungoldpower.com/products/4x-sgh48100t-sever-rack-48v-100ah-lithium-battery-self-heating",
+      "variant_id": 41875176685705,
       "source_store": "https://www.sungoldpower.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -604,6 +638,7 @@
       "available": true,
       "price_per_wh": 0.2,
       "url": "https://www.litime.com/products/12v-230ah-bluetooth-lithium-rv-battery",
+      "variant_id": 45607971946716,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -620,6 +655,7 @@
       "available": true,
       "price_per_wh": 0.201,
       "url": "https://www.sungoldpower.com/products/2x-sgh48100t-sever-rack-48v-100ah-lithium-battery-self-heating",
+      "variant_id": 41875173605513,
       "source_store": "https://www.sungoldpower.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -636,6 +672,7 @@
       "available": true,
       "price_per_wh": 0.202,
       "url": "https://www.sungoldpower.com/products/sgh48100t-sever-rack-48v-100ah-lithium-battery-self-heating",
+      "variant_id": 42139895333001,
       "source_store": "https://www.sungoldpower.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -652,6 +689,7 @@
       "available": true,
       "price_per_wh": 0.203,
       "url": "https://www.litime.com/products/12v-200ah-bluetooth-lithium-battery",
+      "variant_id": 45632552435932,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -668,6 +706,7 @@
       "available": true,
       "price_per_wh": 0.203,
       "url": "https://www.litime.com/products/litime-24v-100ah-lifepo4-lithium-battery",
+      "variant_id": 43673534202076,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -684,6 +723,7 @@
       "available": true,
       "price_per_wh": 0.203,
       "url": "https://www.litime.com/products/12v-320ah-mini-bluetooth-truck-lithium-battery",
+      "variant_id": 52271231238364,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -700,6 +740,7 @@
       "available": true,
       "price_per_wh": 0.203,
       "url": "https://www.litime.com/products/12v-320ah-mini-bluetooth-lithium-battery",
+      "variant_id": 46648243912924,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -715,7 +756,8 @@
       "compare_at": 929.99,
       "available": true,
       "price_per_wh": 0.203,
-      "url": "https://www.litime.com/products/litime-lithium-deep-cycle-batteries",
+      "url": "https://www.litime.com/products/litime-lithium-deep-cycle-batteries?variant=47539063816412",
+      "variant_id": 47539063816412,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -732,6 +774,7 @@
       "available": true,
       "price_per_wh": 0.203,
       "url": "https://www.litime.com/products/litime-diy-solar-generator-complete-power-kit-for-camping-rv-and-off-grid-living",
+      "variant_id": 47440661709020,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -748,6 +791,7 @@
       "available": true,
       "price_per_wh": 0.204,
       "url": "https://www.sungoldpower.com/products/4-x-24v-100ah-lifepo4-deep-cycle-lithium-battery-bluetooth-self-heating-ip65",
+      "variant_id": 41277348511881,
       "source_store": "https://www.sungoldpower.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -764,6 +808,7 @@
       "available": true,
       "price_per_wh": 0.204,
       "url": "https://www.sungoldpower.com/products/4-x-12v-200ah-lifepo4-deep-cycle-lithium-battery-bluetooth-self-heating-ip65",
+      "variant_id": 40945919393929,
       "source_store": "https://www.sungoldpower.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -780,6 +825,7 @@
       "available": true,
       "price_per_wh": 0.205,
       "url": "https://www.sungoldpower.com/products/4-x-12v-100ah-lifepo4-deep-cycle-lithium-battery-bluetooth-self-heating-ip65",
+      "variant_id": 40945910284425,
       "source_store": "https://www.sungoldpower.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -796,6 +842,7 @@
       "available": true,
       "price_per_wh": 0.206,
       "url": "https://www.sungoldpower.com/products/2-x-24v-100ah-lifepo4-deep-cycle-lithium-battery-bluetooth-self-heating-ip65",
+      "variant_id": 41277344940169,
       "source_store": "https://www.sungoldpower.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -812,6 +859,7 @@
       "available": true,
       "price_per_wh": 0.206,
       "url": "https://www.sungoldpower.com/products/2-x-12v-200ah-lifepo4-deep-cycle-lithium-battery-bluetooth-self-heating-ip65",
+      "variant_id": 41268441383049,
       "source_store": "https://www.sungoldpower.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -828,6 +876,7 @@
       "available": true,
       "price_per_wh": 0.206,
       "url": "https://www.sungoldpower.com/products/2-x-12v-100ah-lifepo4-deep-cycle-lithium-battery-bluetooth-self-heating-ip65",
+      "variant_id": 41268440236169,
       "source_store": "https://www.sungoldpower.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -844,6 +893,7 @@
       "available": true,
       "price_per_wh": 0.207,
       "url": "https://www.sungoldpower.com/products/24v-100ah-lifepo4-deep-cycle-lithium-battery-bluetooth-self-heating-ip65",
+      "variant_id": 42687904415881,
       "source_store": "https://www.sungoldpower.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -859,7 +909,8 @@
       "compare_at": 757.0,
       "available": true,
       "price_per_wh": 0.207,
-      "url": "https://www.sungoldpower.com/products/12v-200ah-lithium-iron-phosphate-battery-bluetooth-self-heating-ip65",
+      "url": "https://www.sungoldpower.com/products/12v-200ah-lithium-iron-phosphate-battery-bluetooth-self-heating-ip65?variant=43342854193289",
+      "variant_id": 43342854193289,
       "source_store": "https://www.sungoldpower.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -876,6 +927,7 @@
       "available": true,
       "price_per_wh": 0.208,
       "url": "https://www.sungoldpower.com/products/12v-100ah-lifepo4-deep-cycle-lithium-battery-bluetooth-self-heating",
+      "variant_id": 42687639552137,
       "source_store": "https://www.sungoldpower.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -892,6 +944,7 @@
       "available": true,
       "price_per_wh": 0.208,
       "url": "https://www.sungoldpower.com/products/12v-200ah-lithium-iron-phosphate-battery-bluetooth-self-heating-ip65",
+      "variant_id": 42687934070921,
       "source_store": "https://www.sungoldpower.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -908,6 +961,7 @@
       "available": true,
       "price_per_wh": 0.21,
       "url": "https://www.sungoldpower.com/products/powerwall-x-lithium-battery-51-2v-200ah-sg48200t",
+      "variant_id": 47408090546313,
       "source_store": "https://www.sungoldpower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -924,6 +978,7 @@
       "available": true,
       "price_per_wh": 0.21,
       "url": "https://www.litime.com/products/12v-320ah-mini-self-heating-truck-lithium-battery",
+      "variant_id": 51980669747420,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -939,7 +994,8 @@
       "compare_at": 1099.99,
       "available": true,
       "price_per_wh": 0.21,
-      "url": "https://www.litime.com/products/litime-smart-self-heating-lithium-battery-for-winter",
+      "url": "https://www.litime.com/products/litime-smart-self-heating-lithium-battery-for-winter?variant=47539464437980",
+      "variant_id": 47539464437980,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -956,6 +1012,7 @@
       "available": true,
       "price_per_wh": 0.21,
       "url": "https://www.litime.com/products/12v-320ah-mini-smart-self-heating-lithium-battery",
+      "variant_id": 47394940125404,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -972,6 +1029,7 @@
       "available": true,
       "price_per_wh": 0.211,
       "url": "https://www.litime.com/products/litime-24v-100ah-lifepo4-rv-marine-battery-with-bluetooth",
+      "variant_id": 45212468576476,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -988,6 +1046,7 @@
       "available": true,
       "price_per_wh": 0.215,
       "url": "https://www.litime.com/products/48v-100ah-lithium-home-storage-battery",
+      "variant_id": 46714048151772,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -1004,6 +1063,7 @@
       "available": true,
       "price_per_wh": 0.219,
       "url": "https://www.sungoldpower.com/products/4-x-5-12kwh-powerwall-lifepo4-lithium-battery-sg48100m",
+      "variant_id": 41268444102793,
       "source_store": "https://www.sungoldpower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -1020,6 +1080,7 @@
       "available": true,
       "price_per_wh": 0.219,
       "url": "https://www.litime.com/products/24v-100ah-smart-lifepo4-battery-victron-compatible",
+      "variant_id": 47163089649884,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -1036,6 +1097,7 @@
       "available": true,
       "price_per_wh": 0.22,
       "url": "https://www.sungoldpower.com/products/2-x-5-12kwh-powerwall-lifepo4-lithium-battery-sg48100m",
+      "variant_id": 41268443480201,
       "source_store": "https://www.sungoldpower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -1052,6 +1114,7 @@
       "available": true,
       "price_per_wh": 0.221,
       "url": "https://www.sungoldpower.com/products/5-12kwh-wall-mounted-lifepo4-lithium-battery-sg48100m-ul1973",
+      "variant_id": 46451893502089,
       "source_store": "https://www.sungoldpower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -1068,6 +1131,7 @@
       "available": true,
       "price_per_wh": 0.221,
       "url": "https://www.litime.com/products/48v-150ah-lithium-golf-cart-utv-battery",
+      "variant_id": 49325769130204,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -1084,6 +1148,7 @@
       "available": false,
       "price_per_wh": 0.221,
       "url": "https://www.litime.com/products/48v-30ah-gc2-golf-cart-battery",
+      "variant_id": 45804812632284,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -1100,6 +1165,7 @@
       "available": false,
       "price_per_wh": 0.224,
       "url": "https://www.litime.com/products/36v-100ah-bluetooth-marine-lifepo4-battery",
+      "variant_id": 50365633986780,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -1116,6 +1182,7 @@
       "available": true,
       "price_per_wh": 0.224,
       "url": "https://www.litime.com/products/36v-100ah-bluetooth-golf-cart-lithium-battery",
+      "variant_id": 47394994749660,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -1131,7 +1198,8 @@
       "compare_at": null,
       "available": true,
       "price_per_wh": 0.224,
-      "url": "https://www.renogy.com/products/reserve-mini-smart-12v-200ah-300ah-lifepo4-battery",
+      "url": "https://www.renogy.com/products/reserve-mini-smart-12v-200ah-300ah-lifepo4-battery?variant=45494887153779",
+      "variant_id": 45494887153779,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -1148,6 +1216,7 @@
       "available": true,
       "price_per_wh": 0.225,
       "url": "https://www.sungoldpower.com/products/corex-5-pro-server-rack-48v-100ah-residential-energy-storage-battery-pack",
+      "variant_id": 46126850343049,
       "source_store": "https://www.sungoldpower.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -1164,6 +1233,7 @@
       "available": true,
       "price_per_wh": 0.227,
       "url": "https://www.litime.com/products/12v-320ah-comflex-lifepo4-lithium-battery",
+      "variant_id": 52123580498140,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -1180,6 +1250,7 @@
       "available": true,
       "price_per_wh": 0.229,
       "url": "https://www.litime.com/products/litime-36v-50ah-trolling-motor-lithium-battery",
+      "variant_id": 46449777311964,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -1196,6 +1267,7 @@
       "available": true,
       "price_per_wh": 0.229,
       "url": "https://www.renogy.com/products/core-mini-12-8v-300ah-lithium-iron-phosphate-battery-w-low-temperature-protection",
+      "variant_id": 43178669015155,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -1212,6 +1284,7 @@
       "available": true,
       "price_per_wh": 0.229,
       "url": "https://www.renogy.com/products/12-8v-300ah-lithium-iron-phosphate-battery-w-low-temperature-protection",
+      "variant_id": 44251644133491,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -1227,7 +1300,8 @@
       "compare_at": 879.99,
       "available": true,
       "price_per_wh": 0.229,
-      "url": "https://www.renogy.com/products/renogy-12-8v-mini-size-lithium-iron-phosphate-battery",
+      "url": "https://www.renogy.com/products/renogy-12-8v-mini-size-lithium-iron-phosphate-battery?variant=44225284210803",
+      "variant_id": 44225284210803,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -1244,6 +1318,7 @@
       "available": true,
       "price_per_wh": 0.234,
       "url": "https://www.bluettipower.com/products/lifepo4-lithium-batteries",
+      "variant_id": 47618465923291,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -1260,6 +1335,7 @@
       "available": true,
       "price_per_wh": 0.234,
       "url": "https://www.renogy.com/products/core-mini-12-8v-100ah-lithium-iron-phosphate-battery",
+      "variant_id": 43178664198259,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -1276,6 +1352,7 @@
       "available": true,
       "price_per_wh": 0.237,
       "url": "https://www.litime.com/products/36v-100ah-lithium-electric-outboard-motor-battery",
+      "variant_id": 45454706049244,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -1292,6 +1369,7 @@
       "available": true,
       "price_per_wh": 0.238,
       "url": "https://www.litime.com/products/48v-100ah-bluetooth-marine-lithium-battery",
+      "variant_id": 50366824317148,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -1308,6 +1386,7 @@
       "available": true,
       "price_per_wh": 0.238,
       "url": "https://www.litime.com/products/48v-100ah-bluetooth-golf-cart-lithium-battery",
+      "variant_id": 46901314420956,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -1324,6 +1403,7 @@
       "available": true,
       "price_per_wh": 0.238,
       "url": "https://www.litime.com/products/litime-48v-100ah-smart-comflex-lithium-battery",
+      "variant_id": 46901333983452,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -1340,6 +1420,7 @@
       "available": true,
       "price_per_wh": 0.24,
       "url": "https://www.litime.com/products/12v-165ah-bluetooth-lithium-battery",
+      "variant_id": 46243099082972,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -1356,6 +1437,7 @@
       "available": true,
       "price_per_wh": 0.241,
       "url": "https://www.renogy.com/products/12-8v-100ah-lithium-iron-phosphate-battery",
+      "variant_id": 44251639382131,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -1371,7 +1453,8 @@
       "compare_at": 307.99,
       "available": true,
       "price_per_wh": 0.241,
-      "url": "https://www.renogy.com/products/renogy-12-8v-mini-size-lithium-iron-phosphate-battery",
+      "url": "https://www.renogy.com/products/renogy-12-8v-mini-size-lithium-iron-phosphate-battery?variant=44225275297907",
+      "variant_id": 44225275297907,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -1388,6 +1471,7 @@
       "available": true,
       "price_per_wh": 0.242,
       "url": "https://www.litime.com/products/12v-100ah-group-24-lithium-battery",
+      "variant_id": 44199844544732,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -1404,6 +1488,7 @@
       "available": true,
       "price_per_wh": 0.242,
       "url": "https://www.litime.com/products/36v-100ah-electric-outboard-motors-lithium-battery",
+      "variant_id": 52396308299996,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -1420,6 +1505,7 @@
       "available": true,
       "price_per_wh": 0.243,
       "url": "https://www.renogy.com/products/12v-100ah-trolling-motor-lithium-iron-phosphate-battery-with-bluetooth",
+      "variant_id": 43178668556403,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -1436,6 +1522,7 @@
       "available": true,
       "price_per_wh": 0.244,
       "url": "https://www.litime.com/products/12v-165ah-smart-self-heating-lithium-battery",
+      "variant_id": 47080923529436,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -1451,7 +1538,8 @@
       "compare_at": 699.99,
       "available": true,
       "price_per_wh": 0.244,
-      "url": "https://www.litime.com/products/litime-smart-self-heating-lithium-battery-for-winter",
+      "url": "https://www.litime.com/products/litime-smart-self-heating-lithium-battery-for-winter?variant=47539464405212",
+      "variant_id": 47539464405212,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -1468,6 +1556,7 @@
       "available": true,
       "price_per_wh": 0.244,
       "url": "https://www.sungoldpower.com/products/corex-5-elite-wall-mounted-48v-100ah-residential-energy-storage-battery-pack",
+      "variant_id": 46126150713481,
       "source_store": "https://www.sungoldpower.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -1484,6 +1573,7 @@
       "available": true,
       "price_per_wh": 0.248,
       "url": "https://www.renogy.com/products/core-mini-12-8v-100ah-lithium-iron-phosphate-battery",
+      "variant_id": 43178664165491,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -1500,6 +1590,7 @@
       "available": true,
       "price_per_wh": 0.25,
       "url": "https://www.litime.com/products/litime-16v-100ah-fish-finder-lithium-battery",
+      "variant_id": 46455503945948,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -1516,6 +1607,7 @@
       "available": true,
       "price_per_wh": 0.25,
       "url": "https://www.litime.com/products/48v-100ah-golf-cart-battery-kit",
+      "variant_id": 45579951309020,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -1532,6 +1624,7 @@
       "available": true,
       "price_per_wh": 0.254,
       "url": "https://www.litime.com/products/24v-60ah-trolling-motor-battery-with-bluetooth",
+      "variant_id": 67637625585884,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -1548,6 +1641,7 @@
       "available": true,
       "price_per_wh": 0.254,
       "url": "https://www.eco-worthy.com/products/eco-worthy-5-12kwh-home-backup-power-with-48v-100ah-lifepo4-and-3500w-48v-off-grid-inverter",
+      "variant_id": 46919253164281,
       "source_store": "https://www.eco-worthy.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -1564,13 +1658,14 @@
       "available": true,
       "price_per_wh": 0.255,
       "url": "https://www.renogy.com/products/renogy-12-8v-mini-size-lithium-iron-phosphate-battery",
+      "variant_id": 44225284079731,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
     },
     {
       "brand": "Renogy",
-      "title": "51.2V 100/200Amp Hour Lithium-Ion Battery \u2014 15kWh",
+      "title": "51.2V 100Ah/200Ah Off-Grid Home LiFePO4 Battery \u2014 15kWh",
       "type": "bare-battery",
       "wh": 15000,
       "voltage": null,
@@ -1579,7 +1674,8 @@
       "compare_at": 4239.99,
       "available": true,
       "price_per_wh": 0.257,
-      "url": "https://www.renogy.com/products/51-2v-100-200amp-hour-lithium-ion-battery",
+      "url": "https://www.renogy.com/products/off-grid-48v-100ah-200ah-home-battery",
+      "variant_id": 66947048669299,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -1596,6 +1692,7 @@
       "available": true,
       "price_per_wh": 0.257,
       "url": "https://www.renogy.com/products/core-mini-12-8v-100ah-lithium-iron-phosphate-battery",
+      "variant_id": 43178664132723,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -1612,6 +1709,7 @@
       "available": true,
       "price_per_wh": 0.257,
       "url": "https://www.renogy.com/products/12v-100ah-trolling-motor-lithium-iron-phosphate-battery-with-bluetooth",
+      "variant_id": 43178668523635,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -1628,13 +1726,14 @@
       "available": true,
       "price_per_wh": 0.258,
       "url": "https://www.litime.com/products/36v-50ah-trolling-motor-bluetooth-battery",
+      "variant_id": 46173760913628,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "v-times-ah"
     },
     {
       "brand": "Renogy",
-      "title": "51.2V 100/200Amp Hour Lithium-Ion Battery \u2014 20kWh",
+      "title": "51.2V 100Ah/200Ah Off-Grid Home LiFePO4 Battery \u2014 20kWh",
       "type": "bare-battery",
       "wh": 20000,
       "voltage": null,
@@ -1643,23 +1742,8 @@
       "compare_at": 5696.99,
       "available": true,
       "price_per_wh": 0.259,
-      "url": "https://www.renogy.com/products/51-2v-100-200amp-hour-lithium-ion-battery",
-      "source_store": "https://www.renogy.com",
-      "image": null,
-      "wh_method": "explicit-wh"
-    },
-    {
-      "brand": "Renogy",
-      "title": "51.2V 100/200Amp Hour Lithium-Ion Battery \u2014 10kWh",
-      "type": "bare-battery",
-      "wh": 10000,
-      "voltage": null,
-      "ah": null,
-      "price": 2599.99,
-      "compare_at": 2859.99,
-      "available": true,
-      "price_per_wh": 0.26,
-      "url": "https://www.renogy.com/products/51-2v-100-200amp-hour-lithium-ion-battery",
+      "url": "https://www.renogy.com/products/off-grid-48v-100ah-200ah-home-battery",
+      "variant_id": 66947048702067,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -1676,9 +1760,27 @@
       "available": true,
       "price_per_wh": 0.26,
       "url": "https://www.litime.com/products/48v-60ah-rs485-marine-lifepo4-battery",
+      "variant_id": 50367804506332,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "v-times-ah"
+    },
+    {
+      "brand": "Renogy",
+      "title": "51.2V 100Ah/200Ah Off-Grid Home LiFePO4 Battery \u2014 10kWh",
+      "type": "bare-battery",
+      "wh": 10000,
+      "voltage": null,
+      "ah": null,
+      "price": 2599.99,
+      "compare_at": 2859.99,
+      "available": true,
+      "price_per_wh": 0.26,
+      "url": "https://www.renogy.com/products/off-grid-48v-100ah-200ah-home-battery",
+      "variant_id": 66947048636531,
+      "source_store": "https://www.renogy.com",
+      "image": null,
+      "wh_method": "explicit-wh"
     },
     {
       "brand": "LiTime",
@@ -1692,6 +1794,7 @@
       "available": true,
       "price_per_wh": 0.26,
       "url": "https://www.litime.com/products/48v-60ah-golf-cart-lithium-rs485-battery",
+      "variant_id": 46509780205788,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -1708,6 +1811,7 @@
       "available": true,
       "price_per_wh": 0.262,
       "url": "https://www.litime.com/products/litime-12v-100ah-lithium-lifepo4-battery",
+      "variant_id": 43673498714332,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -1724,6 +1828,7 @@
       "available": true,
       "price_per_wh": 0.262,
       "url": "https://www.litime.com/products/litime-12v-100ah-tm-deep-cycle-lifepo4-battery-for-trolling-motors",
+      "variant_id": 43988946190556,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -1740,6 +1845,7 @@
       "available": true,
       "price_per_wh": 0.262,
       "url": "https://www.renogy.com/products/core-mini-12-8v-200ah-lifepo4-battery-w-low-temperature-protection",
+      "variant_id": 43178668687475,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -1756,6 +1862,7 @@
       "available": true,
       "price_per_wh": 0.262,
       "url": "https://www.renogy.com/products/12-8v-200ah-lifepo4-battery-w-low-temperature-protection",
+      "variant_id": 44251641413747,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -1772,6 +1879,7 @@
       "available": true,
       "price_per_wh": 0.266,
       "url": "https://www.litime.com/products/12v-200ah-xtra-mini-truck-lithium-battery",
+      "variant_id": 51980905316572,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -1787,7 +1895,8 @@
       "compare_at": 919.99,
       "available": true,
       "price_per_wh": 0.266,
-      "url": "https://www.litime.com/products/litime-lithium-deep-cycle-batteries",
+      "url": "https://www.litime.com/products/litime-lithium-deep-cycle-batteries?variant=47026837422300",
+      "variant_id": 47026837422300,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -1804,6 +1913,7 @@
       "available": true,
       "price_per_wh": 0.266,
       "url": "https://www.litime.com/products/12v-200ah-xtra-mini-marine-lithium-battery",
+      "variant_id": 47636673691868,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -1820,6 +1930,7 @@
       "available": true,
       "price_per_wh": 0.266,
       "url": "https://www.litime.com/products/12v-200ah-xtra-mini-rv-lithium-battery",
+      "variant_id": 47608591417564,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -1836,6 +1947,7 @@
       "available": true,
       "price_per_wh": 0.266,
       "url": "https://www.renogy.com/products/12v-100ah-trolling-motor-lithium-iron-phosphate-battery-with-bluetooth",
+      "variant_id": 43178668490867,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -1852,6 +1964,7 @@
       "available": true,
       "price_per_wh": 0.267,
       "url": "https://www.litime.com/products/48v-30ah-lithium-marine-battery",
+      "variant_id": 50629088379100,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -1868,6 +1981,7 @@
       "available": true,
       "price_per_wh": 0.267,
       "url": "https://www.litime.com/products/48v-30ah-lithium-golf-cart-battery-gc2",
+      "variant_id": 45688298569948,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -1884,6 +1998,7 @@
       "available": true,
       "price_per_wh": 0.268,
       "url": "https://www.renogy.com/products/core-mini-12-8v-200ah-lifepo4-battery-w-low-temperature-protection",
+      "variant_id": 43178668654707,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -1900,6 +2015,7 @@
       "available": true,
       "price_per_wh": 0.268,
       "url": "https://www.renogy.com/products/12-8v-200ah-lifepo4-battery-w-low-temperature-protection",
+      "variant_id": 44251641380979,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -1916,6 +2032,7 @@
       "available": true,
       "price_per_wh": 0.27,
       "url": "https://www.litime.com/products/24v-100ah-group-31-marine-lithium-battery",
+      "variant_id": 47554201125084,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -1932,6 +2049,7 @@
       "available": true,
       "price_per_wh": 0.27,
       "url": "https://www.litime.com/products/24v-100ah-group-31-lifepo4-rv-battery",
+      "variant_id": 47554210398428,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -1948,6 +2066,7 @@
       "available": true,
       "price_per_wh": 0.272,
       "url": "https://www.renogy.com/products/core-mini-12-8v-200ah-lifepo4-battery-w-low-temperature-protection",
+      "variant_id": 43178668621939,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -1964,6 +2083,7 @@
       "available": true,
       "price_per_wh": 0.272,
       "url": "https://www.litime.com/products/36v-100ah-golf-cart-battery-kit",
+      "variant_id": 51906018705628,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -1980,6 +2100,7 @@
       "available": true,
       "price_per_wh": 0.272,
       "url": "https://www.renogy.com/products/12-8v-200ah-lifepo4-battery-w-low-temperature-protection",
+      "variant_id": 44251641348211,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -1996,6 +2117,7 @@
       "available": true,
       "price_per_wh": 0.273,
       "url": "https://www.litime.com/products/litime-lithium-deep-cycle-batteries",
+      "variant_id": 47026837455068,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -2012,6 +2134,7 @@
       "available": true,
       "price_per_wh": 0.273,
       "url": "https://www.litime.com/products/litime-24v-50ah-tm-bluetooth-lifepo4-battery",
+      "variant_id": 45454696775900,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -2028,6 +2151,7 @@
       "available": true,
       "price_per_wh": 0.273,
       "url": "https://www.eco-worthy.com/products/sl3500-stackable-power-station",
+      "variant_id": 46493759504633,
       "source_store": "https://www.eco-worthy.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -2044,6 +2168,7 @@
       "available": true,
       "price_per_wh": 0.274,
       "url": "https://www.renogy.com/products/duoheat-tech-core-mini-12v-100ah-lithium-iron-phosphate-battery",
+      "variant_id": 43178667507827,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -2060,6 +2185,7 @@
       "available": true,
       "price_per_wh": 0.278,
       "url": "https://www.litime.com/products/12v-100ah-group-27-lithium-battery",
+      "variant_id": 46392364663004,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -2076,6 +2202,7 @@
       "available": true,
       "price_per_wh": 0.278,
       "url": "https://www.litime.com/products/12v-100ah-lithium-trolling-motor-battery-with-bluetooth",
+      "variant_id": 45378342387932,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -2092,6 +2219,7 @@
       "available": true,
       "price_per_wh": 0.279,
       "url": "https://www.litime.com/products/12v-165ah-dual-purpose-marine-lithium-battery",
+      "variant_id": 46945704542428,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -2108,13 +2236,14 @@
       "available": true,
       "price_per_wh": 0.282,
       "url": "https://www.renogy.com/products/48v-50ah-smart-lithium-iron-phosphate-battery-w-self-heating",
+      "variant_id": 43178698637427,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "explicit-wh"
     },
     {
       "brand": "Renogy",
-      "title": "51.2V 100/200Amp Hour Lithium-Ion Battery \u2014 5kWh",
+      "title": "51.2V 100Ah/200Ah Off-Grid Home LiFePO4 Battery \u2014 5kWh",
       "type": "bare-battery",
       "wh": 5000,
       "voltage": null,
@@ -2123,7 +2252,8 @@
       "compare_at": 1299.99,
       "available": true,
       "price_per_wh": 0.286,
-      "url": "https://www.renogy.com/products/51-2v-100-200amp-hour-lithium-ion-battery",
+      "url": "https://www.renogy.com/products/off-grid-48v-100ah-200ah-home-battery",
+      "variant_id": 66947048603763,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -2140,6 +2270,7 @@
       "available": true,
       "price_per_wh": 0.286,
       "url": "https://www.litime.com/products/12v-100ah-group-24-smart-bluetooth",
+      "variant_id": 44829355016412,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -2156,6 +2287,7 @@
       "available": true,
       "price_per_wh": 0.288,
       "url": "https://www.renogy.com/products/48v-50ah-smart-lithium-iron-phosphate-battery-w-self-heating",
+      "variant_id": 43178698604659,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -2172,6 +2304,7 @@
       "available": true,
       "price_per_wh": 0.289,
       "url": "https://www.litime.com/products/12v-100ah-smart-comflex-battery",
+      "variant_id": 46675342360796,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -2188,6 +2321,7 @@
       "available": true,
       "price_per_wh": 0.289,
       "url": "https://www.renogy.com/products/duoheat-tech-core-mini-12v-100ah-lithium-iron-phosphate-battery",
+      "variant_id": 43178667475059,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -2204,6 +2338,7 @@
       "available": true,
       "price_per_wh": 0.292,
       "url": "https://www.renogy.com/products/48v-50ah-smart-lithium-iron-phosphate-battery-w-self-heating",
+      "variant_id": 43178698571891,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -2220,6 +2355,7 @@
       "available": true,
       "price_per_wh": 0.293,
       "url": "https://www.eco-worthy.com/products/sl3500-stackable-power-station",
+      "variant_id": 46493759471865,
       "source_store": "https://www.eco-worthy.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -2236,6 +2372,7 @@
       "available": true,
       "price_per_wh": 0.293,
       "url": "https://www.renogy.com/products/reserve-mini-smart-12v-200ah-300ah-lifepo4-battery",
+      "variant_id": 45494887055475,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -2252,6 +2389,7 @@
       "available": true,
       "price_per_wh": 0.294,
       "url": "https://www.litime.com/products/12v-100ah-xtra-mini-truck-lithium-battery",
+      "variant_id": 52271025160412,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -2268,6 +2406,7 @@
       "available": true,
       "price_per_wh": 0.294,
       "url": "https://www.litime.com/products/12v-100ah-xtra-mini-bluetooth-small-lifepo4-battery",
+      "variant_id": 46458555891932,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -2284,6 +2423,7 @@
       "available": true,
       "price_per_wh": 0.294,
       "url": "https://www.litime.com/products/litime-lithium-deep-cycle-batteries",
+      "variant_id": 47026837356764,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -2300,6 +2440,7 @@
       "available": true,
       "price_per_wh": 0.294,
       "url": "https://www.litime.com/products/12v-100ah-lithium-electric-outboard-motor-battery",
+      "variant_id": 45377995636956,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -2316,6 +2457,7 @@
       "available": true,
       "price_per_wh": 0.294,
       "url": "https://www.litime.com/products/litime-diy-solar-generator-complete-power-kit-for-camping-rv-and-off-grid-living",
+      "variant_id": 47440661643484,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -2332,6 +2474,7 @@
       "available": true,
       "price_per_wh": 0.294,
       "url": "https://www.litime.com/products/12v-100ah-electric-outboard-trolling-motor-battery",
+      "variant_id": 45766713376988,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -2348,6 +2491,7 @@
       "available": true,
       "price_per_wh": 0.295,
       "url": "https://www.renogy.com/products/48v-105ah-golf-cart-lithium-iron-phosphate-battery",
+      "variant_id": 43178670063731,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -2364,6 +2508,7 @@
       "available": true,
       "price_per_wh": 0.296,
       "url": "https://www.renogy.com/products/12v-300ah-core-series-deep-cycle-lithium-iron-phosphate-battery-w-self-heating",
+      "variant_id": 43178721312883,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -2380,6 +2525,7 @@
       "available": true,
       "price_per_wh": 0.297,
       "url": "https://www.renogy.com/products/duoheat-tech-core-mini-12v-100ah-lithium-iron-phosphate-battery",
+      "variant_id": 43178667442291,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -2396,6 +2542,7 @@
       "available": true,
       "price_per_wh": 0.299,
       "url": "https://www.litime.com/products/rv-power-solution",
+      "variant_id": 46574071054556,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -2412,6 +2559,7 @@
       "available": true,
       "price_per_wh": 0.299,
       "url": "https://www.litime.com/products/16v-70ah-lithium-fish-finder-battery",
+      "variant_id": 45863393165532,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -2428,6 +2576,7 @@
       "available": true,
       "price_per_wh": 0.3,
       "url": "https://www.renogy.com/products/12v-300ah-core-series-deep-cycle-lithium-iron-phosphate-battery-w-self-heating",
+      "variant_id": 43178721280115,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -2444,6 +2593,7 @@
       "available": true,
       "price_per_wh": 0.302,
       "url": "https://www.renogy.com/products/12v-300ah-core-series-deep-cycle-lithium-iron-phosphate-battery-w-self-heating",
+      "variant_id": 43178721247347,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -2460,6 +2610,7 @@
       "available": true,
       "price_per_wh": 0.308,
       "url": "https://www.renogy.com/products/12v-50ah-core-series-deep-cycle-lithium-iron-phosphate-battery",
+      "variant_id": 43178652794995,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -2476,6 +2627,7 @@
       "available": true,
       "price_per_wh": 0.309,
       "url": "https://www.renogy.com/products/core-12v-200ah-lithium-iron-phosphate-battery-w-bluetooth",
+      "variant_id": 43178670293107,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -2492,6 +2644,7 @@
       "available": true,
       "price_per_wh": 0.312,
       "url": "https://www.bluettipower.com/products/b500k-for-ac300-ac200l",
+      "variant_id": 47914931847387,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "body-mode-wh"
@@ -2508,6 +2661,7 @@
       "available": true,
       "price_per_wh": 0.312,
       "url": "https://www.bluettipower.com/products/b500k-expansion-battery",
+      "variant_id": 47893756903643,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "body-mode-wh"
@@ -2524,6 +2678,7 @@
       "available": true,
       "price_per_wh": 0.312,
       "url": "https://www.bluettipower.com/products/b500k-2-for-ac300-ac200l",
+      "variant_id": 48005066227931,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "body-mode-wh"
@@ -2540,6 +2695,7 @@
       "available": true,
       "price_per_wh": 0.312,
       "url": "https://www.renogy.com/products/reserve-mini-smart-12v-100ah-lifepo4-battery",
+      "variant_id": 45491473940595,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -2556,6 +2712,7 @@
       "available": true,
       "price_per_wh": 0.312,
       "url": "https://www.litime.com/products/12v-100ah-group-24-dual-purpose-marine-battery",
+      "variant_id": 50248936358108,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -2572,6 +2729,7 @@
       "available": true,
       "price_per_wh": 0.316,
       "url": "https://www.renogy.com/products/core-12v-200ah-lithium-iron-phosphate-battery-w-bluetooth",
+      "variant_id": 43178670260339,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -2588,6 +2746,7 @@
       "available": true,
       "price_per_wh": 0.32,
       "url": "https://www.litime.com/products/12v-100ah-group-24-bluetooth-self-heating-battery",
+      "variant_id": 45633130692828,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -2603,7 +2762,8 @@
       "compare_at": 479.99,
       "available": true,
       "price_per_wh": 0.32,
-      "url": "https://www.litime.com/products/litime-smart-self-heating-lithium-battery-for-winter",
+      "url": "https://www.litime.com/products/litime-smart-self-heating-lithium-battery-for-winter?variant=47539464372444",
+      "variant_id": 47539464372444,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -2620,6 +2780,7 @@
       "available": true,
       "price_per_wh": 0.321,
       "url": "https://www.renogy.com/products/core-12v-200ah-lithium-iron-phosphate-battery-w-bluetooth",
+      "variant_id": 43178670227571,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -2636,6 +2797,7 @@
       "available": true,
       "price_per_wh": 0.324,
       "url": "https://www.litime.com/products/lifepo4-trolling-motor-battery-upgrade-kits",
+      "variant_id": 51737031508188,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -2652,6 +2814,7 @@
       "available": true,
       "price_per_wh": 0.328,
       "url": "https://www.litime.com/products/litime-12v-50ah-lifepo4-lithium-ion-battery",
+      "variant_id": 43673493078236,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -2668,6 +2831,7 @@
       "available": true,
       "price_per_wh": 0.332,
       "url": "https://www.bluettipower.com/products/bluetti-b4810-lifepo-battery-51-2-v-100-ah",
+      "variant_id": 47618664857819,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -2684,6 +2848,7 @@
       "available": true,
       "price_per_wh": 0.335,
       "url": "https://www.litime.com/products/rv-power-solution",
+      "variant_id": 46574071021788,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -2700,6 +2865,7 @@
       "available": false,
       "price_per_wh": 0.342,
       "url": "https://ecoflow.com/products/delta-pro-ultra-includes-extra-battery",
+      "variant_id": 41954482683977,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "override-curated"
@@ -2716,6 +2882,7 @@
       "available": false,
       "price_per_wh": 0.345,
       "url": "https://www.litime.com/products/rv-power-solution",
+      "variant_id": 46574071087324,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -2731,7 +2898,8 @@
       "compare_at": 1069.99,
       "available": true,
       "price_per_wh": 0.348,
-      "url": "https://www.renogy.com/products/pro-s1-12v-120ah-240ah-lifepo4-battery",
+      "url": "https://www.renogy.com/products/pro-s1-12v-120ah-240ah-lifepo4-battery?variant=43990047719539",
+      "variant_id": 43990047719539,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -2748,6 +2916,7 @@
       "available": true,
       "price_per_wh": 0.352,
       "url": "https://www.renogy.com/products/12v-20ah-trolling-motor-lithium-iron-phosphate-battery",
+      "variant_id": 43178666393715,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -2764,6 +2933,7 @@
       "available": true,
       "price_per_wh": 0.36,
       "url": "https://www.renogy.com/products/12v-200ah-pro-smart-lithium-iron-phosphate-battery-w-bluetooth-self-heating-function",
+      "variant_id": 43747614228595,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -2780,6 +2950,7 @@
       "available": true,
       "price_per_wh": 0.361,
       "url": "https://www.bluettipower.com/products/apex-300-b300k-expansion-battery",
+      "variant_id": 47262756896987,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "body-mode-wh"
@@ -2796,6 +2967,7 @@
       "available": true,
       "price_per_wh": 0.362,
       "url": "https://www.bluettipower.com/products/b300k",
+      "variant_id": 45943077208283,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "body-mode-wh"
@@ -2812,6 +2984,7 @@
       "available": true,
       "price_per_wh": 0.365,
       "url": "https://www.bluettipower.com/products/elite-300-portable-power-station",
+      "variant_id": 48309260058843,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -2828,6 +3001,7 @@
       "available": true,
       "price_per_wh": 0.367,
       "url": "https://www.litime.com/products/12v-100ah-ultra-slim-lithium-battery",
+      "variant_id": 50248218411228,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -2844,6 +3018,7 @@
       "available": true,
       "price_per_wh": 0.367,
       "url": "https://www.litime.com/products/12v-100ah-ultra-slim-truck-lithium-battery",
+      "variant_id": 52271220195548,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -2860,6 +3035,7 @@
       "available": true,
       "price_per_wh": 0.367,
       "url": "https://www.renogy.com/products/12v-200ah-pro-smart-lithium-iron-phosphate-battery-w-bluetooth-self-heating-function",
+      "variant_id": 43747614195827,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -2875,7 +3051,8 @@
       "compare_at": 939.99,
       "available": true,
       "price_per_wh": 0.367,
-      "url": "https://www.renogy.com/products/pro-renogy-12v-100ah-200ah-smart-lifepo4-battery-w-bluetooth-self-heating",
+      "url": "https://www.renogy.com/products/pro-renogy-12v-100ah-200ah-smart-lifepo4-battery-w-bluetooth-self-heating?variant=44251647115379",
+      "variant_id": 44251647115379,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -2892,6 +3069,7 @@
       "available": true,
       "price_per_wh": 0.371,
       "url": "https://www.eco-worthy.com/products/eco-worthy-2400w-portable-power-station-with-2048wh-lithium-battery",
+      "variant_id": 47537071522041,
       "source_store": "https://www.eco-worthy.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -2908,6 +3086,7 @@
       "available": true,
       "price_per_wh": 0.374,
       "url": "https://ecoflow.com/products/ecoflow-delta-pro-ultra-battery-app-only",
+      "variant_id": 55457828569161,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "override-curated"
@@ -2924,6 +3103,7 @@
       "available": true,
       "price_per_wh": 0.374,
       "url": "https://ecoflow.com/products/ecoflow-delta-pro-ultra-battery-recommended-accessory",
+      "variant_id": 55490187001929,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "override-curated"
@@ -2940,6 +3120,7 @@
       "available": true,
       "price_per_wh": 0.375,
       "url": "https://www.litime.com/products/12v-50ah-tm-lifepo4-battery-with-bluetooth",
+      "variant_id": 45466251428060,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -2956,6 +3137,7 @@
       "available": true,
       "price_per_wh": 0.377,
       "url": "https://www.bluettipower.com/products/elite-100-mini-portable-power-station",
+      "variant_id": 49212162277595,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -2972,6 +3154,7 @@
       "available": true,
       "price_per_wh": 0.382,
       "url": "https://ecoflow.com/products/ecoflow-delta-pro-ultra-x-battery-app-only",
+      "variant_id": 55404714393673,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "override-curated"
@@ -2988,6 +3171,7 @@
       "available": true,
       "price_per_wh": 0.382,
       "url": "https://ecoflow.com/products/ecoflow-delta-pro-ultra-x-extra-battery-recommended-accessory",
+      "variant_id": 55487046910025,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "override-curated"
@@ -3004,6 +3188,7 @@
       "available": true,
       "price_per_wh": 0.382,
       "url": "https://ecoflow.com/products/delta-pro-ultra-x-smart-extra-battery",
+      "variant_id": 54732348719177,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "body-mode-wh"
@@ -3020,6 +3205,7 @@
       "available": false,
       "price_per_wh": 0.382,
       "url": "https://www.litime.com/products/litime-12v-45ah-u1-lithium-wheelchair-battery",
+      "variant_id": 45527832821980,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -3036,6 +3222,7 @@
       "available": true,
       "price_per_wh": 0.39,
       "url": "https://www.bluettipower.com/products/elite-400-portable-power-station",
+      "variant_id": 47915195498715,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -3052,6 +3239,7 @@
       "available": false,
       "price_per_wh": 0.391,
       "url": "https://www.jackery.com/products/jackery-battery-pack-2000-plus",
+      "variant_id": 40193000865879,
       "source_store": "https://www.jackery.com",
       "image": null,
       "wh_method": "body-mode-wh"
@@ -3068,6 +3256,7 @@
       "available": true,
       "price_per_wh": 0.392,
       "url": "https://www.renogy.com/products/12v-200ah-pro-smart-lithium-iron-phosphate-battery-w-bluetooth-self-heating-function",
+      "variant_id": 43747614163059,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -3084,6 +3273,7 @@
       "available": true,
       "price_per_wh": 0.397,
       "url": "https://www.bluettipower.com/products/bluetti-b300k-expansion-battery",
+      "variant_id": 45969643110619,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -3100,6 +3290,7 @@
       "available": true,
       "price_per_wh": 0.4,
       "url": "https://www.bluettipower.com/products/b500k-for-ac500",
+      "variant_id": 47914932928731,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "body-mode-wh"
@@ -3116,6 +3307,7 @@
       "available": false,
       "price_per_wh": 0.418,
       "url": "https://www.jackery.com/products/battery-pack-3600-plus",
+      "variant_id": 43985714479191,
       "source_store": "https://www.jackery.com",
       "image": null,
       "wh_method": "body-wh-before-capacity-label"
@@ -3132,6 +3324,7 @@
       "available": false,
       "price_per_wh": 0.419,
       "url": "https://ecoflow.com/products/ecoflow-delta-3-max-plus-2048wh-smart-extra-battery-app-only",
+      "variant_id": 55371505860681,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -3148,6 +3341,7 @@
       "available": true,
       "price_per_wh": 0.425,
       "url": "https://ecoflow.com/products/ecoflow-delta-3800-gen4-solar-generator",
+      "variant_id": 67651083501641,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "body-wh-before-capacity-label"
@@ -3164,6 +3358,7 @@
       "available": true,
       "price_per_wh": 0.43,
       "url": "https://www.bluettipower.com/products/bluetti-b300k-expansion-battery-2-764-8wh-for-ac500",
+      "variant_id": 47857215930587,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "body-mode-wh"
@@ -3180,6 +3375,7 @@
       "available": true,
       "price_per_wh": 0.432,
       "url": "https://www.bluettipower.com/products/elite-200-v2-portable-power-station",
+      "variant_id": 46252054544603,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -3196,6 +3392,7 @@
       "available": true,
       "price_per_wh": 0.433,
       "url": "https://ecoflow.com/products/ecoflow-delta-3000-gen4-solar-generator",
+      "variant_id": 67651089989705,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "body-wh-before-capacity-label"
@@ -3212,6 +3409,7 @@
       "available": true,
       "price_per_wh": 0.434,
       "url": "https://www.bluettipower.com/products/3-b300k-for-apex300",
+      "variant_id": 47860771487963,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "body-mode-wh"
@@ -3228,6 +3426,7 @@
       "available": true,
       "price_per_wh": 0.434,
       "url": "https://www.bluettipower.com/products/bluetti-b300k-expansion-battery-2-764-8wh-for-apex300-copy",
+      "variant_id": 47603577684187,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "body-mode-wh"
@@ -3244,6 +3443,7 @@
       "available": true,
       "price_per_wh": 0.434,
       "url": "https://www.bluettipower.com/products/bluetti-b300k-expansion-battery-5-529-6wh",
+      "variant_id": 46779839742171,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "body-mode-wh"
@@ -3260,6 +3460,7 @@
       "available": false,
       "price_per_wh": 0.439,
       "url": "https://ecoflow.com/products/delta-2-max-smart-extra-battery",
+      "variant_id": 40954813448265,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "override-curated"
@@ -3276,6 +3477,7 @@
       "available": true,
       "price_per_wh": 0.439,
       "url": "https://ecoflow.com/products/ecoflow-delta-3-max-portable-power-station-2048wh",
+      "variant_id": 55917251526729,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -3292,6 +3494,7 @@
       "available": false,
       "price_per_wh": 0.439,
       "url": "https://ecoflow.com/products/delta-3-max-plus-smart-extra-battery",
+      "variant_id": 55069632790601,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -3308,6 +3511,7 @@
       "available": false,
       "price_per_wh": 0.439,
       "url": "https://www.bluettipower.com/products/ac200l-portable-power-station",
+      "variant_id": 46352232349915,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -3324,6 +3528,7 @@
       "available": true,
       "price_per_wh": 0.439,
       "url": "https://ecoflow.com/products/delta-3-max-series-portable-power-station",
+      "variant_id": 54692162764873,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -3340,6 +3545,7 @@
       "available": true,
       "price_per_wh": 0.446,
       "url": "https://ecoflow.com/products/ecoflow-delta-3-ultra-portable-power-station-3072wh",
+      "variant_id": 55609357140041,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -3356,6 +3562,7 @@
       "available": true,
       "price_per_wh": 0.446,
       "url": "https://ecoflow.com/products/delta-3-ultra-series-portable-power-station",
+      "variant_id": 54692148871241,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -3372,6 +3579,7 @@
       "available": true,
       "price_per_wh": 0.448,
       "url": "https://ecoflow.com/products/delta-3-classic-portable-power-station",
+      "variant_id": 67639241736265,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -3388,6 +3596,7 @@
       "available": false,
       "price_per_wh": 0.451,
       "url": "https://www.bluettipower.com/products/ac180p",
+      "variant_id": 44696567283931,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -3404,6 +3613,7 @@
       "available": true,
       "price_per_wh": 0.453,
       "url": "https://www.renogy.com/products/12v-100ah-pro-smart-lithium-iron-phosphate-battery-w-bluetooth-self-heating-function",
+      "variant_id": 43178725048435,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -3420,6 +3630,7 @@
       "available": true,
       "price_per_wh": 0.454,
       "url": "https://ecoflow.com/products/river-2-pro-portable-power-station",
+      "variant_id": 54320636198985,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "body-wh-before-capacity-label"
@@ -3436,6 +3647,7 @@
       "available": false,
       "price_per_wh": 0.455,
       "url": "https://www.bluettipower.com/products/b300",
+      "variant_id": 44696842207451,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -3452,6 +3664,7 @@
       "available": false,
       "price_per_wh": 0.455,
       "url": "https://www.bluettipower.com/products/ac300-4-b300",
+      "variant_id": 40640034144431,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -3468,6 +3681,7 @@
       "available": false,
       "price_per_wh": 0.456,
       "url": "https://ecoflow.com/products/delta-pro-ultra-inverter",
+      "variant_id": 42125812400201,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "override-curated"
@@ -3484,6 +3698,7 @@
       "available": true,
       "price_per_wh": 0.456,
       "url": "https://www.litime.com/products/litime-12v-12ah-lifepo4-lithium-battery",
+      "variant_id": 46704404857052,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -3500,6 +3715,7 @@
       "available": false,
       "price_per_wh": 0.458,
       "url": "https://www.bluettipower.com/products/bluetti-ps72-portable-power-station-700w-716wh",
+      "variant_id": 44456378990811,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -3516,6 +3732,7 @@
       "available": true,
       "price_per_wh": 0.458,
       "url": "https://www.litime.com/products/16v-30ah-lifepo4-lithium-fish-finder-battery",
+      "variant_id": 45863290732764,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -3532,6 +3749,7 @@
       "available": true,
       "price_per_wh": 0.46,
       "url": "https://www.jackery.com/products/jackery-homepower-2000-plus-v2-4kwh",
+      "variant_id": 44331223122007,
       "source_store": "https://www.jackery.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -3548,6 +3766,7 @@
       "available": false,
       "price_per_wh": 0.46,
       "url": "https://www.jackery.com/products/jackery-homepower-3600-plus-7168wh",
+      "variant_id": 44331236163671,
       "source_store": "https://www.jackery.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -3564,6 +3783,7 @@
       "available": true,
       "price_per_wh": 0.464,
       "url": "https://www.renogy.com/products/pro-s1-12v-120ah-240ah-lifepo4-battery",
+      "variant_id": 43990047686771,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -3580,6 +3800,7 @@
       "available": false,
       "price_per_wh": 0.464,
       "url": "https://ecoflow.com/products/delta-pro-3-extra-battery",
+      "variant_id": 41385808199753,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "override-curated"
@@ -3596,6 +3817,7 @@
       "available": false,
       "price_per_wh": 0.467,
       "url": "https://www.bluettipower.com/products/ac70",
+      "variant_id": 46848026804443,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -3612,6 +3834,7 @@
       "available": true,
       "price_per_wh": 0.468,
       "url": "https://ecoflow.com/products/ecoflow-delta-3-classic-portable-power-station-1024wh-copy",
+      "variant_id": 55720152105033,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -3628,6 +3851,7 @@
       "available": false,
       "price_per_wh": 0.47,
       "url": "https://www.bluettipower.com/products/apex-300-2-b300k",
+      "variant_id": 47353679315163,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "body-mode-wh"
@@ -3644,6 +3868,7 @@
       "available": false,
       "price_per_wh": 0.47,
       "url": "https://www.bluettipower.com/products/apex-300-b300k",
+      "variant_id": 47351725687003,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "body-mode-wh"
@@ -3660,6 +3885,7 @@
       "available": false,
       "price_per_wh": 0.474,
       "url": "https://www.jackery.com/products/jackery-battery-pack-1000-plus",
+      "variant_id": 40229174313047,
       "source_store": "https://www.jackery.com",
       "image": null,
       "wh_method": "body-mode-wh"
@@ -3676,6 +3902,7 @@
       "available": true,
       "price_per_wh": 0.477,
       "url": "https://www.bluettipower.com/products/ac180",
+      "variant_id": 44099774480603,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -3692,6 +3919,7 @@
       "available": true,
       "price_per_wh": 0.486,
       "url": "https://ecoflow.com/products/river-3-plus-smart-extra-battery",
+      "variant_id": 41636536942665,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "override-curated"
@@ -3708,6 +3936,7 @@
       "available": false,
       "price_per_wh": 0.488,
       "url": "https://www.jackery.com/products/jackery-homepower-3000",
+      "variant_id": 41685844983895,
       "source_store": "https://www.jackery.com",
       "image": null,
       "wh_method": "body-wh-before-capacity-label"
@@ -3724,6 +3953,7 @@
       "available": false,
       "price_per_wh": 0.488,
       "url": "https://www.bluettipower.com/products/b230-battery-pack",
+      "variant_id": 44466852823259,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -3740,6 +3970,7 @@
       "available": false,
       "price_per_wh": 0.488,
       "url": "https://www.jackery.com/products/jackery-solar-generator-homepower-3000",
+      "variant_id": 44620039028823,
       "source_store": "https://www.jackery.com",
       "image": null,
       "wh_method": "body-wh-before-capacity-label"
@@ -3756,6 +3987,7 @@
       "available": false,
       "price_per_wh": 0.488,
       "url": "https://www.bluettipower.com/products/bluetti-ac300-b300",
+      "variant_id": 44701269065947,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -3772,6 +4004,7 @@
       "available": false,
       "price_per_wh": 0.488,
       "url": "https://www.jackery.com/products/solar-generator-homepower-3000",
+      "variant_id": 41807913156695,
       "source_store": "https://www.jackery.com",
       "image": null,
       "wh_method": "body-wh-before-capacity-label"
@@ -3788,6 +4021,7 @@
       "available": false,
       "price_per_wh": 0.488,
       "url": "https://www.bluettipower.com/products/bluetti-b300s-expansion-battery",
+      "variant_id": 44701260415195,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -3804,6 +4038,7 @@
       "available": true,
       "price_per_wh": 0.49,
       "url": "https://www.jackery.com/products/explorer-2000-v2-portable-power-station",
+      "variant_id": 41585656365143,
       "source_store": "https://www.jackery.com",
       "image": null,
       "wh_method": "override-curated"
@@ -3820,6 +4055,7 @@
       "available": true,
       "price_per_wh": 0.492,
       "url": "https://www.renogy.com/products/pro-renogy-12v-100ah-200ah-smart-lifepo4-battery-w-bluetooth-self-heating",
+      "variant_id": 45163275124851,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -3836,6 +4072,7 @@
       "available": false,
       "price_per_wh": 0.497,
       "url": "https://www.bluettipower.com/products/bluetti-ac300-4-b300k-home-battery-backup",
+      "variant_id": 45979045429467,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -3852,6 +4089,7 @@
       "available": false,
       "price_per_wh": 0.5,
       "url": "https://ecoflow.com/products/delta-pro-portable-power-station",
+      "variant_id": 40516140138569,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "override-curated"
@@ -3868,6 +4106,7 @@
       "available": true,
       "price_per_wh": 0.502,
       "url": "https://ecoflow.com/products/delta-2-max-portable-power-station",
+      "variant_id": 54615943512137,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "override-curated"
@@ -3884,6 +4123,7 @@
       "available": false,
       "price_per_wh": 0.512,
       "url": "https://www.bluettipower.com/products/2-apex-300-4-b300k-hub-a1",
+      "variant_id": 48954102350043,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "body-mode-wh"
@@ -3900,6 +4140,7 @@
       "available": false,
       "price_per_wh": 0.512,
       "url": "https://www.bluettipower.com/products/bluetti-ac300-3-b300k-home-battery-backup",
+      "variant_id": 45978853441755,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -3916,6 +4157,7 @@
       "available": true,
       "price_per_wh": 0.514,
       "url": "https://ecoflow.com/products/ecoflow-delta-3-max-solar-generator",
+      "variant_id": 67921221353545,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "body-mode-wh"
@@ -3932,6 +4174,7 @@
       "available": false,
       "price_per_wh": 0.516,
       "url": "https://ecoflow.com/products/trail-series",
+      "variant_id": 54553979682889,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -3948,6 +4191,7 @@
       "available": true,
       "price_per_wh": 0.517,
       "url": "https://ecoflow.com/products/trail-series",
+      "variant_id": 55720349368393,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -3964,6 +4208,7 @@
       "available": true,
       "price_per_wh": 0.521,
       "url": "https://ecoflow.com/products/ecoflow-river-3-plus-smart-extra-battery-app-only",
+      "variant_id": 42147636478025,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "body-mode-wh"
@@ -3980,6 +4225,7 @@
       "available": true,
       "price_per_wh": 0.521,
       "url": "https://ecoflow.com/products/ecoflow-river-3-plus-smart-extra-battery-recommended-accessory-copy",
+      "variant_id": 54693688901705,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "body-mode-wh"
@@ -3996,6 +4242,7 @@
       "available": true,
       "price_per_wh": 0.521,
       "url": "https://ecoflow.com/products/ecoflow-delta-3-ultra-plus-portable-power-station-3072wh",
+      "variant_id": 55612118532169,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -4012,6 +4259,7 @@
       "available": false,
       "price_per_wh": 0.522,
       "url": "https://www.jackery.com/products/explorer-1000-portable-power-station",
+      "variant_id": 41195739086935,
       "source_store": "https://www.jackery.com",
       "image": null,
       "wh_method": "override-curated"
@@ -4028,6 +4276,7 @@
       "available": false,
       "price_per_wh": 0.522,
       "url": "https://www.jackery.com/products/jackery-solar-generator-1000-v2",
+      "variant_id": 41738389749847,
       "source_store": "https://www.jackery.com",
       "image": null,
       "wh_method": "override-curated"
@@ -4044,6 +4293,7 @@
       "available": true,
       "price_per_wh": 0.523,
       "url": "https://www.litime.com/products/lifepo4-trolling-motor-battery-upgrade-kits",
+      "variant_id": 51737756467420,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -4060,41 +4310,10 @@
       "available": false,
       "price_per_wh": 0.524,
       "url": "https://www.bluettipower.com/products/bluetti-ac300-b300-home-integration-kit-120v-cms",
+      "variant_id": 45370852409563,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
-    },
-    {
-      "brand": "Jackery",
-      "title": "HomePower 3600 Plus",
-      "type": "station",
-      "wh": 3584,
-      "voltage": null,
-      "ah": null,
-      "price": 1899.0,
-      "compare_at": 1899.0,
-      "available": false,
-      "price_per_wh": 0.53,
-      "url": "https://www.jackery.com/products/homepower-3600-plus",
-      "source_store": "https://www.jackery.com",
-      "image": null,
-      "wh_method": "body-wh-before-capacity-label"
-    },
-    {
-      "brand": "Jackery",
-      "title": "Solar Generator HomePower 3600 Plus \u2014 HomePower 3600 Plus (solar panel not included)",
-      "type": "station",
-      "wh": 3584,
-      "voltage": null,
-      "ah": null,
-      "price": 1899.0,
-      "compare_at": 1899.0,
-      "available": false,
-      "price_per_wh": 0.53,
-      "url": "https://www.jackery.com/products/solar-generator-homepower-3600-plus",
-      "source_store": "https://www.jackery.com",
-      "image": null,
-      "wh_method": "body-wh-before-capacity-label"
     },
     {
       "brand": "LiTime",
@@ -4107,7 +4326,8 @@
       "compare_at": null,
       "available": true,
       "price_per_wh": 0.53,
-      "url": "https://www.litime.com/products/marine-house-battery-kits-for-boat-onboard-power",
+      "url": "https://www.litime.com/products/marine-house-battery-kits-for-boat-onboard-power?variant=51737913491676",
+      "variant_id": 51737913491676,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -4124,6 +4344,7 @@
       "available": true,
       "price_per_wh": 0.536,
       "url": "https://www.bluettipower.com/products/elite-100-v2-portable-power-station",
+      "variant_id": 47048282177755,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -4140,6 +4361,7 @@
       "available": false,
       "price_per_wh": 0.542,
       "url": "https://www.bluettipower.com/products/apex-300-b300k-hub-d1",
+      "variant_id": 47354247872731,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "body-mode-wh"
@@ -4156,6 +4378,7 @@
       "available": false,
       "price_per_wh": 0.542,
       "url": "https://www.bluettipower.com/products/apex-300-2-b300k-solarx-4k",
+      "variant_id": 47513129025755,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "body-mode-wh"
@@ -4172,6 +4395,7 @@
       "available": false,
       "price_per_wh": 0.542,
       "url": "https://www.bluettipower.com/products/bluetti-2-ac300-4-b300k-home-battery-backup",
+      "variant_id": 45973878309083,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -4188,6 +4412,7 @@
       "available": false,
       "price_per_wh": 0.542,
       "url": "https://www.bluettipower.com/products/bluetti-ac300-2-b300k-home-battery-backup",
+      "variant_id": 45955151495387,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -4204,6 +4429,7 @@
       "available": false,
       "price_per_wh": 0.542,
       "url": "https://www.bluettipower.com/products/bluetti-ac500-3-b300k-home-battery-backup",
+      "variant_id": 45979055325403,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -4220,6 +4446,7 @@
       "available": false,
       "price_per_wh": 0.543,
       "url": "https://www.bluettipower.com/products/bluetti-ac70p",
+      "variant_id": 44809134342363,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -4236,6 +4463,7 @@
       "available": true,
       "price_per_wh": 0.547,
       "url": "https://www.litime.com/products/litime-smart-self-heating-lithium-battery-for-winter",
+      "variant_id": 52069270651100,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -4252,6 +4480,7 @@
       "available": true,
       "price_per_wh": 0.547,
       "url": "https://www.litime.com/products/12v-30ah-lithium-ice-fishing-battery-with-bluetooth",
+      "variant_id": 47631967060188,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -4268,6 +4497,24 @@
       "available": false,
       "price_per_wh": 0.549,
       "url": "https://www.bluettipower.com/products/bluetti-ac200p-2000wh-2000w-portable-power-station",
+      "variant_id": 45079723213019,
+      "source_store": "https://www.bluettipower.com",
+      "image": null,
+      "wh_method": "explicit-wh"
+    },
+    {
+      "brand": "BLUETTI",
+      "title": "10kWh RV Kit \u2014 RV5+2*B4810+Epanel+Epad",
+      "type": "station",
+      "wh": 10000,
+      "voltage": null,
+      "ah": null,
+      "price": 5499.0,
+      "compare_at": 5999.0,
+      "available": true,
+      "price_per_wh": 0.55,
+      "url": "https://www.bluettipower.com/products/rv5-2-b4810-epanel-epad",
+      "variant_id": 47637191393499,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -4284,6 +4531,7 @@
       "available": false,
       "price_per_wh": 0.551,
       "url": "https://www.bluettipower.com/products/2-apex-300-2-b300k-hub-a1",
+      "variant_id": 47353904693467,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "body-mode-wh"
@@ -4300,6 +4548,7 @@
       "available": false,
       "price_per_wh": 0.551,
       "url": "https://www.bluettipower.com/products/apex-300-b300k-trolley2",
+      "variant_id": 50538335863003,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "body-mode-wh"
@@ -4316,6 +4565,7 @@
       "available": false,
       "price_per_wh": 0.553,
       "url": "https://www.bluettipower.com/products/bluetti-ac300-b300",
+      "variant_id": 46617250496731,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -4332,6 +4582,7 @@
       "available": false,
       "price_per_wh": 0.553,
       "url": "https://www.jackery.com/products/jackery-solar-generator-1000-plus",
+      "variant_id": 44583535476823,
       "source_store": "https://www.jackery.com",
       "image": null,
       "wh_method": "body-wh-before-capacity-label"
@@ -4348,6 +4599,7 @@
       "available": false,
       "price_per_wh": 0.553,
       "url": "https://www.jackery.com/products/jackery-explorer-1000-plus-portable-power-station",
+      "variant_id": 40233095135319,
       "source_store": "https://www.jackery.com",
       "image": null,
       "wh_method": "body-wh-before-capacity-label"
@@ -4364,6 +4616,7 @@
       "available": false,
       "price_per_wh": 0.554,
       "url": "https://www.bluettipower.com/products/bluetti-ep800-b500-home-battery-backup",
+      "variant_id": 44233552298203,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -4380,6 +4633,7 @@
       "available": false,
       "price_per_wh": 0.558,
       "url": "https://www.bluettipower.com/products/apex-300-b500k-350w",
+      "variant_id": 50538335961307,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "body-mode-wh"
@@ -4396,6 +4650,7 @@
       "available": false,
       "price_per_wh": 0.558,
       "url": "https://www.jackery.com/products/jackery-homepower-3600-plus-red-cross-edition",
+      "variant_id": 44266968940631,
       "source_store": "https://www.jackery.com",
       "image": null,
       "wh_method": "body-wh-before-capacity-label"
@@ -4412,6 +4667,7 @@
       "available": false,
       "price_per_wh": 0.558,
       "url": "https://www.bluettipower.com/products/ac180t",
+      "variant_id": 45604208771291,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -4428,6 +4684,7 @@
       "available": true,
       "price_per_wh": 0.561,
       "url": "https://ecoflow.com/products/ecoflow-delta-3-max-plus-portable-power-station-2048wh",
+      "variant_id": 55917273448521,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -4444,6 +4701,7 @@
       "available": true,
       "price_per_wh": 0.561,
       "url": "https://ecoflow.com/products/ecoflow-delta-2-max-solar-generator",
+      "variant_id": 67921222107209,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "override-curated"
@@ -4460,6 +4718,7 @@
       "available": true,
       "price_per_wh": 0.564,
       "url": "https://ecoflow.com/products/river-2-max-500-portable-power-station",
+      "variant_id": 40956039004233,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "override-curated"
@@ -4476,6 +4735,7 @@
       "available": false,
       "price_per_wh": 0.564,
       "url": "https://www.bluettipower.com/products/ac200p-l",
+      "variant_id": 45028724211931,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -4492,6 +4752,7 @@
       "available": true,
       "price_per_wh": 0.565,
       "url": "https://ecoflow.com/products/delta-3-portable-power-station",
+      "variant_id": 54643535708233,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "override-curated"
@@ -4508,6 +4769,7 @@
       "available": false,
       "price_per_wh": 0.571,
       "url": "https://www.bluettipower.com/products/ac70",
+      "variant_id": 45002031497435,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -4524,6 +4786,7 @@
       "available": false,
       "price_per_wh": 0.575,
       "url": "https://www.jackery.com/products/jackery-battery-pack-5000-plus",
+      "variant_id": 41317176213591,
       "source_store": "https://www.jackery.com",
       "image": null,
       "wh_method": "body-wh-before-capacity-label"
@@ -4540,6 +4803,7 @@
       "available": false,
       "price_per_wh": 0.575,
       "url": "https://ecoflow.com/products/delta-3-max-solar-series-generator-pv220w",
+      "variant_id": 54718307008585,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "body-mode-wh"
@@ -4556,6 +4820,7 @@
       "available": true,
       "price_per_wh": 0.576,
       "url": "https://www.litime.com/products/rv-power-solution",
+      "variant_id": 46574070989020,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -4572,6 +4837,7 @@
       "available": false,
       "price_per_wh": 0.585,
       "url": "https://www.bluettipower.com/products/ac200max-power-station",
+      "variant_id": 44272419995867,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -4588,6 +4854,7 @@
       "available": false,
       "price_per_wh": 0.586,
       "url": "https://www.bluettipower.com/products/bluetti-b300s-expansion-battery-3-072wh-ac500-cms",
+      "variant_id": 45891403055323,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -4604,6 +4871,7 @@
       "available": false,
       "price_per_wh": 0.586,
       "url": "https://www.bluettipower.com/products/home-backup-power-ac500",
+      "variant_id": 46381280526555,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -4620,6 +4888,7 @@
       "available": false,
       "price_per_wh": 0.586,
       "url": "https://www.bluettipower.com/products/ep500-2000w-5100wh-solar-generator",
+      "variant_id": 42276009967835,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -4636,6 +4905,7 @@
       "available": false,
       "price_per_wh": 0.587,
       "url": "https://www.bluettipower.com/products/bluetti-ac300-2-b300k-trolley-home-battery-backup",
+      "variant_id": 45976358027483,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -4652,6 +4922,7 @@
       "available": false,
       "price_per_wh": 0.591,
       "url": "https://www.bluettipower.com/products/bluetti-ac200p-2000wh-2000w-portable-power-station",
+      "variant_id": 43364102635739,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -4668,6 +4939,7 @@
       "available": false,
       "price_per_wh": 0.592,
       "url": "https://www.bluettipower.com/products/bluetti-ac200p-2000wh-2000w-portable-power-station",
+      "variant_id": 43364102602971,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -4684,6 +4956,7 @@
       "available": false,
       "price_per_wh": 0.596,
       "url": "https://www.bluettipower.com/products/home-backup-power-ac500",
+      "variant_id": 46381280559323,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -4700,6 +4973,7 @@
       "available": false,
       "price_per_wh": 0.597,
       "url": "https://www.bluettipower.com/products/apex-300-b300k-solarx-4k",
+      "variant_id": 47513131516123,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "body-mode-wh"
@@ -4716,6 +4990,7 @@
       "available": false,
       "price_per_wh": 0.597,
       "url": "https://www.bluettipower.com/products/bluetti-ac500-2-b300k-home-battery-backup",
+      "variant_id": 45979049328859,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -4732,6 +5007,7 @@
       "available": false,
       "price_per_wh": 0.599,
       "url": "https://www.bluettipower.com/products/eb70s-716wh-800w-portable-power-station-best-solar-generator-for-camping",
+      "variant_id": 40955778039983,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -4748,6 +5024,7 @@
       "available": false,
       "price_per_wh": 0.614,
       "url": "https://ecoflow.com/products/ecoflow-delta-3-classic-solar-generator",
+      "variant_id": 55487954452553,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "override-curated"
@@ -4764,6 +5041,7 @@
       "available": false,
       "price_per_wh": 0.615,
       "url": "https://www.bluettipower.com/products/apex-300-b300k-home-backup-kit-single-apex-300",
+      "variant_id": 47845029871835,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "body-mode-wh"
@@ -4780,6 +5058,7 @@
       "available": false,
       "price_per_wh": 0.615,
       "url": "https://www.bluettipower.com/products/apex-300-home-battery-backup",
+      "variant_id": 47351562174683,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -4796,6 +5075,7 @@
       "available": false,
       "price_per_wh": 0.615,
       "url": "https://www.bluettipower.com/products/ac300-2-b300k-350w",
+      "variant_id": 47009407795419,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -4812,6 +5092,7 @@
       "available": true,
       "price_per_wh": 0.618,
       "url": "https://ecoflow.com/products/delta-pro-ultra-x-inverter",
+      "variant_id": 54714798768201,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "override-curated"
@@ -4828,6 +5109,7 @@
       "available": true,
       "price_per_wh": 0.618,
       "url": "https://www.jackery.com/products/jackery-explorer-1500-v2-portable-power-station",
+      "variant_id": 42138492174423,
       "source_store": "https://www.jackery.com",
       "image": null,
       "wh_method": "body-wh-before-capacity-label"
@@ -4844,6 +5126,7 @@
       "available": true,
       "price_per_wh": 0.618,
       "url": "https://www.jackery.com/products/jackery-solar-generator-1500-v2",
+      "variant_id": 42138492403799,
       "source_store": "https://www.jackery.com",
       "image": null,
       "wh_method": "body-wh-before-capacity-label"
@@ -4860,6 +5143,7 @@
       "available": false,
       "price_per_wh": 0.619,
       "url": "https://www.bluettipower.com/products/b80",
+      "variant_id": 44373844066523,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -4876,6 +5160,7 @@
       "available": true,
       "price_per_wh": 0.62,
       "url": "https://www.jackery.com/products/jackery-explorer-5000-plus-series-1",
+      "variant_id": 44054773497943,
       "source_store": "https://www.jackery.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -4892,6 +5177,7 @@
       "available": false,
       "price_per_wh": 0.624,
       "url": "https://www.bluettipower.com/products/solar-generator-ac500",
+      "variant_id": 46291864289499,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -4908,6 +5194,7 @@
       "available": false,
       "price_per_wh": 0.624,
       "url": "https://www.bluettipower.com/products/bluetti-ac500-2-b300k-home-integration-kit-120v-free-p090d-p150d-cable-home-battery-backup",
+      "variant_id": 46210316370139,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -4924,6 +5211,7 @@
       "available": true,
       "price_per_wh": 0.625,
       "url": "https://www.bluettipower.com/products/b500k-2-for-apex-300",
+      "variant_id": 48005064327387,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "body-mode-wh"
@@ -4940,6 +5228,7 @@
       "available": false,
       "price_per_wh": 0.633,
       "url": "https://www.bluettipower.com/products/apex-300-b300k-2-200w-1",
+      "variant_id": 47498676666587,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "body-mode-wh"
@@ -4956,6 +5245,7 @@
       "available": false,
       "price_per_wh": 0.633,
       "url": "https://www.bluettipower.com/products/ac300-2-b300k-2-200w",
+      "variant_id": 47009384759515,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -4972,6 +5262,7 @@
       "available": false,
       "price_per_wh": 0.634,
       "url": "https://www.jackery.com/products/homepower-1000-v2",
+      "variant_id": 43956612792407,
       "source_store": "https://www.jackery.com",
       "image": null,
       "wh_method": "body-wh-before-capacity-label"
@@ -4988,6 +5279,7 @@
       "available": true,
       "price_per_wh": 0.634,
       "url": "https://www.jackery.com/products/jackery-homepower-2000-plus-v2-red-cross-edition",
+      "variant_id": 44267003150423,
       "source_store": "https://www.jackery.com",
       "image": null,
       "wh_method": "body-mode-wh"
@@ -5004,6 +5296,7 @@
       "available": false,
       "price_per_wh": 0.634,
       "url": "https://www.jackery.com/products/jackery-homepower-1000-v2",
+      "variant_id": 43933783556183,
       "source_store": "https://www.jackery.com",
       "image": null,
       "wh_method": "body-wh-before-capacity-label"
@@ -5020,6 +5313,7 @@
       "available": true,
       "price_per_wh": 0.634,
       "url": "https://www.jackery.com/products/jackery-homepower-2000-plus-v2",
+      "variant_id": 44612451401815,
       "source_store": "https://www.jackery.com",
       "image": null,
       "wh_method": "body-wh-before-capacity-label"
@@ -5036,6 +5330,7 @@
       "available": false,
       "price_per_wh": 0.634,
       "url": "https://ecoflow.com/products/delta-3-classic-solar-generator-pv220w",
+      "variant_id": 54718176723017,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "override-curated"
@@ -5052,6 +5347,7 @@
       "available": false,
       "price_per_wh": 0.635,
       "url": "https://ecoflow.com/products/delta-pro-ultra",
+      "variant_id": 67914609459273,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "override-curated"
@@ -5068,6 +5364,7 @@
       "available": false,
       "price_per_wh": 0.642,
       "url": "https://www.bluettipower.com/products/bluetti-ac500-2-b300k-p090d-p150d-cable-home-battery-backup",
+      "variant_id": 46407120552155,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -5084,6 +5381,7 @@
       "available": false,
       "price_per_wh": 0.65,
       "url": "https://www.bluettipower.com/products/ac240",
+      "variant_id": 45141104427227,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -5100,6 +5398,7 @@
       "available": false,
       "price_per_wh": 0.651,
       "url": "https://www.bluettipower.com/products/apex-300-b300k-500w",
+      "variant_id": 50526969331931,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "body-mode-wh"
@@ -5116,6 +5415,7 @@
       "available": false,
       "price_per_wh": 0.651,
       "url": "https://www.bluettipower.com/products/ac300-b300",
+      "variant_id": 44701278798043,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -5132,6 +5432,7 @@
       "available": false,
       "price_per_wh": 0.653,
       "url": "https://www.renogy.com/products/rego-12-8v-104ah-super-slim-lithium-iron-phosphate-battery",
+      "variant_id": 43178669768819,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -5148,6 +5449,7 @@
       "available": false,
       "price_per_wh": 0.655,
       "url": "https://www.bluettipower.com/products/bluetti-ep800-b500-home-battery-backup-hydrogen",
+      "variant_id": 45507906240731,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -5164,6 +5466,7 @@
       "available": true,
       "price_per_wh": 0.656,
       "url": "https://www.litime.com/products/marine-house-battery-kits-for-boat-onboard-power",
+      "variant_id": 51737913524444,
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "variant-ah-x-title-v"
@@ -5180,6 +5483,7 @@
       "available": false,
       "price_per_wh": 0.663,
       "url": "https://www.bluettipower.com/products/apex-300-2-b300k-2-500w",
+      "variant_id": 50527191204059,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "body-mode-wh"
@@ -5196,6 +5500,7 @@
       "available": false,
       "price_per_wh": 0.663,
       "url": "https://ecoflow.com/products/ecoflow-delta-3-solar-generator",
+      "variant_id": 55488102269001,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "override-curated"
@@ -5212,6 +5517,7 @@
       "available": false,
       "price_per_wh": 0.665,
       "url": "https://www.renogy.com/products/rego-12-8v-104ah-super-slim-lithium-iron-phosphate-battery",
+      "variant_id": 43178669736051,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -5228,6 +5534,7 @@
       "available": true,
       "price_per_wh": 0.666,
       "url": "https://www.renogy.com/products/rego-12-8v-104ah-super-slim-lithium-iron-phosphate-battery",
+      "variant_id": 44425581854835,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -5244,6 +5551,7 @@
       "available": true,
       "price_per_wh": 0.666,
       "url": "https://www.renogy.com/products/12v-104ah-super-slim-lithium-iron-phosphate-battery-with-self-heating-rego-series",
+      "variant_id": 48394465902707,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -5260,6 +5568,7 @@
       "available": true,
       "price_per_wh": 0.666,
       "url": "https://www.renogy.com/products/12v-104ah-super-slim-lithium-iron-phosphate-battery-with-self-heating-rego-series",
+      "variant_id": 48394465935475,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -5276,6 +5585,7 @@
       "available": true,
       "price_per_wh": 0.666,
       "url": "https://www.renogy.com/products/12v-104ah-super-slim-lithium-iron-phosphate-battery-with-self-heating-rego-series",
+      "variant_id": 48394465968243,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -5292,6 +5602,7 @@
       "available": true,
       "price_per_wh": 0.666,
       "url": "https://www.renogy.com/products/12v-104ah-super-slim-lithium-iron-phosphate-battery-with-self-heating-rego-series",
+      "variant_id": 48394466001011,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -5308,6 +5619,7 @@
       "available": false,
       "price_per_wh": 0.669,
       "url": "https://www.bluettipower.com/products/ac300-b300k-solar-generator",
+      "variant_id": 46291865862363,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -5324,6 +5636,7 @@
       "available": false,
       "price_per_wh": 0.669,
       "url": "https://www.bluettipower.com/products/bluetti-ac300-2-b300k-home-integration-kit-120v-home-battery-backup",
+      "variant_id": 45955275161819,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -5340,6 +5653,7 @@
       "available": false,
       "price_per_wh": 0.672,
       "url": "https://www.bluettipower.com/products/bluetti-ep800-3-b500-home-battery-backup",
+      "variant_id": 45480585658587,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -5356,6 +5670,7 @@
       "available": false,
       "price_per_wh": 0.673,
       "url": "https://www.bluettipower.com/products/bluetti-ac50p-portable-power-station",
+      "variant_id": 46701132153051,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -5372,6 +5687,7 @@
       "available": true,
       "price_per_wh": 0.674,
       "url": "https://www.jackery.com/products/jackery-explorer-5000-plus-series",
+      "variant_id": 41647206531159,
       "source_store": "https://www.jackery.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -5388,6 +5704,7 @@
       "available": true,
       "price_per_wh": 0.674,
       "url": "https://www.jackery.com/products/jackery-solar-generator-5000-plus",
+      "variant_id": 43981674020951,
       "source_store": "https://www.jackery.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -5404,6 +5721,7 @@
       "available": false,
       "price_per_wh": 0.676,
       "url": "https://www.renogy.com/products/rego-12v-400ah-lifepo4-battery",
+      "variant_id": 43178723311731,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -5420,6 +5738,7 @@
       "available": false,
       "price_per_wh": 0.676,
       "url": "https://www.jackery.com/products/solar-generator-2000-v2-100-mini",
+      "variant_id": 41723679834199,
       "source_store": "https://www.jackery.com",
       "image": null,
       "wh_method": "override-curated"
@@ -5436,6 +5755,7 @@
       "available": false,
       "price_per_wh": 0.683,
       "url": "https://ecoflow.com/products/delta-pro-3-portable-power-station",
+      "variant_id": 41385721004105,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "override-curated"
@@ -5452,6 +5772,7 @@
       "available": false,
       "price_per_wh": 0.683,
       "url": "https://www.bluettipower.com/products/ep500-2000w-5100wh-solar-generator",
+      "variant_id": 43527268794587,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -5468,6 +5789,7 @@
       "available": false,
       "price_per_wh": 0.683,
       "url": "https://www.bluettipower.com/products/bluetti-ep500pro-home-battery-backup",
+      "variant_id": 42945985183963,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -5484,6 +5806,7 @@
       "available": false,
       "price_per_wh": 0.683,
       "url": "https://www.bluettipower.com/products/bluetti-ep500pro-home-battery-backup",
+      "variant_id": 43527394623707,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -5500,6 +5823,7 @@
       "available": false,
       "price_per_wh": 0.687,
       "url": "https://www.bluettipower.com/products/apex-300-rv-power-solution",
+      "variant_id": 47354308952283,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "body-mode-wh"
@@ -5516,6 +5840,7 @@
       "available": false,
       "price_per_wh": 0.687,
       "url": "https://www.renogy.com/products/rego-12-8v-104ah-super-slim-lithium-iron-phosphate-battery",
+      "variant_id": 43178669834355,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -5532,6 +5857,7 @@
       "available": true,
       "price_per_wh": 0.691,
       "url": "https://www.bluettipower.com/products/elite-30-mini-portable-power-station",
+      "variant_id": 50885594087643,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -5548,6 +5874,7 @@
       "available": false,
       "price_per_wh": 0.693,
       "url": "https://www.bluettipower.com/products/bluetti-ac500-4-b300k-home-battery-backup",
+      "variant_id": 45979056210139,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -5564,6 +5891,7 @@
       "available": false,
       "price_per_wh": 0.697,
       "url": "https://www.bluettipower.com/products/b210",
+      "variant_id": 45115292451035,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -5580,6 +5908,7 @@
       "available": false,
       "price_per_wh": 0.699,
       "url": "https://www.bluettipower.com/products/bluetti-ac500-3-b300k-2-pv350d-free-p090d-p150d-cable-home-battery-backup",
+      "variant_id": 46216633581787,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -5596,6 +5925,7 @@
       "available": true,
       "price_per_wh": 0.702,
       "url": "https://ecoflow.com/products/delta-3-plus-portable-power-station",
+      "variant_id": 41826182496329,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "override-curated"
@@ -5612,6 +5942,7 @@
       "available": false,
       "price_per_wh": 0.703,
       "url": "https://www.renogy.com/products/lithium-iron-phosphate-battery-12-volt-50-ah",
+      "variant_id": 43178689757299,
       "source_store": "https://www.renogy.com",
       "image": null,
       "wh_method": "v-times-ah"
@@ -5628,9 +5959,44 @@
       "available": false,
       "price_per_wh": 0.706,
       "url": "https://www.bluettipower.com/products/bluetti-ep800-2-b500-home-battery-backup",
+      "variant_id": 45480575631579,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
+    },
+    {
+      "brand": "Jackery",
+      "title": "HomePower 3600 Plus \u2014 HomePower 3600 Plus + SolarSaga 200W x 2",
+      "type": "station",
+      "wh": 3584,
+      "voltage": null,
+      "ah": null,
+      "price": 2549.0,
+      "compare_at": 2549.0,
+      "available": true,
+      "price_per_wh": 0.711,
+      "url": "https://www.jackery.com/products/homepower-3600-plus",
+      "variant_id": 42066664915031,
+      "source_store": "https://www.jackery.com",
+      "image": null,
+      "wh_method": "body-wh-before-capacity-label"
+    },
+    {
+      "brand": "Jackery",
+      "title": "Jackery HomePower 3600 Plus \u2014 HomePower 3600 Plus + SolarSaga 200W x 2",
+      "type": "station",
+      "wh": 3584,
+      "voltage": null,
+      "ah": null,
+      "price": 2549.0,
+      "compare_at": 2549.0,
+      "available": true,
+      "price_per_wh": 0.711,
+      "url": "https://www.jackery.com/products/jackery-homepower-3600-plus",
+      "variant_id": 42066659672151,
+      "source_store": "https://www.jackery.com",
+      "image": null,
+      "wh_method": "body-wh-before-capacity-label"
     },
     {
       "brand": "Jackery",
@@ -5644,6 +6010,7 @@
       "available": true,
       "price_per_wh": 0.715,
       "url": "https://www.jackery.com/products/jackery-explorer-5000-plus",
+      "variant_id": 41389407567959,
       "source_store": "https://www.jackery.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -5660,6 +6027,7 @@
       "available": false,
       "price_per_wh": 0.716,
       "url": "https://www.bluettipower.com/products/bluetti-ac300-2-b300-home-battery-backup-cms",
+      "variant_id": 45374297374939,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -5676,6 +6044,7 @@
       "available": false,
       "price_per_wh": 0.723,
       "url": "https://www.bluettipower.com/products/apex-300-b300k-2-200w",
+      "variant_id": 47354165887195,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "body-mode-wh"
@@ -5692,6 +6061,7 @@
       "available": false,
       "price_per_wh": 0.723,
       "url": "https://www.bluettipower.com/products/ac500-2-b300k-350w",
+      "variant_id": 46733278281947,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -5708,6 +6078,24 @@
       "available": false,
       "price_per_wh": 0.73,
       "url": "https://www.bluettipower.com/products/ac2a",
+      "variant_id": 44389797789915,
+      "source_store": "https://www.bluettipower.com",
+      "image": null,
+      "wh_method": "explicit-wh"
+    },
+    {
+      "brand": "BLUETTI",
+      "title": "5kWh RV Kit \u2014 RV5+B4810+Epanel+Epad",
+      "type": "station",
+      "wh": 5000,
+      "voltage": null,
+      "ah": null,
+      "price": 3699.0,
+      "compare_at": 3999.0,
+      "available": true,
+      "price_per_wh": 0.74,
+      "url": "https://www.bluettipower.com/products/rv5-b4810-epanel-epad",
+      "variant_id": 47637171503323,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -5724,6 +6112,7 @@
       "available": true,
       "price_per_wh": 0.747,
       "url": "https://www.bluettipower.com/products/bluetti-premium-200-v2-portable-power-station",
+      "variant_id": 46705396678875,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -5740,6 +6129,7 @@
       "available": false,
       "price_per_wh": 0.748,
       "url": "https://www.bluettipower.com/products/ac300-b300",
+      "variant_id": 45652359807195,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -5756,6 +6146,7 @@
       "available": false,
       "price_per_wh": 0.748,
       "url": "https://www.bluettipower.com/products/home-backup-power-ac500",
+      "variant_id": 46381280493787,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -5772,6 +6163,7 @@
       "available": false,
       "price_per_wh": 0.748,
       "url": "https://www.bluettipower.com/products/bluetti-ac300-2-b300-trolley-home-battery-backup-cms",
+      "variant_id": 45375526142171,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -5788,6 +6180,7 @@
       "available": true,
       "price_per_wh": 0.756,
       "url": "https://ecoflow.com/products/ecoflow-delta-pro-ultra-whole-home-backup-power",
+      "variant_id": 42110437261385,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "override-curated"
@@ -5804,6 +6197,7 @@
       "available": false,
       "price_per_wh": 0.759,
       "url": "https://www.bluettipower.com/products/bluetti-ac300-b300k-sp200l-home-battery-backup",
+      "variant_id": 45973870575835,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -5820,6 +6214,7 @@
       "available": false,
       "price_per_wh": 0.759,
       "url": "https://www.bluettipower.com/products/bluetti-ac500-b300k-free-p090d-p150d-cable-home-battery-backup",
+      "variant_id": 46103554916571,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -5836,6 +6231,7 @@
       "available": true,
       "price_per_wh": 0.778,
       "url": "https://www.bluettipower.com/products/sodium-ion-battery-pioneer-na",
+      "variant_id": 47699009143003,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -5852,6 +6248,7 @@
       "available": false,
       "price_per_wh": 0.78,
       "url": "https://www.jackery.com/products/jackery-explorer-600-v2-portable-power-station",
+      "variant_id": 41993464283223,
       "source_store": "https://www.jackery.com",
       "image": null,
       "wh_method": "body-wh-before-capacity-label"
@@ -5868,6 +6265,7 @@
       "available": false,
       "price_per_wh": 0.78,
       "url": "https://ecoflow.com/products/delta-3-series-solar-generator-pv110w",
+      "variant_id": 41826187280457,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "override-curated"
@@ -5884,6 +6282,7 @@
       "available": false,
       "price_per_wh": 0.781,
       "url": "https://ecoflow.com/products/ecoflow-delta-pro-ultra-400w-portable-solar-panel",
+      "variant_id": 54308404854857,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "override-curated"
@@ -5900,6 +6299,7 @@
       "available": true,
       "price_per_wh": 0.781,
       "url": "https://ecoflow.com/products/delta-pro-ultra-solar-generator",
+      "variant_id": 41963264540745,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "override-curated"
@@ -5916,6 +6316,7 @@
       "available": true,
       "price_per_wh": 0.781,
       "url": "https://www.jackery.com/products/jackery-explorer-1500-ultra-portable-power-station",
+      "variant_id": 42447145435223,
       "source_store": "https://www.jackery.com",
       "image": null,
       "wh_method": "body-mode-wh"
@@ -5932,6 +6333,7 @@
       "available": false,
       "price_per_wh": 0.781,
       "url": "https://ecoflow.com/products/delta-3-max-plus-smart-extra-battery",
+      "variant_id": 55069632856137,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -5948,6 +6350,7 @@
       "available": true,
       "price_per_wh": 0.787,
       "url": "https://ecoflow.com/products/river-2-240-portable-power-station",
+      "variant_id": 40957077487689,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "body-wh-before-capacity-label"
@@ -5964,9 +6367,27 @@
       "available": true,
       "price_per_wh": 0.8,
       "url": "https://www.bluettipower.com/products/b500k-2-for-ac500",
+      "variant_id": 48005065769179,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "body-mode-wh"
+    },
+    {
+      "brand": "BLUETTI",
+      "title": "5kWh RV Kit + 2 \u00d7 100W \u2014 RV5+B4810+Epanel+Epad+2 \u00d7 100W",
+      "type": "station",
+      "wh": 5000,
+      "voltage": null,
+      "ah": null,
+      "price": 3999.0,
+      "compare_at": 4399.0,
+      "available": true,
+      "price_per_wh": 0.8,
+      "url": "https://www.bluettipower.com/products/rv5-b4810-epanel-epad-200w",
+      "variant_id": 47637297955035,
+      "source_store": "https://www.bluettipower.com",
+      "image": null,
+      "wh_method": "explicit-wh"
     },
     {
       "brand": "EcoFlow",
@@ -5980,6 +6401,7 @@
       "available": false,
       "price_per_wh": 0.8,
       "url": "https://ecoflow.com/products/delta-3-series-solar-generator-pv160w",
+      "variant_id": 41826188820553,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "override-curated"
@@ -5996,6 +6418,7 @@
       "available": false,
       "price_per_wh": 0.806,
       "url": "https://www.bluettipower.com/products/bluetti-ep800-b500-home-battery-backup",
+      "variant_id": 44268402376923,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -6012,6 +6435,7 @@
       "available": false,
       "price_per_wh": 0.806,
       "url": "https://www.bluettipower.com/products/b500-expansion-battery",
+      "variant_id": 44817898471643,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -6028,6 +6452,7 @@
       "available": true,
       "price_per_wh": 0.808,
       "url": "https://www.jackery.com/products/jackery-solar-generator-2000-v2",
+      "variant_id": 41264595861591,
       "source_store": "https://www.jackery.com",
       "image": null,
       "wh_method": "override-curated"
@@ -6044,6 +6469,7 @@
       "available": true,
       "price_per_wh": 0.814,
       "url": "https://ecoflow.com/products/lfp-battery-for-48v-system",
+      "variant_id": 40520684765257,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -6060,6 +6486,7 @@
       "available": false,
       "price_per_wh": 0.817,
       "url": "https://www.bluettipower.com/products/bluetti-eb3a-portable-power-station",
+      "variant_id": 42951366410459,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -6076,6 +6503,7 @@
       "available": false,
       "price_per_wh": 0.817,
       "url": "https://www.bluettipower.com/products/bluetti-ac300-2-b300-home-battery-backup-cms-1",
+      "variant_id": 45376060293339,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -6092,6 +6520,7 @@
       "available": false,
       "price_per_wh": 0.826,
       "url": "https://www.bluettipower.com/products/ac60",
+      "variant_id": 44150939320539,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -6108,6 +6537,7 @@
       "available": true,
       "price_per_wh": 0.829,
       "url": "https://www.bluettipower.com/products/bluetti-premium-100-v2-portable-power-station",
+      "variant_id": 49161674293467,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -6124,6 +6554,7 @@
       "available": false,
       "price_per_wh": 0.831,
       "url": "https://www.bluettipower.com/products/ac200max-power-station",
+      "variant_id": 44272420061403,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -6140,6 +6571,7 @@
       "available": false,
       "price_per_wh": 0.832,
       "url": "https://www.bluettipower.com/products/apex-300-solarx-4k",
+      "variant_id": 47513125191899,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "body-mode-wh"
@@ -6156,6 +6588,7 @@
       "available": false,
       "price_per_wh": 0.832,
       "url": "https://www.bluettipower.com/products/apex-300-2-b300k-2-200w",
+      "variant_id": 47498682859739,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "body-mode-wh"
@@ -6172,6 +6605,7 @@
       "available": false,
       "price_per_wh": 0.832,
       "url": "https://www.bluettipower.com/products/bluetti-2-ac300-2-b300k-1-p030a-home-battery-backup",
+      "variant_id": 45955035824347,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -6188,6 +6622,7 @@
       "available": false,
       "price_per_wh": 0.832,
       "url": "https://www.bluettipower.com/products/ac300-b300k-4-200w-get-free-trolley",
+      "variant_id": 46866556682459,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -6204,6 +6639,7 @@
       "available": false,
       "price_per_wh": 0.832,
       "url": "https://www.bluettipower.com/products/bluetti-ac300-b300k-2-sp200l-home-battery-backup-2",
+      "variant_id": 45955342696667,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -6220,6 +6656,7 @@
       "available": false,
       "price_per_wh": 0.832,
       "url": "https://www.bluettipower.com/products/bluetti-ac300-b300k-pv350-home-battery-backup",
+      "variant_id": 45969587470555,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -6236,6 +6673,7 @@
       "available": false,
       "price_per_wh": 0.832,
       "url": "https://www.bluettipower.com/products/bluetti-2-ac500-2-b300k-p030a-free-p090d-p150d-cable-home-battery-backup",
+      "variant_id": 46187319492827,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -6252,6 +6690,7 @@
       "available": false,
       "price_per_wh": 0.838,
       "url": "https://www.bluettipower.com/products/bluetti-ac300-b300k-home-integration-kit-120v-home-battery-backup",
+      "variant_id": 46210009497819,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -6268,6 +6707,7 @@
       "available": false,
       "price_per_wh": 0.846,
       "url": "https://www.bluettipower.com/products/bluetti-ac300-b300-home-battery-backup-cms",
+      "variant_id": 45374271357147,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -6284,6 +6724,7 @@
       "available": false,
       "price_per_wh": 0.849,
       "url": "https://www.bluettipower.com/products/apex-300-350w",
+      "variant_id": 47354031636699,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "body-mode-wh"
@@ -6300,9 +6741,27 @@
       "available": false,
       "price_per_wh": 0.85,
       "url": "https://www.bluettipower.com/products/bluetti-ac300-b300k-2-sp200l-rv-cable-home-battery-backup",
+      "variant_id": 45968163635419,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
+    },
+    {
+      "brand": "BLUETTI",
+      "title": "5kWh RV Kit + 4 \u00d7 100W \u2014 RV5+B4810+Epanel+Epad+4 \u00d7 100W",
+      "type": "station",
+      "wh": 5000,
+      "voltage": null,
+      "ah": null,
+      "price": 4299.0,
+      "compare_at": 4699.0,
+      "available": true,
+      "price_per_wh": 0.86,
+      "url": "https://www.bluettipower.com/products/rv5-b4810-epanel-epad-2-200w",
+      "variant_id": 47637303886043,
+      "source_store": "https://www.bluettipower.com",
+      "image": null,
+      "wh_method": "explicit-wh"
     },
     {
       "brand": "Jackery",
@@ -6316,6 +6775,7 @@
       "available": true,
       "price_per_wh": 0.865,
       "url": "https://www.jackery.com/products/jackery-explorer-300d-portable-power-station",
+      "variant_id": 42204275408983,
       "source_store": "https://www.jackery.com",
       "image": null,
       "wh_method": "body-mode-wh"
@@ -6332,6 +6792,7 @@
       "available": false,
       "price_per_wh": 0.868,
       "url": "https://www.bluettipower.com/products/apex-300-2-200w",
+      "variant_id": 47354130235611,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "body-mode-wh"
@@ -6348,6 +6809,7 @@
       "available": true,
       "price_per_wh": 0.875,
       "url": "https://ecoflow.com/products/lfp-battery",
+      "variant_id": 39958505095241,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -6364,6 +6826,7 @@
       "available": true,
       "price_per_wh": 0.879,
       "url": "https://www.jackery.com/products/jackery-solar-generator-5000-plus",
+      "variant_id": 41389393444951,
       "source_store": "https://www.jackery.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -6380,6 +6843,7 @@
       "available": false,
       "price_per_wh": 0.891,
       "url": "https://www.bluettipower.com/products/ac50b",
+      "variant_id": 45778244960475,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -6396,6 +6860,7 @@
       "available": false,
       "price_per_wh": 0.895,
       "url": "https://www.bluettipower.com/products/bluetti-2-ac300-2-b300-1-p030a-home-battery-backup-cms",
+      "variant_id": 45376034275547,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -6412,6 +6877,7 @@
       "available": false,
       "price_per_wh": 0.895,
       "url": "https://www.bluettipower.com/products/bluetti-2-ac300-2-b300-2-pv350-p030a-home-battery-backup-cms",
+      "variant_id": 45396274184411,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -6428,6 +6894,7 @@
       "available": false,
       "price_per_wh": 0.897,
       "url": "https://ecoflow.com/products/delta-3-series-solar-generator-pv220w",
+      "variant_id": 41826188886089,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "override-curated"
@@ -6444,6 +6911,7 @@
       "available": true,
       "price_per_wh": 0.898,
       "url": "https://www.jackery.com/products/homepower-2000-plus-v2",
+      "variant_id": 43957143273559,
       "source_store": "https://www.jackery.com",
       "image": null,
       "wh_method": "body-wh-before-capacity-label"
@@ -6460,6 +6928,7 @@
       "available": true,
       "price_per_wh": 0.898,
       "url": "https://www.jackery.com/products/solar-generator-homepower-2000-plus-v2",
+      "variant_id": 43966478712919,
       "source_store": "https://www.jackery.com",
       "image": null,
       "wh_method": "body-wh-before-capacity-label"
@@ -6476,6 +6945,7 @@
       "available": false,
       "price_per_wh": 0.904,
       "url": "https://www.bluettipower.com/products/apex-300-500w",
+      "variant_id": 49004059197659,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "body-mode-wh"
@@ -6492,6 +6962,7 @@
       "available": false,
       "price_per_wh": 0.904,
       "url": "https://www.bluettipower.com/products/bluetti-ac300-2-b300k-3-pv350-rv-cable-home-battery-backup",
+      "variant_id": 45955259138267,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -6508,6 +6979,7 @@
       "available": true,
       "price_per_wh": 0.909,
       "url": "https://ecoflow.com/products/lfp-battery-for-48v-system",
+      "variant_id": 40520684732489,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -6524,6 +6996,7 @@
       "available": false,
       "price_per_wh": 0.911,
       "url": "https://www.bluettipower.com/products/bluetti-ac500-b300s-home-battery-backup-ac500-cms",
+      "variant_id": 45826927231195,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -6540,6 +7013,7 @@
       "available": false,
       "price_per_wh": 0.911,
       "url": "https://ecoflow.com/products/delta-pro-ultra-includes-smart-home-panel2",
+      "variant_id": 41793325498441,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "override-curated"
@@ -6556,6 +7030,7 @@
       "available": false,
       "price_per_wh": 0.917,
       "url": "https://www.jackery.com/products/solar-generator-homepower-1000-v2",
+      "variant_id": 43966478647383,
       "source_store": "https://www.jackery.com",
       "image": null,
       "wh_method": "body-wh-before-capacity-label"
@@ -6572,6 +7047,7 @@
       "available": true,
       "price_per_wh": 0.92,
       "url": "https://ecoflow.com/products/lfp-battery",
+      "variant_id": 39958505128009,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -6588,6 +7064,7 @@
       "available": true,
       "price_per_wh": 0.92,
       "url": "https://ecoflow.com/products/power-kits-5kwh-lfp-battery",
+      "variant_id": 41830186745929,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -6604,7 +7081,25 @@
       "available": true,
       "price_per_wh": 0.92,
       "url": "https://ecoflow.com/products/10kwh-lfp-battery",
+      "variant_id": 41854003183689,
       "source_store": "https://ecoflow.com",
+      "image": null,
+      "wh_method": "explicit-wh"
+    },
+    {
+      "brand": "BLUETTI",
+      "title": "5kWh RV Kit + 6 \u00d7 100W \u2014 RV5+B4810+Epanel+Epad+6 \u00d7 100W",
+      "type": "station",
+      "wh": 5000,
+      "voltage": null,
+      "ah": null,
+      "price": 4599.0,
+      "compare_at": 4999.0,
+      "available": true,
+      "price_per_wh": 0.92,
+      "url": "https://www.bluettipower.com/products/rv5-b4810-epanel-epad-3-200w",
+      "variant_id": 47637308670171,
+      "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh"
     },
@@ -6620,6 +7115,7 @@
       "available": false,
       "price_per_wh": 0.927,
       "url": "https://www.bluettipower.com/products/bluetti-ep900-3-b500-home-battery-backup",
+      "variant_id": 45558449995995,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -6636,6 +7132,7 @@
       "available": false,
       "price_per_wh": 0.927,
       "url": "https://www.bluettipower.com/products/bluetti-ep900-b500-home-battery-backup",
+      "variant_id": 45598452351195,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -6652,6 +7149,7 @@
       "available": false,
       "price_per_wh": 0.936,
       "url": "https://www.jackery.com/products/jackery-solar-generator-600-v2",
+      "variant_id": 41993776463959,
       "source_store": "https://www.jackery.com",
       "image": null,
       "wh_method": "body-wh-before-capacity-label"
@@ -6668,6 +7166,7 @@
       "available": false,
       "price_per_wh": 0.949,
       "url": "https://www.jackery.com/products/jackery-explorer-1000-plus-creality-ender-3-v3-plus-3d-printer",
+      "variant_id": 41176761761879,
       "source_store": "https://www.jackery.com",
       "image": null,
       "wh_method": "body-wh-before-capacity-label"
@@ -6684,6 +7183,7 @@
       "available": false,
       "price_per_wh": 0.958,
       "url": "https://www.bluettipower.com/products/bluetti-2-ac300-2-b300k-2-pv350-p030a-home-battery-backup",
+      "variant_id": 45955099558107,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -6700,6 +7200,7 @@
       "available": false,
       "price_per_wh": 0.976,
       "url": "https://www.bluettipower.com/products/bluetti-ac300-b300k-3-sp200l-home-battery-backup",
+      "variant_id": 45968904650971,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -6716,6 +7217,7 @@
       "available": false,
       "price_per_wh": 0.976,
       "url": "https://www.bluettipower.com/products/bluetti-ac500-b300k-pv350d-free-p090d-p150d-cable-home-battery-backup",
+      "variant_id": 46187239768283,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -6732,6 +7234,7 @@
       "available": false,
       "price_per_wh": 0.976,
       "url": "https://ecoflow.com/products/delta-pro-ultra-delta-pro-ultra-extra-battery",
+      "variant_id": 55568663543881,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "override-curated"
@@ -6748,6 +7251,7 @@
       "available": true,
       "price_per_wh": 0.99,
       "url": "https://www.jackery.com/products/explorer-300-portable-power-station",
+      "variant_id": 44638374494295,
       "source_store": "https://www.jackery.com",
       "image": null,
       "wh_method": "body-wh-before-capacity-label"
@@ -6764,6 +7268,7 @@
       "available": false,
       "price_per_wh": 0.99,
       "url": "https://www.jackery.com/products/jackery-explorer-300-solarsaga-100w-solar-generator",
+      "variant_id": 44213908734039,
       "source_store": "https://www.jackery.com",
       "image": null,
       "wh_method": "body-wh-before-capacity-label"
@@ -6780,6 +7285,7 @@
       "available": false,
       "price_per_wh": 1.003,
       "url": "https://www.jackery.com/products/jackery-solar-generator-300d",
+      "variant_id": 43936514703447,
       "source_store": "https://www.jackery.com",
       "image": null,
       "wh_method": "body-mode-wh"
@@ -6796,6 +7302,7 @@
       "available": true,
       "price_per_wh": 1.007,
       "url": "https://www.bluettipower.com/products/bluetti-elite-30-v2-portable-power-station-600w-288wh-blush-pink",
+      "variant_id": 47844917346523,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -6812,6 +7319,7 @@
       "available": true,
       "price_per_wh": 1.007,
       "url": "https://www.bluettipower.com/products/bluetti-elite-30-v2-portable-power-station-600w-288wh-glacier-blue",
+      "variant_id": 47844907417819,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -6828,6 +7336,7 @@
       "available": true,
       "price_per_wh": 1.007,
       "url": "https://www.bluettipower.com/products/bluetti-elite-30-v2-portable-power-station-600w-288wh-meadow-green",
+      "variant_id": 47844900372699,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -6844,6 +7353,7 @@
       "available": true,
       "price_per_wh": 1.007,
       "url": "https://www.bluettipower.com/products/bluetti-elite-30-v2-portable-power-station-600w-288wh-light-sand-grey",
+      "variant_id": 47844847714523,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -6860,6 +7370,7 @@
       "available": true,
       "price_per_wh": 1.007,
       "url": "https://www.bluettipower.com/products/bluetti-elite-30-v2-portable-power-station-600w-288wh-twilight-glow-purple",
+      "variant_id": 47844883005659,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -6876,6 +7387,7 @@
       "available": false,
       "price_per_wh": 1.012,
       "url": "https://www.bluettipower.com/products/bluetti-ac500-b300k-2-sp200l-free-p090d-p150d-cable-home-battery-backup",
+      "variant_id": 46187318345947,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -6892,6 +7404,7 @@
       "available": true,
       "price_per_wh": 1.016,
       "url": "https://www.bluettipower.com/products/elite-10-mini-portable-power-station",
+      "variant_id": 47915127439579,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -6908,6 +7421,7 @@
       "available": true,
       "price_per_wh": 1.016,
       "url": "https://www.bluettipower.com/products/bluetti-elite-10-mini-power-station-200w-128wh-green",
+      "variant_id": 47917221019867,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -6924,6 +7438,7 @@
       "available": false,
       "price_per_wh": 1.03,
       "url": "https://www.bluettipower.com/products/bluetti-ac500-b300k-rv-cable-2-sp200l-free-p090d-p150d-cable-home-battery-backup-copy",
+      "variant_id": 46216579481819,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -6940,6 +7455,7 @@
       "available": false,
       "price_per_wh": 1.038,
       "url": "https://www.jackery.com/products/jackery-solar-generator-300-v2",
+      "variant_id": 44355807346775,
       "source_store": "https://www.jackery.com",
       "image": null,
       "wh_method": "body-wh-before-capacity-label"
@@ -6956,6 +7472,7 @@
       "available": false,
       "price_per_wh": 1.038,
       "url": "https://www.jackery.com/products/jackery-explorer-300-v2-portable-power-station",
+      "variant_id": 42522801766487,
       "source_store": "https://www.jackery.com",
       "image": null,
       "wh_method": "body-wh-before-capacity-label"
@@ -6972,6 +7489,7 @@
       "available": false,
       "price_per_wh": 1.038,
       "url": "https://www.bluettipower.com/products/bluetti-ep900-b500-home-battery-backup",
+      "variant_id": 45598452318427,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -6988,6 +7506,7 @@
       "available": true,
       "price_per_wh": 1.042,
       "url": "https://www.bluettipower.com/products/elite-30-v2-portable-power-station",
+      "variant_id": 47190054568155,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -7004,6 +7523,7 @@
       "available": false,
       "price_per_wh": 1.049,
       "url": "https://www.bluettipower.com/products/apex-300-2-350w",
+      "variant_id": 51037839950043,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "body-mode-wh"
@@ -7020,6 +7540,7 @@
       "available": false,
       "price_per_wh": 1.049,
       "url": "https://www.bluettipower.com/products/apex-300-3-200w",
+      "variant_id": 47506414567643,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "body-mode-wh"
@@ -7036,6 +7557,7 @@
       "available": false,
       "price_per_wh": 1.049,
       "url": "https://www.bluettipower.com/products/bluetti-ac300-2-b300-pv350-rv-cable-d050s-home-battery-backup-cms",
+      "variant_id": 45396675330267,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -7052,6 +7574,7 @@
       "available": false,
       "price_per_wh": 1.066,
       "url": "https://www.bluettipower.com/products/bluetti-ac300-b300k-2-pv350-home-battery-backup",
+      "variant_id": 45968309715163,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -7068,6 +7591,7 @@
       "available": false,
       "price_per_wh": 1.066,
       "url": "https://www.bluettipower.com/products/bluetti-2-ac500-2-b300k-2-pv350d-p030a-home-battery-backup",
+      "variant_id": 46216520302811,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -7084,6 +7608,7 @@
       "available": false,
       "price_per_wh": 1.074,
       "url": "https://www.bluettipower.com/products/bluetti-ac300-b300-pv350-home-battery-backup-cms",
+      "variant_id": 45376024117467,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -7100,6 +7625,7 @@
       "available": false,
       "price_per_wh": 1.093,
       "url": "https://ecoflow.com/products/delta-3-series-solar-generator-pv400w",
+      "variant_id": 41826179252297,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "override-curated"
@@ -7116,6 +7642,7 @@
       "available": false,
       "price_per_wh": 1.106,
       "url": "https://www.bluettipower.com/products/bluetti-ac300-b300-2-pv200-home-battery-backup-cms",
+      "variant_id": 45395592806619,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -7132,6 +7659,7 @@
       "available": false,
       "price_per_wh": 1.122,
       "url": "https://www.bluettipower.com/products/bluetti-ac300-b300-2pv200-12v-30a-rv-cable-home-battery-backup-cms",
+      "variant_id": 45396601569499,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -7148,6 +7676,7 @@
       "available": false,
       "price_per_wh": 1.193,
       "url": "https://www.bluettipower.com/products/apex-300-2-500w",
+      "variant_id": 49046586491099,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "body-mode-wh"
@@ -7164,6 +7693,7 @@
       "available": true,
       "price_per_wh": 1.204,
       "url": "https://www.jackery.com/products/jackery-solar-generator-1500-ultra",
+      "variant_id": 42447259107415,
       "source_store": "https://www.jackery.com",
       "image": null,
       "wh_method": "body-mode-wh"
@@ -7180,6 +7710,7 @@
       "available": true,
       "price_per_wh": 1.212,
       "url": "https://ecoflow.com/products/river-portable-power-station",
+      "variant_id": 41881724354633,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "body-wh-before-capacity-label"
@@ -7196,6 +7727,7 @@
       "available": false,
       "price_per_wh": 1.236,
       "url": "https://www.bluettipower.com/products/bluetti-ac300-b300-3-pv200-home-battery-backup-cms",
+      "variant_id": 45816655675611,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -7212,6 +7744,7 @@
       "available": false,
       "price_per_wh": 1.24,
       "url": "https://www.jackery.com/products/jackery-explorer-100d-portable-power-station",
+      "variant_id": 44508192473175,
       "source_store": "https://www.jackery.com",
       "image": null,
       "wh_method": "body-wh-before-capacity-label"
@@ -7228,6 +7761,7 @@
       "available": true,
       "price_per_wh": 1.286,
       "url": "https://ecoflow.com/products/delta-pro-ultra-x",
+      "variant_id": 54714781171785,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "override-curated"
@@ -7244,6 +7778,7 @@
       "available": false,
       "price_per_wh": 1.301,
       "url": "https://www.bluettipower.com/products/bluetti-ac300-b300k-3-pv350-home-battery-backup",
+      "variant_id": 45969425268955,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -7260,6 +7795,7 @@
       "available": false,
       "price_per_wh": 1.317,
       "url": "https://www.bluettipower.com/products/bluetti-ac300-b300-2-pv350-home-battery-backup-cms",
+      "variant_id": 45399758340315,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -7276,6 +7812,7 @@
       "available": false,
       "price_per_wh": 1.415,
       "url": "https://www.bluettipower.com/products/bluetti-2-ac500-2-b300-2-pv350-p030a-home-battery-backup-ac500-cms",
+      "variant_id": 45832815444187,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -7292,6 +7829,7 @@
       "available": false,
       "price_per_wh": 1.483,
       "url": "https://www.bluettipower.com/products/bluetti-ac500-2-b300k-2-sp200l-free-p090d-p150d-cable-home-battery-backup",
+      "variant_id": 46187321524443,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -7308,6 +7846,7 @@
       "available": false,
       "price_per_wh": 1.486,
       "url": "https://www.bluettipower.com/products/ac60",
+      "variant_id": 44098582249691,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh"
@@ -7324,6 +7863,7 @@
       "available": false,
       "price_per_wh": 1.497,
       "url": "https://ecoflow.com/products/delta-pro-ultra-x-solar-generator",
+      "variant_id": 54732699107401,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "override-curated"
@@ -7340,6 +7880,7 @@
       "available": false,
       "price_per_wh": 1.505,
       "url": "https://www.jackery.com/products/explorer-100-plus-portable-power-station",
+      "variant_id": 41231740403799,
       "source_store": "https://www.jackery.com",
       "image": null,
       "wh_method": "body-mode-wh"
@@ -7356,6 +7897,7 @@
       "available": false,
       "price_per_wh": 1.529,
       "url": "https://www.bluettipower.com/products/bluetti-ac300-b300-3-pv350-home-battery-backup-cms",
+      "variant_id": 45816657543387,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -7372,6 +7914,7 @@
       "available": true,
       "price_per_wh": 1.546,
       "url": "https://ecoflow.com/products/delta-pro-ultra-x-inverter-smart-gateway-200a-2b-bundle",
+      "variant_id": 54720282689609,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "override-curated"
@@ -7388,6 +7931,7 @@
       "available": false,
       "price_per_wh": 1.663,
       "url": "https://www.bluettipower.com/products/bluetti-ac500-2-b300k-2-pv350d-home-battery-backup",
+      "variant_id": 46187322343643,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -7404,6 +7948,7 @@
       "available": true,
       "price_per_wh": 1.774,
       "url": "https://ecoflow.com/products/delta-pro-ultra-x-inverter-smart-home-panel-3-2b-bundle",
+      "variant_id": 54720282099785,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "override-curated"
@@ -7420,6 +7965,7 @@
       "available": true,
       "price_per_wh": 1.867,
       "url": "https://www.bluettipower.com/products/elite-10-sora-60-green",
+      "variant_id": 47917220593883,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "body-wh-before-capacity-label"
@@ -7436,6 +7982,7 @@
       "available": true,
       "price_per_wh": 1.867,
       "url": "https://www.bluettipower.com/products/bluetti-elite-10-mini-power-station-200w-128wh-grey",
+      "variant_id": 47917122617563,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "body-wh-before-capacity-label"
@@ -7452,6 +7999,7 @@
       "available": true,
       "price_per_wh": 1.9,
       "url": "https://ecoflow.com/products/river-mini-portable-power-station",
+      "variant_id": 39428799987785,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "body-mode-wh"
@@ -7468,6 +8016,7 @@
       "available": false,
       "price_per_wh": 1.98,
       "url": "https://www.bluettipower.com/products/solar-generator-ac60",
+      "variant_id": 46291815825627,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
@@ -7484,6 +8033,7 @@
       "available": false,
       "price_per_wh": 2.313,
       "url": "https://www.jackery.com/products/jackery-solar-generator-100-plus",
+      "variant_id": 41234869256279,
       "source_store": "https://www.jackery.com",
       "image": null,
       "wh_method": "body-mode-wh"
@@ -7500,6 +8050,7 @@
       "available": true,
       "price_per_wh": 2.875,
       "url": "https://www.bluettipower.com/products/elite-10-sp100l-pv",
+      "variant_id": 47917131006171,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "body-wh-before-capacity-label"
@@ -7516,6 +8067,7 @@
       "available": true,
       "price_per_wh": 2.875,
       "url": "https://www.bluettipower.com/products/elite-10-sp100l-pv-green",
+      "variant_id": 47917220233435,
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "body-wh-before-capacity-label"
