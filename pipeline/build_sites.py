@@ -693,6 +693,56 @@ def snapshot_passage(site, pool, date_str):
             f'on the <a href="/price-per-watt-hour/">price per watt-hour</a> page.</p></div>')
 
 
+def capacity_spread_passage(site, c, sub, date_str):
+    """Phase D B3: one citable passage on the 12V 100Ah cluster page naming
+    the drivers of the class's price spread — heating, Bluetooth, group
+    size, warranty — with the snapshot date in the text. Every figure is
+    computed from the exact rows the page's table renders; warranty is
+    named as a driver only (its terms live on the makers' product pages,
+    linked from every table row), never assigned an invented figure."""
+    if site["domain"] != "12vlifepo4battery.com":
+        return ""
+    if c["slug"] != "12v-100ah-lifepo4-battery" or not sub:
+        return ""
+    lo = min(sub, key=ppw)
+    hi = max(sub, key=ppw)
+    med = statistics.median(ppw(p) for p in sub)
+    heated = sum(1 for p in sub if title_has(p, "heat"))
+    bt = sum(1 for p in sub if title_has(p, "bluetooth"))
+    groups = {}
+    for p in sub:
+        m = re.search(r"group\s?(\d+)", p["title"], re.I)
+        if m:
+            groups[m.group(1)] = groups.get(m.group(1), 0) + 1
+    group_txt = ""
+    if groups:
+        bits = ", ".join(f"Group {g} ×{n}" for g, n in sorted(groups.items()))
+        group_txt = (f" Case size is the third driver: the titled group sizes in "
+                     f"this snapshot are {bits} — the same 1,280Wh in a different "
+                     f"group-size footprint is not the same product to an RV or "
+                     f"boat battery box, and slim or mini cases price higher "
+                     f"still.")
+    return (f'<h2>Why the 100Ah spread is so wide — the snapshot, checked {esc(date_str)}</h2>'
+            f'<div class="prose"><p>Every battery in the table above stores the same '
+            f'1,280Wh, yet this price snapshot, checked {esc(date_str)}, runs from '
+            f'<b>${ppw(lo):.3f}/Wh</b> ({esc(lo["title"])}, {money(lo["price"])}) to '
+            f'<b>${ppw(hi):.3f}/Wh</b> ({esc(hi["title"])}, {money(hi["price"])}), with a '
+            f'median of ${med:.3f}/Wh across the {len(sub)} models listed. Four things '
+            f'buy that spread. <b>Heating</b> is the biggest single step: {heated} of the '
+            f'{len(sub)} models carry self-heating or heated variants, and a heater, its '
+            f'sensors and its control logic are hardware a fair-weather pack does not '
+            f'carry. <b>Bluetooth</b> monitoring is the second: {bt} of the {len(sub)} '
+            f'models name Bluetooth in this snapshot, and the connected BMS tiers sit '
+            f'above their unmonitored equivalents from the same makers.{group_txt} '
+            f'<b>Warranty</b> is the fourth driver: the years and cycle terms each maker '
+            f'prints on its own product page (every row above links to it) differ across '
+            f'this table, and longer cover is priced into the rows that carry it. None '
+            f'of the four changes the energy stored — which is why this page ranks by '
+            f'$/Wh and lets you decide which of the four you are actually paying for. '
+            f'All figures are from this site\'s own catalog snapshot checked '
+            f'{esc(date_str)}.</p></div>')
+
+
 def top_picks(rows):
     """Homepage picks, all computed from the exact pool the homepage
     renders. The three cards must name DISTINCT products: the under-$1,000
@@ -1547,6 +1597,7 @@ def build():
                      + DISCLOSURE.format(ts=fetched, date=date_str)
                      + stats_html(sub)
                      + f'<h2>Prices, ranked by $/Wh</h2>' + table_html(sub)
+                     + capacity_spread_passage(site, c, sub, date_str)
                      + f'<div class="prose">{paras}</div>'
                      + f'<h2>Keep comparing</h2><ul class="links"><li><a href="/">All {esc(site["phrase"])} prices</a><p>The full live table, every model ranked by $/Wh.</p></li>{sib_html}</ul>'
                      + faq_html(cluster_faqs(c, sub, site, date_str)))
