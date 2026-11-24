@@ -452,6 +452,7 @@ def process_product(p, brand, base, log):
         for (kind, cap), v in sorted(by_cap.items()):
             rows.append(make_row(brand, title, v.get("title") or "",
                                  ptype, body_text, v, url, log))
+        rows = split_capacity_variants([r for r in rows if r])
     else:
         avail = [v for v in variants if v.get("available")]
         pool = avail if avail else variants
@@ -459,6 +460,36 @@ def process_product(p, brand, base, log):
         rows.append(make_row(brand, title, v.get("title") or "",
                              ptype, body_text, v, url, log))
     return [r for r in rows if r]
+
+
+VARIANT_SPLIT_TYPES = ("bare-battery", "rack-battery")
+
+def split_capacity_variants(rows):
+    """Give genuinely different-capacity variants of one listing their own
+    variant URL (<listing>?variant=<id>, which Shopify opens on that exact
+    variant) so the builder's URL-keyed dedupe stops hiding them.
+
+    Only rows with a rated voltage AND Ah are split (true 100/200/320Ah
+    variants); multi-pack bundles (capacity from explicit total Wh, no
+    per-unit V/Ah) keep collapsing as before. Within each group the builder
+    would currently keep (same type/voltage class) the row that already
+    survives the dedupe today - the highest $/Wh, ties to the longer title -
+    keeps the plain listing URL, so no existing product page, slug or
+    price history moves."""
+    groups = {}
+    for r in rows:
+        if (r["type"] in VARIANT_SPLIT_TYPES and r.get("voltage") and r.get("ah")
+                and r.get("variant_id")):
+            key = (r["type"], None if r["type"] == "rack-battery" else r["voltage"])
+            groups.setdefault(key, []).append(r)
+    for grp in groups.values():
+        if len(grp) < 2:
+            continue
+        keep = max(grp, key=lambda r: (r["price_per_wh"], len(r["title"])))
+        for r in grp:
+            if r is not keep:
+                r["url"] = f'{r["url"]}?variant={r["variant_id"]}'
+    return rows
 
 
 def make_row(brand, title, variant_title, ptype, body_text, variant, url, log):
@@ -519,6 +550,7 @@ def make_row(brand, title, variant_title, ptype, body_text, variant, url, log):
         "available": bool(variant.get("available")),
         "price_per_wh": round(ppw, 3),
         "url": url,
+        "variant_id": variant.get("id"),
         "source_store": url.split("/products/")[0],
         "image": None,
         "wh_method": method,

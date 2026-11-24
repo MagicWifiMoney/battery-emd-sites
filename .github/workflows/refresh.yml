@@ -2,7 +2,12 @@ name: Battery EMD price refresh
 
 on:
   schedule:
+    # GitHub silently drops many scheduled runs (~2 of 4/day landed
+    # 2026-11-21..24). A second offset slot keeps snapshot density up;
+    # the concurrency group below stops overlap. Max 8 runs/day x 4 Vercel
+    # projects stays well under Hobby's daily deployment limit.
     - cron: "17 */6 * * *"
+    - cron: "47 1,7,13,19 * * *"
   workflow_dispatch:
 
 permissions:
@@ -26,6 +31,11 @@ jobs:
 
       - name: Fetch latest prices
         run: python3 pipeline/fetch_prices.py
+
+      - name: Refresh Vatrer prices from Awin feed (no-op until secret is set)
+        env:
+          AWIN_VATRER_FEED_URL: ${{ secrets.AWIN_VATRER_FEED_URL }}
+        run: python3 pipeline/awin_feed.py
 
       - name: Rebuild sites
         run: python3 pipeline/build_sites.py

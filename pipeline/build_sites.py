@@ -241,6 +241,29 @@ JS = """
 
 def esc(s): return html.escape(str(s), quote=True)
 
+# ---------- affiliate links ----------
+# config/affiliate_links.json maps maker hosts to network deep-link
+# templates. Only status "joined" programs apply. The catalog url stays the
+# product's identity (slugs, history, dedupe); only outbound hrefs change.
+from urllib.parse import quote as _quote, urlparse as _urlparse
+_AFF = None
+
+def affiliate_url(url):
+    global _AFF
+    if _AFF is None:
+        try:
+            cfg = json.loads((ROOT / "config" / "affiliate_links.json").read_text())
+            _AFF = [p for p in cfg.get("programs", []) if p.get("status") == "joined"]
+        except Exception:
+            _AFF = []
+    host = (_urlparse(url).hostname or "").lower()
+    for prog in _AFF:
+        if any(host == h or host.endswith("." + h) for h in prog.get("hosts", [])):
+            return prog["template"].replace("{url}", _quote(url, safe=""))
+    return url
+
+def out(p): return affiliate_url(p["url"])
+
 def table_html(rows, show_brand_filter=False, tid="t"):
     brands = sorted({p["brand"] for p in rows})
     ctrl = ""
@@ -258,7 +281,7 @@ def table_html(rows, show_brand_filter=False, tid="t"):
         if plink:
             title_cell = f'<a href="{esc(plink)}">{esc(p["title"])}</a>'
         else:
-            title_cell = (f'<a href="{esc(p["url"])}" rel="nofollow sponsored noopener" '
+            title_cell = (f'<a href="{esc(out(p))}" rel="nofollow sponsored noopener" '
                           f'target="_blank">{esc(p["title"])}</a>')
         is_best = p["url"] == best_url
         tag = '<span class="besttag">Best value</span>' if is_best else ""
@@ -270,8 +293,8 @@ def table_html(rows, show_brand_filter=False, tid="t"):
             f'<td class="num pricedata" data-l="Price" data-v="{p["price"]}">{money(p["price"])}{was}</td>'
             f'<td class="num pricedata" data-l="$/Wh" data-v="{ppw(p)}"><span class="ppw">${ppw(p):.3f}</span>{tag}</td>'
             f'<td class="num pricedata" data-l="$/kWh" data-v="{ppw(p)*1000}">${ppw(p)*1000:,.0f}</td>'
-            f'<td class="buy-cell"><a class="buy" href="{esc(p["url"])}" rel="nofollow sponsored noopener" target="_blank">View deal</a>'
-            f'<span class="checkonly" style="display:none"><a class="buy" href="{esc(p["url"])}" rel="nofollow sponsored noopener" target="_blank">Check price</a></span></td></tr>')
+            f'<td class="buy-cell"><a class="buy" href="{esc(out(p))}" rel="nofollow sponsored noopener" target="_blank">View deal</a>'
+            f'<span class="checkonly" style="display:none"><a class="buy" href="{esc(out(p))}" rel="nofollow sponsored noopener" target="_blank">Check price</a></span></td></tr>')
     return (ctrl + f'<div class="tw"><table id="{tid}"><thead><tr>'
             '<th data-k="0">Product</th><th data-k="1">Brand</th><th data-k="2" data-n="1" class="num">Capacity</th>'
             '<th data-k="3" data-n="1" class="num">Price</th><th data-k="4" data-n="1" class="num">$/Wh</th>'
@@ -709,7 +732,7 @@ def top_picks(rows):
     def card(label, p, why):
         return (f'<div class="card"><h3>{esc(label)}</h3><p><b>{esc(p["title"])}</b></p>'
                 f'<p class="big pricedata">${ppw(p):.3f}/Wh · {money(p["price"])}</p>'
-                f'<p>{esc(why)}</p><p><a class="buy" href="{esc(p["url"])}" rel="nofollow sponsored noopener" target="_blank">View deal</a></p></div>')
+                f'<p>{esc(why)}</p><p><a class="buy" href="{esc(out(p))}" rel="nofollow sponsored noopener" target="_blank">View deal</a></p></div>')
     if under:
         small = (under_distinct or under)[0]
         card2 = card("Lowest $/Wh under $1,000", small, f'{cap_label(small)} from {small["brand"]}. Best cost per watt-hour without crossing four figures.')
@@ -1031,8 +1054,14 @@ def descriptive_slug(p):
 def assign_slugs(home_pool):
     """{catalog url: slug} for one URL-deduped home pool. Colliding
     descriptive slugs get a -<sha1(url)[:6]> suffix on every member."""
+    # Split capacity-variant rows (url carries "?variant=", added by the
+    # fetcher 2026-11-24) are slugged AFTER every plain-listing row, so a
+    # new variant can never push a collision suffix onto - and so rename -
+    # an existing, already-indexed product page.
+    legacy = [p for p in home_pool if "?variant=" not in p["url"]]
+    late = [p for p in home_pool if "?variant=" in p["url"]]
     groups = {}
-    for p in home_pool:
+    for p in legacy:
         s = descriptive_slug(p)
         if s:
             groups.setdefault(s, []).append(p)
@@ -1044,6 +1073,15 @@ def assign_slugs(home_pool):
             for p in rows:
                 h = hashlib.sha1(p["url"].encode()).hexdigest()[:6]
                 out[p["url"]] = f"{s}-{h}"
+    taken = set(out.values())
+    for p in late:
+        s = descriptive_slug(p)
+        if not s:
+            continue
+        if s in taken:
+            s = f"{s}-{hashlib.sha1(p['url'].encode()).hexdigest()[:6]}"
+        out[p["url"]] = s
+        taken.add(s)
     return out
 
 # Price-position classes (spec section 1): home pool x Ah band.
@@ -1267,7 +1305,7 @@ def facet_cards(hubs):
                   for h in hubs)
     return f'<h2>Browse by brand, size &amp; price</h2><ul class="links">{lis}</ul>'
 
-# Deals (spec section 4): launch gate >=24 snapshots spanning >=7 days.
+# Deals (spec section 4): launch gate >=DEALS_MIN_SNAPSHOTS snapshots spanning >=7 days.
 def _parse_ts(ts):
     return datetime.fromisoformat(ts.replace("Z", "+00:00"))
 
@@ -1347,6 +1385,14 @@ def trend_html(p, site):
                f'{money(v0)} then, {money(v1)} as of {d1} — {len(pts)} recorded snapshots.')
     return f'<h2>Price trend</h2><div class="trendcard">{svg}<p>{txt}</p></div>'
 
+# Deals gate. The 7-day span is the real requirement (a 6-day-old
+# baseline must exist). The snapshot minimum is only a density check: it
+# was 24 assuming four refreshes a day, but GitHub drops many scheduled
+# runs (~2/day observed 2026-11-21..24), so 12 keeps the same guarantee
+# of real week-long history without stalling the first edition.
+DEALS_MIN_SNAPSHOTS = 12
+DEALS_MIN_SPAN_DAYS = 7
+
 def deals_info(pool):
     """(gate_open, baseline_snapshot, drops, snapshots). Baseline = oldest
     snapshot at least 6 days older than the newest one."""
@@ -1356,7 +1402,7 @@ def deals_info(pool):
     from datetime import timedelta
     latest = _parse_ts(snaps[-1]["ts"])
     span_days = (latest - _parse_ts(snaps[0]["ts"])).total_seconds() / 86400
-    if len(snaps) < 24 or span_days < 7:
+    if len(snaps) < DEALS_MIN_SNAPSHOTS or span_days < DEALS_MIN_SPAN_DAYS:
         return False, None, [], snaps
     cutoff = latest - timedelta(days=6)
     eligible = [s for s in snaps if _parse_ts(s["ts"]) <= cutoff]
@@ -1393,7 +1439,7 @@ def deals_body(site, pool, fetched, date_str):
         body = (f'<h1>{esc(site["display"])} Price Drops — Tracker warming up</h1>'
                 f'<p class="lede">This page will rank the biggest price drops in the makers\' own '
                 f'stores over a rolling ~7-day window, by percentage and by $/Wh. It publishes its '
-                f'first edition once at least 7 days and 24 snapshots of price history exist — '
+                f'first edition once at least {DEALS_MIN_SPAN_DAYS} days and {DEALS_MIN_SNAPSHOTS} snapshots of price history exist — '
                 f'we would rather show no drops than invent them.</p>'
                 + DISCLOSURE.format(ts=fetched, date=date_str)
                 + f'<div class="prose"><p>{esc(status)}</p>'
@@ -1709,7 +1755,7 @@ def build():
                          + f'<div class="stat"><b>{esc(cap_label(p))}</b><span>rated capacity</span></div></div>'
                          + (f'<p class="pricedata">Maker\'s list price: <span class="was">{money(p["compare_at"])}</span> — a struck-through price appears only when the maker\'s own store lists one.</p>'
                             if p.get("compare_at") and p["compare_at"] > p["price"] else "")
-                         + f'<p><a class="buy" href="{esc(p["url"])}" rel="nofollow sponsored noopener" target="_blank">View at {esc(p["brand"])}\'s store</a></p>'
+                         + f'<p><a class="buy" href="{esc(out(p))}" rel="nofollow sponsored noopener" target="_blank">View at {esc(p["brand"])}\'s store</a></p>'
                          + trend_html(p, site)
                          + f'<h2>Where it ranks in its class</h2>{rankline}'
                          + mini_table(rows_c[lo:hi], p)

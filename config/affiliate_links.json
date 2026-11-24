@@ -1,0 +1,28 @@
+{
+  "comment": "Outbound affiliate link map, applied at build time by pipeline/build_sites.py (affiliate_url). Only entries with status \"joined\" are used; every other row keeps its plain maker link. The product's catalog `url` is NEVER rewritten (it is the product's identity for slugs, price history and dedupe) - only the outbound Buy/View deal hrefs change. On an approval: set that entry's status to \"joined\" and add the date. {url} is the URL-encoded maker product link (Awin deep-link `ued` parameter).",
+  "programs": [
+    {"brand": "Vatrer", "network": "awin", "advertiser_id": 119703, "hosts": ["vatrerpower.com"],
+     "template": "https://www.awin1.com/cread.php?awinmid=119703&awinaffid=3113529&ued={url}",
+     "status": "joined", "joined": "2026-11-21"},
+    {"brand": "Dakota Lithium", "network": "awin", "advertiser_id": 79634, "hosts": ["dakotalithium.com"],
+     "template": "https://www.awin1.com/cread.php?awinmid=79634&awinaffid=3113529&ued={url}", "status": "pending"},
+    {"brand": "BLUETTI", "network": "awin", "advertiser_id": 59271, "hosts": ["bluettipower.com"],
+     "template": "https://www.awin1.com/cread.php?awinmid=59271&awinaffid=3113529&ued={url}", "status": "pending"},
+    {"brand": "EcoFlow", "network": "awin", "advertiser_id": 59181, "hosts": ["ecoflow.com"],
+     "template": "https://www.awin1.com/cread.php?awinmid=59181&awinaffid=3113529&ued={url}", "status": "pending"},
+    {"brand": "Jackery", "network": "awin", "advertiser_id": 59183, "hosts": ["jackery.com"],
+     "template": "https://www.awin1.com/cread.php?awinmid=59183&awinaffid=3113529&ued={url}", "status": "pending"},
+    {"brand": "Redodo", "network": "awin", "advertiser_id": 97969, "hosts": ["redodopower.com"],
+     "template": "https://www.awin1.com/cread.php?awinmid=97969&awinaffid=3113529&ued={url}", "status": "pending"},
+    {"brand": "Eco-Worthy", "network": "awin", "advertiser_id": 73461, "hosts": ["eco-worthy.com"],
+     "template": "https://www.awin1.com/cread.php?awinmid=73461&awinaffid=3113529&ued={url}", "status": "pending"},
+    {"brand": "LiTime", "network": "awin", "advertiser_id": 82429, "hosts": ["litime.com"],
+     "template": "https://www.awin1.com/cread.php?awinmid=82429&awinaffid=3113529&ued={url}", "status": "pending"},
+    {"brand": "Powerurus", "network": "awin", "advertiser_id": 79302, "hosts": ["powerurus.com"],
+     "template": "https://www.awin1.com/cread.php?awinmid=79302&awinaffid=3113529&ued={url}", "status": "pending"},
+    {"brand": "BougeRV", "network": "awin", "advertiser_id": 52765, "hosts": ["bougerv.com"],
+     "template": "https://www.awin1.com/cread.php?awinmid=52765&awinaffid=3113529&ued={url}", "status": "pending"},
+    {"brand": "SunGoldPower", "network": "awin", "advertiser_id": 66184, "hosts": ["sungoldpower.com"],
+     "template": "https://www.awin1.com/cread.php?awinmid=66184&awinaffid=3113529&ued={url}", "status": "pending"}
+  ]
+}
