@@ -473,10 +473,46 @@ def favicon_link(acc):
             f'%3Cpath d=\'M23 5 14 16h6l-2 7 9-11h-6z\' fill=\'white\'/%3E%3C/svg%3E">')
 
 # ---------- page shell ----------
-# Phase D S1+O1 (2026-11-24): OG template pass + llms.txt, gated to
-# 48vlifepo4battery.com — the sibling domains get the same pass via their
-# own Phase D rows, so do not widen this set from this task.
-OG_DOMAINS = {"48vlifepo4battery.com"}
+# Phase D S1+O1 (2026-11-24): OG template pass + llms.txt, gated per
+# domain — each sibling domain joins this set via its own Phase D row
+# (48V shipped first; 12V added by its own S1+O1 row the same day).
+OG_DOMAINS = {"48vlifepo4battery.com", "12vlifepo4battery.com"}
+LLMS_CONFIG = {
+    "48vlifepo4battery.com": {
+        "entity": ("Entity statement: This site tracks 48V LiFePO4 battery prices from the "
+                   "manufacturers' own online stores and ranks every tracked model by price "
+                   "per watt-hour ($/Wh): the maker's listed price divided by the battery's "
+                   "rated capacity in watt-hours (nominal voltage x amp-hours). Prices are "
+                   "refreshed several times a day; listings are data, not hands-on reviews. "
+                   "Sister trackers cover 12V LiFePO4, 24V LiFePO4 and server-rack batteries."),
+        "groups": [
+            ("Core and capacity pages", {"/", "/48v-100ah-lifepo4-battery/", "/48v-200ah-lifepo4-battery/", "/48v-314ah-lifepo4-battery/", "/5kwh-battery/", "/10kwh-battery/", "/price-per-watt-hour/"}),
+            ("Use-case pages", {"/golf-cart-batteries/", "/solar-storage-batteries/", "/server-rack-batteries/", "/home-battery-backup/", "/home-battery-system/", "/whole-home-battery-backup/", "/off-grid-48v-battery-bank/"}),
+            ("Guides and comparisons", {"/how-to-choose/", "/how-to-charge-48v-lifepo4-battery/", "/48v-lifepo4-series-parallel-guide/", "/golf-cart-lithium-conversion-mistakes/", "/48v-vs-12v-for-solar/", "/eco-worthy-vs-litime-48v/"}),
+            ("Brand hubs", None),  # /brand/*
+            ("Price and feature facets", {"/under-1000/", "/1000-to-2000/", "/over-2000/", "/compact-batteries/", "/heated-batteries/", "/bluetooth-batteries/"}),
+            ("Products", None),  # /product/*
+            ("About and method", {"/about/"}),
+        ],
+    },
+    "12vlifepo4battery.com": {
+        "entity": ("Entity statement: This site tracks 12V LiFePO4 battery prices from the "
+                   "manufacturers' own online stores and ranks every tracked model by price "
+                   "per watt-hour ($/Wh): the maker's listed price divided by the battery's "
+                   "rated capacity in watt-hours (nominal voltage x amp-hours). Prices are "
+                   "refreshed several times a day; listings are data, not hands-on reviews. "
+                   "Sister trackers cover 48V LiFePO4, 24V LiFePO4 and server-rack batteries."),
+        "groups": [
+            ("Core and capacity pages", {"/", "/12v-100ah-lifepo4-battery/", "/12v-200ah-lifepo4-battery/", "/12v-314ah-lifepo4-battery/", "/100ah-lifepo4-battery/"}),
+            ("Use-case pages", {"/rv-batteries/", "/marine-trolling-motor-batteries/", "/12v-lifepo4-battery-for-solar/", "/12v-battery-for-cpap/", "/ice-fishing-battery-guide/", "/van-life-battery-sizing/", "/how-long-will-12v-100ah-run-a-fridge/"}),
+            ("Guides and comparisons", {"/how-to-choose/", "/12v-lifepo4-charging-guide/", "/12v-lifepo4-series-parallel-guide/", "/lifepo4-vs-lead-acid-cost/", "/litime-vs-renogy-12v-100ah/", "/eco-worthy-vs-litime-12v/"}),
+            ("Brand hubs", None),  # /brand/*
+            ("Price and feature facets", {"/under-500/", "/500-to-1000/", "/over-1000/", "/compact-batteries/", "/heated-batteries/", "/bluetooth-batteries/", "/group-size-batteries/"}),
+            ("Products", None),  # /product/*
+            ("About and method", {"/about/"}),
+        ],
+    },
+}
 LLMS_REGISTRY = {}
 
 def page(site, path, title, desc, body, extra_head=""):
@@ -1703,25 +1739,13 @@ def build():
         # Phase D S1: llms.txt — full sitemap inventory, grouped, with the
         # $/Wh method stated once. Built from the pages rendered this run.
         if site["domain"] in OG_DOMAINS:
-            _groups = [
-                ("Core and capacity pages", {"/", "/48v-100ah-lifepo4-battery/", "/48v-200ah-lifepo4-battery/", "/48v-314ah-lifepo4-battery/", "/5kwh-battery/", "/10kwh-battery/", "/price-per-watt-hour/"}),
-                ("Use-case pages", {"/golf-cart-batteries/", "/solar-storage-batteries/", "/server-rack-batteries/", "/home-battery-backup/", "/home-battery-system/", "/whole-home-battery-backup/", "/off-grid-48v-battery-bank/"}),
-                ("Guides and comparisons", {"/how-to-choose/", "/how-to-charge-48v-lifepo4-battery/", "/48v-lifepo4-series-parallel-guide/", "/golf-cart-lithium-conversion-mistakes/", "/48v-vs-12v-for-solar/", "/eco-worthy-vs-litime-48v/"}),
-                ("Brand hubs", None),  # /brand/*
-                ("Price and feature facets", {"/under-1000/", "/1000-to-2000/", "/over-2000/", "/compact-batteries/", "/heated-batteries/", "/bluetooth-batteries/"}),
-                ("Products", None),  # /product/*
-                ("About and method", {"/about/"}),
-            ]
+            _cfg = LLMS_CONFIG[site["domain"]]
+            _groups = _cfg["groups"]
             _reg = {p: (t, d) for p, t, d in LLMS_REGISTRY.get(site["domain"], [])}
             _lines = [
                 f"# {site['name']} ({site['domain']})",
                 "",
-                ("Entity statement: This site tracks 48V LiFePO4 battery prices from the "
-                 "manufacturers' own online stores and ranks every tracked model by price "
-                 "per watt-hour ($/Wh): the maker's listed price divided by the battery's "
-                 "rated capacity in watt-hours (nominal voltage x amp-hours). Prices are "
-                 "refreshed several times a day; listings are data, not hands-on reviews. "
-                 "Sister trackers cover 12V LiFePO4, 24V LiFePO4 and server-rack batteries."),
+                _cfg["entity"],
                 "",
             ]
             _seen = set()
