@@ -15,7 +15,8 @@ Playbook rules baked in (Notion AEO/GEO Playbook, Part 3):
     (compare_at shown only when the maker feed itself lists it)
   * Focused page counts (~9-11 pages/site), no thin-page spam
 Compliance: maker-store prices only; Amazon appears only as a no-price search
-link with NO affiliate tag (Stage A). Affiliate swap point: product url field —
+link on product pages, tagged with the Associates tag in
+config/affiliate_links.json (no Amazon prices are ever shown). Affiliate swap point: product url field —
 after Awin/Impact approval the fetcher/config maps urls to network deep links.
 Freshness: prices carry the fetched_at date in copy; a JS guard hides numeric
 prices when data is >72h old and shows "Check price" instead.
@@ -263,6 +264,31 @@ def affiliate_url(url):
     return url
 
 def out(p): return affiliate_url(p["url"])
+
+def amazon_url(p):
+    """Amazon search link (no price shown - Amazon only permits prices from
+    its own API) for this model, tagged with the Associates tag. None when
+    no tag is configured."""
+    global _AMZ
+    try:
+        _AMZ
+    except NameError:
+        try:
+            cfg = json.loads((ROOT / "config" / "affiliate_links.json").read_text())
+            _AMZ = (cfg.get("amazon") or {}).get("tag") or None
+        except Exception:
+            _AMZ = None
+    if not _AMZ:
+        return None
+    parts = [p["brand"]]
+    ci, a = class_int(p), ah_of(p)
+    if ci and a:
+        parts += [f"{ci}V", f"{int(round(a))}Ah"]
+    parts.append("LiFePO4 battery")
+    return ("https://www.amazon.com/s?k=" + _quote(" ".join(parts), safe="")
+            + "&tag=" + _quote(_AMZ, safe=""))
+
+AMAZON_DISCLOSURE = "As an Amazon Associate I earn from qualifying purchases."
 
 def table_html(rows, show_brand_filter=False, tid="t"):
     brands = sorted({p["brand"] for p in rows})
@@ -583,7 +609,7 @@ def page(site, path, title, desc, body, extra_head=""):
 <div><h4>{esc(site['name'])}</h4>
 <p><b>How prices are gathered:</b> automatically from the manufacturers' own online stores, refreshed several times a day. We compute price per watt-hour from each battery's rated capacity. We never invent ratings or discounts — a struck-through price appears only when the maker's own store lists one. Full method on the <a href="/about/">about page</a>.</p></div>
 <div><h4>Affiliate disclosure</h4>
-<p>Some outbound links on this site are affiliate links. If you buy through them we may earn a commission at no extra cost to you. Prices shown come from the makers' stores, not from affiliate feeds.</p></div>
+<p>Some outbound links on this site are affiliate links. If you buy through them we may earn a commission at no extra cost to you. Prices shown come from the makers' stores, not from affiliate feeds. As an Amazon Associate I earn from qualifying purchases.</p></div>
 <div><h4>Sister trackers</h4><div class="sisters">{sisters}</div></div>
 </div></footer>
 {JS}
@@ -812,7 +838,7 @@ ABOUT_BODY = """
 <li>If a price feed is more than 72 hours old, this site hides the numbers rather than show you stale prices.</li>
 </ul>
 <h2>Affiliate disclosure</h2>
-<p>Some outbound links are affiliate links: if you buy through them, the site may earn a commission at no extra cost to you. That is how the tracker pays for itself. Rankings are computed from price data only — no brand can pay for placement, and the sort order is the same math for everyone.</p>
+<p>Some outbound links are affiliate links: if you buy through them, the site may earn a commission at no extra cost to you. That is how the tracker pays for itself. Rankings are computed from price data only — no brand can pay for placement, and the sort order is the same math for everyone. As an Amazon Associate I earn from qualifying purchases.</p>
 <h2>Corrections</h2>
 <p>Spot a wrong capacity or a dead link? The data refreshes several times a day, so most errors fix themselves on the next pass. Persistent errors usually trace back to the maker's own product feed.</p>
 </div>
@@ -1755,7 +1781,9 @@ def build():
                          + f'<div class="stat"><b>{esc(cap_label(p))}</b><span>rated capacity</span></div></div>'
                          + (f'<p class="pricedata">Maker\'s list price: <span class="was">{money(p["compare_at"])}</span> — a struck-through price appears only when the maker\'s own store lists one.</p>'
                             if p.get("compare_at") and p["compare_at"] > p["price"] else "")
-                         + f'<p><a class="buy" href="{esc(out(p))}" rel="nofollow sponsored noopener" target="_blank">View at {esc(p["brand"])}\'s store</a></p>'
+                         + f'<p><a class="buy" href="{esc(out(p))}" rel="nofollow sponsored noopener" target="_blank">View at {esc(p["brand"])}\'s store</a>'
+                         + (f' <a href="{esc(amazon_url(p))}" rel="nofollow sponsored noopener" target="_blank">Check price on Amazon</a>' if amazon_url(p) else '')
+                         + '</p>'
                          + trend_html(p, site)
                          + f'<h2>Where it ranks in its class</h2>{rankline}'
                          + mini_table(rows_c[lo:hi], p)
