@@ -592,6 +592,29 @@ def guide_cards(site):
     lis = "".join(f'<li><a href="/{g["slug"]}/">{esc(g["h1"])}</a><p>{esc(g["blurb"])}</p></li>' for g in gs)
     return f'<h2>Guides &amp; explainers</h2><ul class="links">{lis}</ul>'
 
+def snapshot_passage(site, pool, date_str):
+    """Phase D B1: one dated, extractable numbers passage for the homepage.
+    Every figure is computed from this site's own catalog pool at build
+    time; the check date is stated in the sentences themselves."""
+    if not site.get("snapshot_passage"):
+        return ""
+    cheap = min(pool, key=ppw)
+    ah100 = FILTERS["ah90_115"](pool)
+    if not ah100:
+        return ""
+    c100 = min(ah100, key=lambda p: p["price"])
+    return (f'<h2>The numbers in this snapshot, checked {esc(date_str)}</h2>'
+            f'<div class="prose"><p>Price snapshot checked {esc(date_str)}: this tracker follows '
+            f'<b>{len(pool)} {esc(site["phrase"])} models</b> in its own catalog. The cheapest stored '
+            f'energy in the pool is <b>${ppw(cheap):.3f}/Wh</b> — {esc(cheap["title"])} '
+            f'({esc(cheap["brand"])}) at {money(cheap["price"])} for {esc(cap_label(cheap))}. '
+            f'The cheapest 100Ah model, the standard 5.12kWh building block, is '
+            f'{esc(c100["title"])} ({esc(c100["brand"])}) at <b>{money(c100["price"])}</b>, '
+            f'or ${ppw(c100):.3f}/Wh. Every figure in this passage comes from the catalog '
+            f'snapshot checked {esc(date_str)}; how the ranking number itself is worked out is '
+            f'on the <a href="/price-per-watt-hour/">price per watt-hour</a> page.</p></div>')
+
+
 def top_picks(rows):
     """Homepage picks, all computed from the exact pool the homepage
     renders. The three cards must name DISTINCT products: the under-$1,000
@@ -725,6 +748,7 @@ SITES = [
     {
         "domain": "48vlifepo4battery.com", "name": "48V LiFePO4 Battery",
         "phrase": "48V LiFePO4 battery", "display": "48V LiFePO4 Battery", "pool": ["48v", "rack"], "faqs": FAQ_48V,
+        "snapshot_passage": True,
         "lede": "Every {phrase} from the major makers' own stores, ranked by the only number that makes batteries comparable: <b>price per watt-hour</b>. Right now {n} models are tracked — the cheapest stored energy costs <b>${minppw}/Wh</b> and the median is ${medppw}/Wh. Prices refreshed {date}.",
         "clusters": [
             C("48v-100ah-lifepo4-battery", "100Ah", "48V 100Ah LiFePO4 Batteries",
@@ -1414,6 +1438,7 @@ def build():
                 f'</div></div>')
         body = (hero
                 + DISCLOSURE.format(ts=fetched, date=date_str)
+                + snapshot_passage(site, pool, date_str)
                 + top_picks(pool)
                 + f'<h2>All {esc(site["phrase"])} prices, ranked by $/Wh</h2>'
                 + table_html(pool, show_brand_filter=True)
