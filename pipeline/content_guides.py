@@ -683,7 +683,7 @@ GUIDES = {
     },
     {
         "slug": "12v-lifepo4-charging-guide",
-        "updated": "2026-11-22",
+        "updated": "2026-11-24",
         "title": "12V LiFePO4 Charging Guide: 14.4V Profile, Charge Times, Cold Rules",
         "desc": "How to charge a 12V LiFePO4 battery correctly: 14.2–14.6V absorption, no float requirement, no equalization — plus charge-time math by charger size.",
         "h1": "Charging a 12V LiFePO4 Battery: The 14.4V Profile",
@@ -699,6 +699,18 @@ GUIDES = {
                 "<tr><td>Charge current</td><td>0.2–0.5C (20–50A per 100Ah)</td><td>Per the model's spec sheet</td></tr>"
                 "<tr><td>Low-temp cutoff</td><td>No charging below 0°C / 32°F</td><td>BMS-enforced on packs with low-temp protection</td></tr>"
                 "</tbody></table>",
+            ]),
+            ("What each maker actually specifies", [
+                "<p>The generic profile above is the consensus starting point — but makers do not all publish the same numbers, and some publish surprisingly few. This table is built only from each maker's own product page, manual or charging guide, checked 2026-11-24. Where a maker does not state a figure, the cell says so instead of borrowing the consensus number.</p>",
+                "<table><thead><tr><th>Maker (12V 100Ah class)</th><th>Bulk / absorption</th><th>Float</th><th>Low-temp charge cutoff</th></tr></thead><tbody>"
+                "<tr><td><a href=\"/brand/litime/\">LiTime</a></td><td>14.4V ±0.2V (recommended range 14.2–14.6V)</td><td>Not stated for this model; maker's general manual: no permanent float, 13.4–13.6V if necessary</td><td>Charging cut off below 0°C / 32°F; resumes at 5°C / 41°F</td></tr>"
+                "<tr><td><a href=\"/brand/renogy/\">Renogy</a></td><td>14.4V</td><td>Not stated by maker as a separate voltage</td><td>Charging prevented below 32°F / 0°C (charge range 32–131°F)</td></tr>"
+                "<tr><td><a href=\"/brand/eco-worthy/\">Eco-Worthy</a></td><td>14.2–14.6V</td><td>14.6V per maker's charging guide — see note below</td><td>Charging cut off below −7°C ±5°C (19.4°F ±9°F) on the low-temp-protection model; resumes above 0°C / 32°F</td></tr>"
+                "<tr><td><a href=\"/brand/sungoldpower/\">SunGoldPower</a></td><td>14.4–14.6V (stated as recommended charging voltage)</td><td>Not stated by maker</td><td>No cutoff stated; self-heating model — heating on below 33.8°F / 1°C, charge range −20°C to 45°C with heating</td></tr>"
+                "<tr><td><a href=\"/brand/bluetti/\">BLUETTI</a> (B1210)</td><td>Not stated by maker</td><td>Not stated by maker</td><td>Stated charging range starts at 0°C / 32°F; self-heating activates below 0°C / 32°F with a charger connected</td></tr>"
+                "</tbody></table>",
+                "<p><b>Sources, checked 2026-11-24:</b> LiTime 12V 100Ah Group 24 Smart product page and LiTime user manual (litime.com); Renogy 12V 100Ah Core product page and Core Series user manual (renogy.com); Eco-Worthy 12V 100Ah product page and Eco-Worthy lithium charging guide (eco-worthy.com) — note: the guide prints its float and equalization figures in an order that appears transposed (float 14.6V, equalization 13.6–14.0V), so treat that float figure as the maker's printed wording, not as a recommendation to hold a pack at 14.6V; SunGoldPower 12/24V LiFePO4 user manual and specification sheet (sungoldpower.com); BLUETTI B1210 product page and B1210 User Manual V2.0 (bluettipower.com) — BLUETTI publishes an operating-voltage ceiling of 14.6V for the B1210 but does not label any figure a charging voltage, so none is claimed here.</p>",
+                "<p><b>Resting voltage is not charging voltage.</b> The voltages in both tables are <i>charging</i> voltages — what a charger applies while current is flowing. A <i>resting</i> voltage is measured with the charger and loads disconnected, after the pack has sat long enough for its voltage to settle: a fully charged 12V LiFePO4 rests at about 13.3–13.4V, and it will never rest at 14.4V. Reading 13.3V on a disconnected, rested pack does not mean it needs more charge, and seeing 14.4V on the terminals while a charger is connected tells you the charger's setting, not the state of charge. Judge charge state from a rested reading (or a shunt/Bluetooth readout), and judge the charger from the charging tables.</p>",
             ]),
             ("Charge times (100Ah battery, from empty)", [
                 "<table><thead><tr><th>Charger</th><th>Time to ~full</th><th>Typical source</th></tr></thead><tbody>"
