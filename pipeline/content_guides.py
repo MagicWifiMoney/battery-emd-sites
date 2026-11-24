@@ -39,7 +39,7 @@ GUIDES = {
         "sections": [
             ("The two ways to buy the same kWh", [
                 "<p>Every home battery system is three things: battery cells in a box, an inverter that speaks to the grid and your panels, and the labor/permits to connect them. Installed brands bundle all three into one quote, which is why their per-kWh price is high: roundups of installed systems in 2026 cite <b>$10,000–$25,000 all-in</b> for roughly 10–13.5kWh of storage — about $750–$1,900 per kWh installed.</p>",
-                "<p>The DIY path unbundles it. You buy the batteries on this page (at the live $/kWh in the table), add a hybrid inverter (a planning estimate of $900–$2,500 for a 5–8kW unit, not a price we track), plus rack, cable and an electrician's day if you don't self-install. At today's median of ${medppw}/Wh, the battery portion of a 10.24kWh system is {med10k} — the single biggest line item is also the one with the live price on it.</p>",
+                "<p>The DIY path unbundles it. You buy the batteries on this page (at the live $/kWh in the table), add a hybrid inverter (a planning estimate of $900–$2,500 for a 5–8kW unit, not a price we track), plus rack, cable and an electrician's day if you don't self-install. At today's median of ${medppw}/Wh, the battery portion of a 10.24kWh system is {med10k} — the single biggest line item is also the one with the live price on it. The unit behind every figure here is broken down on the <a href=\"/price-per-watt-hour/\">price per watt-hour</a> page.</p>",
             ]),
             ("Hardware cost vs installed cost: the two layers, separated", [
                 "<p>Most arguments about home battery pricing are really arguments about which layer a number belongs to, so here are the two layers stated separately. <b>The hardware layer</b> is batteries and nothing else: this site's own 10kWh build path — two 48V 100Ah rack modules, 2 × 5.12kWh = 10.24kWh — priced live from our catalog at <b>{low10k}–{med10k}</b> (snapshot {date}, median ${medppw}/Wh across the models in the table below). That is the entire hardware figure, and it buys stored energy only.</p>",
@@ -59,7 +59,7 @@ GUIDES = {
                 "<tr><td>Essentials + furnace blower + a few outlets, ~24h</td><td>10.24kWh (2 modules)</td><td class='num'>{low10k}–{med10k}</td></tr>"
                 "<tr><td>Whole-home posture: well pump, mini-split, most circuits</td><td>20.48kWh (4 modules)</td><td class='num'>2× the 10kWh row</td></tr>"
                 "</tbody></table>",
-                "<p>Battery cost is only the storage line — add the inverter estimate above and, for grid-tied work, an electrician. Our <a href=\"/10kwh-battery/\">10kWh battery page</a> breaks the most common target down by build path, and the <a href=\"/home-battery-backup/\">home battery backup table</a> shows every 48V model ranked the same way.</p>",
+                "<p>Battery cost is only the storage line — add the inverter estimate above and, for grid-tied work, an electrician. Our <a href=\"/10kwh-battery/\">10kWh battery page</a> breaks the most common target down by build path, and the <a href=\"/home-battery-backup/\">home battery backup table</a> shows every 48V model ranked the same way. The first row of that sizing table — a single 5.12kWh module — is priced on its own on the <a href=\"/5kwh-battery/\">5kWh battery page</a>.</p>",
             ]),
         ],
         "faqs": [
@@ -93,7 +93,7 @@ GUIDES = {
             ]),
             ("Which path should you take?", [
                 "<ul><li><b>Cheapest per kWh, plans to expand:</b> Path 2, rack modules.</li><li><b>Simplest wiring, one-and-done:</b> Path 1, single 200Ah unit.</li><li><b>Cleanest install, space-constrained:</b> Path 3, wall-mount — and price the premium in the table first.</li></ul>",
-                "<p>Whichever path: the inverter must be a 48V model whose battery list (or voltage-based settings) covers your pick, and 10kWh of backup is a loads question before it is a shopping question — see the runtime framing on our <a href=\"/home-battery-system/\">home battery system page</a>.</p>",
+                "<p>Whichever path: the inverter must be a 48V model whose battery list (or voltage-based settings) covers your pick, and 10kWh of backup is a loads question before it is a shopping question — see the runtime framing on our <a href=\"/home-battery-system/\">home battery system page</a>. Every figure on this page is ranked in the unit explained on the <a href=\"/price-per-watt-hour/\">price per watt-hour</a> page, and the rung below this one — a single module — is priced on the <a href=\"/5kwh-battery/\">5kWh battery page</a>.</p>",
             ]),
         ],
         "faqs": [
@@ -124,7 +124,7 @@ GUIDES = {
             ]),
             ("The 9.6kWh vs 10.24kWh trap", [
                 "<p>Both numbers come from the same multiplication with different voltages. Lead-acid-era math uses the nominal system voltage: 48V × 200Ah = <b>9,600Wh</b>. LiFePO4 math uses the pack's real nominal voltage: 51.2V × 200Ah = <b>10,240Wh</b>. Makers use both — the one direct listing below is a true 10,240Wh unit, while the kit configuration mentioned above is rated 9,600Wh for the same '200Ah' label.</p>",
-                "<p>The trap costs real money: a 9,600Wh unit has to be about 6% cheaper than a 10,240Wh unit just to tie on value. Sticker prices hide that; $/Wh cannot. Sort the table by $/Wh (it already is) and the honest ranking falls out — this is the entire reason this site ranks by watt-hours instead of amp-hours.</p>",
+                "<p>The trap costs real money: a 9,600Wh unit has to be about 6% cheaper than a 10,240Wh unit just to tie on value. Sticker prices hide that; $/Wh cannot. Sort the table by $/Wh (it already is) and the honest ranking falls out — this is the entire reason this site ranks by watt-hours instead of amp-hours. The <a href=\"/price-per-watt-hour/\">price per watt-hour</a> page works the method end to end on live listings.</p>",
             ]),
             ("What the class looks like today", [
                 "<p>The one direct listing is the <b>{cheap_title}</b> at {cheap_price} (${cheap_ppw}/Wh) — a wall-mounted unit, which suits the format: a single-case 200Ah battery fits a slim wall box in a garage or utility room better than a floor footprint. What the class lacks is choice. The big value brands pour their volume into 100Ah modules instead, so a shopper cross-shopping '200Ah in one case' against '200Ah as two modules' will find a one-row table here and a long one on the <a href=\"/48v-100ah-lifepo4-battery/\">100Ah page</a>.</p>",
@@ -173,7 +173,7 @@ GUIDES = {
                 "<tr><td>15.36kWh</td><td>3 modules</td><td class='num'>1.5× the 10kWh row</td></tr>"
                 "<tr><td>20.48kWh</td><td>4 modules</td><td class='num'>2× the 10kWh row</td></tr>"
                 "</tbody></table>",
-                "<p>The low end of each range is today's cheapest tracked $/Wh (${minppw}); the high end is the median (${medppw}). Because the steps are the same module in parallel, climbing the ladder later costs the same per kWh as climbing it today — there is no starter-size penalty and nothing to replace. The <a href=\"/10kwh-battery/\">10kWh page</a> breaks the most common target down by build path.</p>",
+                "<p>The low end of each range is today's cheapest tracked $/Wh (${minppw}); the high end is the median (${medppw}). Because the steps are the same module in parallel, climbing the ladder later costs the same per kWh as climbing it today — there is no starter-size penalty and nothing to replace. The <a href=\"/10kwh-battery/\">10kWh page</a> breaks the most common target down by build path. The unit those ranges are built from — and why it beats sticker price — is explained on the <a href=\"/price-per-watt-hour/\">price per watt-hour</a> page.</p>",
             ]),
             ("What 5.12kWh actually runs", [
                 "<table><thead><tr><th>Load set</th><th>Average draw</th><th>Runtime on 5.12kWh</th></tr></thead><tbody>"
@@ -296,7 +296,7 @@ GUIDES = {
                 "<tr><td>Failure mode</td><td>Whole bank down</td><td>One module down, 2/3 capacity remains</td></tr>"
                 "<tr><td>Expansion</td><td>Parallel a second 314Ah (32kWh)</td><td>Add modules one 5.12kWh step at a time</td></tr>"
                 "</tbody></table>",
-                "<p>The $/Wh column in the table prices the first option; the <a href=\"/48v-100ah-lifepo4-battery/\">100Ah table</a> prices the second. Neither is universally right: single-case wins on cost and simplicity, modules win on redundancy and incremental growth.</p>",
+                "<p>The $/Wh column in the table prices the first option; the <a href=\"/48v-100ah-lifepo4-battery/\">100Ah table</a> prices the second. Neither is universally right: single-case wins on cost and simplicity, modules win on redundancy and incremental growth. How the $/Wh column itself is calculated is set out on the <a href=\"/price-per-watt-hour/\">price per watt-hour</a> page.</p>",
             ]),
             ("Who should not buy one", [
                 "<ul><li><b>Anyone who can't move it:</b> a 314Ah 48V battery is a ~300 lb class object. Plan the install location before the purchase.</li><li><b>Anyone building incrementally on a budget:</b> the first step is the whole 16kWh; modules let you start at 5.12kWh.</li><li><b>Anyone whose inverter caps battery current low:</b> one BMS must supply the full discharge — check its continuous rating against your inverter's draw.</li></ul>",
@@ -332,7 +332,7 @@ GUIDES = {
                 "<p>Nameplate includes the two off-grid realities: you plan to use ~80% of rated capacity day-to-day (LiFePO4 allows it, but headroom extends life), and autonomy is calculated on usable energy. The other half of the design is generation: the array must refill a day's use in a winter day's sun, or the biggest bank only delays the generator.</p>",
             ]),
             ("Why 48V is the off-grid default", [
-                "<ul><li><b>Current stays sane:</b> a 5kW load draws ~100A at 48V vs ~400A at 12V — thinner cables, smaller breakers, less heat.</li><li><b>Inverter selection:</b> the serious off-grid inverter-chargers (and every hybrid worth its warranty) are 48V machines.</li><li><b>Daily cycling economics:</b> at one cycle a day, cycle life is calendar life — a 6,000-cycle bank is a 16-year asset, which is why the $/Wh you pay for it matters more off-grid than anywhere else. The table's sort is the whole argument.</li></ul>",
+                "<ul><li><b>Current stays sane:</b> a 5kW load draws ~100A at 48V vs ~400A at 12V — thinner cables, smaller breakers, less heat.</li><li><b>Inverter selection:</b> the serious off-grid inverter-chargers (and every hybrid worth its warranty) are 48V machines.</li><li><b>Daily cycling economics:</b> at one cycle a day, cycle life is calendar life — a 6,000-cycle bank is a 16-year asset, which is why the $/Wh you pay for it matters more off-grid than anywhere else. The table's sort is the whole argument — the <a href=\"/price-per-watt-hour/\">price per watt-hour</a> page shows the calculation behind it.</li></ul>",
                 "<p>For the grid-tied cousin of this math — sizing against outages instead of seasons — see the <a href=\"/whole-home-battery-backup/\">whole-home backup guide</a>; for the solar-first framing, the <a href=\"/solar-storage-batteries/\">solar storage table</a>.</p>",
             ]),
         ],
