@@ -654,6 +654,33 @@ def snapshot_passage(site, pool, date_str):
     if not ah100:
         return ""
     c100 = min(ah100, key=lambda p: p["price"])
+    if site.get("snapshot_variant") == "runtime-links":
+        # 12V variant (Phase D B1 spec §5): pool size stated as products +
+        # page count (read from the sitemap this build is about to rewrite,
+        # so the number is the site's own, never a rival figure), the 100Ah
+        # block at its real 12V energy, and links out to the capacity pages
+        # plus the fridge/CPAP runtime pages (supports L1).
+        pages = ""
+        sm = OUT / site["domain"] / "sitemap.xml"
+        if sm.exists():
+            n_pages = sm.read_text().count("<loc>")
+            if n_pages:
+                pages = f' — {len(pool)} products across the {n_pages} pages of this site'
+        return (f'<h2>The numbers in this snapshot, checked {esc(date_str)}</h2>'
+                f'<div class="prose"><p>Price snapshot checked {esc(date_str)}: this tracker follows '
+                f'<b>{len(pool)} {esc(site["phrase"])} models</b>{pages}. The cheapest stored '
+                f'energy in the pool is <b>${ppw(cheap):.3f}/Wh</b> — {esc(cheap["title"])} '
+                f'({esc(cheap["brand"])}) at {money(cheap["price"])} for {esc(cap_label(cheap))}. '
+                f'The cheapest 100Ah model is '
+                f'{esc(c100["title"])} ({esc(c100["brand"])}) at <b>{money(c100["price"])}</b>, '
+                f'or ${ppw(c100):.3f}/Wh. Every figure in this passage comes from the catalog '
+                f'snapshot checked {esc(date_str)}. Compare the full tables on the '
+                f'<a href="/12v-100ah-lifepo4-battery/">100Ah</a>, '
+                f'<a href="/12v-200ah-lifepo4-battery/">200Ah</a> and '
+                f'<a href="/12v-314ah-lifepo4-battery/">314Ah</a> pages, and see what a 100Ah '
+                f'battery actually runs in the '
+                f'<a href="/how-long-will-12v-100ah-run-a-fridge/">fridge runtime</a> and '
+                f'<a href="/12v-battery-for-cpap/">CPAP runtime</a> guides.</p></div>')
     return (f'<h2>The numbers in this snapshot, checked {esc(date_str)}</h2>'
             f'<div class="prose"><p>Price snapshot checked {esc(date_str)}: this tracker follows '
             f'<b>{len(pool)} {esc(site["phrase"])} models</b> in its own catalog. The cheapest stored '
@@ -837,6 +864,7 @@ SITES = [
     {
         "domain": "12vlifepo4battery.com", "name": "12V LiFePO4 Battery",
         "phrase": "12V LiFePO4 battery", "display": "12V LiFePO4 Battery", "pool": ["12v"], "faqs": FAQ_12V,
+        "snapshot_passage": True, "snapshot_variant": "runtime-links",
         "lede": "Every {phrase} from the major makers' own stores, ranked by <b>price per watt-hour</b> — the fair way to compare a 100Ah pack against a 314Ah one. {n} models tracked; cheapest stored energy is <b>${minppw}/Wh</b>, median ${medppw}/Wh. Prices refreshed {date}.",
         "clusters": [
             C("12v-100ah-lifepo4-battery", "100Ah", "12V 100Ah LiFePO4 Batteries",
