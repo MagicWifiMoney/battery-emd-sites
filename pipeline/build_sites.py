@@ -473,7 +473,22 @@ def favicon_link(acc):
             f'%3Cpath d=\'M23 5 14 16h6l-2 7 9-11h-6z\' fill=\'white\'/%3E%3C/svg%3E">')
 
 # ---------- page shell ----------
+# Phase D S1+O1 (2026-11-24): OG template pass + llms.txt, gated to
+# 48vlifepo4battery.com — the sibling domains get the same pass via their
+# own Phase D rows, so do not widen this set from this task.
+OG_DOMAINS = {"48vlifepo4battery.com"}
+LLMS_REGISTRY = {}
+
 def page(site, path, title, desc, body, extra_head=""):
+    if site["domain"] in OG_DOMAINS:
+        LLMS_REGISTRY.setdefault(site["domain"], []).append((path, title, desc))
+    og = ""
+    if site["domain"] in OG_DOMAINS:
+        og = (f'<meta property="og:type" content="website">\n'
+              f'<meta property="og:title" content="{esc(title)}">\n'
+              f'<meta property="og:description" content="{esc(desc)}">\n'
+              f'<meta property="og:url" content="https://{site["domain"]}{path}">\n'
+              f'<meta property="og:site_name" content="{esc(site["name"])}">\n')
     verify = VERIFY_META.get(site["domain"], "") if path == "/" else ""
     nav = "".join(f'<a href="/{c["slug"]}/">{esc(c["nav"])}</a>' for c in site["clusters"][:5])
     th = THEMES[site["domain"]]
@@ -490,7 +505,7 @@ def page(site, path, title, desc, body, extra_head=""):
 <title>{esc(title)}</title>
 <meta name="description" content="{esc(desc)}">
 <link rel="canonical" href="https://{site['domain']}{path}">
-{favicon_link(th['acc'])}
+{og}{favicon_link(th['acc'])}
 <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
 <style>{CSS}</style>
 <style>{theme_css}</style>
@@ -1676,12 +1691,62 @@ def build():
         # backup). Must stay in place to remain verified.
         (root / "google389f2fc75ee6ba5c.html").write_text(
             "google-site-verification: google389f2fc75ee6ba5c.html")
+        _ge = ("User-agent: Google-Extended\nAllow: /\n"
+               if site["domain"] in OG_DOMAINS else "")
         (root / "robots.txt").write_text(
             "User-agent: *\nAllow: /\n"
             "User-agent: GPTBot\nAllow: /\nUser-agent: OAI-SearchBot\nAllow: /\n"
             "User-agent: ChatGPT-User\nAllow: /\nUser-agent: ClaudeBot\nAllow: /\n"
             "User-agent: PerplexityBot\nAllow: /\nUser-agent: Bingbot\nAllow: /\n"
+            + _ge +
             f"Sitemap: https://{site['domain']}/sitemap.xml\n")
+        # Phase D S1: llms.txt — full sitemap inventory, grouped, with the
+        # $/Wh method stated once. Built from the pages rendered this run.
+        if site["domain"] in OG_DOMAINS:
+            _groups = [
+                ("Core and capacity pages", {"/", "/48v-100ah-lifepo4-battery/", "/48v-200ah-lifepo4-battery/", "/48v-314ah-lifepo4-battery/", "/5kwh-battery/", "/10kwh-battery/", "/price-per-watt-hour/"}),
+                ("Use-case pages", {"/golf-cart-batteries/", "/solar-storage-batteries/", "/server-rack-batteries/", "/home-battery-backup/", "/home-battery-system/", "/whole-home-battery-backup/", "/off-grid-48v-battery-bank/"}),
+                ("Guides and comparisons", {"/how-to-choose/", "/how-to-charge-48v-lifepo4-battery/", "/48v-lifepo4-series-parallel-guide/", "/golf-cart-lithium-conversion-mistakes/", "/48v-vs-12v-for-solar/", "/eco-worthy-vs-litime-48v/"}),
+                ("Brand hubs", None),  # /brand/*
+                ("Price and feature facets", {"/under-1000/", "/1000-to-2000/", "/over-2000/", "/compact-batteries/", "/heated-batteries/", "/bluetooth-batteries/"}),
+                ("Products", None),  # /product/*
+                ("About and method", {"/about/"}),
+            ]
+            _reg = {p: (t, d) for p, t, d in LLMS_REGISTRY.get(site["domain"], [])}
+            _lines = [
+                f"# {site['name']} ({site['domain']})",
+                "",
+                ("Entity statement: This site tracks 48V LiFePO4 battery prices from the "
+                 "manufacturers' own online stores and ranks every tracked model by price "
+                 "per watt-hour ($/Wh): the maker's listed price divided by the battery's "
+                 "rated capacity in watt-hours (nominal voltage x amp-hours). Prices are "
+                 "refreshed several times a day; listings are data, not hands-on reviews. "
+                 "Sister trackers cover 12V LiFePO4, 24V LiFePO4 and server-rack batteries."),
+                "",
+            ]
+            _seen = set()
+            for _gname, _paths in _groups:
+                if _paths is None:
+                    _prefix = "/brand/" if _gname == "Brand hubs" else "/product/"
+                    _items = [(p, _reg[p]) for p in urls if p.startswith(_prefix) and p in _reg]
+                else:
+                    _items = [(p, _reg[p]) for p in urls if p in _paths and p in _reg]
+                if not _items:
+                    continue
+                _lines.append(f"## {_gname}")
+                for _p, (_t, _d) in _items:
+                    _lines.append(f"- [{_t}](https://{site['domain']}{_p}): {_d}")
+                    _seen.add(_p)
+                _lines.append("")
+            _missing = [p for p in urls if p not in _seen]
+            if _missing:
+                _lines.append("## More pages")
+                for _p in _missing:
+                    if _p in _reg:
+                        _t, _d = _reg[_p]
+                        _lines.append(f"- [{_t}](https://{site['domain']}{_p}): {_d}")
+                _lines.append("")
+            (root / "llms.txt").write_text("\n".join(_lines))
         (root / f"{INDEXNOW_KEY}.txt").write_text(INDEXNOW_KEY)
         # Self-hosted variable fonts (no CDN): copied from the committed
         # pipeline assets into every site root at /fonts/.
