@@ -1348,3 +1348,405 @@ GUIDES = {
     },
 ],
 }
+
+# ---------------------------------------------------------------------------
+# Query fan-out gap pages (2026-11-25). Each entry answers a sub-query that
+# AI search fans out to from the site's head terms (Qforia method) and that no
+# existing page answered: voltage / state-of-charge charts, inverter sizing,
+# rack setup, and UL listings. Voltage figures are Renogy's published LiFePO4
+# chart (renogy.com, Nov 3 2026), with LiTime's chart (litime.com, Nov 17
+# 2026) cited where it differs. Every other number is arithmetic on a stated
+# input (nominal voltage x amps) or a live catalog placeholder.
+# No em dashes in this block (hub copy rule).
+# ---------------------------------------------------------------------------
+
+_VCHART_SRC = ("<p class='note'>Source: Renogy's published LiFePO4 voltage chart (November 3, 2026), "
+               "read November 25, 2026. Per-cell figures are Renogy's; pack figures are the cell figure "
+               "times the number of cells in series, as Renogy lists them. Makers' charts differ by a few "
+               "hundredths of a volt per cell, so treat any row as a band, not a decimal-point reading.</p>")
+
+GUIDES["12vlifepo4battery.com"] += [
+    {
+        "slug": "12v-lifepo4-voltage-chart",
+        "updated": "2026-11-25",
+        "title": "12V LiFePO4 Voltage Chart: State of Charge from 13.6V Full to 10V Empty",
+        "desc": "A 12V LiFePO4 voltage chart from a maker's published figures: rested voltage at every 10% of charge, why the middle of the curve is flat, and what to trust instead of a meter. Prices refreshed {date}.",
+        "h1": "12V LiFePO4 Voltage Chart: What Each Reading Means for State of Charge",
+        "blurb": "Rested voltage at every 10% of charge from a maker's published chart, and why a voltmeter can't tell 70% from 30%.",
+        "lede": "A rested 12V LiFePO4 battery reads about <b>13.6V when full</b>, about <b>13.0V at half</b> and <b>10.0V when empty</b>, per Renogy's published chart. The catch is the middle of the curve: between 70% and 30% the reading moves only 0.3V, so a voltmeter is a good gauge near full and near empty and a poor one in between. The full chart is below, then how to read it without fooling yourself, then the cheapest 12V batteries we track per watt-hour.",
+        "filter": "top15",
+        "table_heading": "The cheapest 12V LiFePO4 batteries per watt-hour right now",
+        "sections": [
+            ("The chart: rested voltage for a 12V (four-cell) pack", [
+                "<table><thead><tr><th>State of charge</th><th>12V pack</th><th>Per cell</th></tr></thead><tbody>"
+                "<tr><td>100%, still on the charger</td><td class='num'>14.6V</td><td class='num'>3.65V</td></tr>"
+                "<tr><td>100%, rested</td><td class='num'>13.6V</td><td class='num'>3.40V</td></tr>"
+                "<tr><td>90%</td><td class='num'>13.4V</td><td class='num'>3.35V</td></tr>"
+                "<tr><td>80%</td><td class='num'>13.3V</td><td class='num'>3.32V</td></tr>"
+                "<tr><td>70%</td><td class='num'>13.2V</td><td class='num'>3.30V</td></tr>"
+                "<tr><td>60%</td><td class='num'>13.1V</td><td class='num'>3.27V</td></tr>"
+                "<tr><td>50%</td><td class='num'>13.0V</td><td class='num'>3.26V</td></tr>"
+                "<tr><td>40%</td><td class='num'>13.0V</td><td class='num'>3.25V</td></tr>"
+                "<tr><td>30%</td><td class='num'>12.9V</td><td class='num'>3.22V</td></tr>"
+                "<tr><td>20%</td><td class='num'>12.8V</td><td class='num'>3.20V</td></tr>"
+                "<tr><td>10%</td><td class='num'>12.0V</td><td class='num'>3.00V</td></tr>"
+                "<tr><td>0%</td><td class='num'>10.0V</td><td class='num'>2.50V</td></tr>"
+                "</tbody></table>",
+                _VCHART_SRC,
+                "<p>Other makers draw the top of the curve a little lower. LiTime's chart (November 2026) says a fully charged cell left to rest settles at around 3.35V, which works out to roughly 13.4V on a 12V pack, and lists a full 12V battery as 13.33V or more. So a freshly charged battery that rests at 13.3V to 13.6V is normal, not short of charge. Our <a href=\"/12v-lifepo4-charging-guide/\">charging guide</a> covers the settings that get it there.</p>",
+            ]),
+            ("Why the middle of the chart is flat", [
+                "<p>LiFePO4 holds an almost constant voltage across most of its capacity. On the chart above, 70% reads 13.2V and 30% reads 12.9V: forty points of charge inside 0.3V. A cheap meter's error, a warm or cold battery, or a load that was switched off a minute ago can each move the reading by that much. Lead-acid is the opposite, falling steadily as it empties, which is why a lead-acid voltage chart works as a fuel gauge and a LiFePO4 chart mostly does not.</p>",
+                "<p>For a real state-of-charge number, count the energy instead of reading the voltage: a shunt-based battery monitor, or the battery's own app on a <a href=\"/bluetooth-batteries/\">Bluetooth model</a>, tracks amp-hours in and out and reports a percentage that the flat curve cannot hide.</p>",
+            ]),
+            ("Reading it correctly: rest, load and charge", [
+                "<ul><li><b>Rested means no charge and no load.</b> Disconnect both and let the battery sit before you read it. The chart's figures are rested figures.</li>"
+                "<li><b>On the charger, the meter reads the charger.</b> A battery still connected to a charger shows the charger's setting (14.2V to 14.6V is typical), not its state of charge.</li>"
+                "<li><b>Under load, every battery reads low.</b> A full battery running an inverter can sag well below 13.6V and be perfectly fine. Thin or long cable makes the sag worse.</li>"
+                "<li><b>Cold reads low too.</b> Take the reading at a moderate temperature if you can.</li></ul>",
+            ]),
+            ("The bottom of the chart: where voltage becomes useful again", [
+                "<p>Below about 20% the curve drops off a cliff: 12.8V at 20%, 12.0V at 10%, 10.0V at empty. That steep end is why voltage is a decent low-battery warning even though it is a poor mid-range gauge. The battery's BMS disconnects the output before the cells are damaged; the exact cutoff is each maker's choice (LiTime's guide puts the low-voltage cutoff around 2.5V per cell, about 10V on a 12V pack).</p>",
+                "<p>Do not rely on the BMS as your off switch. Set the inverter's or controller's low-voltage shutdown near the chart's 10% row so the equipment stops before the battery does, and recharge soon after a deep discharge. Running down to cutoff now and then does no harm; doing it every day spends cycles you paid for. How far a full charge goes on a common load is worked on our <a href=\"/how-long-will-12v-100ah-run-a-fridge/\">fridge runtime page</a>.</p>",
+            ]),
+        ],
+        "faqs": [
+            ("What voltage is a fully charged 12V LiFePO4 battery?",
+             "About 13.6V at rest and 14.6V while still on the charger, per Renogy's published chart. LiTime's chart puts a full, rested pack a little lower, around 13.3V to 13.4V, so a just-charged battery resting anywhere from 13.3V to 13.6V is normal."),
+            ("What voltage is 50% on a 12V LiFePO4 battery?",
+             "About 13.0V at rest, per Renogy's chart, and 40% reads almost the same. That flatness is why voltage alone can't pin down a mid-range charge; a shunt monitor or the battery's Bluetooth app counts amp-hours and can."),
+            ("What voltage is too low for a 12V LiFePO4 battery?",
+             "Renogy's chart puts 10% at 12.0V and empty at 10.0V. The BMS cuts the output before the cells are harmed, but set your inverter or controller to shut off near 12.0V, recharge promptly after a deep discharge, and avoid running to cutoff every day."),
+        ],
+        "related": ["12v-lifepo4-charging-guide", "how-to-choose", "lifepo4-vs-lead-acid-cost"],
+    },
+    {
+        "slug": "what-size-inverter-for-12v-lifepo4-battery",
+        "updated": "2026-11-25",
+        "title": "What Size Inverter for a 12V LiFePO4 Battery? The BMS Amp Rule",
+        "desc": "How to size an inverter for a 12V LiFePO4 battery: the BMS continuous current times 12.8V sets the ceiling, plus surge, cable and the point where 12V stops making sense. Live 12V prices refreshed {date}.",
+        "h1": "What Size Inverter Can a 12V LiFePO4 Battery Run?",
+        "blurb": "The BMS current rating, not the amp-hours, sets the inverter ceiling. The one multiplication, worked for common ratings.",
+        "lede": "The inverter a 12V LiFePO4 battery can run is set by its <b>BMS continuous current rating</b>, not its amp-hours: multiply the rated amps by 12.8V, then leave room for the inverter's own losses. A battery whose spec sheet says 100A continuous can supply about <b>1,280W</b> at its terminals, which runs roughly a <b>1,100W</b> inverter at full output. Below is that math for common ratings, the surge question, and where 12V stops making sense; the cheapest 12V batteries per watt-hour are in the live table.",
+        "filter": "top15",
+        "table_heading": "The cheapest 12V LiFePO4 batteries per watt-hour right now",
+        "sections": [
+            ("The rule: BMS amps times 12.8V", [
+                "<table><thead><tr><th>BMS continuous rating</th><th>Most it can supply (x 12.8V)</th><th>Inverter it runs at full output (after ~10 to 15% losses)</th></tr></thead><tbody>"
+                "<tr><td>100A</td><td class='num'>1,280W</td><td class='num'>about 1,100W</td></tr>"
+                "<tr><td>150A</td><td class='num'>1,920W</td><td class='num'>about 1,650W</td></tr>"
+                "<tr><td>200A</td><td class='num'>2,560W</td><td class='num'>about 2,200W</td></tr>"
+                "<tr><td>300A</td><td class='num'>3,840W</td><td class='num'>about 3,300W</td></tr>"
+                "</tbody></table>",
+                "<p>The rating is on each maker's spec sheet as continuous discharge current. It varies by model even inside one capacity class, so look up the exact battery, not the class: two 100Ah batteries can carry different BMS ratings. Amp-hours decide <i>how long</i>; BMS amps decide <i>how much at once</i>.</p>",
+                "<p>An inverter you rarely run near full output can be a size larger than the table, as long as your real loads stay inside the battery's ceiling. Sizing to the loads you actually run beats sizing to the biggest number on the inverter box.</p>",
+            ]),
+            ("Two batteries in parallel double the ceiling", [
+                "<p>Identical batteries wired in parallel share the current, so two packs rated 100A each can feed about 200A together, within the maker's parallel rules. That is the usual way to run a 2,000W-class inverter from 12V. Wiring the same two batteries in series instead makes 24V, which halves the current for the same watts; our <a href=\"/12v-lifepo4-series-parallel-guide/\">series and parallel guide</a> covers both, and our sister tracker prices native <a href=\"https://24vlifepo4battery.com/\">24V batteries</a>.</p>",
+            ]),
+            ("Surge: the motor-start moment", [
+                "<p>Fridges, pumps, microwaves and power tools pull several times their running power for a moment at start-up. Inverters list a surge rating above their continuous rating for exactly this, and many BMS spec sheets list a short peak current as well. If the battery's spec sheet lists no peak figure, plan for start-up surges to stay inside the continuous rating.</p>",
+                "<p>A battery that shuts off the moment a load starts, then comes back, is usually the BMS tripping on surge. The fixes are a battery with a higher rating, a second battery in parallel, or a soft-start on the offending appliance, in that order of cost.</p>",
+            ]),
+            ("Cable and fuse: the part that gets undersized", [
+                "<p>Current at 12V is high: a 2,000W inverter at full output pulls about 156A at 12.8V before losses, and more once they are counted. Use the cable size in the inverter's manual for your run length, keep the run short, and put a fuse sized to that cable at the battery positive. Undersized cable wastes power as heat and makes the voltage sag that trips low-voltage alarms.</p>",
+                "<p>Past roughly 2,000W, the copper and fusing a 12V system needs get expensive fast. That is the line where 24V or 48V takes over, worked with a current table on our sister site's <a href=\"https://48vlifepo4battery.com/48v-vs-12v-for-solar/\">48V vs 12V page</a>. To check what a sagging reading means for charge, use the <a href=\"/12v-lifepo4-voltage-chart/\">12V voltage chart</a>.</p>",
+            ]),
+        ],
+        "faqs": [
+            ("What size inverter can a 12V 100Ah LiFePO4 battery run?",
+             "It depends on the BMS rating, not the 100Ah. A model rated 100A continuous can supply about 1,280W, so it runs roughly a 1,100W inverter at full output; some 100Ah models carry higher ratings. The 100Ah decides runtime: its 1,280Wh runs a 1,000W load for a little over an hour."),
+            ("Can a 12V LiFePO4 battery run a 3,000W inverter?",
+             "Only with enough current behind it: a 3,000W load needs about 234A at 12.8V before losses, so a high-current battery or several in parallel, plus very heavy cable. At that size most systems move to 24V or 48V instead."),
+            ("Why does my LiFePO4 battery shut off when a load starts?",
+             "Usually the BMS is tripping on the start-up surge. Check the battery's continuous and peak ratings against the appliance, then add a second battery in parallel, choose a higher-rated battery, or fit a soft-start. Loose or thin cable can cause the same trip by sagging the voltage."),
+        ],
+        "related": ["12v-lifepo4-series-parallel-guide", "how-long-will-12v-100ah-run-a-fridge", "12v-lifepo4-voltage-chart"],
+    },
+]
+
+GUIDES["24vlifepo4battery.com"] += [
+    {
+        "slug": "24v-lifepo4-voltage-chart",
+        "updated": "2026-11-25",
+        "title": "24V LiFePO4 Voltage Chart: State of Charge from 27.2V Full to 20V Empty",
+        "desc": "A 24V LiFePO4 voltage chart from a maker's published figures: rested voltage at every 10% of charge for an eight-cell pack, how to read a 12V series pair, and what to trust instead of a meter. Prices refreshed {date}.",
+        "h1": "24V LiFePO4 Voltage Chart: What Each Reading Means for State of Charge",
+        "blurb": "Rested voltage at every 10% of charge for a 25.6V pack, and how to read two 12V batteries in series.",
+        "lede": "A rested 24V LiFePO4 battery reads about <b>27.2V when full</b>, about <b>26.1V at half</b> and <b>20.0V when empty</b>, per Renogy's published chart for an eight-cell, 25.6V pack. Between 70% and 30% the reading moves only 0.6V, so a voltmeter is a good gauge near full and near empty and a poor one in between. The full chart is below, then how to read it (including two 12V batteries in series), then every 24V battery we track ({n} today), ranked by price per watt-hour.",
+        "filter": "all",
+        "table_heading": "Every 24V LiFePO4 battery we track, ranked by $/Wh",
+        "sections": [
+            ("The chart: rested voltage for a 24V (eight-cell) pack", [
+                "<table><thead><tr><th>State of charge</th><th>24V pack</th><th>Per cell</th></tr></thead><tbody>"
+                "<tr><td>100%, still on the charger</td><td class='num'>29.2V</td><td class='num'>3.65V</td></tr>"
+                "<tr><td>100%, rested</td><td class='num'>27.2V</td><td class='num'>3.40V</td></tr>"
+                "<tr><td>90%</td><td class='num'>26.8V</td><td class='num'>3.35V</td></tr>"
+                "<tr><td>80%</td><td class='num'>26.6V</td><td class='num'>3.32V</td></tr>"
+                "<tr><td>70%</td><td class='num'>26.4V</td><td class='num'>3.30V</td></tr>"
+                "<tr><td>60%</td><td class='num'>26.1V</td><td class='num'>3.27V</td></tr>"
+                "<tr><td>50%</td><td class='num'>26.1V</td><td class='num'>3.26V</td></tr>"
+                "<tr><td>40%</td><td class='num'>26.0V</td><td class='num'>3.25V</td></tr>"
+                "<tr><td>30%</td><td class='num'>25.8V</td><td class='num'>3.22V</td></tr>"
+                "<tr><td>20%</td><td class='num'>25.6V</td><td class='num'>3.20V</td></tr>"
+                "<tr><td>10%</td><td class='num'>24.0V</td><td class='num'>3.00V</td></tr>"
+                "<tr><td>0%</td><td class='num'>20.0V</td><td class='num'>2.50V</td></tr>"
+                "</tbody></table>",
+                _VCHART_SRC,
+                "<p>Renogy's chart lists the same 26.1V for 60% and 50%, which says everything about how flat the middle is. LiTime's chart (November 2026) draws the top a little lower, with a fully charged cell resting around 3.35V, about 26.8V for a 24V pack. A just-charged battery resting at 26.7V to 27.2V is full. The settings that get it there are on our <a href=\"/charging-24v-lifepo4-battery/\">24V charging page</a>.</p>",
+            ]),
+            ("Why 25.6V on the meter means nearly empty", [
+                "<p>25.6V is the nominal voltage printed on the label, and it is also the chart's 20% row. A rested 24V LiFePO4 battery that reads its own nameplate voltage has about a fifth of its charge left, not half. Below that the curve falls fast: 24.0V at 10%, 20.0V at empty. That steep end makes voltage a decent low-battery warning, while the flat middle (26.4V at 70%, 25.8V at 30%) makes it a poor fuel gauge.</p>",
+                "<p>For a real percentage, use a shunt-based monitor or a <a href=\"/bluetooth-batteries/\">Bluetooth battery</a> whose app counts amp-hours in and out. Set your inverter's or trolling setup's low-voltage cutoff near the 10% row so the equipment stops before the battery's BMS has to.</p>",
+            ]),
+            ("Two 12V batteries in series: read each one", [
+                "<p>A 24V string built from two 12V batteries follows the same chart at its terminals, but the total can hide a problem: one battery at 13.4V and the other at 12.8V still add up to a healthy-looking 26.2V. Read each battery on its own (both rested), and if they drift apart, charge each one individually to full before putting them back in series. A native 24V battery has one BMS balancing all eight cells, which is one of the trade-offs on our <a href=\"/series-vs-native-24v/\">native 24V vs series page</a>.</p>",
+            ]),
+            ("Reading it correctly: rest, load and charge", [
+                "<ul><li><b>Rested means no charge and no load.</b> Disconnect both and let the battery sit before reading.</li>"
+                "<li><b>On the charger, the meter reads the charger.</b> Expect roughly 28.4V to 29.2V while charging; that is the charger's setting, not the state of charge.</li>"
+                "<li><b>Under load, every battery reads low.</b> A trolling motor at full thrust can sag a full battery well under 27V. Thin cable makes it worse.</li>"
+                "<li><b>Cold reads low.</b> Take readings at a moderate temperature when you can.</li></ul>",
+            ]),
+        ],
+        "faqs": [
+            ("What voltage is a fully charged 24V LiFePO4 battery?",
+             "About 27.2V at rest and 29.2V while still on the charger, per Renogy's published chart. LiTime's chart puts a full, rested pack a little lower, around 26.7V to 26.8V, so a just-charged battery resting anywhere in that range is full."),
+            ("What voltage is 50% on a 24V LiFePO4 battery?",
+             "About 26.1V at rest, per Renogy's chart, the same figure it gives for 60%. Voltage can't separate mid-range charge levels on LiFePO4; a shunt monitor or the battery's Bluetooth app can."),
+            ("What voltage is too low for a 24V LiFePO4 battery?",
+             "Renogy's chart puts 10% at 24.0V and empty at 20.0V, and 25.6V (the nameplate voltage) is already about 20%. The BMS cuts off before damage, but set your equipment to stop near 24.0V and recharge promptly after a deep discharge."),
+        ],
+        "related": ["charging-24v-lifepo4-battery", "how-to-choose-24v-lifepo4-battery", "series-vs-native-24v"],
+    },
+    {
+        "slug": "what-size-inverter-for-24v-lifepo4-battery",
+        "updated": "2026-11-25",
+        "title": "What Size Inverter for a 24V LiFePO4 Battery? The BMS Amp Rule at 25.6V",
+        "desc": "How to size an inverter for a 24V LiFePO4 battery: BMS continuous amps times 25.6V sets the ceiling, plus series pairs, surge, cable and when to step up to 48V. Live 24V prices refreshed {date}.",
+        "h1": "What Size Inverter Can a 24V LiFePO4 Battery Run?",
+        "blurb": "BMS amps times 25.6V is the ceiling. Worked for common ratings, series pairs and the step up to 48V.",
+        "lede": "A 24V LiFePO4 battery's inverter ceiling is its <b>BMS continuous current rating times 25.6V</b>, less the inverter's own losses. A battery whose spec sheet says 100A continuous can supply about <b>2,560W</b>, which runs roughly a <b>2,200W</b> inverter at full output: twice what the same current buys at 12V. Below is that math for common ratings, what changes with two 12V batteries in series, and where 48V takes over; every 24V battery we track ({n} today) is ranked by price per watt-hour in the live table.",
+        "filter": "all",
+        "table_heading": "Every 24V LiFePO4 battery we track, ranked by $/Wh",
+        "sections": [
+            ("The rule: BMS amps times 25.6V", [
+                "<table><thead><tr><th>BMS continuous rating</th><th>Most it can supply (x 25.6V)</th><th>Inverter it runs at full output (after ~10 to 15% losses)</th></tr></thead><tbody>"
+                "<tr><td>50A</td><td class='num'>1,280W</td><td class='num'>about 1,100W</td></tr>"
+                "<tr><td>100A</td><td class='num'>2,560W</td><td class='num'>about 2,200W</td></tr>"
+                "<tr><td>150A</td><td class='num'>3,840W</td><td class='num'>about 3,300W</td></tr>"
+                "<tr><td>200A</td><td class='num'>5,120W</td><td class='num'>about 4,400W</td></tr>"
+                "</tbody></table>",
+                "<p>The continuous discharge rating is on each maker's spec sheet and varies by model, even between two 24V 100Ah batteries, so check the exact battery. Amp-hours set how long the inverter runs; BMS amps set how big it can be. Identical batteries in parallel share current, so two 100A packs can feed about 200A together within the maker's parallel rules.</p>",
+            ]),
+            ("Two 12V batteries in series: the weaker BMS sets the limit", [
+                "<p>Series wiring adds voltage, not current. Two 12V batteries rated 100A each make a 24V string that is still limited to 100A, so about 2,560W, the same as one native 24V battery with a 100A BMS. If the two batteries carry different ratings, the lower one is the string's ceiling. The other trade-offs of the series route are on our <a href=\"/series-vs-native-24v/\">native 24V vs series page</a>.</p>",
+            ]),
+            ("Surge, cable and the low-voltage alarm", [
+                "<p>Motors, pumps and compressors pull several times their running power at start-up. Inverters carry a surge rating for that moment, and many BMS spec sheets list a short peak current; with no peak figure listed, keep start-up surges inside the continuous rating. A battery that drops out the moment a load starts is usually the BMS tripping on surge.</p>",
+                "<p>At 24V the current is half of 12V for the same watts: a 2,000W inverter pulls about 78A at 25.6V before losses, against about 156A at 12V. Use the cable size from the inverter manual for your run length and fuse it at the battery. A low-voltage alarm while the battery still shows plenty of charge usually means cable sag under load, not an empty battery; check a rested reading against our <a href=\"/24v-lifepo4-voltage-chart/\">24V voltage chart</a>.</p>",
+            ]),
+            ("Where 24V stops and 48V starts", [
+                "<p>24V is the comfortable middle for RVs, trucks, boats and small off-grid cabins in the 1kW to 3kW range. Past about 3kW the current climbs back into heavy-cable territory (3,000W is about 117A at 25.6V), and most whole-home hybrid inverters are 48V machines anyway. If your plan is heading there, compare on our sister tracker for <a href=\"https://48vlifepo4battery.com/\">48V LiFePO4 batteries</a> before buying a second 24V battery.</p>",
+            ]),
+        ],
+        "faqs": [
+            ("What size inverter can a 24V 100Ah LiFePO4 battery run?",
+             "It depends on the BMS rating. A model rated 100A continuous can supply about 2,560W, so it runs roughly a 2,200W inverter at full output. The 100Ah sets runtime: its 2,560Wh runs a 1,000W load for a little over two hours."),
+            ("Is a 24V inverter better than a 12V one?",
+             "For the same watts it draws half the current, so it needs lighter cable, loses less to heat and gets twice the inverter size from the same BMS rating. Below about 1,000W the difference matters little; from 1,500W up, 24V is usually the better system."),
+            ("Why does my inverter alarm low voltage when the battery still has charge?",
+             "Under a heavy load the voltage at the inverter sags, more so with thin or long cable or loose terminals. Check the rested battery voltage against the chart, then check cable size and connections, and set the inverter's cutoff near the chart's 10% row (about 24.0V)."),
+        ],
+        "related": ["24v-lifepo4-voltage-chart", "how-to-choose-24v-lifepo4-battery", "series-vs-native-24v"],
+    },
+]
+
+GUIDES["48vlifepo4battery.com"] += [
+    {
+        "slug": "48v-lifepo4-voltage-chart",
+        "updated": "2026-11-25",
+        "title": "48V LiFePO4 Voltage Chart: State of Charge from 54.4V Full to 40V Empty",
+        "desc": "A 48V (51.2V) LiFePO4 voltage chart from a maker's published figures: rested voltage at every 10% of charge for a 16-cell pack, why 48V on the meter means nearly empty, and what to trust instead. Prices refreshed {date}.",
+        "h1": "48V LiFePO4 Voltage Chart: What Each Reading Means for State of Charge",
+        "blurb": "Rested voltage at every 10% of charge for a 16-cell, 51.2V pack, and why a reading of 48V means the battery is nearly empty.",
+        "lede": "A rested 48V LiFePO4 battery reads about <b>54.4V when full</b>, about <b>52.2V at half</b> and <b>40.0V when empty</b>, per Renogy's published chart for a 16-cell pack. Two things surprise people: the middle of the curve is flat (70% to 30% spans only 1.3V), and a reading of <b>48V means about 10% left</b>, not a healthy nominal battery. The full chart is below, then how to read it, then every 48V model we track ({n} today), ranked by price per watt-hour.",
+        "filter": "all",
+        "table_heading": "Every 48V LiFePO4 battery we track, ranked by $/Wh",
+        "sections": [
+            ("The chart: rested voltage for a 48V (16-cell, 51.2V) pack", [
+                "<table><thead><tr><th>State of charge</th><th>48V pack</th><th>Per cell</th></tr></thead><tbody>"
+                "<tr><td>100%, still on the charger</td><td class='num'>58.4V</td><td class='num'>3.65V</td></tr>"
+                "<tr><td>100%, rested</td><td class='num'>54.4V</td><td class='num'>3.40V</td></tr>"
+                "<tr><td>90%</td><td class='num'>53.6V</td><td class='num'>3.35V</td></tr>"
+                "<tr><td>80%</td><td class='num'>53.1V</td><td class='num'>3.32V</td></tr>"
+                "<tr><td>70%</td><td class='num'>52.8V</td><td class='num'>3.30V</td></tr>"
+                "<tr><td>60%</td><td class='num'>52.3V</td><td class='num'>3.27V</td></tr>"
+                "<tr><td>50%</td><td class='num'>52.2V</td><td class='num'>3.26V</td></tr>"
+                "<tr><td>40%</td><td class='num'>52.0V</td><td class='num'>3.25V</td></tr>"
+                "<tr><td>30%</td><td class='num'>51.5V</td><td class='num'>3.22V</td></tr>"
+                "<tr><td>20%</td><td class='num'>51.2V</td><td class='num'>3.20V</td></tr>"
+                "<tr><td>10%</td><td class='num'>48.0V</td><td class='num'>3.00V</td></tr>"
+                "<tr><td>0%</td><td class='num'>40.0V</td><td class='num'>2.50V</td></tr>"
+                "</tbody></table>",
+                _VCHART_SRC,
+                "<p>&quot;48V&quot; and &quot;51.2V&quot; batteries are the same 16-cell pack; 51.2V is its true nominal voltage and 48V is the system class it plugs into. Server rack modules, wall batteries and golf cart packs all follow this chart. LiTime's chart (November 2026) draws the top a little lower, with a full cell resting around 3.35V, about 53.6V for the pack, so a just-charged battery resting at 53.5V to 54.4V is full. The charge settings are on our <a href=\"/how-to-charge-48v-lifepo4-battery/\">48V charging guide</a>.</p>",
+            ]),
+            ("Why 48V on the meter means nearly empty", [
+                "<p>On the chart, the nameplate 51.2V is the 20% row and 48.0V is the 10% row. Anyone used to lead-acid, where 48V reads as a normal mid-charge bank, will misread a LiFePO4 pack sitting at 48V as fine when it has about a tenth of its energy left. Below that the curve falls fast toward 40.0V, which is where voltage becomes a useful warning.</p>",
+                "<p>Set the inverter's low-voltage cutoff (or the golf cart controller's) near the 10% row so the equipment stops before the battery's BMS has to, and recharge promptly after a deep discharge.</p>",
+            ]),
+            ("Why the middle is flat, and what to read instead", [
+                "<p>Between 70% (52.8V) and 30% (51.5V) the pack moves only 1.3V, about 0.08V per cell. Meter error, temperature or a load switched off a minute earlier can move a reading that much. For a real percentage, read the battery's own state of charge: a <a href=\"/bluetooth-batteries/\">Bluetooth model's</a> app, a shunt monitor, or, on rack modules talking to a hybrid inverter over CAN or RS485, the inverter's display, which then shows the BMS's counted figure instead of guessing from voltage. Our sister tracker covers that closed-loop setup on its <a href=\"https://serverrackbatteries.com/inverter-compatibility/\">inverter compatibility page</a>.</p>",
+            ]),
+            ("Reading it correctly: rest, load, charge, and parallel banks", [
+                "<ul><li><b>Rested means no charge and no load.</b> Disconnect both and let the bank sit before reading.</li>"
+                "<li><b>On the charger, the meter reads the charger.</b> Expect up to about 58.4V while charging; that is the setting, not the state of charge.</li>"
+                "<li><b>Under load, every battery reads low.</b> A 5kW inverter load or a golf cart climbing a hill sags a full pack well below 54V.</li>"
+                "<li><b>In a parallel bank, every module reads the same.</b> Modules tied together share one voltage, so check each module's own app or display (or read each one before you connect them) to spot a weak unit.</li></ul>",
+            ]),
+        ],
+        "faqs": [
+            ("What voltage is a fully charged 48V LiFePO4 battery?",
+             "About 54.4V at rest and 58.4V while still on the charger, per Renogy's published chart for a 16-cell pack. LiTime's chart puts a full, rested pack a little lower, around 53.3V to 53.6V, so a just-charged battery resting anywhere in that range is full."),
+            ("What voltage is 50% on a 48V LiFePO4 battery?",
+             "About 52.2V at rest, per Renogy's chart, with 60% at 52.3V and 40% at 52.0V. Voltage can't separate mid-range charge levels on LiFePO4; the BMS's own state-of-charge reading, through an app or a closed-loop inverter, can."),
+            ("Is 48 volts low for a 48V lithium battery?",
+             "Yes. On a rested 16-cell LiFePO4 pack, 48.0V is about 10% charge and the nameplate 51.2V is about 20%, per Renogy's chart. Empty is 40.0V. Recharge soon, and set your inverter or controller to cut off around 48V."),
+        ],
+        "related": ["how-to-charge-48v-lifepo4-battery", "how-to-choose", "48v-lifepo4-series-parallel-guide"],
+    },
+    {
+        "slug": "what-size-inverter-for-48v-battery-bank",
+        "updated": "2026-11-25",
+        "title": "What Size Inverter for a 48V Battery Bank? Matching Inverter kW to Modules",
+        "desc": "How many 48V LiFePO4 modules a 3kW to 12kW inverter needs: BMS continuous amps times 51.2V per module, the energy vs power split, and the discharge-current setting. Live 48V prices refreshed {date}.",
+        "h1": "What Size Inverter Can a 48V Battery Bank Run?",
+        "blurb": "Inverter kW against module count: the BMS amp math that decides whether a 10kW inverter needs two modules or three.",
+        "lede": "A 48V bank's inverter ceiling is the <b>combined BMS continuous current of its modules times 51.2V</b>, less inverter losses. A module rated 100A continuous can supply about <b>5,120W</b>, so a 5kW inverter at full output already wants two of them, and a 10kW inverter wants three. That is a power limit, separate from how many kWh you need for runtime; size for whichever is bigger. The table below works it through from 3kW to 12kW, with every 48V model we track ({n} today) priced per watt-hour underneath.",
+        "filter": "all",
+        "table_heading": "The 48V batteries a bank is built from, ranked by $/Wh",
+        "sections": [
+            ("Inverter size to module count", [
+                "<table><thead><tr><th>Inverter continuous output</th><th>Battery current at 51.2V (incl. ~10% losses)</th><th>Modules needed if each is rated 100A continuous</th></tr></thead><tbody>"
+                "<tr><td>3kW</td><td class='num'>about 65A</td><td class='num'>1</td></tr>"
+                "<tr><td>5kW</td><td class='num'>about 109A</td><td class='num'>2</td></tr>"
+                "<tr><td>6kW</td><td class='num'>about 130A</td><td class='num'>2</td></tr>"
+                "<tr><td>8kW</td><td class='num'>about 174A</td><td class='num'>2</td></tr>"
+                "<tr><td>10kW</td><td class='num'>about 217A</td><td class='num'>3</td></tr>"
+                "<tr><td>12kW</td><td class='num'>about 260A</td><td class='num'>3</td></tr>"
+                "</tbody></table>",
+                "<p>The 100A figure is an example input, not a claim about any model: use the continuous discharge rating on your module's spec sheet, and if the maker lists a lower <i>recommended</i> continuous current alongside the maximum, size to the recommended one. Modules in parallel share current, so the bank's ceiling is roughly the per-module rating times the module count, within the maker's parallel limit (see our <a href=\"/48v-lifepo4-series-parallel-guide/\">series and parallel guide</a>).</p>",
+            ]),
+            ("Power vs energy: two different reasons to add a module", [
+                "<p>The table answers <i>how big an inverter</i>. Runtime is a separate question: one 5.12kWh module can feed a 5kW load, but only for about an hour. Work out both numbers, the modules your inverter's current needs and the modules your overnight or backup kWh needs, and buy the larger count. For most home systems the energy number wins; for small banks behind big inverters, the power number does. Runtime by load is worked on our <a href=\"/home-battery-system/\">home battery system page</a> and the <a href=\"/10kwh-battery/\">10kWh battery page</a>.</p>",
+            ]),
+            ("Set the inverter's current limits to the bank", [
+                "<p>Hybrid inverters have settings for maximum battery discharge and charge current. With closed-loop communication (CAN or RS485 between the bank's master module and the inverter), the BMS sends those limits itself. Without it, set them by hand to the bank's combined rating, and set the charge current no higher than the modules' recommended charge rate. A bank that trips its BMS under heavy load is usually a bank whose limits were never set, not a faulty battery.</p>",
+                "<p>Surge matters too: well pumps, compressors and mini-split start-ups pull several times their running power for a moment. Many module spec sheets list a short peak current; with no peak listed, keep start-up surges inside the bank's continuous ceiling.</p>",
+            ]),
+        ],
+        "faqs": [
+            ("What size inverter can a 48V 100Ah battery run?",
+             "It depends on the BMS rating. A module rated 100A continuous can supply about 5,120W, so it runs up to about a 4.5kW inverter at full output after losses. Its 5.12kWh runs a 4kW load for a little over an hour."),
+            ("How many 48V batteries does a 10kW inverter need?",
+             "For power, a 10kW inverter at full output draws about 217A at 51.2V, so three modules rated 100A continuous each. For runtime, count kWh separately: three 5.12kWh modules hold 15.36kWh. Use whichever count is larger."),
+            ("Can a bigger inverter damage a smaller battery bank?",
+             "The BMS protects the cells by cutting off when the current is too high, so the usual result is shutdowns rather than damage. Set the inverter's maximum discharge current to the bank's rating, or use closed-loop communication so the BMS sets it, and the shutdowns stop."),
+        ],
+        "related": ["home-battery-system", "48v-lifepo4-series-parallel-guide", "10kwh-battery"],
+    },
+]
+
+GUIDES["serverrackbatteries.com"] += [
+    {
+        "slug": "server-rack-battery-setup-guide",
+        "updated": "2026-11-25",
+        "title": "How to Set Up Server Rack Batteries: Addresses, Comms Cables, Busbar, First Power-Up",
+        "desc": "Setting up a server rack battery bank in the order that avoids errors: match the modules, set DIP-switch addresses, run the comms cables, wire the busbar, then the first power-up checklist. Live rack prices refreshed {date}.",
+        "h1": "How to Set Up a Server Rack Battery Bank",
+        "blurb": "Matching modules, DIP-switch addresses, comms cables, busbar wiring and the first power-up, in the order that avoids errors.",
+        "lede": "Setting up a server rack bank is five jobs in a fixed order: <b>match the modules, set each one's address, run the communication cables, wire the power cables to a busbar, then power up and check</b>. Most first-day problems (inverter shows no battery, a module throws an error, one pack does all the work) come from doing these out of order. The steps below are the general pattern; your module's manual has the exact switch positions and cable pin-outs, and it wins wherever it differs. The {n} rack modules we track are priced per watt-hour underneath.",
+        "filter": "all",
+        "table_heading": "Every server rack battery we track, ranked by $/Wh",
+        "sections": [
+            ("Step 1: match the modules before they meet", [
+                "<p>Use the same brand and model for every module in the bank, and bring them to the same state of charge before connecting them in parallel. The simple way is to charge each module to full on its own, or follow the manual's matching procedure if it gives one. Two modules at different voltages, connected cold, push a large current from one to the other. A rested reading on each module, checked against the <a href=\"https://48vlifepo4battery.com/48v-lifepo4-voltage-chart/\">48V LiFePO4 voltage chart</a>, tells you whether they are close.</p>",
+            ]),
+            ("Step 2: addresses, one master and every pack unique", [
+                "<p>Rack modules share a communication bus, so each one needs its own address, usually set with DIP switches on the front panel. The manual has a table mapping switch positions to addresses and says which address makes a module the master (the one that talks to the inverter). Set the switches with the modules powered off. Two modules on the same address is the most common cause of a module that won't show up or a bank that throws communication errors.</p>",
+            ]),
+            ("Step 3: comms cables, pack to pack, then master to inverter", [
+                "<ul><li><b>Between modules:</b> link cables from each module's link port to the next, as the manual shows.</li>"
+                "<li><b>To the inverter:</b> one cable from the master module's CAN or RS485 port to the inverter's battery communication port. Pin-outs differ between brands, so use the maker's cable or build one to its pin-out.</li>"
+                "<li><b>In the inverter:</b> select the battery brand or protocol in the inverter's battery settings.</li></ul>",
+                "<p>Whether your inverter speaks your module's protocol is the first thing to check, and our <a href=\"/inverter-compatibility/\">inverter compatibility page</a> covers it. Without communication, every module still runs on voltage-based charge settings; the values are on our sister site's <a href=\"https://48vlifepo4battery.com/how-to-charge-48v-lifepo4-battery/\">48V charging guide</a>.</p>",
+            ]),
+            ("Step 4: power cables to a busbar, equal lengths", [
+                "<p>Run each module to a common positive and negative busbar with cables of the same gauge and the same length, rather than daisy-chaining module to module. Unequal cables make the closest module carry more of the load and age faster. Take the bank's main cables to the inverter from opposite ends of the busbars so current spreads evenly.</p>",
+                "<p>Most rack modules have a breaker or switch on the front; you still want a fused disconnect or DC breaker between the bank and the inverter, sized to the inverter manual's cable and current figures. Tighten terminals to the torque the manual gives; a loose lug is a hot lug.</p>",
+            ]),
+            ("Step 5: the first power-up checklist", [
+                "<ul><li>Switches off on every module; inverter off.</li>"
+                "<li>Addresses set and double-checked, master identified.</li>"
+                "<li>Comms cables in the right ports (link ports between modules, master to inverter).</li>"
+                "<li>Busbar polarity checked with a meter before anything is switched on.</li>"
+                "<li>Turn the modules on in the order the manual gives (often the master last or first; it matters on some brands).</li>"
+                "<li>Start the inverter and confirm it shows the battery's state of charge and the right module count.</li>"
+                "<li>Run a modest load, then a charge, and watch that every module reports similar current.</li></ul>",
+                "<p>How many modules to put on the rack in the first place is worked on our <a href=\"/how-many-server-rack-batteries/\">sizing guide</a>.</p>",
+            ]),
+        ],
+        "faqs": [
+            ("Do server rack batteries need DIP switches set?",
+             "Yes, in a bank of more than one module on most brands. Each module needs a unique address on the communication bus, and the manual says which address makes a module the master. Set them with the power off; duplicate addresses cause missing modules and comms errors."),
+            ("Do I need a communication cable between server rack batteries?",
+             "For a bank that reports one state of charge to the inverter, yes: link cables between modules and one cable from the master to the inverter. Without them the modules still work in parallel on voltage-based charge settings, but the inverter can't read their state of charge or current limits."),
+            ("Can I add a new server rack battery to an old bank?",
+             "Usually, if it is the same brand and model and stays within the maker's parallel limit. Bring the new module to the same state of charge as the bank first, give it its own address, and check whether the maker says firmware versions need to match."),
+        ],
+        "related": ["inverter-compatibility", "how-many-server-rack-batteries", "10kwh-battery-bank"],
+    },
+    {
+        "slug": "server-rack-battery-ul-listing",
+        "updated": "2026-11-25",
+        "title": "UL1973, UL9540 and UL9540A: What a Server Rack Battery's Listing Means",
+        "desc": "What UL 1973, UL 9540 and UL 9540A each cover for a server rack battery, why inspectors ask for UL 9540, and how to check a listing claim yourself. Live rack prices refreshed {date}.",
+        "h1": "UL1973, UL9540, UL9540A: What a Server Rack Battery's Listing Means",
+        "blurb": "Three standards that get used as if they were one: what each covers, which one an inspector asks for, and how to check a claim.",
+        "lede": "Three UL standards show up on server rack batteries, and they are not interchangeable. <b>UL 1973</b> covers the battery itself for stationary use. <b>UL 9540</b> covers a complete energy storage system, battery and power electronics evaluated together. <b>UL 9540A</b> is a fire test method that produces data, not a pass or fail. Residential codes generally look for UL 9540, which is why a UL 1973 module is a start, not the whole answer. The modules below are the rack listings in our tracker whose own product titles name a UL standard, ranked by price per watt-hour.",
+        "filter": "ul",
+        "stats": False,
+        "table_heading": "Rack listings that name a UL standard in their title, ranked by $/Wh",
+        "sections": [
+            ("Three standards, three different things", [
+                "<table><thead><tr><th>Standard</th><th>What it covers</th><th>What it tells you</th></tr></thead><tbody>"
+                "<tr><td>UL 1973</td><td>Batteries for stationary use: the module</td><td>The battery itself was evaluated for safety in stationary service</td></tr>"
+                "<tr><td>UL 9540</td><td>Energy storage systems and equipment: battery plus inverter and controls</td><td>A specific system or combination was evaluated together</td></tr>"
+                "<tr><td>UL 9540A</td><td>A test method for thermal runaway fire propagation</td><td>A report on how a failure spreads, used by codes to set spacing; not a listing</td></tr>"
+                "</tbody></table>",
+                "<p>Listings come from nationally recognized test labs; UL is one, and others such as Intertek (ETL) and TUV test to the same UL standards. What matters is that a lab listed the product to the standard, not whose logo is on it.</p>",
+            ]),
+            ("Why inspectors ask for UL 9540, not only UL 1973", [
+                "<p>Model residential codes in the US (the International Residential Code's energy storage section and NFPA 855) generally call for a home energy storage system to be listed to UL 9540. A module listed to UL 1973 is a listed component; a UL 9540 listing usually names specific battery and inverter combinations. So check whether your battery maker or your inverter maker lists the pairing you plan to install. Which code edition applies, and how strictly, is up to your local authority, so ask them before you buy for a permitted install.</p>",
+                "<p>The same codes limit where a bank can go and how much energy can sit in one place, with separate rules for garages, utility rooms and outdoor walls. Those limits come from your local code, not from the battery, which is why the listing is only half the conversation. Rooms that freeze add their own question, covered on our <a href=\"/rack-battery-winter-heating-guide/\">self-heating guide</a>.</p>",
+            ]),
+            ("How to check a listing claim yourself", [
+                "<ul><li><b>&quot;UL certified cells&quot; is not a listed module.</b> Cell-level certification says nothing about the BMS, the case or the module.</li>"
+                "<li><b>&quot;Designed to meet&quot; or &quot;compliant with&quot; is not listed.</b> Look for the word listed or certified with a named lab.</li>"
+                "<li><b>Ask for the certificate or file number</b> and look it up in the lab's public directory (UL's is called Product iQ). A real listing names the model.</li>"
+                "<li><b>UL 9540A results are a report.</b> A maker that has one can share it; installers and inspectors use it to set spacing.</li></ul>",
+                "<p>The table below only shows what makers put in their own listing titles; a module missing from it may still be listed, so check the spec sheet. How a listed rack bank compares on cost with an installed wall battery is on our <a href=\"/server-rack-battery-vs-powerwall-cost/\">rack vs Powerwall page</a>.</p>",
+            ]),
+        ],
+        "faqs": [
+            ("Do I need a UL 9540 battery for a home system?",
+             "For a permitted, grid-tied install in most US jurisdictions, expect the inspector to look for a UL 9540 listed system, which usually means a listed battery and inverter combination. Off-grid and backup-only setups can face different rules. Your local building department decides, so ask before you buy."),
+            ("Is UL 1973 enough for a server rack battery?",
+             "UL 1973 shows the module itself was evaluated for stationary use, which is a good sign. Codes that apply to home energy storage usually ask for UL 9540 on the system, so also check whether the maker or your inverter maker lists your exact combination."),
+            ("Are LiFePO4 server rack batteries safe indoors?",
+             "LiFePO4 is among the more thermally stable lithium chemistries, which is part of why it dominates home storage, but any battery bank stores a lot of energy. Use listed equipment, install it where your local code allows, keep the clearances the manual gives, and protect it with a correctly sized breaker or fuse."),
+        ],
+        "related": ["inverter-compatibility", "home-energy-storage", "server-rack-battery-vs-powerwall-cost"],
+    },
+]

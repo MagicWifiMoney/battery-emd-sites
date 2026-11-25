@@ -537,7 +537,7 @@ LLMS_CONFIG = {
         "groups": [
             ("Core and capacity pages", {"/", "/48v-100ah-lifepo4-battery/", "/48v-200ah-lifepo4-battery/", "/48v-314ah-lifepo4-battery/", "/5kwh-battery/", "/10kwh-battery/", "/price-per-watt-hour/"}),
             ("Use-case pages", {"/golf-cart-batteries/", "/solar-storage-batteries/", "/server-rack-batteries/", "/home-battery-backup/", "/home-battery-system/", "/whole-home-battery-backup/", "/off-grid-48v-battery-bank/"}),
-            ("Guides and comparisons", {"/how-to-choose/", "/how-to-charge-48v-lifepo4-battery/", "/48v-lifepo4-series-parallel-guide/", "/golf-cart-lithium-conversion-mistakes/", "/48v-vs-12v-for-solar/", "/eco-worthy-vs-litime-48v/"}),
+            ("Guides and comparisons", {"/how-to-choose/", "/how-to-charge-48v-lifepo4-battery/", "/48v-lifepo4-series-parallel-guide/", "/golf-cart-lithium-conversion-mistakes/", "/48v-vs-12v-for-solar/", "/eco-worthy-vs-litime-48v/", "/48v-lifepo4-voltage-chart/", "/what-size-inverter-for-48v-battery-bank/"}),
             ("Brand hubs", None),  # /brand/*
             ("Price and feature facets", {"/under-1000/", "/1000-to-2000/", "/over-2000/", "/compact-batteries/", "/heated-batteries/", "/bluetooth-batteries/"}),
             ("Products", None),  # /product/*
@@ -554,7 +554,7 @@ LLMS_CONFIG = {
         "groups": [
             ("Core and capacity pages", {"/", "/12v-100ah-lifepo4-battery/", "/12v-200ah-lifepo4-battery/", "/12v-314ah-lifepo4-battery/", "/100ah-lifepo4-battery/"}),
             ("Use-case pages", {"/rv-batteries/", "/marine-trolling-motor-batteries/", "/12v-lifepo4-battery-for-solar/", "/12v-battery-for-cpap/", "/ice-fishing-battery-guide/", "/van-life-battery-sizing/", "/how-long-will-12v-100ah-run-a-fridge/"}),
-            ("Guides and comparisons", {"/how-to-choose/", "/12v-lifepo4-charging-guide/", "/12v-lifepo4-series-parallel-guide/", "/lifepo4-vs-lead-acid-cost/", "/litime-vs-renogy-12v-100ah/", "/eco-worthy-vs-litime-12v/"}),
+            ("Guides and comparisons", {"/how-to-choose/", "/12v-lifepo4-charging-guide/", "/12v-lifepo4-series-parallel-guide/", "/lifepo4-vs-lead-acid-cost/", "/litime-vs-renogy-12v-100ah/", "/eco-worthy-vs-litime-12v/", "/12v-lifepo4-voltage-chart/", "/what-size-inverter-for-12v-lifepo4-battery/"}),
             ("Brand hubs", None),  # /brand/*
             ("Price and feature facets", {"/under-500/", "/500-to-1000/", "/over-1000/", "/compact-batteries/", "/heated-batteries/", "/bluetooth-batteries/", "/group-size-batteries/"}),
             ("Products", None),  # /product/*
@@ -869,6 +869,8 @@ FILTERS = {
     "rv": lambda rows: [p for p in rows if title_has(p, "rv", "caravan", "camper", "motorhome")],
     "marine": lambda rows: [p for p in rows if title_has(p, "marine", "trolling", "boat", "kayak", "fish")],
     "top15": lambda rows: rows[:15],
+    # listings whose own title names a UL standard (UL1973 / UL9540 / UL9540A)
+    "ul": lambda rows: [p for p in rows if re.search(r"\bul ?(1973|9540)", p["title"], re.I)],
 }
 
 SITES = [
