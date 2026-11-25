@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-24T22:27:23Z",
+  "fetched_at": "2026-11-25T08:36:19Z",
   "total_kept": 472,
   "stores": [
     {
@@ -7,8 +7,8 @@
       "base_url": "https://ecoflow.com",
       "enabled": true,
       "pages": 2,
-      "raw_products": 319,
-      "kept": 66,
+      "raw_products": 318,
+      "kept": 65,
       "skipped_irrelevant": 218,
       "skipped_refurb": 29,
       "skipped_unparsed": 8,
@@ -162,15 +162,14 @@
       "base_url": "https://www.renogy.com",
       "enabled": true,
       "pages": 2,
-      "raw_products": 274,
+      "raw_products": 273,
       "kept": 58,
       "skipped_irrelevant": 227,
       "skipped_refurb": 16,
-      "skipped_unparsed": 3,
+      "skipped_unparsed": 2,
       "dropped_guard": 2,
       "errors": [],
       "unparsed_samples": [
-        "400W N-Type Portable Solar Panel Blanket with 4-in-1 Extension Cable for Power Stations :: no Wh/Ah capacity parsed",
         "4-in-1 Solar Connector Extension Cable for Portable Panel to Power Station :: no Wh/Ah capacity parsed",
         "Package Bag for Renogy Portable Power Station 200 :: no Wh/Ah capacity parsed"
       ],
@@ -184,9 +183,9 @@
       "base_url": "https://www.sungoldpower.com",
       "enabled": true,
       "pages": 1,
-      "raw_products": 135,
+      "raw_products": 134,
       "kept": 23,
-      "skipped_irrelevant": 112,
+      "skipped_irrelevant": 111,
       "skipped_refurb": 0,
       "skipped_unparsed": 1,
       "dropped_guard": 0,

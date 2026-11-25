@@ -1,6 +1,6 @@
 {
  "key": "bc6f8735fbff4ded8c2d59d70508943f",
- "generated_at": "2026-11-24T22:27:23Z",
+ "generated_at": "2026-11-25T08:36:19Z",
  "sites": {
   "48vlifepo4battery.com": [
    "https://48vlifepo4battery.com/",
@@ -57,8 +57,7 @@
    "https://48vlifepo4battery.com/product/renogy-48v-50ah-heated-smart/",
    "https://48vlifepo4battery.com/product/renogy-48v-105ah-golf/",
    "https://48vlifepo4battery.com/product/bluetti-48v-100ah/",
-   "https://48vlifepo4battery.com/product/ecoflow-48v-42ah/",
-   "https://48vlifepo4battery.com/about/"
+   "https://48vlifepo4battery.com/product/ecoflow-48v-42ah/"
   ],
   "12vlifepo4battery.com": [
    "https://12vlifepo4battery.com/",
@@ -183,8 +182,7 @@
    "https://12vlifepo4battery.com/product/renogy-12v-400ah-heated/",
    "https://12vlifepo4battery.com/product/renogy-12v-400ah/",
    "https://12vlifepo4battery.com/product/renogy-12v-200ah-124982/",
-   "https://12vlifepo4battery.com/product/renogy-12v-50ah-fe7e7c/",
-   "https://12vlifepo4battery.com/about/"
+   "https://12vlifepo4battery.com/product/renogy-12v-50ah-fe7e7c/"
   ],
   "24vlifepo4battery.com": [
    "https://24vlifepo4battery.com/",
@@ -225,8 +223,7 @@
    "https://24vlifepo4battery.com/product/litime-24v-100ah-bluetooth-rv/",
    "https://24vlifepo4battery.com/product/litime-24v-50ah-bluetooth-rv-marine/",
    "https://24vlifepo4battery.com/product/litime-24v-50ah-bluetooth-trolling/",
-   "https://24vlifepo4battery.com/product/litime-24v-100ah-trolling/",
-   "https://24vlifepo4battery.com/about/"
+   "https://24vlifepo4battery.com/product/litime-24v-100ah-trolling/"
   ],
   "serverrackbatteries.com": [
    "https://serverrackbatteries.com/",
@@ -259,8 +256,7 @@
    "https://serverrackbatteries.com/product/sungoldpower-48v-100ah-heated-rack-eedcb4/",
    "https://serverrackbatteries.com/product/sungoldpower-48v-100ah-heated-rack-0b15a6/",
    "https://serverrackbatteries.com/product/litime-48v-100ah-rack/",
-   "https://serverrackbatteries.com/product/sungoldpower-48v-100ah-bluetooth-rack/",
-   "https://serverrackbatteries.com/about/"
+   "https://serverrackbatteries.com/product/sungoldpower-48v-100ah-bluetooth-rack/"
   ]
  }
 }
