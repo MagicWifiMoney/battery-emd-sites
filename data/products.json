@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-25T21:42:57Z",
+  "fetched_at": "2026-11-25T22:49:14Z",
   "stores": [
     {
       "store": "EcoFlow",
@@ -3627,7 +3627,7 @@
       "ah": null,
       "price": 349.0,
       "compare_at": 529.0,
-      "available": true,
+      "available": false,
       "price_per_wh": 0.454,
       "url": "https://ecoflow.com/products/river-2-pro-portable-power-station",
       "variant_id": 54320636198985,
