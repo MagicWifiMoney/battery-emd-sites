@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-25T10:32:09Z",
+  "fetched_at": "2026-11-25T21:42:57Z",
   "stores": [
     {
       "store": "EcoFlow",
@@ -489,23 +489,6 @@
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "explicit-wh"
-    },
-    {
-      "brand": "LiTime",
-      "title": "LiTime 48V 100Ah Bluetooth Marine House LiFePO4 Battery \u2014 48V 100Ah Bluetooth Battery",
-      "type": "bare-battery",
-      "wh": 5120,
-      "voltage": 51.2,
-      "ah": 100.0,
-      "price": 999.99,
-      "compare_at": 1529.99,
-      "available": true,
-      "price_per_wh": 0.195,
-      "url": "https://www.litime.com/products/48v-100ah-lithium-marine-bluetooth-battery",
-      "variant_id": 50367519359196,
-      "source_store": "https://www.litime.com",
-      "image": null,
-      "wh_method": "variant-ah-x-title-v"
     },
     {
       "brand": "LiTime",
@@ -1237,6 +1220,23 @@
       "source_store": "https://www.litime.com",
       "image": null,
       "wh_method": "v-times-ah"
+    },
+    {
+      "brand": "LiTime",
+      "title": "LiTime 48V 100Ah Bluetooth Marine House LiFePO4 Battery \u2014 48V 100Ah Bluetooth Battery(ABS Case)+18A Charger",
+      "type": "bare-battery",
+      "wh": 5120,
+      "voltage": 51.2,
+      "ah": 100.0,
+      "price": 1161.48,
+      "compare_at": 1799.99,
+      "available": true,
+      "price_per_wh": 0.227,
+      "url": "https://www.litime.com/products/48v-100ah-lithium-marine-bluetooth-battery",
+      "variant_id": 50367519424732,
+      "source_store": "https://www.litime.com",
+      "image": null,
+      "wh_method": "variant-ah-x-title-v"
     },
     {
       "brand": "LiTime",
@@ -7248,7 +7248,7 @@
       "ah": null,
       "price": 289.0,
       "compare_at": 289.0,
-      "available": true,
+      "available": false,
       "price_per_wh": 0.99,
       "url": "https://www.jackery.com/products/explorer-300-portable-power-station",
       "variant_id": 44638374494295,
