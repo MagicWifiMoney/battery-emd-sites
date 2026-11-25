@@ -499,7 +499,7 @@ def favicon_link(acc):
 # Phase D S1+O1 (2026-11-24): OG template pass + llms.txt, gated per
 # domain — each sibling domain joins this set via its own Phase D row
 # (48V shipped first; 12V added by its own S1+O1 row the same day).
-OG_DOMAINS = {"48vlifepo4battery.com", "12vlifepo4battery.com"}
+OG_DOMAINS = {"48vlifepo4battery.com", "12vlifepo4battery.com", "24vlifepo4battery.com"}
 LLMS_CONFIG = {
     "48vlifepo4battery.com": {
         "entity": ("Entity statement: This site tracks 48V LiFePO4 battery prices from the "
@@ -531,6 +531,23 @@ LLMS_CONFIG = {
             ("Guides and comparisons", {"/how-to-choose/", "/12v-lifepo4-charging-guide/", "/12v-lifepo4-series-parallel-guide/", "/lifepo4-vs-lead-acid-cost/", "/litime-vs-renogy-12v-100ah/", "/eco-worthy-vs-litime-12v/"}),
             ("Brand hubs", None),  # /brand/*
             ("Price and feature facets", {"/under-500/", "/500-to-1000/", "/over-1000/", "/compact-batteries/", "/heated-batteries/", "/bluetooth-batteries/", "/group-size-batteries/"}),
+            ("Products", None),  # /product/*
+            ("About and method", {"/about/"}),
+        ],
+    },
+    "24vlifepo4battery.com": {
+        "entity": ("Entity statement: This site tracks 24V LiFePO4 battery prices from the "
+                   "manufacturers' own online stores and ranks every tracked model by price "
+                   "per watt-hour ($/Wh): the maker's listed price divided by the battery's "
+                   "rated capacity in watt-hours (nominal voltage x amp-hours). Prices are "
+                   "refreshed several times a day; listings are data, not hands-on reviews. "
+                   "Sister trackers cover 12V LiFePO4, 48V LiFePO4 and server-rack batteries."),
+        "groups": [
+            ("Core and capacity pages", {"/", "/24v-100ah-lifepo4-battery/", "/24v-230ah-lifepo4-battery/", "/price-per-watt-hour/"}),
+            ("Use-case pages", {"/trolling-motor-batteries/", "/rv-batteries/", "/solar-batteries/"}),
+            ("Guides and comparisons", {"/how-to-choose-24v-lifepo4-battery/", "/charging-24v-lifepo4-battery/", "/series-vs-native-24v/", "/litime-vs-eco-worthy-24v/"}),
+            ("Brand hubs", None),  # /brand/*
+            ("Price and feature facets", {"/under-500/", "/500-to-1000/", "/over-1000/", "/compact-batteries/", "/heated-batteries/", "/bluetooth-batteries/"}),
             ("Products", None),  # /product/*
             ("About and method", {"/about/"}),
         ],

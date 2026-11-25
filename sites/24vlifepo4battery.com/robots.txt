@@ -12,4 +12,6 @@ User-agent: PerplexityBot
 Allow: /
 User-agent: Bingbot
 Allow: /
+User-agent: Google-Extended
+Allow: /
 Sitemap: https://24vlifepo4battery.com/sitemap.xml
