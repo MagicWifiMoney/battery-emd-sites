@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-26T10:04:18Z",
+  "fetched_at": "2026-11-26T21:33:29Z",
   "stores": [
     {
       "store": "EcoFlow",
@@ -3416,7 +3416,7 @@
     },
     {
       "brand": "EcoFlow",
-      "title": "EcoFlow DELTA 3000 Gen4 Solar Generator",
+      "title": "EcoFlow DELTA 3000 Gen4 Portable Power Station",
       "type": "station",
       "wh": 3000,
       "voltage": null,
@@ -3425,8 +3425,8 @@
       "compare_at": 1699.0,
       "available": true,
       "price_per_wh": 0.433,
-      "url": "https://ecoflow.com/products/ecoflow-delta-3000-gen4-solar-generator",
-      "variant_id": 67651089989705,
+      "url": "https://ecoflow.com/products/delta-3000-gen4",
+      "variant_id": 67651080061001,
       "source_store": "https://ecoflow.com",
       "image": null,
       "wh_method": "body-wh-before-capacity-label"
@@ -4630,7 +4630,7 @@
       "ah": null,
       "price": 1999.0,
       "compare_at": 1999.0,
-      "available": true,
+      "available": false,
       "price_per_wh": 0.558,
       "url": "https://www.jackery.com/products/jackery-homepower-3600-plus-red-cross-edition",
       "variant_id": 44266968940631,
@@ -4651,23 +4651,6 @@
       "price_per_wh": 0.558,
       "url": "https://www.jackery.com/products/homepower-3600-plus",
       "variant_id": 44615749599319,
-      "source_store": "https://www.jackery.com",
-      "image": null,
-      "wh_method": "body-wh-before-capacity-label"
-    },
-    {
-      "brand": "Jackery",
-      "title": "Jackery Solar Generator HomePower 3600 Plus \u2014 HomePower 3600 Plus Red Cross Edition",
-      "type": "station",
-      "wh": 3584,
-      "voltage": null,
-      "ah": null,
-      "price": 1999.0,
-      "compare_at": 1999.0,
-      "available": true,
-      "price_per_wh": 0.558,
-      "url": "https://www.jackery.com/products/jackery-solar-generator-homepower-3600-plus",
-      "variant_id": 44615749894231,
       "source_store": "https://www.jackery.com",
       "image": null,
       "wh_method": "body-wh-before-capacity-label"
@@ -5283,6 +5266,23 @@
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
+    },
+    {
+      "brand": "EcoFlow",
+      "title": "EcoFlow DELTA 3000 Gen4 Solar Generator \u2014 DELTA 3000 Gen4 + 400W Solar Panel",
+      "type": "station",
+      "wh": 3000,
+      "voltage": null,
+      "ah": null,
+      "price": 1899.0,
+      "compare_at": 2299.0,
+      "available": true,
+      "price_per_wh": 0.633,
+      "url": "https://ecoflow.com/products/ecoflow-delta-3000-gen4-solar-generator",
+      "variant_id": 67651090055241,
+      "source_store": "https://ecoflow.com",
+      "image": null,
+      "wh_method": "body-wh-before-capacity-label"
     },
     {
       "brand": "Jackery",
