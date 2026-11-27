@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-26T22:38:09Z",
+  "fetched_at": "2026-11-27T08:36:02Z",
   "stores": [
     {
       "store": "EcoFlow",
@@ -19,7 +19,7 @@
     {
       "store": "Jackery",
       "enabled": true,
-      "kept": 59
+      "kept": 58
     },
     {
       "store": "Anker SOLIX",
@@ -3228,23 +3228,6 @@
       "wh_method": "explicit-wh"
     },
     {
-      "brand": "Jackery",
-      "title": "Jackery Battery Pack 2000 Plus",
-      "type": "station",
-      "wh": 2043,
-      "voltage": null,
-      "ah": null,
-      "price": 799.0,
-      "compare_at": 799.0,
-      "available": false,
-      "price_per_wh": 0.391,
-      "url": "https://www.jackery.com/products/jackery-battery-pack-2000-plus",
-      "variant_id": 40193000865879,
-      "source_store": "https://www.jackery.com",
-      "image": null,
-      "wh_method": "body-mode-wh"
-    },
-    {
       "brand": "Renogy",
       "title": "12V 200Ah Smart LiFePO4 Battery w/ Bluetooth & Self-Heating | Pro Series \u2014 2.4 kWh (1\u00d72.4kWh)",
       "type": "bare-battery",
@@ -3627,7 +3610,7 @@
       "ah": null,
       "price": 349.0,
       "compare_at": 529.0,
-      "available": false,
+      "available": true,
       "price_per_wh": 0.454,
       "url": "https://ecoflow.com/products/river-2-pro-portable-power-station",
       "variant_id": 54320636198985,
@@ -4634,23 +4617,6 @@
       "price_per_wh": 0.558,
       "url": "https://www.jackery.com/products/jackery-homepower-3600-plus-red-cross-edition",
       "variant_id": 44266968940631,
-      "source_store": "https://www.jackery.com",
-      "image": null,
-      "wh_method": "body-wh-before-capacity-label"
-    },
-    {
-      "brand": "Jackery",
-      "title": "HomePower 3600 Plus \u2014 HomePower 3600 Plus Red Cross Edition",
-      "type": "station",
-      "wh": 3584,
-      "voltage": null,
-      "ah": null,
-      "price": 1999.0,
-      "compare_at": 1999.0,
-      "available": true,
-      "price_per_wh": 0.558,
-      "url": "https://www.jackery.com/products/homepower-3600-plus",
-      "variant_id": 44615749599319,
       "source_store": "https://www.jackery.com",
       "image": null,
       "wh_method": "body-wh-before-capacity-label"
@@ -5997,6 +5963,23 @@
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
+    },
+    {
+      "brand": "Jackery",
+      "title": "HomePower 3600 Plus \u2014 HomePower 3600 Plus + SolarSaga 200W x 2",
+      "type": "station",
+      "wh": 3584,
+      "voltage": null,
+      "ah": null,
+      "price": 2549.0,
+      "compare_at": 2549.0,
+      "available": true,
+      "price_per_wh": 0.711,
+      "url": "https://www.jackery.com/products/homepower-3600-plus",
+      "variant_id": 42066664915031,
+      "source_store": "https://www.jackery.com",
+      "image": null,
+      "wh_method": "body-wh-before-capacity-label"
     },
     {
       "brand": "Jackery",
