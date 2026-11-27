@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-27T10:10:09Z",
+  "fetched_at": "2026-11-27T21:18:12Z",
   "total_kept": 472,
   "stores": [
     {
@@ -83,14 +83,16 @@
       "base_url": "https://www.jackery.com",
       "enabled": true,
       "pages": 1,
-      "raw_products": 175,
+      "raw_products": 177,
       "kept": 58,
       "skipped_irrelevant": 77,
       "skipped_refurb": 27,
-      "skipped_unparsed": 17,
+      "skipped_unparsed": 19,
       "dropped_guard": 0,
       "errors": [],
       "unparsed_samples": [
+        "2-year Extended Warranty Fee for Explorer 5000 Plus -gift :: no Wh/Ah capacity parsed",
+        "2-year Extended Warranty Fee for HomePower 3600 Plus-gift :: no Wh/Ah capacity parsed",
         "Jackery HomePower  1000 Plus v2 Red Cross Edition :: no Wh/Ah capacity parsed",
         "Explorer 5000 Plus Series :: no Wh/Ah capacity parsed",
         "Solar Generator 240 v2 Series :: no Wh/Ah capacity parsed",
@@ -162,14 +164,15 @@
       "base_url": "https://www.renogy.com",
       "enabled": true,
       "pages": 2,
-      "raw_products": 271,
+      "raw_products": 272,
       "kept": 58,
       "skipped_irrelevant": 225,
       "skipped_refurb": 16,
-      "skipped_unparsed": 2,
+      "skipped_unparsed": 3,
       "dropped_guard": 2,
       "errors": [],
       "unparsed_samples": [
+        "220W Portable Solar Panel with Universal 5-in-1 Compatibility  Connector Cable to Power Station :: no Wh/Ah capacity parsed",
         "4-in-1 Solar Connector Extension Cable for Portable Panel to Power Station :: no Wh/Ah capacity parsed",
         "Package Bag for Renogy Portable Power Station 200 :: no Wh/Ah capacity parsed"
       ],

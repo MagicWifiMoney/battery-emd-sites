@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-27T10:10:09Z",
+  "fetched_at": "2026-11-27T21:18:12Z",
   "stores": [
     {
       "store": "EcoFlow",
@@ -2981,7 +2981,7 @@
       "ah": null,
       "price": 1099.0,
       "compare_at": 1199.0,
-      "available": true,
+      "available": false,
       "price_per_wh": 0.365,
       "url": "https://www.bluettipower.com/products/elite-300-portable-power-station",
       "variant_id": 48309260058843,
@@ -4443,7 +4443,7 @@
       "ah": 30.0,
       "price": 209.99,
       "compare_at": 299.99,
-      "available": true,
+      "available": false,
       "price_per_wh": 0.547,
       "url": "https://www.litime.com/products/12v-30ah-lithium-ice-fishing-battery-with-bluetooth",
       "variant_id": 47631967060188,
