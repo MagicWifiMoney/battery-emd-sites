@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-28T20:04:01Z",
+  "fetched_at": "2026-11-28T21:24:19Z",
   "stores": [
     {
       "store": "EcoFlow",
@@ -4280,6 +4280,23 @@
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "explicit-wh-variant-bundle-sum"
+    },
+    {
+      "brand": "Jackery",
+      "title": "Jackery Solar Generator HomePower 3600 Plus \u2014 HomePower 3600 Plus (solar panel not included)",
+      "type": "station",
+      "wh": 3584,
+      "voltage": null,
+      "ah": null,
+      "price": 1899.0,
+      "compare_at": 1899.0,
+      "available": false,
+      "price_per_wh": 0.53,
+      "url": "https://www.jackery.com/products/jackery-solar-generator-homepower-3600-plus",
+      "variant_id": 41939887521879,
+      "source_store": "https://www.jackery.com",
+      "image": null,
+      "wh_method": "body-wh-before-capacity-label"
     },
     {
       "brand": "LiTime",
