@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-28T07:50:36Z",
+  "fetched_at": "2026-11-28T09:28:59Z",
   "stores": [
     {
       "store": "EcoFlow",
@@ -2973,23 +2973,6 @@
       "wh_method": "body-mode-wh"
     },
     {
-      "brand": "BLUETTI",
-      "title": "BLUETTI Elite 300 Portable Power Station | 2,400W, 3,014Wh",
-      "type": "station",
-      "wh": 3014,
-      "voltage": null,
-      "ah": null,
-      "price": 1099.0,
-      "compare_at": 1199.0,
-      "available": true,
-      "price_per_wh": 0.365,
-      "url": "https://www.bluettipower.com/products/elite-300-portable-power-station",
-      "variant_id": 48309260058843,
-      "source_store": "https://www.bluettipower.com",
-      "image": null,
-      "wh_method": "explicit-wh"
-    },
-    {
       "brand": "LiTime",
       "title": "LiTime LiHeat\u00ae 12V 100Ah Ultra Slim Dual-Mode Self Heating Smart Lithium Battery \u2014 1 Pack",
       "type": "bare-battery",
@@ -3379,6 +3362,23 @@
       "source_store": "https://www.bluettipower.com",
       "image": null,
       "wh_method": "body-mode-wh"
+    },
+    {
+      "brand": "BLUETTI",
+      "title": "BLUETTI Elite 300 Portable Power Station | 2,400W, 3,014Wh",
+      "type": "station",
+      "wh": 3014,
+      "voltage": null,
+      "ah": null,
+      "price": 1299.0,
+      "compare_at": 1299.0,
+      "available": true,
+      "price_per_wh": 0.431,
+      "url": "https://www.bluettipower.com/products/elite-300-portable-power-station",
+      "variant_id": 48309260058843,
+      "source_store": "https://www.bluettipower.com",
+      "image": null,
+      "wh_method": "explicit-wh"
     },
     {
       "brand": "BLUETTI",
